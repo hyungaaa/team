@@ -1,0 +1,80 @@
+
+[ 형상관리 / 협업툴 ]
+저장소에 파일을 버전별로 저장-히스토리
+종류 : git / svn / cvs
+
+(*는 용어)
+* repository : 저장소
+- git init : repository 생성
+
+* staging : 변경된 파일을 commit 대상으로 지정
+add : staging 명령어
+- git add .
+
+commit : staging된 파일들을 확정
+- git commit -m "메세지"
+
+push : commit된 파일을 원격 저장소로 업로드
+- git push origin master
+
+fetch : 원격 저장소의 정보로 업데이트
+- git fetch
+
+pull : 원격 저장소의 변경된 파일을 다운로드해서 로컬  파일과 동기화
+- git pull
+
+clone : 원격 저장소의 모든 내용을 내 저장소로 다운로드
+- git clone
+
+branch :  push가 따로 관리되는 복사본
+checkout : branch 변경
+merge : branch 병합
+fork : branch이긴 하지만 push가 즉각 반영되지 않음
+pull request : fork의 내용을 승인해달라는 요청 puul req 풀리퀘
+
+conflict : 충돌, push 불가능
+
+int i = 1;
+int a = 10 // 변경 없는 코드
+a = 20; // 남의 소스
+a = 21; // 내 소스
+
+가장 쉬운 방법
+- 일단 내꺼 지우기
+- push
+- 내꺼 살려서
+- 다시 push
+commit할 때 수정사항 메시지쓰기
+업무별(덩어리별)로 commit하기
+
+---------------------------------------
+github 토큰 받는법
+로르인 후
+오른쪽 상단 아이콘 - settings
+왼쪽 맨 아래 developer settings
+왼쪽 맨 아래 personal access tokens
+맨 아래 tokens (classic)
+오른쪽 위의 generate new token
+맨 아래 generate new token (classic)
+
+note는 아무거나 적기
+expiration : no -expiration
+repo만 체크 : 다 해도 됨
+맨 아래 generate token 클릭
+
+토큰-
+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
+잊어버리면 다시 발급하면 됨
+
+팀장버전
+1. 비어있는 repo 생성 (팀용)
+2. clone
+3. 올릴 파일 생성(이클립스로 프로젝트 생성)
+4. 2.의 폴더에 3.의 파일을 모두 복사
+5. push까지 진행
+6. git 주소 공유하기
+7. 팀원의 메일 주소 수집
+8. repo 상단에 있는 settings > collabo > add people > 초대장 발송
+
+팀원버전
+9. clone
