@@ -22,47 +22,47 @@ figure,article,header,footer,nav,hgroup,video,audio,aside,main {display: block;}
 ::selection {background: #5f8caa;background: rgba(95, 140, 170, .35);color:#fff;}
 
 
+
 /* INPUT*/
- input[type=text], input[type=tel], input[type=email], input[type=password], input[type=url], input[type=number], input[type=search],
- input[type=submit], input[type=button], button {font-family: 'Noto Sans Korean', sans-serif;border-radius:0rem;}
- input[type=radio] {border-radius: 100%;}
+input[type=text], input[type=tel], input[type=email], input[type=password], input[type=url], input[type=number], input[type=search],
+input[type=submit], input[type=button], button {font-family: 'Noto Sans Korean', sans-serif;border-radius:0rem;}
+input[type=radio] {border-radius: 100%;}
  
- /* 버튼에 커서 표시 */
- button {cursor: pointer;transition: background 300ms;}
+/* 버튼에 커서 표시 */
+button {cursor: pointer;transition: background 300ms;}
  
 
- /* button 스타일 */
- .main_btn {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
- .main_btn:hover {background: #dadada;color: #5f8caa;}
- .table_btn {font-size: 12rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 6rem 20rem 6rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; }
- .table_btn:hover {border-color: #000; background: #000; color: #fff;}
+/* button 스타일 */
+.main_btn {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
+.main_btn:hover {background: #dadada;color: #5f8caa;}
+
+.main_btn2 {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #5f8caa; background: #ffffff;border: 2px solid #5f8caa; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
+.main_btn2:hover {background: #dadada;color: #000;border: 1px solid #dadada}
+
+.table_btn {font-size: 12rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 6rem 20rem 6rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; }
+.table_btn:hover {border-color: #000; background: #000; color: #fff;}
  
- /* input 스타일 */
- .main_search_txt {width: 200rem; height: 30rem; margin: 5rem; vertical-align: top; background: transparent; border: 0; border-bottom: 2rem solid #000; text-overflow: ellipsis; padding-left: 0; font-size: 14rem; padding-right: 0; }
- .main_search_txt:focus {border-color: #000000;outline: none;}
+
+
+
+/* input 스타일 */
+.main_search_txt {width: 200rem; height: 30rem; margin: 5rem; vertical-align: top; background: transparent; border: 0; border-bottom: 2rem solid #000; text-overflow: ellipsis; padding-left: 0; font-size: 14rem; padding-right: 0; }
+.main_search_txt:focus {border-color: #000000;outline: none;}
 
 .main_normal_txt {border: 1px solid #666;background:#ffffff; box-shadow: 0 0 1px rgba(0, 0, 0, 0.4); width: 200rem;color: #666;  height: 30rem; text-align: left; padding: 3rem;text-overflow: ellipsis; }
 
 .table_normal_txt {border: 1px solid #666;background:#ffffff; box-shadow: 0 0 1px rgba(0, 0, 0, 0.4); width: 85%;color: #666;  height: 100%; text-align: left; padding: 3rem;}
 
 .table_blind_txt {border: 0px solid #000000;background:#ffffff;width: 95%;color: #666;  height: 100%; text-align: center;padding: 3rem;}
+.table_blind_txt:hover {color:#000}
 .table_blind_txt:focus {border: 0px solid #ffffff; /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  */outline: none;}
 
- /* PLACEHOLDER */
- ::-webkit-input-placeholder {font-family: 'Noto Sans Korean', sans-serif;font-size: 12rem;color: #888;}
- ::-moz-placeholder {font-family: 'Noto Sans Korean', sans-serif;font-size: 12rem;color: #888;}
- :-ms-input-placeholder {font-family: 'Noto Sans Korean', sans-serif;font-size: 12rem;color: #888;}
- input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {color: transparent;}
- input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {color: transparent;}
- input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {color: transparent;}
- 
- 
- 
 
 
 
-
-
+.check:checked {
+    background: #5f8caa;
+}
 
 
 /* font 설정 */
