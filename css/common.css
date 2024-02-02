@@ -54,8 +54,8 @@ header h1 {
 
 /* 네비게이션 바 스타일링 */
 nav {
-    background-color: #ababab;
-    color: white;
+    background-color: #d0d0d0;
+    color: rgb(20, 20, 20);
     width: 60px;
     position: fixed;
     top: 00px;
@@ -106,7 +106,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: rgb(20, 20, 20);
     display: block;
 }
 
