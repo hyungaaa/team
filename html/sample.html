@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/itemMng.css">
@@ -51,11 +51,51 @@
         </div>
     </nav>
     <main>
-        <div class="dashboard">
-            <div class="dash-box1"><span class="article-header__title">모니터링1</span></div>
-            <div class="dash-box2">모니터링2</div>
-            <div class="dash-box2">모니터링3</div>
-        </div>
+        <input class="main_normal_txt" type="text" placeholder="검색어를 입력하세요">
+        <input class="main_search_txt" type="text" placeholder="검색어를 입력하세요">
+        <button class="main_btn">검색</button>
+        <button class="main_btn">저장</button>
+        <hr><br>
+        <table>
+            <caption>caption</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>제품명</th>
+                    <th>규격</th>
+                    <th>단위</th>
+                    <th>수량</th>
+                    <th>위치</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="table_ipt" type="checkbox"></td>
+                    <td>나뚜루 녹차바</td>
+                    <td>S</td>
+                    <td>BOX</td>
+                    <td>20</td>
+                    <td>A-05</td>
+                </tr>
+                <tr>
+                    <td><input class="table_ipt" type="checkbox"></td>
+                    <td>나뚜루 녹차바</td>
+                    <td>S</td>
+                    <td>BOX</td>
+                    <td>20</td>
+                    <td>A-05</td>
+                </tr>
+                <tr>
+                    <td><input class="table_ipt" type="checkbox"></td>
+                    <td></td>
+                    <td><input class="table_ipt" type="radio"></td>
+                    <td><input class="table_normal_txt" type="text" placeholder="내용을 입력하세요"></td>
+                    <td><input class="table_blind_txt" type="text" value="수정되는거" ></td>
+                    <td><button class="table_btn">저장</button><button class="table_btn">취소</button></td>
+                </tr>
+
+            </tbody>
+        </table>
     </main>
     <footer>
         <div class="footer-content">

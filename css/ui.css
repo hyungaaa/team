@@ -1,0 +1,138 @@
+
+
+/* 기본 초기화값 */
+main {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	vertical-align: baseline;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+ol,ul {list-style: none;}
+table {border-collapse: separate;border-spacing: 0;}
+caption,th,td {text-align: left;font-weight: normal;}
+figure,article,header,footer,nav,hgroup,video,audio,aside,main {display: block;}
+
+
+/* selection */
+::selection {background: #5f8caa;background: rgba(95, 140, 170, .35);color:#fff;}
+
+
+/* INPUT*/
+ input[type=text], input[type=tel], input[type=email], input[type=password], input[type=url], input[type=number], input[type=search],
+ input[type=submit], input[type=button], button {font-family: 'Noto Sans Korean', sans-serif;border-radius:0rem;}
+ input[type=radio] {border-radius: 100%;}
+ 
+ /* 버튼에 커서 표시 */
+ button {cursor: pointer;transition: background 300ms;}
+ 
+
+ /* button 스타일 */
+ .main_btn {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
+ .main_btn:hover {background: #dadada;color: #5f8caa;}
+ .table_btn {font-size: 12rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 6rem 20rem 6rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; }
+ .table_btn:hover {border-color: #000; background: #000; color: #fff;}
+ 
+ /* input 스타일 */
+ .main_search_txt {width: 200rem; height: 30rem; margin: 5rem; vertical-align: top; background: transparent; border: 0; border-bottom: 2rem solid #000; text-overflow: ellipsis; padding-left: 0; font-size: 14rem; padding-right: 0; }
+ .main_search_txt:focus {border-color: #000000;outline: none;}
+
+.main_normal_txt {border: 1px solid #666;background:#ffffff; box-shadow: 0 0 1px rgba(0, 0, 0, 0.4); width: 200rem;color: #666;  height: 30rem; text-align: left; padding: 3rem;text-overflow: ellipsis; }
+
+.table_normal_txt {border: 1px solid #666;background:#ffffff; box-shadow: 0 0 1px rgba(0, 0, 0, 0.4); width: 85%;color: #666;  height: 100%; text-align: left; padding: 3rem;}
+
+.table_blind_txt {border: 0px solid #000000;background:#ffffff;width: 95%;color: #666;  height: 100%; text-align: center;padding: 3rem;}
+.table_blind_txt:focus {border: 0px solid #ffffff; /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  */outline: none;}
+
+ /* PLACEHOLDER */
+ ::-webkit-input-placeholder {font-family: 'Noto Sans Korean', sans-serif;font-size: 12rem;color: #888;}
+ ::-moz-placeholder {font-family: 'Noto Sans Korean', sans-serif;font-size: 12rem;color: #888;}
+ :-ms-input-placeholder {font-family: 'Noto Sans Korean', sans-serif;font-size: 12rem;color: #888;}
+ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {color: transparent;}
+ input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {color: transparent;}
+ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {color: transparent;}
+ 
+ 
+ 
+
+
+
+
+
+
+
+/* font 설정 */
+@font-face {
+    font-family: "Noto Sans Korean";
+    font-weight: 100;
+    font-style: normal;
+    src: url("fonts/NotoSans-Thin.eot?") format("eot"),
+    url("fonts/NotoSans-Thin.otf") format("opentype"),
+    url("fonts/NotoSans-Thin.woff") format("woff"),
+    url("fonts/NotoSans-Thin.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: "Noto Sans Korean";
+    font-weight: 200;
+    font-style: normal;
+    src: url("fonts/NotoSans-Light.eot?") format("eot"),
+    url("fonts/NotoSans-Light.otf") format("opentype"),
+    url("fonts/NotoSans-Light.woff") format("woff"),
+    url("fonts/NotoSans-Light.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: "Noto Sans Korean";
+    font-weight: 300;
+    font-style: normal;
+    src: url("fonts/NotoSans-DemiLight.eot?") format("eot"),
+    url("fonts/NotoSans-DemiLight.otf") format("opentype"),
+    url("fonts/NotoSans-DemiLight.woff") format("woff"),
+    url("fonts/NotoSans-DemiLight.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: "Noto Sans Korean";
+    font-weight: 400;
+    font-style: normal;
+    src: url("fonts/NotoSans-Regular.eot?") format("eot"),
+    url("fonts/NotoSans-Regular.otf") format("opentype"),
+    url("fonts/NotoSans-Regular.woff") format("woff"),
+    url("fonts/NotoSans-Regular.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: "Noto Sans Korean";
+    font-weight: 500;
+    font-style: normal;
+    src: url("fonts/NotoSans-Medium.eot?") format("eot"),
+    url("fonts/NotoSans-Medium.otf") format("opentype"),
+    url("fonts/NotoSans-Medium.woff") format("woff"),
+    url("fonts/NotoSans-Medium.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: "Noto Sans Korean";
+    font-weight: 700;
+    font-style: normal;
+    src: url("fonts/NotoSans-Black.eot?") format("eot"),
+    url("fonts/NotoSans-Black.otf") format("opentype"),
+    url("fonts/NotoSans-Black.woff") format("woff"),
+    url("fonts/NotoSans-Black.woff2") format("woff2");
+  }
+  
+  @font-face {
+    font-family: "Noto Sans Korean";
+    font-weight: 900;
+    font-style: normal;
+    src: url("fonts/NotoSans-Bold.eot?") format("eot"),
+    url("fonts/NotoSans-Bold.otf") format("opentype"),
+    url("fonts/NotoSans-Bold.woff") format("woff"),
+    url("fonts/NotoSans-Bold.woff2") format("woff2");
+  }
+  
