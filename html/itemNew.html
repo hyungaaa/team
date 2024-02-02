@@ -50,11 +50,13 @@
             </ul>
         </div>
     </nav>
+
+    <!-- 메인 -->
     <main>
-    <!-- 입출고 이력 -->
+        <!-- 새로운 제품 추가 창 -->
 
     <!-- 대분류 카테고리 -->
-    <div id="bigCategory">
+    <div>
         <ul>
             <li><span><a href="">간편식사</span></a>></li>
             <li><span><a href="">과자류</span></a>></li>
@@ -64,91 +66,73 @@
         </ul>
         <button>카테고리 설정</button>
     </div>
-    
-    <!-- 소분류 카테고리 -->
-    <div id="all1">
-    <div id="scate">
-        <button>전체</button>
-        <button>도시락</button>
-        <button>샌드위치/햄버거</button>
-        <button>주먹밥/김밥</button>
-        <button>기타</button>
-    </div>
 
-    <!-- 선 -->
-    <hr>
-
-    <!-- 검색 창 -->
-    <div id="search">
-        <input type="text" placeholder="검색어 입력">
-        <button>검색</button>
-    </div>
-
-    <!-- 제품 게시판? -->
-    <div id="productBoard">
-        <table>
+    <!-- 제품 추가 -->
+    <div>
+       <table border="1">
+            <tr>
+                <!-- 이미지 창 버튼 누르면 그 버튼으로 이미지 올라가게 하고 싶어요-->
+                <td colspan="6">이미지 업로드</td> 
             <tr>
                 <td>제품명</td>
+                <td colspan="3"><input type="text"></td>
                 <td>소분류</td>
+                <td><select value="smallCategory">
+                    <option value="all">전체</option>
+                    <option value="lunch">도시락</option>
+                    <option value="sand">샌드위치/햄버거</option>
+                    <option value="bob">주먹밥/김밥</option>
+                    <option value="etc">기타</option>
+                </select></td>
+            </tr>
+            <tr>
                 <td>제품번호</td>
+                <td><input type="text"></td>
                 <td>보관위치</td>
+                <td><input type="text"></td>
                 <td>등록일</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
                 <td>규격</td>
+                <td>
+                    <select value="size">
+                        <option value="small">S(소형)</option>
+                        <option value="medium">M(중형)</option>
+                        <option value="large">L(대형)</option>
+                    </select>
+                </td>
+                <td>단위</td>
+                <td>
+                    <select value="unit">
+                        <option value="each">EA</option>
+                        <option value="box">box</option>
+                    </select>
+                </td>
+                <td>비고</td>
+                <td><input type="text"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
+                <td>관련 글</td>
+                <td colspan="6">
+                    <select value="BestQna">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
+       </table>
+       <button type="button">더보기</button>
     </div>
-    
 
-    <!-- 페이지 -->
-    <div id="div-ul">
-        <ul>
-          <li><a href="#">&lt;</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&gt;</a></li>
-        </ul>
-    </div>	
+    <!-- 저장 버튼 -->
+    <div>
+        <button type="button">저장</button>
     </div>
 
     </main>
+
 
     <footer>
         <div class="footer-content">
