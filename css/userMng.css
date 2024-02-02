@@ -1,0 +1,59 @@
+body {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    width: 99.5%;
+    height: 300px;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+table#table_hd {
+    position: sticky;
+    top: 0;
+    text-align: center;
+    height: 50px;
+    width: 98%;
+    margin-top: 50px;
+}
+
+#com {
+    width: 50px;
+    text-align: center;
+}
+
+head th,
+tr,
+td {
+    border: 1px solid #000;
+    text-align: center;
+    height: 30px;
+    width: 50px;
+}
+
+#div-ul {
+    text-align: center;
+}
+
+#div_yn {
+    width: auto;
+
+    margin-top: 2%;
+    margin-left: 88.5%;
+}
+
+ul {
+    padding: 0px;
+}
+
+li {
+    display: inline;
+    padding: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
