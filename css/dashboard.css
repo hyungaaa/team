@@ -1,0 +1,32 @@
+
+
+main .dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+main .dashboard .dash-box1 {
+    border: 1px solid  red;
+    width: 1050px;
+    height: 230px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+main .dashboard .dash-box2 {
+    border: 1px solid red;
+    width: 500px;
+    height: 230px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
