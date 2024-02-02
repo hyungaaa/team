@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
+    <title>재고 현황</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
@@ -27,7 +27,7 @@
             <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
         </div>
         <div class="top-bar">
-            <h1>물류관리시스템</h1>
+            <h1>재고 현황</h1>
         </div>
         <div class="top-bar-links">
             <a href="mypage.html">마이페이지</a>
@@ -39,7 +39,7 @@
         <div class="navi-bar">
             <ul>
                 <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
-                <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
+                <li class="navi-item2"><a href="itemMain.html">제품<br>관리</a></li>
                 <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
                 <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
                 <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
@@ -51,7 +51,206 @@
         </div>
     </nav>
     <main>
-
+        <div id="div-select">
+            <select>
+              <option value="제품명">제품명</option>
+              <option value="제품번호">제품번호</option>
+              <option value="LOT">LOT No.</option>
+              <option value="위치코드">위치코드</option>
+            </select>
+            <input type="text" name="search">
+            <button type="button">검색</button>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <select>
+                      <option value="LOT">LOT No.</option>
+                      <option value="LT202402010001">LT202402010001</option>
+                      <option value="LT202402010002">LT202402010002</option>
+                      <option value="LT202402020001">LT202402020001</option>
+                      <option value="LT202402020002">LT202402020002</option>
+                      <option value="LT202402020003">LT202402020003</option>
+                      <option value="LT202402020004">LT202402020004</option>
+                      <option value="LT202402020005">LT202402020005</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select>
+                      <option value="위치코드">위치코드</option>
+                      <option value="A-01">A-01</option>
+                      <option value="B-01">B-01</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select>
+                      <option value="제품번호">제품번호</option>
+                      <option value="ESB00001">ESB00001</option>
+                      <option value="ICA00003">ICA00003</option>
+                      <option value="BMB00005">BMB00005</option>
+                      <option value="EJB00003">EJB00003</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select>
+                      <option value="제품명">제품명</option>
+                      <option value="샌)망곰초코딸기샌드">샌)망곰초코딸기샌드</option>
+                      <option value="나뚜루)녹차바">나뚜루)녹차바</option>
+                      <option value="	남양)불가리스딸기150ml">	남양)불가리스딸기150ml</option>
+                      <option value="주)LT명란마요삼각">주)LT명란마요삼각</option>
+                    </select>
+                  </th>
+                  <th>전산재고</th>
+                  <th>실재고수량</th>
+                  <th>재고보정</th>
+                  <th>
+                    <select>
+                      <option value="최종기준일자">최종기준일자</option>
+                      <option value="24-02-01">24-02-01</option>
+                      <option value="24-02-02">24-02-02</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select>
+                      <option value="최종작업일자">최종작업일자</option>
+                      <option value="24-02-01">24-02-01</option>
+                      <option value="24-02-02">24-02-02</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select>
+                      <option value="작업자">작업자</option>
+                      <option value="박종화">박종화</option>
+                      <option value="송우석">송우석</option>
+                      <option value="윤아영">윤아영</option>
+                      <option value="이가희">이가희</option>
+                      <option value="임가현">임가현</option>
+                    </select>
+                  </th>
+                  <th>보정사유</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>LT202402010001</td>
+                  <td>B-01</td>
+                  <td>ESB00001</td>
+                  <td>샌)망곰초코딸기샌드</td>
+                  <td>20</td>
+                  <td>20</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-01</td>
+                  <td>24-02-01</td>
+                  <td>이가희</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>LT202402010002</td>
+                  <td>B-01</td>
+                  <td>ESB00001</td>
+                  <td>샌)망곰초코딸기샌드</td>
+                  <td>20</td>
+                  <td>20</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-01</td>
+                  <td>24-02-01</td>
+                  <td>이가희</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>LT202402020001</td>
+                  <td>B-01</td>
+                  <td>ESB00001</td>
+                  <td>샌)망곰초코딸기샌드</td>
+                  <td>20</td>
+                  <td>20</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-01</td>
+                  <td>24-02-01</td>
+                  <td>임가현</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>LT202402020002</td>
+                  <td>A-01</td>
+                  <td>ICA00003</td>
+                  <td>나뚜루)녹차바</td>
+                  <td>10</td>
+                  <td>30</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-02</td>
+                  <td>24-02-02</td>
+                  <td>송우석</td>
+                  <td>재고 안 맞음</td>
+                </tr>
+                <tr>
+                  <td>LT202402020003</td>
+                  <td>B-01</td>
+                  <td>BMB00005</td>
+                  <td>남양)불가리스딸기150ml</td>
+                  <td>20</td>
+                  <td>20</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-02</td>
+                  <td>24-02-02</td>
+                  <td>박종화</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>LT202402020004</td>
+                  <td>B-01</td>
+                  <td>EJB00003</td>
+                  <td>주)LT명란마요삼각</td>
+                  <td>20</td>
+                  <td>20</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-02</td>
+                  <td>24-02-02</td>
+                  <td>송우석</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>LT202402020005</td>
+                  <td>A-01</td>
+                  <td>ICA00003</td>
+                  <td>나뚜루)녹차바</td>
+                  <td>100</td>
+                  <td>100</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-02</td>
+                  <td>24-02-02</td>
+                  <td>윤아영</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>LT202402020005</td>
+                  <td>A-01</td>
+                  <td>ICA00003</td>
+                  <td>나뚜루)녹차바</td>
+                  <td>100</td>
+                  <td>90</td>
+                  <td><button type="button">재고보정</button></td>
+                  <td>24-02-02</td>
+                  <td>24-02-02</td>
+                  <td>박종화</td>
+                  <td>재고 안 맞음</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="div-ul">
+            <ul>
+              <li><a href="#">&lt;</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&gt;</a></li>
+            </ul>
+          </div>
     </main>
     <footer>
         <div class="footer-content">

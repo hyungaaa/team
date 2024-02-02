@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
+    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/itemMng.css">
     <link rel="stylesheet" href="../css/inReg.css">
@@ -17,9 +17,41 @@
     <link rel="stylesheet" href="../css/boardList.css">
     <link rel="stylesheet" href="../css/userMng.css">
 
-    <script src="../js/system.js"></script>
+    <script src="system.js"></script>
 
-
+    <style>
+        ._main {
+            margin-top: 30px;
+            margin-left: 250px;
+        }
+        .profile img {
+            width: 40px;
+            height: 40px;
+        }
+        div div img {
+            width: 100px;
+            height: 100px;
+        }
+       .ice {
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            width: 600px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+       }
+       .profile {
+            display: flex;
+            align-items: center;
+       }
+       .btn {
+            width: 600px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-evenly;
+       }
+    </style>
 </head>
 <body>
     <header>
@@ -30,9 +62,9 @@
             <h1>물류관리시스템</h1>
         </div>
         <div class="top-bar-links">
-            <a href="mypage.html">마이페이지</a>
+            <a href="#">마이페이지</a>
             <a href="#">설정</a>
-            <a href="login.html">로그아웃</a>
+            <a href="#">로그아웃</a>
         </div>
     </header>
     <nav>
@@ -51,11 +83,23 @@
         </div>
     </nav>
     <main>
-        <div class="dashboard">
-            <div class="dash-box1"><span class="article-header__title">모니터링1</span></div>
-            <div class="dash-box2">모니터링2</div>
-            <div class="dash-box2">모니터링3</div>
+        <div class="_main">
+            <h2>녹차바가 녹았어요</h2>
+            <div class="profile">
+                <img src='https://ifh.cc/g/MRkSvZ.png'>
+                임가현
+            </div>
+            <div class="ice">
+                이번에 들어온 ICA00003 녹차바가 다 녹았어요 <br><br>
+                확인부탁드립니다^^ <br>
+                <img src="https://cdn.pixabay.com/photo/2013/07/12/19/04/popsicle-154321_1280.png">
+            </div>
+            <div class="btn">
+                <button type="button">뒤로가기</button>
+                <button type="button">답글</button>
+            </div>
         </div>
+
     </main>
     <footer>
         <div class="footer-content">
