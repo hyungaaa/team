@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS 잘해보조</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/itemMng.css">
+    <link rel="stylesheet" href="../css/inReg.css">
+    <link rel="stylesheet" href="../css/outReg.css">
+    <link rel="stylesheet" href="../css/invenView.css">
+    <link rel="stylesheet" href="../css/inoutHistory.css">
+    <link rel="stylesheet" href="../css/capacityView.css">
+    <link rel="stylesheet" href="../css/boardList.css">
+    <link rel="stylesheet" href="../css/userMng.css">
+
+    <script src="system.js"></script>
+
+    <style>
+        ._main {
+            margin-left: 250px;
+        }
+        .profile img {
+            width: 40px;
+            height: 40px;
+        }
+        div div img {
+            width: 100px;
+            height: 100px;
+        }
+       .ice {
+            width: 600px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+       }
+       .profile {
+            display: flex;
+            align-items: center;
+       }
+       .btn {
+            width: 600px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-evenly;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-logo">
+            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+        </div>
+        <div class="top-bar">
+            <h1>물류관리시스템</h1>
+        </div>
+        <div class="top-bar-links">
+            <a href="#">마이페이지</a>
+            <a href="#">설정</a>
+            <a href="#">로그아웃</a>
+        </div>
+    </header>
+    <nav>
+        <div class="navi-bar">
+            <ul>
+                <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
+                <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
+                <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
+                <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
+                <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
+                <li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
+                <li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
+                <li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
+                <li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="_main">
+            <h2>녹차바가 녹았어요</h2>
+            <div class="profile">
+                <img src='https://ifh.cc/g/MRkSvZ.png'>
+                임가현
+            </div>
+            <div class="ice">
+                이번에 들어온 ICA00003 녹차바가 다 녹았어요 <br>
+                확인부탁드립니다^^ <br>
+                <img src="https://cdn.pixabay.com/photo/2013/07/12/19/04/popsicle-154321_1280.png">
+            </div>
+            <div class="btn">
+                <button type="button">뒤로가기</button>
+                <button type="button">답글</button>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="status-user">
+                접속자: 천안센터 관리자
+            </div>
+            <div class="status-message">
+                데이터가 조회되었습니다.
+            </div>
+            <div class="status-time">
+                현재 시간: <span id="current-time"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

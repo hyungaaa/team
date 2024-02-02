@@ -4,20 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="layout.css">
-    <link rel="stylesheet" href="ui.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="itemMng.css">
-    <link rel="stylesheet" href="inReg.css">
-    <link rel="stylesheet" href="outReg.css">
-    <link rel="stylesheet" href="invenView.css">
-    <link rel="stylesheet" href="inoutHistory.css">
-    <link rel="stylesheet" href="capacityView.css">
-    <link rel="stylesheet" href="boardList.css">
-    <link rel="stylesheet" href="userMng.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/itemMng.css">
+    <link rel="stylesheet" href="../css/inReg.css">
+    <link rel="stylesheet" href="../css/outReg.css">
+    <link rel="stylesheet" href="../css/invenView.css">
+    <link rel="stylesheet" href="../css/inoutHistory.css">
+    <link rel="stylesheet" href="../css/capacityView.css">
+    <link rel="stylesheet" href="../css/boardList.css">
+    <link rel="stylesheet" href="../css/userMng.css">
 
     <script src="system.js"></script>
+
+    <style>
+        body {
+            font-size: 14px;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        .search {
+            display: flex;
+            justify-content: space-between;
+        }
+        .search1 {
+            display: flex;
+        }
+        .tb {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border: 1px solid #000;
+            text-align: center;  
+        }
+
+        td, th  {
+            height: 40px;
+        }
+
+        .write {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .page {
+            display: flex;
+            justify-content: center;
+        }
+        ul li {
+            display: inline-block;
+            font-size: 18px;
+            padding: 8px;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+    </style>
 
 
 </head>
@@ -51,6 +99,106 @@
         </div>
     </nav>
     <main>
+        <div class="search">
+            <div class="excel">
+                <button type="button" value="download">excel 다운로드</button>
+            </div>
+            <div class="search1">
+                <select name="se_op">
+                    <option>전체</option>
+                    <option>제목</option>
+                    <option>제품코드</option>
+                </select>
+                <button type="button" value="se">검색</button>
+                <input type="text" name="search">
+            </div>
+    
+        </div>
+
+        <div class="tb">
+            <table border="1">
+                <tr>
+                    <th>No</th>
+                    <th>글쓴이</th>
+                    <th>제품코드</th>
+                    <th>제목</th>
+                    <th>작성일자</th>
+                    <th>조회수</th>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>임가현</td>
+                    <td>ICA00003</td>
+                    <td>녹차바가 녹았어요</td>
+                    <td>2024-02-03</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>이가희</td>
+                    <td>-</td>
+                    <td>냉장고 온도 조절기에 이상발견</td>
+                    <td>2024-02-03</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>윤아영</td>
+                    <td>BMB00005</td>
+                    <td>불가리스 터짐</td>
+                    <td>2024-02-02</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>박종화</td>
+                    <td>-</td>
+                    <td>불량인 PDA가 너무 많습니다</td>
+                    <td>2024-02-02</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>송우석</td>
+                    <td>EDB00006</td>
+                    <td>제품 수량 안 맞아요</td>
+                    <td>2024-02-01</td>
+                    <td>24</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>민병관</td>
+                    <td>-</td>
+                    <td>A-01 냉동창고에 물이 흘러요</td>
+                    <td>2024-02-01</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>구준표</td>
+                    <td>-</td>
+                    <td>커피 좀 넉넉히 놔주세요 직원들 마시게요</td>
+                    <td>2024-02-01</td>
+                    <td>63</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="write">
+            <button type="button" value="write">글쓰기</button>
+        </div>
+
+        <div class="page">
+            <ul>
+                <li><a href="#">&lt;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+            </ul>
+        </div>
 
     </main>
     <footer>
