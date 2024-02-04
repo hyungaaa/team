@@ -153,3 +153,10 @@ function bind() {
         // check 상태가 아니라면
     });
 }
+function openPopup() {
+    document.getElementById('popup').style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = "none";
+}

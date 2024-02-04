@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/itemMng.css">
     <link rel="stylesheet" href="../css/inReg.css">
@@ -17,9 +17,8 @@
     <link rel="stylesheet" href="../css/capacityView.css">
     <link rel="stylesheet" href="../css/boardList.css">
     <link rel="stylesheet" href="../css/userMng.css">
-    <script src="userMng.js"></script>
+    <script src="../js/userMng.js"></script>
     <script src="../js/system.js"></script>
-
 
 </head>
 
@@ -54,8 +53,74 @@
         </div>
     </nav>
     <main>
-        <div id="div_yn"><button type="button">권한 요청 목록</button></div>
         <div>
+            <div id="div_yn">
+                <button onclick="openPopup()" id="num1">권한 요청 목록<button onclick="openPopup()"
+                        id="num2">3</button></button>
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+
+                        <p>사용자 요청 목록</p>
+                        <table id="table_hd2">
+                            <colgroup>
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="10%">
+                            </colgroup>
+                            <tr id="pop_tr">
+                                <th>요청사항</th>
+                                <th>사원번호</th>
+                                <th>아이디</th>
+                                <th>이메일</th>
+                                <th>선택</th>
+                            </tr>
+                            <tr>
+                                <td>사용자 등록</td>
+                                <td>asd213</td>
+                                <td>asf54</td>
+                                <td>sda@naver.com</td>
+                                <td><input type="checkbox" class="chk"></td>
+                            </tr>
+                            <tr>
+                                <td>비밀번호 초기화</td>
+                                <td>asd321</td>
+                                <td>fsa65</td>
+                                <td>ass@gmail.com</td>
+                                <td><input type="checkbox" class="chk"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input type="checkbox" class="chk"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input type="checkbox" class="chk"></td>
+                            </tr>
+                        </table>
+                        <div id="div-ul">
+                            <ul>
+                                <li><a href="#">&lt;</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">&gt;</a></li>
+                            </ul>
+                        </div>
+                        <span class="popY">승인</span>
+                        <span class="popN" onclick="closePopup()">취소</span>
+                    </div>
+                </div>
+            </div>
             <table id="table_hd">
                 <colgroup>
                     <col width="10%">
