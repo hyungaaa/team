@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/itemMng.css">
@@ -55,12 +55,12 @@
     <main>
         <div>
             <div id="div_yn">
-                <button onclick="openPopup()" id="num1">권한 요청 목록<button onclick="openPopup()"
-                        id="num2">3</button></button>
+                <button onclick="openPopup()" class="table_btn">권한 요청 목록<button onclick="openPopup()"
+                        id="num1">3</button></button>
                 <div id="popup" class="popup">
                     <div class="popup-content">
 
-                        <p>사용자 요청 목록</p>
+                        <p class="userMng_p">사용자 요청 목록</p>
                         <table id="table_hd2">
                             <colgroup>
                                 <col width="10%">
@@ -155,25 +155,25 @@
                         </select>
                     </th>
                     <th>
-                        입/출고등록<input type="checkbox" id="select_all">
+                        입/출고등록<input type="checkbox" id="select_all1">
                     </th>
                     <th>
-                        입/출고수정<input type="checkbox" id="select_all">
+                        입/출고수정<input type="checkbox" id="select_all2">
                     </th>
                     <th>
-                        단가등록<input type="checkbox" id="select_all">
+                        단가등록<input type="checkbox" id="select_all3">
                     </th>
                     <th>
-                        단가수정<input type="checkbox" id="select_all">
+                        단가수정<input type="checkbox" id="select_all4">
                     </th>
                     <th>
-                        메뉴수정<input type="checkbox" id="select_all">
+                        메뉴수정<input type="checkbox" id="select_all5">
                     </th>
-                    <th><button type="button" id="selected_del">선택 삭제</button></th>
+                    <th></th>
                 </tr>
             </table>
 
-            <div style="height: 200px; overflow-y: auto">
+            <div style="height: 300px; overflow-y: auto">
                 <table>
                     <colgroup>
                         <col width="10%">
@@ -207,12 +207,14 @@
                                 <option value="관리자">관리자</option>
                             </select>
                         </td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><button type="button">수정</button></td>
+                        <td><input type="checkbox" class="chk1"></td>
+                        <td><input type="checkbox" class="chk2"></td>
+                        <td><input type="checkbox" class="chk3"></td>
+                        <td><input type="checkbox" class="chk4"></td>
+                        <td><input type="checkbox" class="chk5"></td>
+                        <td><button type="button" class="main_btn">수정</button>
+                            <button type="button" class="main_btn2">삭제</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>이가희</td>
@@ -234,12 +236,14 @@
                                 <option value="관리자">관리자</option>
                             </select>
                         </td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><button type="button">수정</button></td>
+                        <td><input type="checkbox" class="chk1"></td>
+                        <td><input type="checkbox" class="chk2"></td>
+                        <td><input type="checkbox" class="chk3"></td>
+                        <td><input type="checkbox" class="chk4"></td>
+                        <td><input type="checkbox" class="chk5"></td>
+                        <td><button type="button" class="main_btn">수정</button>
+                            <button type="button" class="main_btn2">삭제</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>윤아영</td>
@@ -261,12 +265,14 @@
                                 <option value="관리자">관리자</option>
                             </select>
                         </td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><button type="button">수정</button></td>
+                        <td><input type="checkbox" class="chk1"></td>
+                        <td><input type="checkbox" class="chk2"></td>
+                        <td><input type="checkbox" class="chk3"></td>
+                        <td><input type="checkbox" class="chk4"></td>
+                        <td><input type="checkbox" class="chk5"></td>
+                        <td><button type="button" class="main_btn">수정</button>
+                            <button type="button" class="main_btn2">삭제</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>박종화</td>
@@ -288,12 +294,14 @@
                                 <option value="관리자">관리자</option>
                             </select>
                         </td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><button type="button">수정</button></td>
+                        <td><input type="checkbox" class="chk1"></td>
+                        <td><input type="checkbox" class="chk2"></td>
+                        <td><input type="checkbox" class="chk3"></td>
+                        <td><input type="checkbox" class="chk4"></td>
+                        <td><input type="checkbox" class="chk5"></td>
+                        <td><button type="button" class="main_btn">수정</button>
+                            <button type="button" class="main_btn2">삭제</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>송우석</td>
@@ -315,12 +323,14 @@
                                 <option value="관리자">관리자</option>
                             </select>
                         </td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><input type="checkbox" class="chk"></td>
-                        <td><button type="button">수정</button></td>
+                        <td><input type="checkbox" class="chk1"></td>
+                        <td><input type="checkbox" class="chk2"></td>
+                        <td><input type="checkbox" class="chk3"></td>
+                        <td><input type="checkbox" class="chk4"></td>
+                        <td><input type="checkbox" class="chk5"></td>
+                        <td><button type="button" class="main_btn">수정</button>
+                            <button type="button" class="main_btn2">삭제</button>
+                        </td>
                     </tr>
                     <tr>
                         <td></td>
