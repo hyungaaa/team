@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,19 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/common.css">
-    <!-- <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css"> -->
     <link rel="stylesheet" href="../css/inReg.css">
-    <!-- <link rel="stylesheet" href="../css/outReg.css">
-    <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css">
-    <link rel="stylesheet" href="../css/capacityView.css">
-    <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="../js/system.js"></script>
+    <script src="../js/inReg.js"></script>
 
 
 </head>
+
 <body>
     <header>
         <div class="top-logo">
-            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+            <img
+                src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
         </div>
         <div class="top-bar">
             <h1>입고 등록</h1>
@@ -54,21 +50,21 @@
     <main>
         <table id="inReg-tbl1">
             <colgroup>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-              </colgroup>
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+            </colgroup>
             <tr>
                 <td class="rightAlign">제품명</td>
                 <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
-                <td><button type="button" class="table_btn">검색</button></td>
+                <td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
                 <td class="rightAlign">규격</td>
                 <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
                 <td class="rightAlign">단위</td>
@@ -102,7 +98,19 @@
             <button type="button" class="main_btn">QR 발행</button>
         </div>
 
-        <table id="inReg-tbl2">
+        <table>
+            <colgroup>
+                <col width="5%" />
+                <col width="7%" />
+                <col width="8%" />
+                <col width="30%" />
+                <col width="6%" />
+                <col width="8%" />
+                <col width="8%" />
+                <col width="8%" />
+                <col width="10%" />
+                <col width="10%" />
+            </colgroup>
             <thead>
                 <th></th>
                 <th>등록일</th>
@@ -180,15 +188,73 @@
         </table>
         <div id="div-ul">
             <ul>
-              <li><a href="#">&lt;</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&gt;</a></li>
+                <li><a href="#">&lt;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
             </ul>
-          </div>
+        </div>
+
+        <div id="popup">
+            <div class="popup-content">
+                <div class="div_top">
+                    제품명
+                    <input type="text" class="main_search_txt">
+                    <button type="button" class="main_btn">검색</button>
+                </div>
+                <div class="div_tbl">
+                    <table class="tbl">
+                        <colgroup>
+                            <col width="10%" />
+                            <col width="20%" />
+                            <col width="45%" />
+                            <col width="10%" />
+                            <col width="15%" />
+                        </colgroup>
+                        <thead>
+                            <th></th>
+                            <th>제품번호</th>
+                            <th>제품명</th>
+                            <th>규격</th>
+                            <th>단위</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>EJB00003</td>
+                                <td>주)LT명란마요삼각</td>
+                                <td>S</td>
+                                <td>BOX</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>EJB00004</td>
+                                <td>주)놀라운매콤어묵삼각</td>
+                                <td>S</td>
+                                <td>BOX</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="div_flex">
+                    <button type="button" class="main_btn">&lt; prev</button>
+                    <button type="button" class="main_btn">next &gt;</button>
+                </div>
+                <div class="div_line"></div>
+                <div class="div_btn">
+                    <a href="#">
+                        <div class="div_in">선택</div>
+                    </a>
+                    |
+                    <a href="#">
+                        <div class="div_in" onclick="closePopup()">취소</div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </main>
     <footer>
@@ -205,4 +271,5 @@
         </div>
     </footer>
 </body>
+
 </html>

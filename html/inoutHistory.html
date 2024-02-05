@@ -1,213 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입출고 이력</title>
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <!-- <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
-    <link rel="stylesheet" href="../css/invenView.css"> -->
-    <link rel="stylesheet" href="../css/inoutHistory.css">
-    <!-- <link rel="stylesheet" href="../css/capacityView.css">
-    <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css"> -->
 
-    <script src="../js/system.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입출고 이력</title>
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/ui.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/inoutHistory.css">
+
+  <script src="../js/system.js"></script>
+  <script src="../js/inoutHistory.js"></script>
 
 </head>
+
 <body>
-    <header>
-        <div class="top-logo">
-            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
-        </div>
-        <div class="top-bar">
-            <h1>입출고 이력</h1>
-        </div>
-        <div class="top-bar-links">
-            <a href="mypage.html">마이페이지</a>
-            <a href="#">설정</a>
-            <a href="login.html">로그아웃</a>
-        </div>
-    </header>
-    <nav>
-        <div class="navi-bar">
-            <ul>
-                <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
-                <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
-                <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
-                <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
-                <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
-                <li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
-                <li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
-                <li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
-                <li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
-            </ul>
-        </div>
-    </nav>
-    <main>
-        <div id="div-select">
-            <select>
-              <option value="LOT">LOT No.</option>
-              <option value="제품번호">제품번호</option>
-              <option value="제품명">제품명</option>
-            </select>
-            <input type="text" name="search" class="main_search_txt">
-            <button type="button" class="main_btn">검색</button>
-          </div>
-          <div id="div-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>LOT No.</th>
-                  <th>전표일자-No.</th>
-                  <th>
-                    <select>
-                      <option value="작업 구분">작업 구분</option>
-                      <option value="입고">입고</option>
-                      <option value="출고">출고</option>
-                    </select>
-                  </th>
-                  <th>제품번호</th>
-                  <th>제품명</th>
-                  <th>입고수량</th>
-                  <th>출고수량</th>
-                  <th>현재고수량</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>LT202402010001</td>
-                  <td>2024/02/01-1</td>
-                  <td>입고</td>
-                  <td>ESB00001</td>
-                  <td>샌)망곰초코딸기샌드</td>
-                  <td>200</td>
-                  <td>-</td>
-                  <td>200</td>
-                </tr>
-                <tr>
-                  <td>LT202402010002</td>
-                  <td>2024/02/01-2</td>
-                  <td>입고</td>
-                  <td>SCC00002</td>
-                  <td>롯데)허쉬너겟쿠앤크6P</td>
-                  <td>150</td>
-                  <td>-</td>
-                  <td>150</td>
-                </tr>
-                <tr>
-                  <td>LT202402010003</td>
-                  <td>2024/02/01-3</td>
-                  <td>입고</td>
-                  <td>ICA00003</td>
-                  <td>나뚜루)녹차바</td>
-                  <td>100</td>
-                  <td>-</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>LT202402010001</td>
-                  <td>2024/02/02-1</td>
-                  <td>출고</td>
-                  <td>ESB00001</td>
-                  <td>샌)망곰초코딸기샌드</td>
-                  <td>-</td>
-                  <td>15</td>
-                  <td>185</td>
-                </tr>
-                <tr>
-                  <td>LT202402010001</td>
-                  <td>2024/02/02-2</td>
-                  <td>출고</td>
-                  <td>ESB00001</td>
-                  <td>샌)망곰초코딸기샌드</td>
-                  <td>-</td>
-                  <td>15</td>
-                  <td>170</td>
-                </tr>
-                <tr>
-                  <td>LT202402010002</td>
-                  <td>2024/02/03-1</td>
-                  <td>출고</td>
-                  <td>SCC00002</td>
-                  <td>롯데)허쉬너겟쿠앤크6P</td>
-                  <td>-</td>
-                  <td>10</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>LT2024020100003</td>
-                  <td>2024/02/03-2</td>
-                  <td>출고</td>
-                  <td>ICA00003</td>
-                  <td>나뚜루)녹차바</td>
-                  <td>-</td>
-                  <td>10</td>
-                  <td>90</td>
-                </tr>
-                <tr>
-                  <td>LT2024020100003</td>
-                  <td>2024/02/03-3</td>
-                  <td>출고</td>
-                  <td>ICA00003</td>
-                  <td>나뚜루)녹차바</td>
-                  <td>-</td>
-                  <td>20</td>
-                  <td>70</td>
-                </tr>
-                <tr>
-                  <td>LT2024020100003</td>
-                  <td>2024/02/04-1</td>
-                  <td>출고</td>
-                  <td>ICA00003</td>
-                  <td>나뚜루)녹차바</td>
-                  <td>-</td>
-                  <td>10</td>
-                  <td>60</td>
-                </tr>
-                <tr>
-                  <td>LT2024020100003</td>
-                  <td>2024/02/05-1</td>
-                  <td>출고</td>
-                  <td>ICA00003</td>
-                  <td>나뚜루)녹차바</td>
-                  <td>-</td>
-                  <td>10</td>
-                  <td>50</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div id="div-ul">
-            <ul>
-              <li><a href="#">&lt;</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&gt;</a></li>
-            </ul>
-          </div>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <div class="status-user">
-                접속자: 천안센터 관리자
-            </div>
-            <div class="status-message">
-                데이터가 조회되었습니다.
-            </div>
-            <div class="status-time">
-                현재 시간: <span id="current-time"></span>
-            </div>
-        </div>
-    </footer>
+  <header>
+    <div class="top-logo">
+      <img
+        src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+    </div>
+    <div class="top-bar">
+      <h1>입출고 이력</h1>
+    </div>
+    <div class="top-bar-links">
+      <a href="mypage.html">마이페이지</a>
+      <a href="#">설정</a>
+      <a href="login.html">로그아웃</a>
+    </div>
+  </header>
+  <nav>
+    <div class="navi-bar">
+      <ul>
+        <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
+        <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
+        <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
+        <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
+        <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
+        <li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
+        <li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
+        <li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
+        <li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div id="div-select">
+      <select id="selectOption">
+        <option value="all">전체</option>
+        <option value="LOT">LOT No.</option>
+        <option value="productCode">제품번호</option>
+        <option value="productName">제품명</option>
+      </select>
+      <input type="text" name="search" class="main_search_txt" id="searchInput">
+      <button type="button" class="main_btn" onclick="goSearch()">검색</button>
+    </div>
+    <div id="div-table">
+      <table id="tbl">
+        <colgroup>
+          <col width="12%" />
+          <col width="10%" />
+          <col width="10%" />
+          <col width="10%" />
+          <col width="*" />
+          <col width="10%" />
+          <col width="10%" />
+          <col width="10%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>LOT No.</th>
+            <th>전표일자-No.</th>
+            <th>
+              <select id="inoutSelect" onchange="goInout()">
+                <option value="작업 구분">작업 구분</option>
+                <option value="in">입고</option>
+                <option value="out">출고</option>
+              </select>
+            </th>
+            <th>제품번호</th>
+            <th>제품명</th>
+            <th>입고수량</th>
+            <th>출고수량</th>
+            <th>현재고수량</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LT202402010001</td>
+            <td>2024/02/01-1</td>
+            <td>입고</td>
+            <td>ESB00001</td>
+            <td>샌)망곰초코딸기샌드</td>
+            <td>200</td>
+            <td>-</td>
+            <td>200</td>
+          </tr>
+          <tr>
+            <td>LT202402010002</td>
+            <td>2024/02/01-2</td>
+            <td>입고</td>
+            <td>SCC00002</td>
+            <td>롯데)허쉬너겟쿠앤크6P</td>
+            <td>150</td>
+            <td>-</td>
+            <td>150</td>
+          </tr>
+          <tr>
+            <td>LT202402010003</td>
+            <td>2024/02/01-3</td>
+            <td>입고</td>
+            <td>ICA00003</td>
+            <td>나뚜루)녹차바</td>
+            <td>100</td>
+            <td>-</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>LT202402010001</td>
+            <td>2024/02/02-1</td>
+            <td>출고</td>
+            <td>ESB00001</td>
+            <td>샌)망곰초코딸기샌드</td>
+            <td>-</td>
+            <td>15</td>
+            <td>185</td>
+          </tr>
+          <tr>
+            <td>LT202402010001</td>
+            <td>2024/02/02-2</td>
+            <td>출고</td>
+            <td>ESB00001</td>
+            <td>샌)망곰초코딸기샌드</td>
+            <td>-</td>
+            <td>15</td>
+            <td>170</td>
+          </tr>
+          <tr>
+            <td>LT202402010002</td>
+            <td>2024/02/03-1</td>
+            <td>출고</td>
+            <td>SCC00002</td>
+            <td>롯데)허쉬너겟쿠앤크6P</td>
+            <td>-</td>
+            <td>10</td>
+            <td>140</td>
+          </tr>
+          <tr>
+            <td>LT2024020100003</td>
+            <td>2024/02/03-2</td>
+            <td>출고</td>
+            <td>ICA00003</td>
+            <td>나뚜루)녹차바</td>
+            <td>-</td>
+            <td>10</td>
+            <td>90</td>
+          </tr>
+          <tr>
+            <td>LT2024020100003</td>
+            <td>2024/02/03-3</td>
+            <td>출고</td>
+            <td>ICA00003</td>
+            <td>나뚜루)녹차바</td>
+            <td>-</td>
+            <td>20</td>
+            <td>70</td>
+          </tr>
+          <tr>
+            <td>LT2024020100003</td>
+            <td>2024/02/04-1</td>
+            <td>출고</td>
+            <td>ICA00003</td>
+            <td>나뚜루)녹차바</td>
+            <td>-</td>
+            <td>10</td>
+            <td>60</td>
+          </tr>
+          <tr>
+            <td>LT2024020100003</td>
+            <td>2024/02/05-1</td>
+            <td>출고</td>
+            <td>ICA00003</td>
+            <td>나뚜루)녹차바</td>
+            <td>-</td>
+            <td>10</td>
+            <td>50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="div-ul">
+      <ul>
+        <li><a href="#">&lt;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&gt;</a></li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="status-user">
+        접속자: 천안센터 관리자
+      </div>
+      <div class="status-message">
+        데이터가 조회되었습니다.
+      </div>
+      <div class="status-time">
+        현재 시간: <span id="current-time"></span>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
