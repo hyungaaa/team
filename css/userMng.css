@@ -32,7 +32,8 @@ table#table_hd {
     top: 0;
     text-align: center;
     height: 50px;
-    margin-top: 50px;
+    margin-top: 20px;
+    background-color: #eeeeee;
 }
 
 #table_hd2 {
@@ -42,17 +43,13 @@ table#table_hd {
 head th,
 tr,
 td {
-    border: 1px solid #000;
+    border: 1px solid #ccc;
     text-align: center;
     height: 30px;
     width: 50px;
 }
 
 #num1 {
-    border: 1px solid #000;
-}
-
-#num2 {
     position: absolute;
     margin-top: -15px;
     margin-left: -15px;
@@ -65,7 +62,7 @@ td {
 
 /* popup */
 
-p {
+.userMng_p {
     text-align: center;
     font-size: 20px;
 }
@@ -94,10 +91,15 @@ p {
 }
 
 .popN {
-    color: #aaaaaa;
+    width: auto;
     float: inline-end;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
+    color: #ffffff;
+    background: #676767;
+    margin-right: 150px;
+    border-radius: 3rem;
+    padding: 2rem 6rem 2rem;
 }
 
 .popN:hover,
@@ -110,13 +112,13 @@ p {
 }
 
 .popY {
-    color: #aaaaaa;
-    font-size: 28px;
+    width: auto;
+    font-size: 20px;
     font-weight: bold;
     margin-left: 150px;
     border: 0px;
-}
-
-tr th {
-    background-color: #eeeeee;
+    color: #ffffff;
+    background: #5f8caa;
+    border-radius: 3rem;
+    padding: 2rem 6rem 2rem;
 }
