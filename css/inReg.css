@@ -9,6 +9,15 @@ body {
 #inReg-tbl1, #inReg-tbl1 tr, #inReg-tbl1 td {
   border: 1px solid #000;
 }
+select {
+  width: 85%;
+}
+.leftAlign {
+  text-align: left;
+}
+.inputResize {
+  width: 96%;
+}
 #inReg-tbl2 {
   width: 100%;
   height: 300px;
