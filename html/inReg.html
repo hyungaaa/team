@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="layout.css">
-    <link rel="stylesheet" href="ui.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="itemMng.css">
-    <link rel="stylesheet" href="inReg.css">
-    <link rel="stylesheet" href="outReg.css">
-    <link rel="stylesheet" href="invenView.css">
-    <link rel="stylesheet" href="inoutHistory.css">
-    <link rel="stylesheet" href="capacityView.css">
-    <link rel="stylesheet" href="boardList.css">
-    <link rel="stylesheet" href="userMng.css">
 
-    <script src="system.js"></script>
+    <title>입고 등록</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/layout.css">
+
+    <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/itemMng.css">
+    <link rel="stylesheet" href="../css/inReg.css">
+    <link rel="stylesheet" href="../css/outReg.css">
+    <!-- <link rel="stylesheet" href="../css/invenView.css">
+    <link rel="stylesheet" href="../css/inoutHistory.css"> -->
+    <link rel="stylesheet" href="../css/capacityView.css">
+    <link rel="stylesheet" href="../css/boardList.css">
+    <link rel="stylesheet" href="../css/userMng.css">
+
+    <script src="../js/system.js"></script>
 
 
 </head>
@@ -27,12 +31,12 @@
             <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
         </div>
         <div class="top-bar">
-            <h1>물류관리시스템</h1>
+            <h1>입고 등록</h1>
         </div>
         <div class="top-bar-links">
-            <a href="#">마이페이지</a>
+            <a href="mypage.html">마이페이지</a>
             <a href="#">설정</a>
-            <a href="#">로그아웃</a>
+            <a href="login.html">로그아웃</a>
         </div>
     </header>
     <nav>
@@ -51,6 +55,141 @@
         </div>
     </nav>
     <main>
+        <table id="inReg-tbl1">
+            <colgroup>
+                <col width="6%"/>
+                <col width="16%"/>
+                <col width="6%"/>
+                <col width="6%"/>
+                <col width="16%"/>
+                <col width="6%"/>
+                <col width="16%"/>
+                <col width="6%"/>
+                <col width="16%"/>
+                <col width="6%"/>
+              </colgroup>
+            <tr>
+                <td>제품명</td>
+                <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
+                <td><button type="button" class="table_btn">검색</button></td>
+                <td>규격</td>
+                <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
+                <td>단위</td>
+                <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
+                <td>수량</td>
+                <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
+                <td><button type="button" class="table_btn">추가</button></td>
+            </tr>
+            <tr>
+                <td>제품번호</td>
+                <td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt"></td>
+                <td>비고</td>
+                <td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt"></td>
+                <td>위치</td>
+                <td colspan="2" class="leftAlign">
+                    <select>
+                        <option value="위치">위치</option>
+                        <option value="A-01">A-01</option>
+                        <option value="B-01">B-01</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <input type="date">
+        <button type="button" class="main_btn">조회</button>
+        <button type="button" class="main_btn">등록</button>
+        <button type="button" class="main_btn">삭제</button>
+        <button type="button" class="main_btn">QR 발행</button>
+
+        <table id="inReg-tbl2">
+            <thead>
+                <th></th>
+                <th>등록일</th>
+                <th>제품번호</th>
+                <th>제품명</th>
+                <th>규격</th>
+                <th>단위</th>
+                <th>수량</th>
+                <th>상태</th>
+                <th>LOT No.</th>
+                <th>비고</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2024-02-01</td>
+                    <td>ESB00001</td>
+                    <td>샌)망곰초코딸기샌드</td>
+                    <td>S</td>
+                    <td>BOX</td>
+                    <td>5</td>
+                    <td>미등록</td>
+                    <td>LT2024020100001</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2024-02-01</td>
+                    <td>SCC00002</td>
+                    <td>롯데)허쉬너겟쿠앤크6P</td>
+                    <td>S</td>
+                    <td>BOX</td>
+                    <td>10</td>
+                    <td>등록 완료</td>
+                    <td>LT2024020100002</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2024-02-01</td>
+                    <td>ICA00003</td>
+                    <td>나뚜루)녹차바</td>
+                    <td>M</td>
+                    <td>BOX</td>
+                    <td>3</td>
+                    <td>등록 완료</td>
+                    <td>LT2024020100005</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2024-02-01</td>
+                    <td>FGC00004</td>
+                    <td>CJ)햇반전복미역죽</td>
+                    <td>M</td>
+                    <td>EA</td>
+                    <td>20</td>
+                    <td>등록 완료</td>
+                    <td>LT2024020100004</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2024-02-01</td>
+                    <td>BMB00005</td>
+                    <td>남양)불가리스딸기150ml</td>
+                    <td>S</td>
+                    <td>BOX</td>
+                    <td>10</td>
+                    <td>등록 완료</td>
+                    <td>LT2024020100005</td>
+                    <td>유통기한 짧음</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="div-ul">
+            <ul>
+              <li><a href="#">&lt;</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&gt;</a></li>
+            </ul>
+          </div>
 
     </main>
     <footer>

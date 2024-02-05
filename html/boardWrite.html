@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/itemMng.css">
     <link rel="stylesheet" href="../css/inReg.css">
@@ -18,6 +21,25 @@
     <link rel="stylesheet" href="../css/userMng.css">
 
     <script src="system.js"></script>
+    <script src="../js/system.js"></script>
+
+    <style>
+        .find {
+            display: flex;
+            justify-content: center;
+            height: 30px;
+        }
+        ._ti {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            height: 30px;
+        }
+        p {
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
     <header>
@@ -31,6 +53,9 @@
             <a href="#">마이페이지</a>
             <a href="#">설정</a>
             <a href="#">로그아웃</a>
+            <a href="mypage.html">마이페이지</a>
+            <a href="#">설정</a>
+            <a href="login.html">로그아웃</a>
         </div>
     </header>
     <nav>
@@ -49,6 +74,42 @@
         </div>
     </nav>
     <main>
+        <div class="find">
+            <select>
+                <option>대분류</option>
+                <option>간편식사</option>
+                <option>과자류</option>
+                <option>아이스크림</option>
+                <option>식품</option>
+                <option>음료</option>
+            </select>
+            <select>
+                <option>제품번호</option>
+                <option>EJB00002 김)크랩가득유부초밥</option>
+                <option>EJB00003 주)LT명란마요삼각</option>
+                <option>EJB00004 주)놀라운매콤어묵삼각</option>
+                <option>ECB00001 샐)놀라운치킨&에그무스</option>
+                <option>EDB00001 도)놀라운치킨마요덮밥</option>
+                <option>EDB00002 도)치즈닭갈비고구마밥</option>
+                <option>ESB00001 샌)망곰초코딸기샌드</option>
+                <option>ICA00003 나뚜루)녹차바</option>
+                <option>BMB00005 남양)불가리스딸기150</option>
+                <option>SCC00002 롯데)허쉬너겟쿠앤크6P</option>
+                <option>FGC00004 CJ)햇반전복미역죽</option>
+            </select>
+        </div>
+            <div class="_ti">
+                <p>제목</p>
+                <input type="text" name="title" id="title" placeholder="제목을 입력해주세요">
+            </div>
+            <div>
+                파일첨부
+                <button type="button" value="pc">내 pc</button>
+            </div>
+            <div>
+                <textarea placeholder="내용을 입력해주세요"></textarea>
+            </div>
+        
     </main>
     <footer>
         <div class="footer-content">
@@ -64,4 +125,5 @@
         </div>
     </footer>
 </body>
+</html>
 </html>
