@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>재고 현황</title>
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/itemMng.css">
     <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
+    <link rel="stylesheet" href="../css/outReg.css"> -->
     <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css">
+    <!-- <link rel="stylesheet" href="../css/inoutHistory.css">
     <link rel="stylesheet" href="../css/capacityView.css">
     <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
+    <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="../js/system.js"></script>
 
@@ -58,11 +58,24 @@
               <option value="LOT">LOT No.</option>
               <option value="위치코드">위치코드</option>
             </select>
-            <input type="text" name="search">
-            <button type="button">검색</button>
+            <input type="text" name="search" class="main_search_txt">
+            <button type="button" class="main_btn">검색</button>
           </div>
           <div>
             <table>
+              <colgroup>
+                <col width="12%"/>
+                <col width="8%"/>
+                <col width="9%"/>
+                <col width="16%"/>
+                <col width="7%"/>
+                <col width="7%"/>
+                <col width="8%"/>
+                <col width="10%"/>
+                <col width="10%"/>
+                <col width="7%"/>
+                <col width="6%"/>
+              </colgroup>
               <thead>
                 <tr>
                   <th>
@@ -140,7 +153,7 @@
                   <td>샌)망곰초코딸기샌드</td>
                   <td>20</td>
                   <td>20</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-01</td>
                   <td>24-02-01</td>
                   <td>이가희</td>
@@ -153,7 +166,7 @@
                   <td>샌)망곰초코딸기샌드</td>
                   <td>20</td>
                   <td>20</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-01</td>
                   <td>24-02-01</td>
                   <td>이가희</td>
@@ -166,7 +179,7 @@
                   <td>샌)망곰초코딸기샌드</td>
                   <td>20</td>
                   <td>20</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-01</td>
                   <td>24-02-01</td>
                   <td>임가현</td>
@@ -179,7 +192,7 @@
                   <td>나뚜루)녹차바</td>
                   <td>10</td>
                   <td>30</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-02</td>
                   <td>24-02-02</td>
                   <td>송우석</td>
@@ -192,7 +205,7 @@
                   <td>남양)불가리스딸기150ml</td>
                   <td>20</td>
                   <td>20</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-02</td>
                   <td>24-02-02</td>
                   <td>박종화</td>
@@ -205,7 +218,7 @@
                   <td>주)LT명란마요삼각</td>
                   <td>20</td>
                   <td>20</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-02</td>
                   <td>24-02-02</td>
                   <td>송우석</td>
@@ -218,7 +231,7 @@
                   <td>나뚜루)녹차바</td>
                   <td>100</td>
                   <td>100</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-02</td>
                   <td>24-02-02</td>
                   <td>윤아영</td>
@@ -231,7 +244,7 @@
                   <td>나뚜루)녹차바</td>
                   <td>100</td>
                   <td>90</td>
-                  <td><button type="button">재고보정</button></td>
+                  <td><button type="button" class="table_btn">재고보정</button></td>
                   <td>24-02-02</td>
                   <td>24-02-02</td>
                   <td>박종화</td>
