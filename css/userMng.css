@@ -32,8 +32,7 @@ table#table_hd {
     top: 0;
     text-align: center;
     height: 50px;
-    margin-top: 20px;
-    background-color: #eeeeee;
+    margin-top: 50px;
 }
 
 #table_hd2 {
@@ -43,13 +42,17 @@ table#table_hd {
 head th,
 tr,
 td {
-    border: 1px solid #ccc;
+    border: 1px solid #000;
     text-align: center;
     height: 30px;
     width: 50px;
 }
 
 #num1 {
+    border: 1px solid #000;
+}
+
+#num2 {
     position: absolute;
     margin-top: -15px;
     margin-left: -15px;
@@ -62,7 +65,7 @@ td {
 
 /* popup */
 
-.userMng_p {
+p {
     text-align: center;
     font-size: 20px;
 }
@@ -91,15 +94,10 @@ td {
 }
 
 .popN {
-    width: auto;
+    color: #aaaaaa;
     float: inline-end;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
-    color: #ffffff;
-    background: #676767;
-    margin-right: 150px;
-    border-radius: 3rem;
-    padding: 2rem 6rem 2rem;
 }
 
 .popN:hover,
@@ -112,13 +110,13 @@ td {
 }
 
 .popY {
-    width: auto;
-    font-size: 20px;
+    color: #aaaaaa;
+    font-size: 28px;
     font-weight: bold;
     margin-left: 150px;
     border: 0px;
-    color: #ffffff;
-    background: #5f8caa;
-    border-radius: 3rem;
-    padding: 2rem 6rem 2rem;
+}
+
+tr th {
+    background-color: #eeeeee;
 }
