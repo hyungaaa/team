@@ -27,3 +27,68 @@ body {
 .login_table th,td{
 	padding:5px;
 }
+
+
+.popup1 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content1 {
+    display: none;
+    background-color: #e6e6e6;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    height: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content2 {
+    display: none;
+    background-color: #e6e6e6;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    height: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pBtn {
+    display: flex;
+    justify-content: space-around
+}
+
+/* 버튼에 커서 표시 */
+div.pBtn > span {cursor: pointer;transition: background 300ms; font-size: 16rem; color: #5f8caa;}
