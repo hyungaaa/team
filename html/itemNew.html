@@ -1,21 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
     <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
+    <!-- <link rel="stylesheet" href="../css/inReg.css">
     <link rel="stylesheet" href="../css/outReg.css">
     <link rel="stylesheet" href="../css/invenView.css">
     <link rel="stylesheet" href="../css/inoutHistory.css">
     <link rel="stylesheet" href="../css/capacityView.css">
     <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
+    <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="../js/system.js"></script>
 
@@ -56,28 +57,29 @@
         <!-- 새로운 제품 추가 창 -->
 
     <!-- 대분류 카테고리 -->
-    <div>
+    <div id="bigCategory">
         <ul>
-            <li><span><a href="">간편식사</span></a>></li>
-            <li><span><a href="">과자류</span></a>></li>
-            <li><span><a href="">아이스크림</span></a>></li>
-            <li><span><a href="">식품</span></a>></li>
-            <li><span><a href="">음료</span></a>></li>
+            <li><a href="#"><span class="mng_span">간편식사</span>></a></li>
+            <li><a href="#"><span class="mng_span">과자류</span>></a></li>
+            <li><a href="#"><span class="mng_span">아이스크림</span>></a></li>
+            <li><a href="#"><span class="mng_span">식품</span>></a></li>
+            <li><a href="#"><span class="mng_span">음료</span>></a></li>
         </ul>
-        <button>카테고리 설정</button>
+        <button class="main_btn">카테고리 설정</button>
     </div>
 
     <!-- 제품 추가 -->
-    <div>
-       <table border="1">
+    <div id="productBoard_new">
+       <table>
             <tr>
                 <!-- 이미지 창 버튼 누르면 그 버튼으로 이미지 올라가게 하고 싶어요-->
-                <td colspan="6">이미지 업로드</td> 
+                <td colspan="6" height="200" auto><button type="button" class="main_btn_new2">이미지 업로드
+                </td></button>
             <tr>
-                <td>제품명</td>
-                <td colspan="3"><input type="text"></td>
-                <td>소분류</td>
-                <td><select value="smallCategory">
+                <th>제품명</th>
+                <td colspan="3"><input type="text" id="input_new1"></td>
+                <th>소분류</th>
+                <td><select value="smallCategory" class="select_new1">
                     <option value="all">전체</option>
                     <option value="lunch">도시락</option>
                     <option value="sand">샌드위치/햄버거</option>
@@ -86,50 +88,54 @@
                 </select></td>
             </tr>
             <tr>
-                <td>제품번호</td>
-                <td><input type="text"></td>
-                <td>보관위치</td>
-                <td><input type="text"></td>
-                <td>등록일</td>
-                <td><input type="text"></td>
+                <th>제품번호</th>
+                <td><input type="text" id="input_new2"></td>
+                <th>보관위치</th>
+                <td><input type="text" id="input_new2"></td>
+                <th>등록일</th>
+                <td><input type="text" id="input_new2"></td>
             </tr>
             <tr>
-                <td>규격</td>
+                <th>규격</th>
                 <td>
-                    <select value="size">
+                    <select value="size" class="select_new1">
                         <option value="small">S(소형)</option>
                         <option value="medium">M(중형)</option>
                         <option value="large">L(대형)</option>
                     </select>
                 </td>
-                <td>단위</td>
+                <th>단위</th>
                 <td>
-                    <select value="unit">
+                    <input type="text" id="input_new3">
+                    <select value="unit" class="select_new3">
                         <option value="each">EA</option>
                         <option value="box">box</option>
                     </select>
                 </td>
-                <td>비고</td>
-                <td><input type="text"></td>
+                <th>비고</th>
+                <td><input type="text" id="input_new2"></td>
             </tr>
             <tr>
-                <td>관련 글</td>
-                <td colspan="6">
-                    <select value="BestQna">
+                <th>관련 글</th>
+                <td colspan="5">
+                    <select value="BestQna" class="select_new2">
                         <option value=""></option>
                         <option value=""></option>
                         <option value=""></option>
                     </select>
+                    <div id="new_button1">
+                    <button type="button" class="main_btn">더 보기</button>
+                    </div>
                 </td>
             </tr>
        </table>
-       <button type="button">더보기</button>
+       <!-- 저장 버튼 -->
+       <div id="button_new">
+           <button type="button" class="main_btn">취소</button>
+           <button type="button" class="main_btn">저장</button>
+       </div>
     </div>
 
-    <!-- 저장 버튼 -->
-    <div>
-        <button type="button">저장</button>
-    </div>
 
     </main>
 
