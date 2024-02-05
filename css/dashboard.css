@@ -10,7 +10,7 @@ main .dashboard {
 }
 
 main .dashboard .dash-box1 {
-    border: 1px solid  red;
+    border: 1px solid  black;
     width: 1050px;
     height: 230px;
     background-color: white;
@@ -21,7 +21,7 @@ main .dashboard .dash-box1 {
 }
 
 main .dashboard .dash-box2 {
-    border: 1px solid red;
+    border: 1px solid black;
     width: 500px;
     height: 230px;
     background-color: white;

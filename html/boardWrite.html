@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/boardWrite.css">
     <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
     <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
     <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
@@ -14,55 +15,11 @@
     <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
     <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
     <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
-    <!-- <link rel="stylesheet" href="../css/boardList.css"> -->
     <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
     
 
-    <script src="system.js"></script>
     <script src="../js/system.js"></script>
-
-    <style>
-        .t1 {
-            width: 60%;
-            min-width: 20%;
-            border: none;
-        }
-        .t1 tr td {
-            border: none;
-            line-height: 0.3em;
-        }
-        .dt1 {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .left {
-            text-align: right;
-            width: 15%;
-        }
-        .right {
-            text-align: left;
-            padding-left: 10px;
-        }
-        textarea {
-            width: 95%;
-            height: 200px;
-        }
-        p {
-            font-size: 15px;
-            padding-right: 10px;
-        }
-        .t1 tr {
-            height: 10px;
-        }
-        .sub2 {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            width: 100%;
-            
-        }
-    </style>
+    <script src="../js/boardWrite.js"></script>
 
 </head>
 <body>
@@ -95,7 +52,6 @@
         </div>
     </nav>
     <main>
-<<<<<<< HEAD
         <div class="dt1">
             <table class="t1">
                 <tr>
@@ -139,7 +95,7 @@
                         <p>파일첨부</p>
                     </td>
                     <td class="right">
-                        <button type="button" value="pc" class="main_btn2">내 pc</button>
+                        <button type="button" value="pc" class="main_btn2" onclick="openFileExplorer()">내 pc</button>
                     </td>
                 </tr>
                 <tr>
@@ -147,46 +103,16 @@
                 </tr>
             </table>
         </div>
-        <div class="sub2">
-            <button type="button" class="main_btn2">취소</button>
-            <button type="button" class="main_btn2">제출</button>
-        </div>
+        <input type="text" id="fileNameDisplay" class="main_normal_txt" readonly style="display: none;">
 
-=======
-        <select>
-            <option>대분류</option>
-            <option>간편식사</option>
-            <option>과자류</option>
-            <option>아이스크림</option>
-            <option>식품</option>
-            <option>음료</option>
-        </select>
-        <select>
-            <option>제품번호</option>
-            <option>EJB00002 김)크랩가득유부초밥</option>
-            <option>EJB00003 주)LT명란마요삼각</option>
-            <option>EJB00004 주)놀라운매콤어묵삼각</option>
-            <option>ECB00001 샐)놀라운치킨&에그무스</option>
-            <option>EDB00001 도)놀라운치킨마요덮밥</option>
-            <option>EDB00002 도)치즈닭갈비고구마밥</option>
-            <option>ESB00001 샌)망곰초코딸기샌드</option>
-            <option>ICA00003 나뚜루)녹차바</option>
-            <option>BMB00005 남양)불가리스딸기150</option>
-            <option>SCC00002 롯데)허쉬너겟쿠앤크6P</option>
-            <option>FGC00004 CJ)햇반전복미역죽</option>
-        </select>
-        <div>
-            제목
-            <input type="text" name="title" id="title" placeholder="제목을 입력해주세요">
+        <div class="sub2" >
+            <button type="button" class="main_btn2" id="sSize">
+            <a href="boardList.html" style="color: #fff">
+                취소
+            </a>
+            </button>
+            <button type="button" class="main_btn2" id="sSize">제출</button>
         </div>
-        <div>
-            파일첨부
-            <button type="button" value="pc">내 pc</button>
-        </div>
-        <div>
-            <textarea placeholder="내용을 입력해주세요"></textarea>
-        </div>
->>>>>>> c75d9dd712fcd2d0b45469f6e6946b9b122b213c
     </main>
     <footer>
         <div class="footer-content">

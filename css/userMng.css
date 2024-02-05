@@ -67,6 +67,10 @@ td {
     font-size: 20px;
 }
 
+#pop_tr {
+    background-color: #eee;
+}
+
 .popup {
     display: none;
     position: fixed;

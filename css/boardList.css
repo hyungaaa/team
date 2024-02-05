@@ -1,0 +1,40 @@
+.search {
+    display: flex;
+    justify-content: space-between;
+}
+.search1 {
+    display: flex;
+}
+.tb {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+table {
+    width: 100%;
+    text-align: center;  
+}
+
+td, th  {
+    height: 25px;
+}
+
+th {
+    background-color: #eee;
+}
+
+.write {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+.page ul {
+    padding: 0px;
+}
+.page li {
+    display: inline;
+    padding: 0 10px;
+}

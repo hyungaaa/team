@@ -26,13 +26,14 @@ td {
     width: 50px;
 }
 
-.mypage_p {
+.mypage2_p {
     font-size: 20px;
     font-weight: bold;
 }
 
-#mypage_div {
+#mypage2_div {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
 }

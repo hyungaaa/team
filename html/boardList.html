@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/boardList.css">
     <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
     <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
     <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
@@ -14,64 +16,18 @@
     <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
     <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
     <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
-    <link rel="stylesheet" href="../css/boardList.css">
     <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="../js/system.js"></script>
-
-    <style>
-        body {
-            font-size: 14px;
-            font-family:Arial, Helvetica, sans-serif;
-        }
-
-        .search {
-            display: flex;
-            justify-content: space-between;
-        }
-        .search1 {
-            display: flex;
-        }
-        .tb {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        table {
-            width: 100%;
-            text-align: center;  
-        }
-
-        td, th  {
-            height: 25px;
-        }
-
-        th {
-            background-color: #eee;
-        }
-
-        .write {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .page {
-            display: flex;
-            justify-content: center;
-        }
-        ul li {
-            display: inline-block;
-            font-size: 18px;
-            padding: 8px;
-        }
-
-    </style>
-
+    <script src="../js/boardList.js"></script>
 
 </head>
+
 <body>
     <header>
         <div class="top-logo">
-            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+            <img
+                src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
         </div>
         <div class="top-bar">
             <h1>물류관리시스템</h1>
@@ -100,22 +56,32 @@
     <main>
         <div class="search">
             <div class="excel">
-                <button type="button" value="download" class="main_btn2">excel 다운로드</button>
+                <button type="button" value="download" class="main_btn2" onclick="exportToExcel()">
+                    excel 다운로드
+                </button>
             </div>
             <div class="search1">
-                <select name="se_op">
-                    <option>전체</option>
-                    <option>제목</option>
-                    <option>제품코드</option>
+                <select name="se_op" id="searchOption">
+                    <option value="all">전체</option>
+                    <option value="title">제목</option>
+                    <option value="productCode">제품코드</option>
                 </select>
-                <input type="text" name="search" class="main_normal_txt" placeholder="검색어를 입력하세요">
-                <button type="button" value="se" class="main_btn">검색</button>
+                <input type="text" name="search" class="main_normal_txt" id="searchInput" placeholder="검색어를 입력하세요">
+                <button type="button" value="se" class="main_btn" onclick="searchTable()">검색</button>
             </div>
-    
+
         </div>
 
         <div class="tb">
-            <table>
+            <table id="tableToExport">
+                <colgroup>
+                    <col width="5%" \>
+                    <col width="15%" \>
+                    <col width="15%" \>
+                    <col width="*" \>
+                    <col width="17%" \>
+                    <col width="10%" \>
+                </colgroup>
                 <tr>
                     <th>No</th>
                     <th>글쓴이</th>
@@ -128,7 +94,12 @@
                     <td>7</td>
                     <td>임가현</td>
                     <td>ICA00003</td>
-                    <td>녹차바가 녹았어요</td>
+                    <td onclick="location.href='board.html'"  
+                        onmouseover="this.style.color='#5f8caa'"
+                        onmouseout="this.style.color='black'" 
+                        style="cursor:pointer">
+                            녹차바가 녹았어요
+                    </td>
                     <td>2024-02-03</td>
                     <td>16</td>
                 </tr>
@@ -184,7 +155,11 @@
         </div>
 
         <div class="write">
-            <button type="button" value="write" class="main_btn">글쓰기</button>
+            <button type="button" value="write" class="main_btn">
+                <a href="boardWrite.html" style="color: #fff">
+                    글쓰기
+                </a>
+            </button>
         </div>
 
         <div class="page">
@@ -214,4 +189,5 @@
         </div>
     </footer>
 </body>
+
 </html>
