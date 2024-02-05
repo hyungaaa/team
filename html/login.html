@@ -7,21 +7,309 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
-    <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css">
-    <link rel="stylesheet" href="../css/capacityView.css">
-    <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
+    <link rel="stylesheet" href="../css/login.css">
 
-    <script src="../js/system.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            bind();
+        });
 
+        function bind(){
+            id_event();
+            pw_event();
+            login();
+            request1();
+            request2();
+        };
+
+        //id에서 엔터 입력시 password로 이동
+        function id_event(){
+            document.querySelector("#userid")
+            .addEventListener("keyup", function (event) {
+                console.log(event.keyCode)
+                if (event.keyCode == 13 && document.querySelector("#userid").value == "") {
+                    document.querySelector("#alert_msg").innerHTML='<span >아이디를 입력하세요</span>';
+                } else if(event.keyCode == 13){
+                    document.querySelector("#pw").focus();
+                } ;
+            });
+        };
+
+        //password에서 엔터 입력시 자동으로 로그인 버튼 클릭
+        function pw_event(){
+        document.querySelector("#pw")
+            .addEventListener("keyup", function (event) {
+                console.log(event.keyCode)
+                if (event.keyCode == 13 && document.querySelector("#pw").value == "" && document.querySelector("#userid").value == "") {
+                    document.querySelector("#alert_msg").innerHTML='<span >아이디를 입력하세요</span>';
+                } else if(event.keyCode == 13 && document.querySelector("#userid").value !== "" && document.querySelector("#pw").value == "") {
+                    document.querySelector("#alert_msg").innerHTML='<span >비밀번호를 입력하세요</span>';
+                } else if(event.keyCode == 13 && document.querySelector("#userid").value !== "" && document.querySelector("#pw").value !== "") {
+                    document.querySelector("#login_btn").click();
+                } ;
+            });
+        };
+
+
+
+        function login(){
+            document.querySelector("#login_btn").addEventListener("click", function(){
+                var userId = document.querySelector("#userid").value;
+                var password = document.querySelector("#pw").value;
+
+                if (userId === "admin" && password === "admin") {
+                    // 로그인 성공 시, 
+                    window.location.href = "dashboard.html";
+                } else {
+                    // 로그인 실패 시, 
+                    document.querySelector("#alert_msg").innerHTML = '<span>아이디 또는 비밀번호가 올바르지 않습니다</span>';
+                };
+            });
+        }
+
+        
+    
+
+
+        function request1(){
+            // 버튼 클릭 시 div 보이게 하기
+            document.querySelector("#request1_btn").addEventListener("click", function(){
+                document.querySelector(".popup1").style.display = "block";
+                document.querySelector(".popup-content1").style.display = "block";
+            });
+
+            emailValid();
+
+
+            // 버튼 클릭시 div 안보이게 하기
+            document.querySelector("#popY1").addEventListener("click", function(){
+
+                if (document.querySelector("#req1_empno").value =="" || document.querySelector("#req1_email").value == "" || document.querySelector("#req1_id").value ==""){
+                    document.querySelector("#alert_msg1").innerHTML='<span>내용을 입력하세요</span>';
+                } else{
+                    document.querySelector(".popup1").style.display = "none";
+                    document.querySelector(".popup-content1").style.display = "none";
+                    alert("요청되었습니다");
+                    input_clear();
+                }
+            });
+            document.querySelector("#popN1").addEventListener("click", function(){
+                document.querySelector(".popup1").style.display = "none";
+                document.querySelector(".popup-content1").style.display = "none";
+                input_clear();
+            });
+
+        }
+
+
+        function request2(){
+            // 버튼 클릭 시 div 보이게 하기
+            document.querySelector("#request2_btn").addEventListener("click", function(){
+                console.log("click");
+                document.querySelector(".popup2").style.display = "block";
+                document.querySelector(".popup-content2").style.display = "block";
+            });
+
+            emailValid();
+
+            // 버튼 클릭시 div 안보이게 하기
+            document.querySelector("#popY2").addEventListener("click", function(){
+                if (document.querySelector("#req2_empno").value =="" || document.querySelector("#req2_email").value == "" || document.querySelector("#req2_id").value ==""){
+                    document.querySelector("#alert_msg2").innerHTML='<span>내용을 입력하세요</span>';
+                } else{
+
+                    document.querySelector(".popup2").style.display = "none";
+                    document.querySelector(".popup-content2").style.display = "none";
+                    alert("요청되었습니다");
+                    input_clear();
+                }
+            });
+            document.querySelector("#popN2").addEventListener("click", function(){
+                document.querySelector(".popup2").style.display = "none";
+                document.querySelector(".popup-content2").style.display = "none";
+                input_clear();
+            });
+        }
+
+
+        //유효 이메일 체크
+        function emailValid(){
+            document.querySelector("#req1_email")
+            .addEventListener("keyup", function (event) {
+
+                var ePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (ePattern.test(document.querySelector("#req1_email").value)) {
+                    document.querySelector("#alert_msg1").innerHTML='<span>ok</span>';
+                } else {
+                    document.querySelector("#alert_msg1").innerHTML='<span>적절하지 않은 이메일 형식입니다</span>';
+                };
+            });
+
+            document.querySelector("#req2_email")
+            .addEventListener("keyup", function (event) {
+
+                var ePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (ePattern.test(document.querySelector("#req2_email").value)) {
+                    document.querySelector("#alert_msg2").innerHTML='<span>ok</span>';
+                } else {
+                    document.querySelector("#alert_msg2").innerHTML='<span>적절하지 않은 이메일 형식입니다</span>';
+                };
+            });
+        };
+
+        // 팝업창 내용 지우기
+        function input_clear(){
+            document.querySelector("#req1_empno").value ="";
+            document.querySelector("#req1_id").value ="";
+            document.querySelector("#req1_email").value ="";
+            document.querySelector("#req2_empno").value ="";
+            document.querySelector("#req2_id").value ="";
+            document.querySelector("#req2_email").value ="";
+            document.querySelector("#alert_msg1").innerText ="";
+            document.querySelector("#alert_msg2").innerText ="";
+        }
+
+    </script>
 
 </head>
 <body>
     
+    <div class="login_page">
+
+        <span class="login_title">LOGIN</span>
+        <br><br><br>
+        
+        <table class="login_table">
+
+            <colgroup>
+                <col width="20%"/>
+                <col width="*"/>
+                <col width="20%"/>
+            </colgroup>
+            <tr>
+                <td rowspan="2">
+                    <img src="../img/user.png" style="max-width: 100%;">
+                </td>
+                <td><input class="main_normal_txt"  type="text" id= "userid" tabindex="1" placeholder="아이디를 입력하세요"></td>
+                <td rowspan="2"><button class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
+            </tr>
+            <tr>
+                <td><input class="main_normal_txt"  type="password" id = "pw" tabindex="2" placeholder="비밀번호를 입력하세요"></td>
+            </tr>
+            <tr height="28rem">
+                <td></td>
+                <td>
+                    <div id="alert_msg" style="color:red; font-size:12rem;"> </div>
+                </td>
+                <td></td>
+            </tr>
+
+        </table>
+        
+        <hr>
+        <br>
+
+        <div style="display: flex;justify-content: space-around;">
+            <button class="main_btn" id="request1_btn" tabindex="4">사용권한 등록 요청</button>
+            <button class="main_btn2" id="request2_btn" tabindex="5">비밀번호 초기화 요청</button>
+        </div>
+
+        <br><br>
+        <span> 최초 사용시에는 상단의 '사용권한 등록요청'을 클릭하여 권한을 등록한 뒤 로그인 해주시기 바랍니다.</span>
+
+
+    </div>
+    
+
+    <!-- 팝업창1 -->
+    <div id="popup1" class="popup1">
+        <div class="popup-content1">
+
+            <p style="font-size: 18rem; font-weight: 500;">사용권한 등록 요청</p>
+            
+            <table>
+
+                <colgroup>
+                    <col width="20%"/>
+                    <col width="*"/>
+                    <col width="30%"/>
+                </colgroup>
+                <tr>
+                    <td>사원번호</td>
+                    <td colspan="2"><input type="text" class="table_normal_txt" id="req1_empno" style="width: 95%;"></td>
+                </tr>
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" class="table_normal_txt" style="width: 95%;" id="req1_id"></td>
+                    <td><button class="main_btn2" id="id_check" style="padding: 8rem 12rem 8rem;">중복확인</button></td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td colspan="2"><input class="table_normal_txt" type="email" style="width: 95%;" id="req1_email"></td>
+                </tr>
+                <tr height="28rem">
+                    <td></td>
+                    <td colspan="2">
+                        <div id="alert_msg1" style="color:red; font-size:12rem;"> </div>
+                    </td>
+                </tr>
+    
+            </table>
+            <br>
+            <div class="pBtn">
+                <span id="popY1">확 인</span>
+                <span id="popN1">취 소</span>
+            </div>
+
+        </div>
+    </div>
+    <!-- 팝업창1  -->
+
+
+    <!-- 팝업창2 -->
+    <div id="popup2" class="popup2">
+        <div class="popup-content2">
+
+            <p style="font-size: 18rem; font-weight: 500;">비밀번호 초기화 요청</p>
+            
+            <table>
+
+                <colgroup>
+                    <col width="20%"/>
+                    <col width="*"/>
+                </colgroup>
+                <tr>
+                    <td>사원번호</td>
+                    <td><input type="text" class="table_normal_txt" id="req2_empno" style="width: 95%;"></td>
+                </tr>
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" class="table_normal_txt" style="width: 95%;" id="req2_id"></td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td><input class="table_normal_txt" type="email" style="width: 95%;" id="req2_email"></td>
+                </tr>
+                <tr height="28rem">
+                    <td></td>
+                    <td>
+                        <div id="alert_msg2" style="color:red; font-size:12rem;"> </div>
+                    </td>
+                </tr>
+    
+            </table>
+            <br>
+            <div class="pBtn">
+                <span id="popY2">확 인</span>
+                <span id="popN2">취 소</span>
+            </div>
+
+        </div>
+    </div>
+    <!-- 팝업창2  -->
+
+
 </body>
 </html>
