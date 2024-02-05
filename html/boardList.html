@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
-    <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css">
-    <link rel="stylesheet" href="../css/capacityView.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
+    <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
+    <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
+    <!-- <link rel="stylesheet" href="../css/outReg.css"> -->
+    <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
+    <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
+    <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
     <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
+    <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="../js/system.js"></script>
 
@@ -38,12 +38,15 @@
         }
         table {
             width: 100%;
-            border: 1px solid #000;
             text-align: center;  
         }
 
         td, th  {
-            height: 40px;
+            height: 25px;
+        }
+
+        th {
+            background-color: #eee;
         }
 
         .write {
@@ -59,10 +62,6 @@
             display: inline-block;
             font-size: 18px;
             padding: 8px;
-        }
-        a {
-            text-decoration: none;
-            color: #000;
         }
 
     </style>
@@ -101,7 +100,7 @@
     <main>
         <div class="search">
             <div class="excel">
-                <button type="button" value="download">excel 다운로드</button>
+                <button type="button" value="download" class="main_btn2">excel 다운로드</button>
             </div>
             <div class="search1">
                 <select name="se_op">
@@ -109,14 +108,14 @@
                     <option>제목</option>
                     <option>제품코드</option>
                 </select>
-                <button type="button" value="se">검색</button>
-                <input type="text" name="search">
+                <input type="text" name="search" class="main_normal_txt" placeholder="검색어를 입력하세요">
+                <button type="button" value="se" class="main_btn">검색</button>
             </div>
     
         </div>
 
         <div class="tb">
-            <table border="1">
+            <table>
                 <tr>
                     <th>No</th>
                     <th>글쓴이</th>
@@ -185,7 +184,7 @@
         </div>
 
         <div class="write">
-            <button type="button" value="write">글쓰기</button>
+            <button type="button" value="write" class="main_btn">글쓰기</button>
         </div>
 
         <div class="page">
