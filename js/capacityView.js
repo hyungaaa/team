@@ -1,4 +1,6 @@
 
+
+
 // 차트 보이게
 document.addEventListener("DOMContentLoaded", function () {
     var elements = document.querySelectorAll("#a_01, #a_02, #b_01, #b_02, #b_03, #b_04, #c_01, #c_02, #c_03");
@@ -6,17 +8,109 @@ document.addEventListener("DOMContentLoaded", function () {
     elements.forEach(function (element) {
         // 마우스가 div에 들어갔을 때 텍스트 나타남
         element.addEventListener("mouseenter", function () {
-            document.querySelector(".hover_test").textContent = "";
+ 
+            let currentIndex = 0;
+
+            switch(element.getAttribute("id")) {
+                case 'a_01' : currentIndex=0;break;
+                case 'a_02' : currentIndex=1;break;
+                case 'b_01' : currentIndex=2;break;
+                case 'b_02' : currentIndex=3;break;
+                case 'b_03' : currentIndex=4;break;
+                case 'b_04' : currentIndex=5;break;
+                case 'c_01' : currentIndex=6;break;
+                case 'c_02' : currentIndex=7;break;
+                case 'c_03' : currentIndex=8;break;
+            }
+
+
+            Chart_line_capa.data.datasets = [newDataset_line[currentIndex]];
+            Chart_line_capa.update();
+
+            console.log(element.getAttribute("id"))
+
         });
 
         // 마우스가 div에서 나갔을 때 텍스트 사라짐
         element.addEventListener("mouseleave", function () {
-            document.querySelector(".hover_test").textContent = "";
+            // document.querySelector(".hover_test").textContent = "";
         });
     });
+
+
+
+    var newDataset_line = new Array(9);
+    newDataset_line[0] = {
+        data: [0, 66, 81, 81, 76, 51, 65],
+        label: "A-01",
+        borderColor: "#3e95cd",
+        fill: false
+    };
+    newDataset_line[1] = {
+        data: [66, 43, 22, 10, 5, 18, 25],
+        label: "A-02",
+        borderColor: "#8e5ea2",
+        fill: false
+    };
+    newDataset_line[2] = {
+        data: [83, 62, 31, 82, 8, 84, 40],
+        label: "B-01",
+        borderColor: "#33FF57",
+        fill: false
+    };
+    newDataset_line[3] = {
+        data: [97, 100, 17, 12, 86, 75, 54],
+        label: "B-02",
+        borderColor: "#FF33F6",
+        fill: false
+    };
+    newDataset_line[4] = {
+        data: [58, 53, 55, 82, 48, 88, 7],
+        label: "B-03",
+        borderColor: "#FFC300",
+        fill: false
+    };
+    newDataset_line[5] = {
+        data: [96, 70, 1, 77, 10, 61, 33],
+        label: "B-04",
+        borderColor: "#FF5733",
+        fill: false
+    };
+    newDataset_line[6] = {
+        data: [97, 99, 50, 51, 56, 99, 55],
+        label: "C-01",
+        borderColor: "#F333FF",
+        fill: false
+    };
+    newDataset_line[7] = {
+        data: [86, 15, 57, 1, 99, 68, 63],
+        label: "C-02",
+        borderColor: "#33FFF6",
+        fill: false
+    };
+    newDataset_line[8] = {
+        data: [2, 71, 58, 72, 35, 32, 14],
+        label: "C-03",
+        borderColor: "#8e5ea2",
+        fill: false
+    };
+
+    currentIndex = 0;
+
+    let Chart_line_capa = new Chart(document.getElementById("line-chart_capa"), {
+        type: 'line',
+        data: {
+            labels: ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04", "2024-02-05", "2024-02-06", "2024-02-07"],
+            datasets: [newDataset_line[currentIndex]]
+        },
+        options: {
+            title: {
+                display: true,
+                text: '주간 수용량 변화'
+            }
+        }
+    });
 });
-
-
 
 
 
@@ -117,4 +211,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
