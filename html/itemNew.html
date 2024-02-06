@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="../js/system.js"></script>
+    <script src="../js/item.js"></script>
 
 
 </head>
@@ -75,7 +76,12 @@
        <table>
             <tr>
                 <!-- 이미지 창 버튼 누르면 그 버튼으로 이미지 올라가게 하고 싶어요-->
-                <td colspan="6" height="200" auto><button type="button" class="main_btn_new2">이미지 업로드
+                <td colspan="6" height="200" auto>
+                    <!-- <img id="imageDisplay" style="width: 100%; height: auto; display: none;"> -->
+                    <!-- <button type="button" class="main_btn_new2" id="img_btn_new"> -->
+                    <!-- <div id="img_prv"></div> -->
+                    <label for="imageUpload" class="main_btn_new2">이미지 업로드</label>
+                    <input type="file" id="imageUpload" style="display: none" accept="image/*">
                 </td></button>
             <tr>
                 <th>제품명</th>
@@ -93,7 +99,17 @@
                 <th>제품번호</th>
                 <td><input type="text" id="input_new2"></td>
                 <th>보관위치</th>
-                <td><input type="text" id="input_new2"></td>
+                <td><select class="select_new1">
+                    <option>A-01</option>
+                    <option>A-02</option>
+                    <option>B-01</option>
+                    <option>B-02</option>
+                    <option>B-03</option>
+                    <option>B-04</option>
+                    <option>C-01</option>
+                    <option>C-02</option>
+                    <option>C-03</option>
+                </select></td>
                 <th>등록일</th>
                 <td><input type="date" id="input_new2"></td>
             </tr>
@@ -134,7 +150,7 @@
        <!-- 저장 버튼 -->
        <div id="button_new">
            <button type="button" class="main_btn"><a href="itemMng.html" id="lim_a">취소</button></a>
-           <button type="button" class="main_btn"><a href="itemMng.html" id="lim_a">저장</button></a>
+           <button type="button" class="main_btn"><a href="itemMng.html" id="lim_a" onclick="saveShow()">저장</button></a>
        </div>
     </div>
 

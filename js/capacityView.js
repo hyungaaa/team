@@ -1,23 +1,116 @@
 
 
-// 문서가 로드된 후 실행되는 함수
+
+// 차트 보이게
 document.addEventListener("DOMContentLoaded", function () {
-    // 각각의 div 요소에 대해 이벤트 리스너를 등록
     var elements = document.querySelectorAll("#a_01, #a_02, #b_01, #b_02, #b_03, #b_04, #c_01, #c_02, #c_03");
-    
+
     elements.forEach(function (element) {
         // 마우스가 div에 들어갔을 때 텍스트 나타남
         element.addEventListener("mouseenter", function () {
-            document.querySelector(".hover_test").textContent = "일단 보여진다";
+ 
+            let currentIndex = 0;
+
+            switch(element.getAttribute("id")) {
+                case 'a_01' : currentIndex=0;break;
+                case 'a_02' : currentIndex=1;break;
+                case 'b_01' : currentIndex=2;break;
+                case 'b_02' : currentIndex=3;break;
+                case 'b_03' : currentIndex=4;break;
+                case 'b_04' : currentIndex=5;break;
+                case 'c_01' : currentIndex=6;break;
+                case 'c_02' : currentIndex=7;break;
+                case 'c_03' : currentIndex=8;break;
+            }
+
+
+            Chart_line_capa.data.datasets = [newDataset_line[currentIndex]];
+            Chart_line_capa.update();
+
+            console.log(element.getAttribute("id"))
+
         });
 
         // 마우스가 div에서 나갔을 때 텍스트 사라짐
         element.addEventListener("mouseleave", function () {
-            document.querySelector(".hover_test").textContent = "";
+            // document.querySelector(".hover_test").textContent = "";
         });
     });
-});
 
+
+
+    var newDataset_line = new Array(9);
+    newDataset_line[0] = {
+        data: [0, 66, 81, 81, 76, 51, 65],
+        label: "A-01",
+        borderColor: "#3e95cd",
+        fill: false
+    };
+    newDataset_line[1] = {
+        data: [66, 43, 22, 10, 5, 18, 25],
+        label: "A-02",
+        borderColor: "#8e5ea2",
+        fill: false
+    };
+    newDataset_line[2] = {
+        data: [83, 62, 31, 82, 8, 84, 40],
+        label: "B-01",
+        borderColor: "#33FF57",
+        fill: false
+    };
+    newDataset_line[3] = {
+        data: [97, 100, 17, 12, 86, 75, 54],
+        label: "B-02",
+        borderColor: "#FF33F6",
+        fill: false
+    };
+    newDataset_line[4] = {
+        data: [58, 53, 55, 82, 48, 88, 7],
+        label: "B-03",
+        borderColor: "#FFC300",
+        fill: false
+    };
+    newDataset_line[5] = {
+        data: [96, 70, 1, 77, 10, 61, 33],
+        label: "B-04",
+        borderColor: "#FF5733",
+        fill: false
+    };
+    newDataset_line[6] = {
+        data: [97, 99, 50, 51, 56, 99, 55],
+        label: "C-01",
+        borderColor: "#F333FF",
+        fill: false
+    };
+    newDataset_line[7] = {
+        data: [86, 15, 57, 1, 99, 68, 63],
+        label: "C-02",
+        borderColor: "#33FFF6",
+        fill: false
+    };
+    newDataset_line[8] = {
+        data: [2, 71, 58, 72, 35, 32, 14],
+        label: "C-03",
+        borderColor: "#8e5ea2",
+        fill: false
+    };
+
+    currentIndex = 0;
+
+    let Chart_line_capa = new Chart(document.getElementById("line-chart_capa"), {
+        type: 'line',
+        data: {
+            labels: ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04", "2024-02-05", "2024-02-06", "2024-02-07"],
+            datasets: [newDataset_line[currentIndex]]
+        },
+        options: {
+            title: {
+                display: true,
+                text: '주간 수용량 변화'
+            }
+        }
+    });
+});
 
 
 
@@ -68,72 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// 수정창 변하게
 
-// function modCnt() {
-//     let modBtn = document.getElementById("btn_cap");
-  
-//     let cap_tbl = document.getElementById("cap_tbl");
-//     let tbody = cap_tbl.getElementsByTagName("tbody")[0];
-//     let rows = tbody.getElementsByTagName("tr");
-    
-//     for (let i = 0; i < tbl.rows.length; i++) {
-//       tbl.rows[i].cells[6].onclick = function() {
-//         tbl.rows[i].cells[4].innerHTML = "<input class='table_blind_txt mod-txt' type='text'>";
-//         tbl.rows[i].cells[5].innerHTML = "<input class='table_blind_txt mod-txt' type='text'>";
-//         tbl.rows[i].cells[6].innerHTML = "<button type='button' class='table_btn' id='modBtn' onclick='modCnt()'>확인</button>";
-//       }
-//     }
-//   }
 
-// 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     // 수정 버튼 클릭 이벤트
-//     document.getElementById('btn_cap').addEventListener('click', function () {
-//         // 5번째와 6번째 행의 내용을 입력 필드로 교체
-//         var rowsToEdit = document.querySelectorAll('#cap_tbl tr:nth-child(5), #cap_tbl tr:nth-child(6)');
-//         rowsToEdit.forEach(function (row) {
-//             var cells = row.getElementsByTagName('td');
-//             for (var i = 4; i <= 5; i++) { // 열 수정으로 변경
-//                 var inputValue = cells[i].innerText;
-//                 cells[i].innerHTML = '<input type="text" class="edit-input" value="' + inputValue + '">';
-//             }
-//         });
-
-//         // 확인 버튼 표시
-//         var confirmButton = document.createElement('button');
-//         confirmButton.className = 'save_btn_cap';
-//         confirmButton.id = 'confirm_btn_cap';
-//         confirmButton.textContent = '확인';
-
-//         document.getElementById('btn_cap').insertAdjacentElement('afterend', confirmButton);
-
-//         // 수정 버튼 숨기기
-//         document.getElementById('btn_cap').style.display = 'none';
-//     });
-
-//     // 확인 버튼 클릭 이벤트
-//     document.addEventListener('click', function (event) {
-//         if (event.target.id === 'confirm_btn_cap') {
-//             // 입력 필드로 교체된 값으로 다시 행 내용 교체
-//             var rowsToSave = document.querySelectorAll('#cap_tbl tr:nth-child(5), #cap_tbl tr:nth-child(6)');
-//             rowsToSave.forEach(function (row) {
-//                 var cells = row.getElementsByTagName('td');
-//                 for (var i = 4; i <= 5; i++) { // 열 수정으로 변경
-//                     var inputValue = cells[i].querySelector('input').value;
-//                     cells[i].innerHTML = inputValue;
-//                 }
-//             });
-
-//             // 확인 버튼 제거
-//             document.getElementById('confirm_btn_cap').remove();
-
-//             // 수정 버튼 표시
-//             document.getElementById('btn_cap').style.display = 'inline-block'; // 수정
-//         }
-//     });
-// });
+// 수정 할 수 있게
 
 document.addEventListener('DOMContentLoaded', function () {
     // 수정 버튼 클릭 이벤트
