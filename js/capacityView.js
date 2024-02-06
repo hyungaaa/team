@@ -68,72 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// 수정창 변하게
 
-// function modCnt() {
-//     let modBtn = document.getElementById("btn_cap");
-  
-//     let cap_tbl = document.getElementById("cap_tbl");
-//     let tbody = cap_tbl.getElementsByTagName("tbody")[0];
-//     let rows = tbody.getElementsByTagName("tr");
-    
-//     for (let i = 0; i < tbl.rows.length; i++) {
-//       tbl.rows[i].cells[6].onclick = function() {
-//         tbl.rows[i].cells[4].innerHTML = "<input class='table_blind_txt mod-txt' type='text'>";
-//         tbl.rows[i].cells[5].innerHTML = "<input class='table_blind_txt mod-txt' type='text'>";
-//         tbl.rows[i].cells[6].innerHTML = "<button type='button' class='table_btn' id='modBtn' onclick='modCnt()'>확인</button>";
-//       }
-//     }
-//   }
 
-// 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     // 수정 버튼 클릭 이벤트
-//     document.getElementById('btn_cap').addEventListener('click', function () {
-//         // 5번째와 6번째 행의 내용을 입력 필드로 교체
-//         var rowsToEdit = document.querySelectorAll('#cap_tbl tr:nth-child(5), #cap_tbl tr:nth-child(6)');
-//         rowsToEdit.forEach(function (row) {
-//             var cells = row.getElementsByTagName('td');
-//             for (var i = 4; i <= 5; i++) { // 열 수정으로 변경
-//                 var inputValue = cells[i].innerText;
-//                 cells[i].innerHTML = '<input type="text" class="edit-input" value="' + inputValue + '">';
-//             }
-//         });
-
-//         // 확인 버튼 표시
-//         var confirmButton = document.createElement('button');
-//         confirmButton.className = 'save_btn_cap';
-//         confirmButton.id = 'confirm_btn_cap';
-//         confirmButton.textContent = '확인';
-
-//         document.getElementById('btn_cap').insertAdjacentElement('afterend', confirmButton);
-
-//         // 수정 버튼 숨기기
-//         document.getElementById('btn_cap').style.display = 'none';
-//     });
-
-//     // 확인 버튼 클릭 이벤트
-//     document.addEventListener('click', function (event) {
-//         if (event.target.id === 'confirm_btn_cap') {
-//             // 입력 필드로 교체된 값으로 다시 행 내용 교체
-//             var rowsToSave = document.querySelectorAll('#cap_tbl tr:nth-child(5), #cap_tbl tr:nth-child(6)');
-//             rowsToSave.forEach(function (row) {
-//                 var cells = row.getElementsByTagName('td');
-//                 for (var i = 4; i <= 5; i++) { // 열 수정으로 변경
-//                     var inputValue = cells[i].querySelector('input').value;
-//                     cells[i].innerHTML = inputValue;
-//                 }
-//             });
-
-//             // 확인 버튼 제거
-//             document.getElementById('confirm_btn_cap').remove();
-
-//             // 수정 버튼 표시
-//             document.getElementById('btn_cap').style.display = 'inline-block'; // 수정
-//         }
-//     });
-// });
+// 수정 할 수 있게
 
 document.addEventListener('DOMContentLoaded', function () {
     // 수정 버튼 클릭 이벤트
