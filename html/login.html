@@ -30,6 +30,7 @@
                 if (event.keyCode == 13 && document.querySelector("#userid").value == "") {
                     document.querySelector("#alert_msg").innerHTML='<span >아이디를 입력하세요</span>';
                 } else if(event.keyCode == 13){
+                    document.querySelector("#pw").value = "";
                     document.querySelector("#pw").focus();
                 } ;
             });

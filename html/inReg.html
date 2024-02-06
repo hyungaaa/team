@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>입고 등록</title>
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
-
     <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css">
     <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
-    <!-- <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css"> -->
-    <link rel="stylesheet" href="../css/capacityView.css">
-    <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
 
     <script src="../js/system.js"></script>
+    <script src="../js/inReg.js"></script>
 
 
 </head>
+
 <body>
     <header>
         <div class="top-logo">
-            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+            <img
+                src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
         </div>
         <div class="top-bar">
             <h1>입고 등록</h1>
@@ -57,36 +50,36 @@
     <main>
         <table id="inReg-tbl1">
             <colgroup>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-                <col width="16%"/>
-                <col width="6%"/>
-              </colgroup>
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+                <col width="16%" />
+                <col width="6%" />
+            </colgroup>
             <tr>
-                <td>제품명</td>
+                <td class="rightAlign">제품명</td>
+                <td class="leftAlign"><input type="text" class="table_normal_txt" readonly></td>
+                <td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
+                <td class="rightAlign">규격</td>
                 <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
-                <td><button type="button" class="table_btn">검색</button></td>
-                <td>규격</td>
+                <td class="rightAlign">단위</td>
                 <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
-                <td>단위</td>
-                <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
-                <td>수량</td>
+                <td class="rightAlign">수량</td>
                 <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
                 <td><button type="button" class="table_btn">추가</button></td>
             </tr>
             <tr>
-                <td>제품번호</td>
-                <td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt"></td>
-                <td>비고</td>
-                <td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt"></td>
-                <td>위치</td>
-                <td colspan="2" class="leftAlign">
+                <td class="rightAlign">제품번호</td>
+                <td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt fullWidth"></td>
+                <td class="rightAlign">비고</td>
+                <td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt fullWidth"></td>
+                <td class="rightAlign">위치</td>
+                <td colspan="2" class="leftAlign fullWidth">
                     <select>
                         <option value="위치">위치</option>
                         <option value="A-01">A-01</option>
@@ -99,11 +92,25 @@
 
         <input type="date">
         <button type="button" class="main_btn">조회</button>
-        <button type="button" class="main_btn">등록</button>
-        <button type="button" class="main_btn">삭제</button>
-        <button type="button" class="main_btn">QR 발행</button>
+        <div class="div-btn">
+            <button type="button" class="main_btn">등록</button>
+            <button type="button" class="main_btn">삭제</button>
+            <button type="button" class="main_btn">QR 발행</button>
+        </div>
 
         <table id="inReg-tbl2">
+            <colgroup>
+                <col width="5%" />
+                <col width="7%" />
+                <col width="8%" />
+                <col width="30%" />
+                <col width="6%" />
+                <col width="8%" />
+                <col width="8%" />
+                <col width="8%" />
+                <col width="10%" />
+                <col width="10%" />
+            </colgroup>
             <thead>
                 <th></th>
                 <th>등록일</th>
@@ -181,15 +188,95 @@
         </table>
         <div id="div-ul">
             <ul>
-              <li><a href="#">&lt;</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&gt;</a></li>
+                <li><a href="#">&lt;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
             </ul>
-          </div>
+        </div>
+
+        <!-- 팝업 -->
+        <div id="popup">
+            <div class="popup-content">
+                <div class="div_top">
+                    제품명
+                    <input type="text" class="main_search_txt" id="searchInput">
+                    <button type="button" class="main_btn" onclick="inRegSearch()">검색</button>
+                </div>
+                <div class="div_tbl">
+                    <table id="popup-tbl">
+                        <colgroup>
+                            <col width="10%" />
+                            <col width="20%" />
+                            <col width="45%" />
+                            <col width="10%" />
+                            <col width="15%" />
+                        </colgroup>
+                        <thead>
+                            <th></th>
+                            <th>제품번호</th>
+                            <th>제품명</th>
+                            <th>규격</th>
+                            <th>단위</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" id="chkBox"></td>
+                                <td>ESB00001</td>
+                                <td>샌)망곰초코딸기샌드</td>
+                                <td>S</td>
+                                <td>BOX</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>SCC00002</td>
+                                <td>롯데)허쉬너겟쿠앤크6P</td>
+                                <td>S</td>
+                                <td>BOX</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>ICA00003</td>
+                                <td>나뚜루)녹차바</td>
+                                <td>M</td>
+                                <td>BOX</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>FGC00004</td>
+                                <td>CJ)햇반전복미역죽</td>
+                                <td>M</td>
+                                <td>EA</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>BMB00005</td>
+                                <td>남양)불가리스딸기150ml</td>
+                                <td>S</td>
+                                <td>BOX</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="div_flex">
+                    <button type="button" class="main_btn">&lt; prev</button>
+                    <button type="button" class="main_btn">next &gt;</button>
+                </div>
+                <div class="div_line"></div>
+                <div class="div_btn">
+                    <a href="#">
+                        <div class="div_in" onclick="">선택</div>
+                    </a>
+                    |
+                    <a href="#">
+                        <div class="div_in" onclick="closePopup()">취소</div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </main>
     <footer>
@@ -206,4 +293,5 @@
         </div>
     </footer>
 </body>
+
 </html>

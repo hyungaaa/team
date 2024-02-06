@@ -1,62 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
-    <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css">
-    <link rel="stylesheet" href="../css/capacityView.css">
-    <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/board.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
+    <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
+    <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
+    <!-- <link rel="stylesheet" href="../css/outReg.css"> -->
+    <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
+    <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
+    <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
+    <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="system.js"></script>
-
-    <style>
-        ._main {
-            margin-top: 30px;
-            margin-left: 250px;
-        }
-        .profile img {
-            width: 40px;
-            height: 40px;
-        }
-        div div img {
-            width: 100px;
-            height: 100px;
-        }
-       .ice {
-            border: 1px solid #ccc;
-            margin-top: 10px;
-            width: 600px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-       }
-       .profile {
-            display: flex;
-            align-items: center;
-       }
-       .btn {
-            width: 600px;
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-evenly;
-       }
-    </style>
+   
 </head>
+
 <body>
     <header>
         <div class="top-logo">
-            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+            <img
+                src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
         </div>
         <div class="top-bar">
             <h1>물류관리시스템</h1>
@@ -85,18 +55,32 @@
     <main>
         <div class="_main">
             <h2>녹차바가 녹았어요</h2>
+            <hr>
             <div class="profile">
                 <img src='https://ifh.cc/g/MRkSvZ.png'>
                 임가현
             </div>
+            <div class="pDate">
+                게시일 : 2024-02-03
+            </div>
             <div class="ice">
+                <br>
                 이번에 들어온 ICA00003 녹차바가 다 녹았어요 <br><br>
                 확인부탁드립니다^^ <br>
-                <img src="https://cdn.pixabay.com/photo/2013/07/12/19/04/popsicle-154321_1280.png">
             </div>
+            <div id="replyForm">
+                <textarea id="replyTextarea" rows="4" cols="50"></textarea>
+            </div>
+
             <div class="btn">
-                <button type="button">뒤로가기</button>
-                <button type="button">답글</button>
+                <button type="button" class="main_btn" id="sSize">
+                    <a href="boardList.html" style="color: #fff;">
+                        뒤로가기
+                    </a>
+                </button>
+                <button type="button" class="main_btn" id="replyButton">
+                    답글
+                </button>
             </div>
         </div>
 
@@ -115,4 +99,5 @@
         </div>
     </footer>
 </body>
+
 </html>

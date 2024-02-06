@@ -8,16 +8,11 @@
     <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
-    <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css">
-    <link rel="stylesheet" href="../css/capacityView.css">
-    <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
 
+    <script src="../js/hello.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="../js/system.js"></script>
+
 
 
 </head>
@@ -52,10 +47,86 @@
     </nav>
     <main>
         <div class="dashboard">
-            <div class="dash-box1"><span class="article-header__title">모니터링1</span></div>
-            <div class="dash-box2">모니터링2</div>
-            <div class="dash-box2">모니터링3</div>
+            <div class="dash-box1">
+
+                <ul id="doughnut-list">
+                    <!-- 카드 형식 도넛 차트 -->
+                </ul>
+                
+            </div>
+            <div class="dash-box2">
+                <canvas id="radar-chart"  height="100%"></canvas>
+            </div>
+            <div class="dash-box2">
+                <canvas id="line-chart" width="300" height="100%"></canvas>
+            </div>
         </div>
+
+        
+        <script>
+            // 정보 입력  
+            let listItem = [];
+            let item = ["<canvas id='doughnut-chart'  height='50%'></canvas>", "0", 0];
+            listItem.push(item);
+            item = ["<canvas id='doughnut-chart'  height='50%'></canvas>", "0", 0];
+            listItem.push(item);
+            item = ["<canvas id='doughnut-chart'  height='50%'></canvas>", "0", 0];
+            listItem.push(item);
+            item = ["<canvas id='doughnut-chart'  height='50%'></canvas>", "0", 0];
+            listItem.push(item);
+    
+            // 이미지
+            let list = document.querySelector("#doughnut-list");
+    
+            let html = "";
+            for (let i = 0; i < listItem.length; i++) {
+                html += ' <li id=list_' + [i] + '>';
+                html +=      listItem[i][0];
+                html += ' </li>';
+            }
+            list.innerHTML = html;
+    
+            // 마우스 hover 큰 이미지
+            let imgL = document.querySelector("#imgL");
+    
+            imgL.innerHTML = '<img src = ' + listItem[0][0] + ' alt="">';
+            for (let i = 0; i < listItem.length; i++) {
+                let thumb = document.querySelector('#list_' + i);
+                imgL.innerHTML = '<img src="' + listItem[0][0] + '" alt=""><br>' + listItem[0][1];  // 처음 화면 값
+                thumb.addEventListener("mouseover", function () {
+                    imgL.innerHTML = '<img src="' + listItem[i][0] + '" alt=""><br>' + listItem[i][1];
+                    thumb.setAttribute("style", "border:2px solid #0055AA;")
+                })
+                thumb.addEventListener("mouseout", function () {
+                    thumb.setAttribute("style", "border:none;")
+                })
+    
+            }
+    
+    
+            // 내용 표시
+            let price = document.querySelector("#price");
+            price.innerHTML = `0 원`;
+            content.addEventListener("click", function () {
+                let price_temp = 0;
+                for (let i = 0; i < listItem.length; i++) {
+    
+                    let chk = document.querySelector('#chk_' + i);
+    
+                    if (chk.checked) {
+                        price_temp += listItem[i][2];
+                        console.log(price_temp);
+                    }
+                }
+                price_temp2 = price_temp;
+                price.innerHTML = `${price_temp2} 원`;
+            })
+    
+            
+    
+        </script>
+        <script src="../js/jalChart.js"></script>
+
     </main>
     <footer>
         <div class="footer-content">

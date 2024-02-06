@@ -1,7 +1,7 @@
 
 [ 형상관리 / 협업툴 ]
 저장소에 파일을 버전별로 저장-히스토리
-종류 : git / svn / cvs 
+종류 : git / svn / cvs     
 
 (*는 용어)
 * repository : 저장소
@@ -62,9 +62,6 @@ expiration : no -expiration
 repo만 체크 : 다 해도 됨
 맨 아래 generate token 클릭
 
-토큰-
-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
-잊어버리면 다시 발급하면 됨
 
 팀장버전
 1. 비어있는 repo 생성 (팀용)
