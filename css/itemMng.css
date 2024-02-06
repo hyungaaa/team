@@ -215,4 +215,8 @@
 .main_btn_new2 {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; height:200px; width: 550px;}
 .main_btn_new2:hover {background: #dadada;color: #5f8caa;}
 
-
+/* itemfix */
+.img_fix {
+    height: 200px;
+    width: 200px;
+}

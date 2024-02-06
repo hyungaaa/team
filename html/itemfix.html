@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
     <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
+    <!-- <link rel="stylesheet" href="../css/inReg.css">
     <link rel="stylesheet" href="../css/outReg.css">
     <link rel="stylesheet" href="../css/invenView.css">
     <link rel="stylesheet" href="../css/inoutHistory.css">
     <link rel="stylesheet" href="../css/capacityView.css">
     <link rel="stylesheet" href="../css/boardList.css">
-    <link rel="stylesheet" href="../css/userMng.css">
+    <link rel="stylesheet" href="../css/userMng.css"> -->
 
     <script src="../js/system.js"></script>
+    <script src="../js/item.js"></script>
 
 
 </head>
@@ -71,26 +72,38 @@
     <div id="productBoard_new">
        <table>
             <tr>
-                <!-- 이미지 창 버튼 누르면 그 버튼으로 이미지 올라가게 하고 싶어요-->
-                <td colspan="6" height="200" auto><button type="button" class="main_btn_new2">이미지 업로드
-                </td></button>
+                <td colspan="6" height="200" auto>
+                    <img src="https://i.ibb.co/X8yfSV4/image.png" class="img_fix">
+                    <!-- <button type="button" class="main_btn_new2">이미지 업로드</button> -->
+                    </td>
             <tr>
                 <th>제품명</th>
-                <td colspan="3"><input type="text" id="input_new1"></td>
+                <td colspan="3"><input type="text" id="input_new1" value="김)크랩가득유부초밥" style="text-align: center;"></td>
                 <th>소분류</th>
                 <td><select value="smallCategory" class="select_new1">
                     <option value="all">전체</option>
                     <option value="lunch">도시락</option>
                     <option value="sand">샌드위치/햄버거</option>
-                    <option value="bob">주먹밥/김밥</option>
+                    <option value="bob" selected>주먹밥/김밥</option>
                     <option value="etc">기타</option>
                 </select></td>
             </tr>
             <tr>
                 <th>제품번호</th>
-                <td><input type="text" id="input_new2"></td>
+                <td><input type="text" id="input_new2" value="EJB00002" style="text-align: center;"></td>
                 <th>보관위치</th>
-                <td><input type="text" id="input_new2"></td>
+                <td><select class="select_new1">
+                        <option>A-01</option>
+                        <option>A-02</option>
+                        <option selected>B-01</option>
+                        <option>B-02</option>
+                        <option>B-03</option>
+                        <option>B-04</option>
+                        <option>C-01</option>
+                        <option>C-02</option>
+                        <option>C-03</option>
+                    </select>
+                </td>
                 <th>등록일</th>
                 <td><input type="date" id="input_new2"></td>
             </tr>
@@ -98,14 +111,14 @@
                 <th>규격</th>
                 <td>
                     <select value="size" class="select_new1">
-                        <option value="small">S(소형)</option>
+                        <option value="small" selected>S(소형)</option>
                         <option value="medium">M(중형)</option>
                         <option value="large">L(대형)</option>
                     </select>
                 </td>
                 <th>단위</th>
                 <td>
-                    <input type="text" id="input_new3">
+                    <input type="text" id="input_new3" value="20" style="text-align: center;">
                     <select value="unit" class="select_new3">
                         <option value="each">EA</option>
                         <option value="box">box</option>
