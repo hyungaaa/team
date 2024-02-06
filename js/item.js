@@ -58,4 +58,51 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// 이미지 보여지게
+// document.getElementById('imageUpload').addEventListener('change', function (event) {
+//     var selectedFile = event.target.files[0];
+
+//     // 여기에 선택된 파일을 업로드하는 로직을 추가하세요.
+//     // 예를 들어, 이미지를 미리보기로 표시할 수 있습니다.
+//     if (selectedFile) {
+//         var reader = new FileReader();
+//         reader.onload = function (e) {
+//             // 선택된 이미지를 미리보기로 표시
+//             var preview = document.createElement('img');
+//             preview.src = e.target.result;
+//             preview.style.width = '100%';
+//             preview.style.height = 'auto';
+//             document.body.appendChild(preview);
+//         };
+//         reader.readAsDataURL(selectedFile);
+//     }
+// });
+
+// document.getElementById('imageUpload').addEventListener('change', function (event) {
+//     var selectedFile = event.target.files[0];
+
+//     // 선택된 파일을 업로드하는 로직을 추가할 수 있습니다.
+
+//     // 이미지를 미리보기로 표시
+//     if (selectedFile) {
+//         var reader = new FileReader();
+//         reader.onload = function (e) {
+//             // 선택된 이미지를 미리보기로 표시
+//             var preview = document.createElement('img');
+//             preview.src = e.target.result;
+//             preview.style.width = '100%';
+//             preview.style.height = 'auto';
+
+//             // 미리보기를 표시할 div에 추가
+//             var previewContainer = document.getElementById('img_prv');
+//             previewContainer.innerHTML = ''; // 이전에 추가된 미리보기가 있다면 초기화
+//             previewContainer.appendChild(preview);
+//         };
+//         reader.readAsDataURL(selectedFile);
+//     }
+// });
+
+
+
+
 

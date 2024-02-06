@@ -216,3 +216,7 @@
 .main_btn_new2:hover {background: #dadada;color: #5f8caa;}
 
 /* itemfix */
+.img_fix {
+    height: 200px;
+    width: 200px;
+}
