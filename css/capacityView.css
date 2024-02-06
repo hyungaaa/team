@@ -59,99 +59,99 @@
 #a_01 {
     background-color: none;
     Position: absolute;
-    width: 50px;
-    height: 50px;
-    transform: translate(120px, -150px);
+    width: 154px;
+    height: 132px;
+    transform: translate(60px, -195px);
 }
 #a_01:hover {
-    background-color: #009cfc67;
+    background-color: #d89ed849;
 }
 
 #a_02 {
     background-color: none;
     Position: absolute;
-    width: 30px;
-    height: 30px;
-    transform: translate(120px, -50px);
+    width: 154px;
+    height: 50px;
+    transform: translate(60px, -63px);
 }
 #a_02:hover {
-    background-color: #009cfc67;
+    background-color: #d89ed849;
 }
 
 #b_01 {
     background-color: none;
     Position: absolute;
-    width: 25px;
-    height: 25px;
-    transform: translate(240px, -190px);
+    width: 76px;
+    height: 38px;
+    transform: translate(215px, -195px);
 }
 #b_01:hover {
-    background-color: #f32b2b87;
+    background-color: #abdee670;
 }
 
 #b_02 {
     background-color: none;
     Position: absolute;
-    width: 25px;
-    height: 25px;
-    transform: translate(240px, -140px);
+    width: 76px;
+    height: 57px;
+    transform: translate(215px, -157px);
 }
 #b_02:hover {
-    background-color: #f32b2b87;
+    background-color: #abdee670;
 }
 
 #b_03 {
     background-color: none;
     Position: absolute;
-    width: 25px;
-    height: 25px;
-    transform: translate(240px, -90px);
+    width: 76px;
+    height: 56px;
+    transform: translate(215px, -100px);
 }
 #b_03:hover {
-    background-color: #f32b2b87;
+    background-color: #abdee670;
 }
 
 #b_04 {
     background-color: none;
     Position: absolute;
-    width: 25px;
-    height: 25px;
-    transform: translate(240px, -40px);
+    width: 76px;
+    height: 31px;
+    transform: translate(215px, -44px);
 }
 #b_04:hover {
-    background-color: #f32b2b87;
+    background-color: #abdee670;
 }
 
 #c_01 {
     background-color: none;
     Position: absolute;
-    width: 30px;
-    height: 30px;
-    transform: translate(420px, -180px);
+    width: 128px;
+    height: 57px;
+    transform: translate(370px, -195px);
 }
 #c_01:hover {
-    background-color: #03ef1b97;
+    background-color: #fafa9170;
 }
 #c_02 {
     background-color: none;
     Position: absolute;
-    width: 30px;
-    height: 30px;
-    transform: translate(420px, -135px);
+    width: 128px;
+    height: 38px;
+    transform: translate(370px, -138px);
 }
 #c_02:hover {
-    background-color: #03ef1b97;
+    background-color: #fafa9170;
 }
 
 #c_03 {
     background-color: none;
     Position: absolute;
-    width: 50px;
-    height: 50px;
-    transform: translate(420px, -80px);
+    width: 128px;
+    height: 87px;
+    transform: translate(370px, -100px);
 }
 #c_03:hover{
-    background-color: #03ef1b97;
+    background-color: #fafa9170;
 }
 
 

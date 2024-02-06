@@ -1,14 +1,12 @@
 
-
-// 문서가 로드된 후 실행되는 함수
+// 차트 보이게
 document.addEventListener("DOMContentLoaded", function () {
-    // 각각의 div 요소에 대해 이벤트 리스너를 등록
     var elements = document.querySelectorAll("#a_01, #a_02, #b_01, #b_02, #b_03, #b_04, #c_01, #c_02, #c_03");
-    
+
     elements.forEach(function (element) {
         // 마우스가 div에 들어갔을 때 텍스트 나타남
         element.addEventListener("mouseenter", function () {
-            document.querySelector(".hover_test").textContent = "일단 보여진다";
+            document.querySelector(".hover_test").textContent = "";
         });
 
         // 마우스가 div에서 나갔을 때 텍스트 사라짐
@@ -17,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 
 
@@ -118,3 +117,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
