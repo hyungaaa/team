@@ -1,0 +1,49 @@
+.t1 {
+    width: 60%;
+    min-width: 20%;
+    border: none;
+}
+.t1 tr td {
+    border: none;
+    line-height: 0.3em;
+}
+.dt1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.left {
+    text-align: center;
+    width: 15%;
+}
+.right {
+    text-align: left;
+    padding-left: 10px;
+}
+textarea {
+    width: 95%;
+    height: 200px;
+}
+p {
+    font-size: 15px;
+    padding-right: 10px;
+}
+.t1 tr {
+    height: 10px;
+}
+.sub2 {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-top: 20px;
+    width: 100%;
+}
+#sSize {
+    width: 100px;
+}
+#fileNameDisplay {
+    margin-left: 234px;
+    width: 56.7%; 
+    height: 20px;
+    border: none;
+}
