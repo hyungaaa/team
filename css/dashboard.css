@@ -19,6 +19,7 @@ main .dashboard .dash-box1 {
     padding: 10px;
     box-sizing: border-box;
     overflow: hidden;
+    text-align: center;
 }
 
 main .dashboard .dash-box2 {
@@ -30,6 +31,8 @@ main .dashboard .dash-box2 {
     margin-bottom: 20px;
     padding: 10px;
     box-sizing: border-box;
+    text-align: center;
+
 }
 
 main .dashboard .dash-box3 {
@@ -41,6 +44,8 @@ main .dashboard .dash-box3 {
     margin-bottom: 20px;
     padding: 10px;
     box-sizing: border-box;
+    text-align: center;
+
 }
 
 main .dash-iframe {
@@ -55,6 +60,8 @@ main .dash-iframe {
     justify-content: space-between;
     padding: 0;
     transition: transform 0.5s ease-in-out;
+
+    margin-top: 10px;
 }
 
 .dash-box1 ul li {

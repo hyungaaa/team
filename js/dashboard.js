@@ -219,7 +219,7 @@ function bind() {
         }
     
         // 결과 확인
-        console.log(columnData_title);
+        // console.log(columnData_title);
     
         html = '<colgroup><col width="85%"/><col width="*"/></colgroup><thead><th>제목</th><th>조회수</th></thead>';
         for(let i = 0; i <4; i++){
