@@ -27,6 +27,11 @@ select {
   float: right;
   padding-bottom: 10px;
 }
+/* 아래 표 */
+#div-tbl2 {
+  height: 300px;
+}
+
 /* 페이징 */
 #div-ul {
   text-align: center;

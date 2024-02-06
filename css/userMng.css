@@ -16,32 +16,31 @@ a {
     color: #000;
 }
 
+/* 테이블 스크롤, 헤더 고정 */
+.div_scr {
+    height: 350px;
+    overflow-y: auto;
+    margin-top: 30px;
+    margin-left: 20px;
+    position: relative;
+}
+
+.div_scr th {
+    position: sticky;
+    top: 0;
+}
+
+/* ========================================= */
+
 #div_yn {
     width: auto;
     margin-top: 2%;
-    margin-left: 90%;
+    margin-left: 88%;
 }
 
-table#table_hd {
-    position: sticky;
-    top: 0;
-    text-align: center;
-    height: 50px;
-    margin-top: 20px;
-    background-color: #eeeeee;
-}
 
 #table_hd2 {
     height: 30px;
-}
-
-head th,
-tr,
-td {
-    border: 1px solid #ccc;
-    text-align: center;
-    height: 30px;
-    width: 50px;
 }
 
 #num1 {
@@ -53,6 +52,13 @@ td {
     height: 30px;
     background-color: red;
     border: 0px;
+}
+
+#num1:hover,
+#num1:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* popup */
