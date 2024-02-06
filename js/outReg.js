@@ -74,11 +74,11 @@ function checkdPopup() {
           match = true;
           closePopup();
           pdtName.value = cells[3].innerText;
-          size.value = cells[4].innerText;
-          unit.value = cells[5].innerText;
-          count.value = cells[6].innerText;
+          // size.value = cells[4].innerText;
+          // unit.value = cells[5].innerText;
+          count.value = cells[5].innerText;
           pdtNum.value = radioBtn;
-          note.value = cells[9].innerText;
+          note.value = cells[10].innerText;
 
           console.log(radioBtn.substr(2, 1));
           // console.log(locSelect[1].value);
@@ -106,6 +106,7 @@ function bind() {
   let plusTr = document.getElementById('plusTr');
 
   plusTr.addEventListener('click', function () {
+
     let tbl = document.getElementById('inReg-tbl2');
     let today = new Date();
     let year = today.getFullYear();
@@ -119,8 +120,9 @@ function bind() {
     html += '  <td>' + todayString + '</td>';
     html += '  <td>' + pdtNum.value + '</td>';
     html += '  <td>' + pdtName.value + '</td>';
-    html += '  <td>' + size.value + '</td>';
-    html += '  <td>' + unit.value + '</td>';
+    html += '  <td>' + locSelect.value + '</td>';
+    html += '  <td>' + count.value + '</td>';
+    html += '  <td>' + count.value + '</td>';
     html += '  <td>' + count.value + '</td>';
     html += '  <td>미등록</td>';
     html += '  <td>' + '자동생성' + '</td>';
@@ -128,8 +130,5 @@ function bind() {
     html += '</tr>';
 
     tbl.innerHTML += html;
-
-    console.log(html);
-
   })
 }
