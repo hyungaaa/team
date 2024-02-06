@@ -1,8 +1,22 @@
-span {
+.mng_span {
     display:inline-block;
     width:150px;
 }
-
+ 
+#div-ul {
+    text-align: center;
+  }
+  ul {
+    padding: 0px;
+  }
+  li {
+    display: inline;
+    padding: 0 10px;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 
 /* 소분류 */
 #scate {
@@ -10,6 +24,7 @@ span {
     text-align: left;
     padding-top: 10px;
     padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 #scate button {
@@ -17,63 +32,187 @@ span {
     height: 50px;
 }
 
-/* 선 */
-hr {
-    padding-bottom: 10px;
-    margin: 0 auto;
-}
 
 /* 게시판 */
 #productBoard {
     padding: 20px;
+    padding-bottom: 10px;
     margin: 0 auto;
+    border: 0px;
+    width: 95%;
 }
 
-/* 검색창 */
-#search input {
-    width: 200px;
-    height: 35px
+#productBoard table{
+    height: 250px;
 }
+
+#productBoard th{
+    height:20px;
+    background-color: #eee;
+    
+}
+
+#lim_a {
+    color: inherit;
+}
+
+
+/* 검색창 */
+
 
 #search button {
     width: 50px;
-    height: 35px
+    height: 35px;
+    text-align: center;
 }
 
 #search {
     text-align: right; 
-    padding-right: 20px;   
+    padding-right: 20px; 
+    padding-top: 10px;  
 }
+
+.main_btn_mng {font-size: 14rem; font-weight: 400; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
+.main_search_txt_mng {width: 200px; height: 35px; vertical-align: top; background: transparent; border: 0; border-bottom: 2rem solid #000; text-overflow: ellipsis; padding-left: 0; font-size: 14rem;}
+.main_btn_mng:hover {background: #dadada;color: #5f8caa;}
 
 
 /*빅카테고리*/
 #bigCategory {
-    border:1px solid black;
     float: left;
     width: 200px;
     height: 100%;
     box-sizing: border-box;
     padding : 5px;
+    text-align: center;
 
 }
 
-#bigCategory li {
+#bigCategory ul {
+    height: 400px;
+    width: 200px;
+    text-align: left;
+
+}
+
+#bigCategory ul li {
     font-size: 28px;
+    padding-bottom: 10px;
+    line-height: 80px;
    
 
 }
 
 #bigCategory button {
-    width:150px;
-    text-align: center;
+    width: 150px;
 }
 
-/**/
+/* 소분류 */
 #all1 {
-    border:1px solid black;
     float: right;
     width: 80%;
     height: 100%;
     box-sizing: border-box;
-
+    
 }
+
+#div-ul_mng {
+    width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+#button_mng_2 {
+    position: relative;
+    float: right;
+    padding-right: 20px;
+    
+}
+
+.main_btn:hover {background: #dadada;color: #5f8caa;}
+
+/*----------------------------------------------------------------------*/
+
+
+/* itemNew*/
+/* 제품추가 창 */
+#productBoard_new {
+    padding: 20px;
+    margin: 0 auto;
+    width: 78%;
+    float: right;
+    height: 400px;
+    
+}
+
+#productBoard_new table{
+    border-radius: 5px;
+    height: 400px;
+}
+
+#productBoard_new th {
+    background-color: #eee;
+}
+
+
+/* 저장 버튼 */
+#button_new {
+    text-align: right;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+/* input, select 창*/
+#input_new1 {
+    width: 410px;
+    height: 20px;
+    border: none;
+}
+
+#input_new2 {
+    width: 120px;
+    height: 20px;
+    border: none;
+}
+
+#input_new3 {
+    width: 80px;
+    height: 20px;
+    border: none;
+}
+
+.select_new1 {
+    text-align: center;
+    width: 125px;
+    height: 20px;
+    border: none;
+}
+
+.select_new2 {
+    text-align: center;
+    width: 550px;
+    height: 40px;
+    border: none;
+    float: center;
+    
+}
+
+.select_new3 {
+    text-align: center;
+    width: 50px;
+    height: 20px;
+    border: none;
+}
+
+#new_button1 {
+    float: right;
+    padding-right: 30px;
+}
+
+
+/* 이미지 업로드 버튼 */
+.main_btn_new2 {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; height:200px; width: 550px;}
+.main_btn_new2:hover {background: #dadada;color: #5f8caa;}
+
+
