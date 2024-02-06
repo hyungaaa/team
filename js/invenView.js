@@ -1,4 +1,4 @@
-function ggoSearch() {
+function goSearch() {
   // input창
   let input = document.getElementById("searchInput").value.toUpperCase();
   // select 옵션
@@ -252,5 +252,21 @@ function pdtNameSelect() {
       }
     }
     rows[i].style.display = match ? "" : "none";
+  }
+}
+
+function modCnt() {
+  let modBtn = document.getElementById("modBtn");
+
+  let tbl = document.getElementById("tbl");
+  let tbody = tbl.getElementsByTagName("tbody")[0];
+  let rows = tbody.getElementsByTagName("tr");
+  
+  for (let i = 0; i < tbl.rows.length; i++) {
+    tbl.rows[i].cells[6].onclick = function() {
+      tbl.rows[i].cells[4].innerHTML = "<input class='table_blind_txt mod-txt' type='text'>";
+      tbl.rows[i].cells[5].innerHTML = "<input class='table_blind_txt mod-txt' type='text'>";
+      tbl.rows[i].cells[6].innerHTML = "<button type='button' class='table_btn' id='modBtn' onclick='modCnt()'>확인</button>";
+    }
   }
 }

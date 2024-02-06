@@ -63,7 +63,7 @@
             </colgroup>
             <tr>
                 <td class="rightAlign">제품명</td>
-                <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
+                <td class="leftAlign"><input type="text" class="table_normal_txt" readonly></td>
                 <td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
                 <td class="rightAlign">규격</td>
                 <td class="leftAlign"><input type="text" class="table_normal_txt"></td>
@@ -98,7 +98,7 @@
             <button type="button" class="main_btn">QR 발행</button>
         </div>
 
-        <table>
+        <table id="inReg-tbl2">
             <colgroup>
                 <col width="5%" />
                 <col width="7%" />
@@ -198,15 +198,16 @@
             </ul>
         </div>
 
+        <!-- 팝업 -->
         <div id="popup">
             <div class="popup-content">
                 <div class="div_top">
                     제품명
-                    <input type="text" class="main_search_txt">
-                    <button type="button" class="main_btn">검색</button>
+                    <input type="text" class="main_search_txt" id="searchInput">
+                    <button type="button" class="main_btn" onclick="inRegSearch()">검색</button>
                 </div>
                 <div class="div_tbl">
-                    <table class="tbl">
+                    <table id="popup-tbl">
                         <colgroup>
                             <col width="10%" />
                             <col width="20%" />
@@ -223,16 +224,37 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="checkbox"></td>
-                                <td>EJB00003</td>
-                                <td>주)LT명란마요삼각</td>
+                                <td><input type="checkbox" id="chkBox"></td>
+                                <td>ESB00001</td>
+                                <td>샌)망곰초코딸기샌드</td>
                                 <td>S</td>
                                 <td>BOX</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox"></td>
-                                <td>EJB00004</td>
-                                <td>주)놀라운매콤어묵삼각</td>
+                                <td>SCC00002</td>
+                                <td>롯데)허쉬너겟쿠앤크6P</td>
+                                <td>S</td>
+                                <td>BOX</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>ICA00003</td>
+                                <td>나뚜루)녹차바</td>
+                                <td>M</td>
+                                <td>BOX</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>FGC00004</td>
+                                <td>CJ)햇반전복미역죽</td>
+                                <td>M</td>
+                                <td>EA</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>BMB00005</td>
+                                <td>남양)불가리스딸기150ml</td>
                                 <td>S</td>
                                 <td>BOX</td>
                             </tr>
@@ -246,7 +268,7 @@
                 <div class="div_line"></div>
                 <div class="div_btn">
                     <a href="#">
-                        <div class="div_in">선택</div>
+                        <div class="div_in" onclick="">선택</div>
                     </a>
                     |
                     <a href="#">
