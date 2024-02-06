@@ -1,7 +1,9 @@
 #div-select {
   text-align: right;
 }
-
+#div-table {
+  height: 410px;
+}
 #div-ul {
   text-align: center;
 }
