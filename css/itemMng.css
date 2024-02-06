@@ -2,7 +2,7 @@
     display:inline-block;
     width:150px;
 }
-
+ 
 #div-ul {
     text-align: center;
   }
@@ -50,6 +50,10 @@
     height:20px;
     background-color: #eee;
     
+}
+
+#lim_a {
+    color: inherit;
 }
 
 
