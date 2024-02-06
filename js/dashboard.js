@@ -42,7 +42,9 @@ function bind() {
         if (currentIndex > 0) {
             currentIndex--;
             moveCards();
-            document.querySelector("#arrow1_1").style
+
+            Chart_line.data.datasets= [newDataset_line[currentIndex], newDataset_line[currentIndex+1], newDataset_line[currentIndex+2], newDataset_line[currentIndex+3]];
+            Chart_line.update();
         }
     })
 
@@ -50,6 +52,9 @@ function bind() {
         if (currentIndex < allCard.children.length - 1-3) {
             currentIndex++;
             moveCards();
+
+            Chart_line.data.datasets= [newDataset_line[currentIndex], newDataset_line[currentIndex+1], newDataset_line[currentIndex+2], newDataset_line[currentIndex+3]];
+            Chart_line.update();
         }
     })
 
@@ -90,7 +95,7 @@ function bind() {
         newName[7] = "C-02";
         newName[8] = "C-03";
 
-        new Chart(document.getElementById(chartID), {
+        let chart_doughnut = new Chart(document.getElementById(chartID), {
             type: 'doughnut',
             data: {
                 labels: ["사용", "미사용"],
@@ -111,21 +116,67 @@ function bind() {
         });
     }
 
-    new Chart(document.getElementById("line-chart"), {
+    var newDataset_line = new Array(9);
+    newDataset_line[0] = {
+        data: [0, 66, 81, 81, 76, 51, 65],
+        label: "A-01",
+        borderColor: "#3e95cd",
+        fill: false
+    };
+    newDataset_line[1] = {
+        data: [66, 43, 22, 10, 5, 18, 25],
+        label: "A-02",
+        borderColor: "#8e5ea2",
+        fill: false
+    };
+    newDataset_line[2] = {
+        data: [83, 62, 31, 82, 8, 84, 40],
+        label: "B-01",
+        borderColor: "#33FF57",
+        fill: false
+    };
+    newDataset_line[3] = {
+        data: [97, 100, 17, 12, 86, 75, 54],
+        label: "B-02",
+        borderColor: "#FF33F6",
+        fill: false
+    };
+    newDataset_line[4] = {
+        data: [58, 53, 55, 82, 48, 88, 7],
+        label: "B-03",
+        borderColor: "#FFC300",
+        fill: false
+    };
+    newDataset_line[5] = {
+        data: [96, 70, 1, 77, 10, 61, 33],
+        label: "B-04",
+        borderColor: "#FF5733",
+        fill: false
+    };
+    newDataset_line[6] = {
+        data: [97, 99, 50, 51, 56, 99, 55],
+        label: "C-01",
+        borderColor: "#F333FF",
+        fill: false
+    };
+    newDataset_line[7] = {
+        data: [86, 15, 57, 1, 99, 68, 63],
+        label: "C-02",
+        borderColor: "#33FFF6",
+        fill: false
+    };
+    newDataset_line[8] = {
+        data: [2, 71, 58, 72, 35, 32, 14],
+        label: "C-03",
+        borderColor: "#8e5ea2",
+        fill: false
+    };
+
+    let Chart_line = new Chart (document.getElementById("line-chart"), {
         type: 'line',
         data: {
             labels: ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04", "2024-02-05", "2024-02-06", "2024-02-07"],
-            datasets: [{
-                data: [0, 66, 81, 81, 76, 51, 65],
-                label: "A-01",
-                borderColor: "#3e95cd",
-                fill: false
-            }, {
-                data: [66, 43, 22, 10, 5, 18, 25],
-                label: "A-02",
-                borderColor: "#8e5ea2",
-                fill: false
-            }
+            datasets: [newDataset_line[currentIndex], newDataset_line[currentIndex+1], newDataset_line[currentIndex+2], newDataset_line[currentIndex+3]
             ]
         },
         options: {
@@ -136,7 +187,7 @@ function bind() {
         }
     });
 
-
+    
 
 
     //게시판 불러오기
@@ -174,7 +225,9 @@ function bind() {
         for(let i = 0; i <4; i++){
             html += ' <tr>';
             html += ' <td>';
+            html += ' <a href="board.html">';
             html += columnData_title[i];
+            html += ' </a>';
             html += ' </td>';
             html += ' <td>';
             html += columnData_open[i];
@@ -186,5 +239,4 @@ function bind() {
 
 
 };
-
 
