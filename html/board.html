@@ -18,8 +18,9 @@
     <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
     <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
 
-    <script src="system.js"></script>
-   
+    <script src="../js/system.js"></script>
+    <script src="../js/board.js"></script>
+
 </head>
 
 <body>
@@ -67,9 +68,10 @@
                 <br>
                 이번에 들어온 ICA00003 녹차바가 다 녹았어요 <br><br>
                 확인부탁드립니다^^ <br>
-            </div>
-            <div id="replyForm">
-                <textarea id="replyTextarea" rows="4" cols="50"></textarea>
+                <div id="replyForm" style="display: none;">
+                    <textarea id="replyTextarea" rows="5" cols="70" readonly>re</textarea>
+                    <button type="button" class="main_btn2" id="submitReplyButton" onclick="submitReply()">등록</button>
+                </div>
             </div>
 
             <div class="btn">
@@ -78,7 +80,7 @@
                         뒤로가기
                     </a>
                 </button>
-                <button type="button" class="main_btn" id="replyButton">
+                <button type="button" class="main_btn" id="replyButton" onclick="showReplyForm()">
                     답글
                 </button>
             </div>

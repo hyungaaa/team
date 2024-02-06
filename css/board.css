@@ -50,3 +50,7 @@ hr {
 #replyButton{
     width: 100px;
 }
+#replyTextarea {
+    border: 1px solid #eee;
+    background: #eee;
+}
