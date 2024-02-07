@@ -1,25 +1,50 @@
-
 #div-select {
   text-align: right;
+}
+
+.searchSelect {
+  border: 0px;
+  background: #ffffff;
+  height: 100%;
+  text-align: left;
+  padding: 3rem;
+  font-family: 'Noto Sans Korean', sans-serif;
+}
+
+.tableSelect {
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  height: 100%;
+  text-align: left;
+  padding: 3rem;
+  font-family: 'Noto Sans Korean', sans-serif;
+  font-size: 13rem;
+  font-weight: 800;
 }
 
 #div-ul {
   text-align: center;
 }
+
 ul {
   padding: 0px;
 }
+
 li {
   display: inline;
   padding: 0 10px;
 }
+
 a {
   text-decoration: none;
   color: #000;
 }
+
 #div-tbl {
   height: 392px;
 }
+
 .mod-txt {
   width: 90%;
 }

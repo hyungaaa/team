@@ -2,10 +2,7 @@
 
 /* 기본 초기화값 */
 main {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-weight: inherit;
+  font-weight: inherit;
 	font-style: inherit;
 	vertical-align: baseline;
     -moz-box-sizing: border-box;
@@ -34,16 +31,16 @@ button {cursor: pointer;transition: background 300ms;}
 
 /* button 스타일 */
 .main_btn {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
-.main_btn:hover {background: #396f94;color: #ffffff;}
+.main_btn:hover {background: #36698c;color: #ffffff;}
 
 .main_btn2 {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #7a7a7a;border: 0px solid #5f8caa; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
-.main_btn2:hover {background: #4e4e4e;color: #ffffff}
+.main_btn2:hover {background: #464646;color: #ffffff}
 
 .table_btn {font-size: 12rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 6rem 20rem 6rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; }
-.table_btn:hover { background: #396f94; color: #fff;}
+.table_btn:hover { background: #36698c; color: #fff;}
  
 .table_btn2 {font-size: 12rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #7a7a7a;border: 0px solid #888; border-radius: 5rem; padding: 6rem 20rem 6rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; }
-.table_btn2:hover { background: #4e4e4e; color: #fff;}
+.table_btn2:hover { background: #464646; color: #fff;}
 
 
 /* input 스타일 */
@@ -63,7 +60,7 @@ button {cursor: pointer;transition: background 300ms;}
 
 
 
-
+input:focus, textarea:focus {outline: none;}
 
 .check:checked {
     background: #5f8caa;

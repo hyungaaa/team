@@ -56,23 +56,13 @@
     <!-- 입출고 이력 -->
 
     <!-- 대분류 카테고리 -->
-    <!-- <div id="bigCategory">
-        <ul>
-            <li onclick="filterCategory('전체')"><a href="itemMng.html"><span class="mng_span">간편식사</span>></a></li>
-            <li onclick="filterCategory('과자류')"><a href="itemMng_snack.html"><span class="mng_span">과자류</span>></a></li>
-            <li onclick="filterCategory('아이스크림')"><a href="itemMng.html"><span class="mng_span">아이스크림</span>></a></li>
-            <li onclick="filterCategory('식품')"><a href="itemMng.html"><span class="mng_span">식품</span>></a></li>
-            <li onclick="filterCategory('음료')"><a href="itemMng.html"><span class="mng_span">음료</span>></a></li>
-        </ul>
-        <button class="main_btn" onclick="setting_btn()">카테고리 설정</button>
-    </div> -->
     <div id="bigCategory">
         <ul>
-            <li><a href="itemMng.html"><span class="mng_span">간편식사</span>></a></li>
-            <li><a href="itemMng_snack.html"><span class="mng_span">과자류</span>></a></li>
-            <li><a href="itemMng.html"><span class="mng_span">아이스크림</span>></a></li>
-            <li><a href="itemMng.html"><span class="mng_span">식품</span>></a></li>
-            <li><a href="itemMng.html"><span class="mng_span">음료</span>></a></li>
+            <li onclick="filterCategory('간편식사')"><a href="itemMng.html"><span class="mng_span">간편식사</span>></a></li>
+            <li onclick="filterCategory('과자류')"><a href="itemMng_snack.html"><span class="mng_span">과자류</span>></a></li>
+            <li onclick="filterCategory('아이스크림')"><a href="itemMng_icecream.html"><span class="mng_span">아이스크림</span>></a></li>
+            <li onclick="filterCategory('식품')"><a href="itemMng_fresh.html"><span class="mng_span">식품</span>></a></li>
+            <li onclick="filterCategory('음료')"><a href="itemMng_beverage.html"><span class="mng_span">음료</span>></a></li>
         </ul>
         <button class="main_btn" onclick="setting_btn()">카테고리 설정</button>
     </div>
@@ -80,14 +70,16 @@
     <!-- 소분류 카테고리 -->
     <div id="all1"> 
     <div id="scate">
-        <button class="main_btn" onclick="filterCategory('전체')">전체</button>
-        <button class="main_btn" onclick="filterCategory('도시락')">도시락</button>
-        <button class="main_btn" onclick="filterCategory('샌드위치/햄버거')">샌드위치/햄버거</button>
-        <button class="main_btn" onclick="filterCategory('주먹밥/김밥')">주먹밥/김밥</button>
-        <button class="main_btn" onclick="filterCategory('기타')">기타</button>
+        <button class="main_btn" id="scate_mng" onclick="filterCategory('전체')">전체</button>
+        <button class="main_btn" id="scate_mng" onclick="filterCategory('도시락')">도시락</button>
+        <button class="main_btn" id="scate_mng" onclick="filterCategory('샌드위치/햄버거')">샌드위치/햄버거</button>
+        <button class="main_btn" id="scate_mng" onclick="filterCategory('주먹밥')">주먹밥</button>
+        <button class="main_btn" id="scate_mng" onclick="filterCategory('기타')">기타</button>
     </div>
 
-    
+    <!-- 선 -->
+
+
     <!-- 검색 창 -->
     <div id="search">
         <input type="text" class="main_search_txt_mng" placeholder="검색어 입력">

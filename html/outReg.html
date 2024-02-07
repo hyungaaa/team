@@ -23,7 +23,7 @@
 				src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
 		</div>
 		<div class="top-bar">
-			<h1>출고 등록</h1>
+			<h1>물류관리시스템</h1>
 		</div>
 		<div class="top-bar-links">
 			<a href="mypage.html">마이페이지</a>
@@ -52,14 +52,16 @@
 			<colgroup>
 				<col width="6%" />
 				<col width="16%" />
+				<col width="7%" />
 				<col width="6%" />
+				<col width="12%" />
 				<col width="6%" />
-				<col width="16%" />
+				<col width="12%" />
 				<col width="6%" />
-				<col width="16%" />
+				<col width="8%" />
 				<col width="6%" />
-				<col width="16%" />
-				<col width="6%" />
+				<col width="8%" />
+				<col width="7%" />
 			</colgroup>
 			<tr>
 				<td class="rightAlign">제품명</td>
@@ -69,8 +71,10 @@
 				<td class="leftAlign"><input type="text" class="table_normal_txt" id="size"></td>
 				<td class="rightAlign">단위</td>
 				<td class="leftAlign"><input type="text" class="table_normal_txt" id="unit"></td>
-				<td class="rightAlign">수량</td>
+				<td class="rightAlign">현재고</td>
 				<td class="leftAlign"><input type="text" class="table_normal_txt" id="count"></td>
+				<td class="rightAlign">출고 수량</td>
+				<td class="leftAlign"><input type="text" class="table_normal_txt" id="outCount"></td>
 				<td><button type="button" class="table_btn" id="plusTr">추가</button></td>
 			</tr>
 			<tr>
@@ -79,8 +83,8 @@
 				<td class="rightAlign">비고</td>
 				<td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="note"></td>
 				<td class="rightAlign">위치</td>
-				<td colspan="2" class="leftAlign fullWidth">
-					<select id="locSelect">
+				<td colspan="4" class="leftAlign fullWidth">
+					<select id="locSelect" class="searchSelect">
 						<option value="위치">위치</option>
 						<option value="A-01">A-01</option>
 						<option value="B-01">B-01</option>
@@ -93,12 +97,11 @@
 		<hr>
 
 		<!-- 버튼들 -->
-		<input type="date">
+		<input type="date" class="inputDate">
 		<button type="button" class="main_btn">조회</button>
 		<div class="div-btn">
 			<button type="button" class="main_btn">등록</button>
-			<button type="button" class="main_btn">삭제</button>
-			<button type="button" class="main_btn">QR 발행</button>
+			<button type="button" class="main_btn" id="selected_del">삭제</button>
 		</div>
 
 		<!-- 아래 추가된 제품 테이블 -->
@@ -132,7 +135,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-01</td>
 						<td>ESB00001</td>
 						<td>샌)망곰초코딸기샌드</td>
@@ -145,7 +148,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-02</td>
 						<td>SCC00002</td>
 						<td>롯데)허쉬너겟쿠앤크6P</td>
@@ -158,7 +161,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-01</td>
 						<td>ICA00003</td>
 						<td>나뚜루)녹차바</td>

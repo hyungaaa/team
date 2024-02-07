@@ -120,24 +120,24 @@ function setting_btn() {
         if (newText !== null && newText !== "") {
             // 사용자가 입력한 내용으로 갱신
             listItem.querySelector("span.mng_span").textContent = newText;
-        }
+        } 
     });
 }
 
-//     // 새로운 li 요소 추가
-//     if (confirm("새로운 카테고리를 추가하시겠습니까?")) {
-//         var newCategory = prompt("새로운 카테고리를 입력하세요");
+    // // 새로운 li 요소 추가
+    // if (confirm("새로운 카테고리를 추가하시겠습니까?")) {
+    //     var newCategory = prompt("새로운 카테고리를 입력하세요");
 
-//         if (newCategory !== null && newCategory !== "") {
-//             var newListItem = document.createElement("li");
-//             newListItem.innerHTML = "<a href='#'><span class='mng_span'>" + newCategory + "</span>></a>";
+    //     if (newCategory !== null && newCategory !== "") {
+    //         var newListItem = document.createElement("li");
+    //         newListItem.innerHTML = "<a href='#'><span class='mng_span'>" + newCategory + "</span>></a>";
 
-//             // 새로운 li 요소를 main_btn 위에 추가
-//             var button = document.querySelector(".main_btn");
-//             button.parentNode.insertBefore(newListItem, button);
-//         }
-//     }
-// }
+    //         // 새로운 li 요소를 main_btn 위에 추가
+    //         var button = document.querySelector(".main_btn");
+    //         button.parentNode.insertBefore(newListItem, button);
+    //     }
+    // }
+
 
 // // 각 버튼을 클릭했을 때 해당 카테고리의 제품만 보이도록 하는 함수
 // function filterCategory(category) {
@@ -164,10 +164,10 @@ function setting_btn() {
 //     filterCategory('전체');
 // });
 
+
 // 카테고리에 속하는 제품 행만 보이도록
 function filterCategory(category) {
     var productRows = document.querySelectorAll(".product-row");
-
     productRows.forEach(function(row) {
         var rowCategory = row.dataset.category;
 
@@ -178,3 +178,42 @@ function filterCategory(category) {
         }
     });
 }
+
+// // 호버 효과를 추가할 버튼의 클래스
+// var hoverButtons = document.querySelectorAll('.scate_btn');
+
+// // 이전에 active 클래스가 있으면 제거
+// hoverButtons.forEach(function(btn) {
+//     btn.classList.remove('active');
+// });
+
+// // 현재 클릭된 카테고리 버튼에 active 클래스 추가
+// var currentButton = document.querySelector('.scate_btn[data-category="' + category + '"]');
+// if (currentButton) {
+//     currentButton.classList.add('active');
+// }
+
+// 소분류 클릭시 색 고정
+var scateButtons = document.querySelectorAll('#scate_mng');
+
+scateButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        // 모든 버튼에서 active 클래스 제거
+        scateButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+
+        // 클릭한 버튼에 active 클래스 추가
+        button.classList.add('active');
+
+        // 클릭한 버튼에 마우스가 올려져 있으면 hover 클래스 추가
+        if (button.matches(':hover')) {
+            button.classList.add('hover');
+        }
+    });
+
+    button.addEventListener('mouseout', function() {
+        // 마우스가 벗어난 경우 hover 클래스 제거
+        button.classList.remove('hover');
+    });
+});

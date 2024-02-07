@@ -55,11 +55,10 @@ a {
 #div_yn {
     width: auto;
     margin-top: 2%;
-    margin-left: 88%;
+    margin-left: 87%;
 }
 
-
-#table_hd2 {
+main table td {
     height: 30px;
 }
 
