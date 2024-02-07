@@ -3,10 +3,8 @@
 }
 
 .searchSelect {
-  border: 1px solid #666;
+  border: 0px;
   background: #ffffff;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-  /* width: 85%; */
   height: 100%;
   text-align: left;
   padding: 3rem;

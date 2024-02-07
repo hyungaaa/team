@@ -153,3 +153,7 @@ a {
   padding: 3rem;
   font-family: 'Noto Sans Korean', sans-serif;
 }
+
+input:focus {
+  outline: none;
+}

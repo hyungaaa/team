@@ -60,7 +60,7 @@ button {cursor: pointer;transition: background 300ms;}
 
 
 
-
+input:focus, textarea:focus {outline: none;}
 
 .check:checked {
     background: #5f8caa;

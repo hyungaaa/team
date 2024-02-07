@@ -174,7 +174,57 @@ function bindEvents() {
             });
         });
     });
+
+
+    var buttons = document.querySelectorAll('.main_btn');
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // 클릭된 버튼이 속한 행 찾기
+            var row = button.closest('tr');
+            // 행의 첫 번째 열과 두 번째 열을 입력 필드로 변경
+            var cells = row.querySelectorAll('td:nth-child(1), td:nth-child(2)');
+            cells.forEach(function (cell) {
+                var inputValue = cell.innerText;
+                cell.innerHTML = '<input type="text" class="edit-input" value="' + inputValue + '">';
+            });
+
+            // 확인 버튼 생성
+            var confirmButton = document.createElement('button');
+            confirmButton.className = 'save_btn_cap';
+            confirmButton.textContent = '확인';
+            button.parentNode.appendChild(confirmButton);
+
+            // 수정 버튼 숨기기
+            button.style.display = 'none';
+
+            // 확인 버튼 클릭 이벤트 리스너 등록
+            confirmButton.addEventListener('click', function () {
+                // 입력 필드로 교체된 값으로 열 내용 교체
+                var editedCells = row.querySelectorAll('td:nth-child(1), td:nth-child(2)');
+                editedCells.forEach(function (editedCell) {
+                    var inputValue = editedCell.querySelector('input').value;
+                    editedCell.innerHTML = inputValue;
+                });
+
+                // 확인 버튼 제거
+                confirmButton.remove();
+
+                // 수정 버튼 다시 보이게 하기
+                button.style.display = 'inline-block';
+            });
+        });
+    });
+
+
+    // 삭제 버튼 클릭 시 해당 행 삭제
+    document.querySelectorAll('.main_btn2').forEach(button => {
+        button.addEventListener('click', function () {
+            const row = this.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        });
+    });
 }
+
 //======================================================================
 
 // popup
