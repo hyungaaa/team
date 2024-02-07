@@ -30,26 +30,56 @@
 #scate button {
     width: 150px;
     height: 50px;
+    border-radius: 50px;
+    transition: background-color 0.3s; 
 }
 
 
 /* 게시판 */
 #productBoard {
+    height: 250px;
     padding: 20px;
     padding-bottom: 10px;
     margin: 0 auto;
     border: 0px;
     width: 95%;
+    max-height: 300px; 
+    overflow-y: auto; /* 내용이 높이를 초과할 경우 스크롤바 표시 */
 }
 
-#productBoard table{
-    height: 250px;
-}
+
+
 
 #productBoard th{
     height:20px;
     background-color: #eee;
     
+}
+#productBoard td{
+    height:20px;
+}
+
+.table_mng {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.table_mng th, .table_mng td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    height: 20px;
+
+}
+
+.table_mng th {
+    background-color: #f2f2f2;
+    height: 20px;
+}
+
+#title_mng tr {
+    height: 20px;
 }
 
 #lim_a {
@@ -113,7 +143,12 @@
     width: 80%;
     height: 100%;
     box-sizing: border-box;
-    
+}
+
+#scate_mng.active,
+#scate_mng:hover {
+    background-color: #dadada;
+    color: #5f8caa;
 }
 
 #div-ul_mng {
@@ -151,9 +186,7 @@
     height: 400px;
 }
 
-#productBoard_new th {
-    background-color: #eee;
-}
+
 
 
 /* 저장 버튼 */
@@ -221,27 +254,9 @@
     width: 200px;
 }
 
- /* 저장 버튼 스타일 */
- #saveButton {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* 저장 확인 및 취소 알림 스타일 */
-.save-alert {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    display: none;
-}
 
  /* 추가한 스타일 */
  .hidden-category {
     display: none;
 }
+
