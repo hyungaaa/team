@@ -1,3 +1,4 @@
+// 검색
 function goSearch() {
   // input창
   let input = document.getElementById("searchInput").value.toUpperCase();
@@ -48,8 +49,7 @@ function goSearch() {
   }
 }
 
-
-
+// 작업자 셀렉트별로 보이게
 function workerSelect() {
   // 셀렉트
   let workerSelect = document.getElementById("workerSelect");
@@ -60,14 +60,18 @@ function workerSelect() {
   let tbody = tbl.getElementsByTagName("tbody")[0];
   let rows = tbody.getElementsByTagName("tr");
 
+  // 행
   for (let i = 0; i < rows.length; i++) {
     const cells = rows[i].getElementsByTagName("td");
     let match = false;
 
+    // 열
     for (let j = 0; j < cells.length; j++) {
       const cell = cells[j];
       const txtValue = cell.textContent || cell.innerText;
 
+      // 셀렉트 옵션 값이랑 테이블 9번째 열 비교
+      // 나중에는 작업자 이름대신 사원번호를 벨류에 넣어서 비교
       if (optionTxt === "작업자" && j === 9) {
         if (txtValue.toUpperCase().indexOf(optionTxt) == -1) {
           match = true;
@@ -104,6 +108,7 @@ function workerSelect() {
   }
 }
 
+// 재고보정 버튼
 function modCnt() {
   let modBtn = document.getElementById("modBtn");
 
@@ -121,6 +126,7 @@ function modCnt() {
   }
 }
 
+// 확인 버튼
 function onConfirmBtn() {
   let confirmBtn = document.getElementById("confirmBtn");
   let modifyTxt = document.getElementById("modifyTxt").value;
@@ -131,8 +137,13 @@ function onConfirmBtn() {
 
   for (let i = 1; i < tbl.rows.length; i++) {
     tbl.rows[i].cells[6].onclick = function () {
+      // console.log(tbl.rows[i].cells[6]);
+      for (let j = 4; j <= 5; j++) {
+        var inputValue = tbl.rows[i].cells[j].querySelector('input').value;
+        tbl.rows[i].cells[j].innerHTML = inputValue;
+        // console.log(inputValue);
+      }
       tbl.rows[i].cells[6].innerHTML = "<button type='button' class='table_btn' id='modBtn' onclick='modCnt()'>재고보정</button>";
     }
-
   }
 }

@@ -43,7 +43,6 @@ function inRegSearch() {
 }
 
 
-
 function checkdPopup() {
   let radioBtn = document.querySelector('input[name="inReg-radio"]:checked').value;
   let locSelect = document.getElementById('locSelect');
@@ -55,13 +54,20 @@ function checkdPopup() {
   let count = document.getElementById('count');
   console.log(radioBtn);
 
+  // 원래 테이블
   let tbl = document.getElementById("inReg-tbl2");
   let tbody = tbl.getElementsByTagName("tbody")[0];
   let rows = tbody.getElementsByTagName("tr");
 
+  // 팝업 테이블
+  let tblPopup = document.getElementById("popup-tbl");
+  let tbodyPopup = tblPopup.getElementsByTagName("tbody")[0];
+  let rowsPopup = tbodyPopup.getElementsByTagName("tr");
+
   // 행 개수
   for (let i = 0; i < rows.length; i++) {
     const cells = rows[i].getElementsByTagName("td");
+    const cellsPopup = rowsPopup[i].getElementsByTagName("td");
     let match = false;
 
     // 열 개수
@@ -74,8 +80,8 @@ function checkdPopup() {
           match = true;
           closePopup();
           pdtName.value = cells[3].innerText;
-          // size.value = cells[4].innerText;
-          // unit.value = cells[5].innerText;
+          size.value = cellsPopup[3].innerText;
+          unit.value = cellsPopup[4].innerText;
           count.value = cells[5].innerText;
           pdtNum.value = radioBtn;
           note.value = cells[10].innerText;
@@ -93,14 +99,12 @@ function checkdPopup() {
 
         }
       }
-
-
     }
-
   }
 
 }
 
+// 테이블 행 추가
 function bind() {
 
   let plusTr = document.getElementById('plusTr');
