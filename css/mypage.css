@@ -22,7 +22,7 @@ td {
 }
 
 .mypage_p {
-    font-size: 20px;
+    font-size: 18rem;
     font-weight: bold;
 }
 
@@ -30,4 +30,9 @@ td {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+}
+
+
+main div span {
+    font-size: 14rem;
 }

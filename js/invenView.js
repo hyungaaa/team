@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelector(".navi-item5").setAttribute("class", "navi-item navi-item5 active");
+
+});
+
+
 // 검색
 function goSearch() {
   // input창

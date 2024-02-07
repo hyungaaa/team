@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelector(".navi-item6").setAttribute("class", "navi-item navi-item6 active");
+
+});
+
+
 function goSearch() {
   let input = document.getElementById("searchInput").value.toUpperCase();
   let selectOption = document.getElementById("selectOption").value;

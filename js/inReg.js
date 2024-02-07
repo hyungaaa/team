@@ -1,5 +1,8 @@
 window.addEventListener("load", function () {
   bind();
+
+  document.querySelector(".navi-item3").setAttribute("class", "navi-item navi-item3 active");
+
 })
 
 // popup창 띄우기

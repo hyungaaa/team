@@ -8,14 +8,6 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/ui.css">
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/itemMng.css">
-    <link rel="stylesheet" href="../css/inReg.css">
-    <link rel="stylesheet" href="../css/outReg.css">
-    <link rel="stylesheet" href="../css/invenView.css">
-    <link rel="stylesheet" href="../css/inoutHistory.css">
-    <link rel="stylesheet" href="../css/capacityView.css">
-    <link rel="stylesheet" href="../css/boardList.css">
     <link rel="stylesheet" href="../css/userMng.css">
     <script src="../js/userMng.js"></script>
     <script src="../js/system.js"></script>
@@ -54,16 +46,16 @@
         </div>
     </nav>
     <main>
-        <div style="width: 1050px;">
-            <select id="searchSelect" class="main_search_txt" style="float:left; width: 100px;">
+        <div style="width: 1080px;">
+            <select id="searchSelect" class="main_search_txt" style="float:left; width: 100px; margin-left: 30px; margin-top: 30px;">
                 <option>센터 검색</option>
                 <option value="천안">천안</option>
                 <option value="아산">아산</option>
                 <option value="평택">평택</option>
             </select>
             <div id="div_yn">
-                <button onclick="openPopup()" class="table_btn">권한 요청 목록<button onclick="openPopup()"
-                        id="num1">2</button></button>
+                <button onclick="openPopup()" class="main_btn">권한 요청 목록</button>
+                <button onclick="openPopup()" id="num1">2</button>
                 <div id="popup" class="popup">
                     <div class="popup-content">
                         <p class="userMng_p">사용자 요청 목록</p>
@@ -141,59 +133,61 @@
                         <col width="10%">
                         <col width="10%">
                     </colgroup>
-                    <tr>
-                        <th>이름</th>
-                        <th>사원번호</th>
-                        <th>
-                            <select id="select_change1" class="table_normal_txt" style="width: 60px; height: 25px;">
-                                <option>센터</option>
-                                <option value="천안" class="select_op1">천안</option>
-                                <option value="아산" class="select_op1">아산</option>
-                                <option value="평택" class="select_op1">평택</option>
-                            </select>
-                            <button type="button" id="change_button1" class="table_btn"
-                                style="padding: 6rem;">변경</button>
-                        </th>
-                        <th>
-                            <select id="select_change2" class="table_normal_txt" style="width: 60px; height: 25px;">
-                                <option>권한</option>
-                                <option value="게스트" class="select_op2">게스트</option>
-                                <option value="사용자" class="select_op2">사용자</option>
-                                <option value="부관리자" class="select_op2">부관리자</option>
-                                <option value="관리자" class="select_op2">관리자</option>
-                            </select>
-                            <button type="button" id="change_button2" class="table_btn"
-                                style="padding: 6rem;">변경</button>
-                        </th>
-                        <th>
-                            입/출고등록<input type="checkbox" id="select_all1">
-                        </th>
-                        <th>
-                            입/출고수정<input type="checkbox" id="select_all2">
-                        </th>
-                        <th>
-                            단가등록<input type="checkbox" id="select_all3">
-                        </th>
-                        <th>
-                            단가수정<input type="checkbox" id="select_all4">
-                        </th>
-                        <th>
-                            메뉴수정<input type="checkbox" id="select_all5">
-                        </th>
-                        <th></th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>이름</th>
+                            <th>사원번호</th>
+                            <th>
+                                <select id="select_change1" class="table_normal_txt" style="width: 60px; height: 25px;">
+                                    <option>센터</option>
+                                    <option value="천안" class="select_op1">천안</option>
+                                    <option value="아산" class="select_op1">아산</option>
+                                    <option value="평택" class="select_op1">평택</option>
+                                </select>
+                                <button type="button" id="change_button1" class="table_btn"
+                                    style="padding: 6rem;">변경</button>
+                            </th>
+                            <th>
+                                <select id="select_change2" class="table_normal_txt" style="width: 60px; height: 25px;">
+                                    <option>권한</option>
+                                    <option value="게스트" class="select_op2">게스트</option>
+                                    <option value="사용자" class="select_op2">사용자</option>
+                                    <option value="부관리자" class="select_op2">부관리자</option>
+                                    <option value="관리자" class="select_op2">관리자</option>
+                                </select>
+                                <button type="button" id="change_button2" class="table_btn"
+                                    style="padding: 6rem;">변경</button>
+                            </th>
+                            <th>
+                                입/출고등록<input type="checkbox" id="select_all1">
+                            </th>
+                            <th>
+                                입/출고수정<input type="checkbox" id="select_all2">
+                            </th>
+                            <th>
+                                단가등록<input type="checkbox" id="select_all3">
+                            </th>
+                            <th>
+                                단가수정<input type="checkbox" id="select_all4">
+                            </th>
+                            <th>
+                                메뉴수정<input type="checkbox" id="select_all5">
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tr>
                         <td>임가현</td>
                         <td>C00001</td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="천안" class="select_op1">천안</option>
                                 <option value="아산" class="select_op1">아산</option>
                                 <option value="평택" class="select_op1">평택</option>
                             </select>
                         </td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="게스트" class="select_op2">게스트</option>
                                 <option value="사용자" class="select_op2">사용자</option>
                                 <option value="부관리자" class="select_op2">부관리자</option>
@@ -213,14 +207,14 @@
                         <td>이가희</td>
                         <td>C00002</td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="천안" class="select_op1">천안</option>
                                 <option value="아산" class="select_op1" selected>아산</option>
                                 <option value="평택" class="select_op1">평택</option>
                             </select>
                         </td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="게스트" class="select_op2">게스트</option>
                                 <option value="사용자" class="select_op2">사용자</option>
                                 <option value="부관리자" class="select_op2" selected>부관리자</option>
@@ -240,14 +234,14 @@
                         <td>윤아영</td>
                         <td>C00003</td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="천안" class="select_op1">천안</option>
                                 <option value="아산" class="select_op1">아산</option>
                                 <option value="평택" class="select_op1" selected>평택</option>
                             </select>
                         </td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="게스트" class="select_op2" selected>게스트</option>
                                 <option value="사용자" class="select_op2">사용자</option>
                                 <option value="부관리자" class="select_op2">부관리자</option>
@@ -267,14 +261,14 @@
                         <td>박종화</td>
                         <td>C00004</td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="천안" class="select_op1" selected>천안</option>
                                 <option value="아산" class="select_op1">아산</option>
                                 <option value="평택" class="select_op1">평택</option>
                             </select>
                         </td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="게스트" class="select_op2" selected>게스트</option>
                                 <option value="사용자" class="select_op2">사용자</option>
                                 <option value="부관리자" class="select_op2">부관리자</option>
@@ -294,14 +288,14 @@
                         <td>송우석</td>
                         <td>C00005</td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="천안" class="select_op1">천안</option>
                                 <option value="아산" class="select_op1" selected>아산</option>
                                 <option value="평택" class="select_op1">평택</option>
                             </select>
                         </td>
                         <td>
-                            <select class="main_search_txt" style="width: 90px; height: 20px;">
+                            <select class="main_search2_txt" style="width: 90px; height: 20px;">
                                 <option value="게스트" class="select_op2">게스트</option>
                                 <option value="사용자" class="select_op2">사용자</option>
                                 <option value="부관리자" class="select_op2" selected>부관리자</option>
