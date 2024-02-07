@@ -22,7 +22,7 @@
         src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
     </div>
     <div class="top-bar">
-      <h1>재고 현황</h1>
+      <h1>물류관리시스템</h1>
     </div>
     <div class="top-bar-links">
       <a href="mypage.html">마이페이지</a>
@@ -48,7 +48,7 @@
   <main>
     <!-- 검색 -->
     <div id="div-select">
-      <select id="selectOption">
+      <select id="selectOption" class="searchSelect">
         <option value="all">전체</option>
         <option value="productName">제품명</option>
         <option value="productCode">제품번호</option>
@@ -87,7 +87,7 @@
             <th>최종기준일자</th>
             <th>죄종작업일자 </th>
             <th>
-              <select id="workerSelect" onchange="workerSelect()">
+              <select id="workerSelect" class="tableSelect" onchange="workerSelect()">
                 <option value="작업자">작업자</option>
                 <option value="박종화">박종화</option>
                 <option value="송우석">송우석</option>

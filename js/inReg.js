@@ -42,8 +42,6 @@ function inRegSearch() {
   }
 }
 
-
-
 function checkdPopup() {
   let radioBtn = document.querySelector('input[name="inReg-radio"]:checked').value;
   let locSelect = document.getElementById('locSelect');
@@ -76,7 +74,7 @@ function checkdPopup() {
           pdtName.value = cells[3].innerText;
           size.value = cells[4].innerText;
           unit.value = cells[5].innerText;
-          count.value = cells[6].innerText;
+          // count.value = cells[6].innerText;
           pdtNum.value = radioBtn;
           note.value = cells[9].innerText;
 
@@ -138,13 +136,27 @@ function bind() {
     html += '  <td>' + unit.value + '</td>';
     html += '  <td>' + count.value + '</td>';
     html += '  <td>미등록</td>';
-    html += '  <td>' + '자동생성' + '</td>';
+    html += '  <td></td>';
     html += '  <td></td>';
     html += '</tr>';
 
-    tbl.innerHTML += html;
-
-    console.log(html);
-
+    if(pdtName.value == '') {
+      alert('제품을 검색해주세요.');
+    } else if(count.value != '') {
+      tbl.innerHTML += html;
+    } else {
+      alert('수량을 입력해주세요');
+    }
+  })
+  
+  let selected_del = document.getElementById("selected_del"); 
+  selected_del.addEventListener("click", function () {
+  
+    let list_checked = document.querySelectorAll(".chk:checked")
+    for(let i=0; i<list_checked.length; i++){
+      list_checked[i].parentNode.parentNode.remove();
+      // console.log(list_checked[i].parentNode);
+      // console.log(list_checked[i].parentNode.parentNode)
+    }
   })
 }
