@@ -220,3 +220,28 @@
     height: 200px;
     width: 200px;
 }
+
+ /* 저장 버튼 스타일 */
+ #saveButton {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 저장 확인 및 취소 알림 스타일 */
+.save-alert {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    display: none;
+}
+
+ /* 추가한 스타일 */
+ .hidden-category {
+    display: none;
+}
