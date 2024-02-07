@@ -7,6 +7,7 @@ window.addEventListener("load", function () {
 
 function bind() {
 
+    document.querySelector(".navi-item1").setAttribute("class", "navi-item navi-item1 active");
 
     // 정보 배열로 입력  
     let listItem = [];

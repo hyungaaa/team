@@ -1,5 +1,9 @@
 
+document.addEventListener("DOMContentLoaded", function () {
 
+    document.querySelector(".navi-item7").setAttribute("class", "navi-item navi-item7 active");
+
+});
 
 // 차트 보이게
 document.addEventListener("DOMContentLoaded", function () {
@@ -168,11 +172,10 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', function () {
     // 수정 버튼 클릭 이벤트
     document.getElementById('btn_cap').addEventListener('click', function () {
-        // "담당자"와 "비고" 열의 내용을 입력 필드로 교체
         var rowsToEdit = document.querySelectorAll('#cap_tbl tr');
         rowsToEdit.forEach(function (row) {
             var cells = row.getElementsByTagName('td');
-            for (var i = 5; i <= 6; i++) { // "담당자"와 "비고" 열만 수정 가능하게 변경
+            for (var i = 6; i <= 7; i++) { // 담당자, 비고 열만 가능
                 var inputValue = cells[i].innerText;
                 cells[i].innerHTML = '<input type="text" class="edit-input" value="' + inputValue + '">';
             }
@@ -197,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var rowsToSave = document.querySelectorAll('#cap_tbl tr');
             rowsToSave.forEach(function (row) {
                 var cells = row.getElementsByTagName('td');
-                for (var i = 5; i <= 6; i++) { // "담당자"와 "비고" 열만 수정 가능하게 변경
+                for (var i = 6; i <= 7; i++) { // 담당자, 비고 열만 가능하게
                     var inputValue = cells[i].querySelector('input').value;
                     cells[i].innerHTML = inputValue;
                 }

@@ -1,17 +1,14 @@
-.mng_span {
-    display:inline-block;
-    width:150px;
-}
  
-#div-ul {
+/* #div-ul {
     text-align: center;
-  }
+  } */
   ul {
     padding: 0px;
   }
   li {
     display: inline;
-    padding: 0 10px;
+    padding: 20px;
+    list-style-type: none;
   }
   a {
     text-decoration: none;
@@ -80,32 +77,111 @@
 /*빅카테고리*/
 #bigCategory {
     float: left;
-    width: 200px;
+    width: 220px;
     height: 100%;
     box-sizing: border-box;
-    padding : 5px;
+    /* padding : 0px; */
+    /* margin: 0px; */
     text-align: center;
 
 }
 
-#bigCategory ul {
+
+/* #bigCategory ul {
     height: 400px;
     width: 200px;
     text-align: left;
 
-}
+} */
 
-#bigCategory ul li {
+
+
+
+/* #bigCategory ul li {
     font-size: 28px;
     padding-bottom: 10px;
     line-height: 80px;
-   
+    
+    
+} */
+#bigCategory li {
+    list-style-type: none;
+}
 
+.menu {
+    width: 200px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0px auto;
+    position: absolute;
+    
+}
+
+.menu a {
+    
+    text-decoration:none;
+    font-size:25px;
+    color: #fff;
+  }
+  
+.submenu > li {
+    font-size: 12px;
+    text-align: center;
+    line-height: 2px;
+    background-color: #94a9ff00;
+  }
+  
+.submenu {
+    height: 0; /*ul의 높이를 안보이게 처리*/
+    overflow: hidden;
+  }
+
+.menu > li {
+    display: inline-block;
+    padding-bottom: 5px;
+    width: 70%;
+    text-align: center;
+    line-height: 40px;
+    background-color: #5f8caa;
+    /* border-radius: 25px; */
+  }
+
+.menu > li:hover {
+    background-color: #aa5f79b4;
+  }
+  
+.menu > li:hover .submenu {
+    height: 150px; /*서브메뉴 li한개의 높이 50*5*/
+    transition-duration: 0.5s;
+  }
+
+#sub_li_a {
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+    
+}
+
+#sub_li_a2 {
+    display: block;
+    text-align: center;;
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+    margin-left: 10px;
+}
+
+#mng_btn {
+    position: fixed;
+    left: 8%;
+    top: 58%;
 }
 
 #bigCategory button {
     width: 150px;
 }
+
+
 
 /* 소분류 */
 #all1 {
@@ -120,7 +196,7 @@
     width: 860px;
     margin: 0 auto;
     text-align: center;
-    position: relative;
+   
 }
 
 #button_mng_2 {
@@ -219,29 +295,4 @@
 .img_fix {
     height: 200px;
     width: 200px;
-}
-
- /* 저장 버튼 스타일 */
- #saveButton {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* 저장 확인 및 취소 알림 스타일 */
-.save-alert {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    display: none;
-}
-
- /* 추가한 스타일 */
- .hidden-category {
-    display: none;
 }

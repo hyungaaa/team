@@ -1,23 +1,31 @@
 /* 상단 테이블 */
-#inReg-tbl1, #inReg-tbl1 tr, #inReg-tbl1 td {
+#inReg-tbl1,
+#inReg-tbl1 tr,
+#inReg-tbl1 td {
   border: none;
 }
+
 select {
   width: 98%;
 }
+
 .leftAlign {
   text-align: left;
 }
+
 .inputResize {
   width: 96%;
 }
+
 .rightAlign {
   text-align: right;
   padding-right: 10px;
 }
+
 .tbl-input-text {
   width: 100%;
 }
+
 .fullWidth {
   width: 94%;
 }
@@ -27,21 +35,31 @@ select {
   float: right;
   padding-bottom: 10px;
 }
+
+/* 아래 표 */
+#div-tbl2 {
+  height: 300px;
+}
+
 /* 페이징 */
 #div-ul {
   text-align: center;
 }
+
 ul {
   padding: 0px;
 }
+
 li {
   display: inline;
   padding: 0 10px;
 }
+
 a {
   text-decoration: none;
   color: #000;
 }
+
 /* 팝업 */
 #popup {
   display: none;
@@ -56,6 +74,7 @@ a {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .popup-content {
   background-color: #fefefe;
   margin: auto;
@@ -64,24 +83,29 @@ a {
   width: 385px;
   height: 380px;
 }
+
 /* 팝업 내용 */
 .all {
   margin: 15px;
 }
+
 /* 검색 부분 */
 .div_top {
   text-align: center;
   margin-bottom: 10px;
 }
+
 /* 테이블 */
 .div_tbl {
   text-align: center;
 }
+
 .tbl {
   text-align: center;
   width: 100%;
   margin-bottom: 10px;
 }
+
 /* 이전, 다음 버튼 */
 .div_flex {
   display: flex;
@@ -89,16 +113,19 @@ a {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
 /* 선 */
 .div_line {
   width: 100%;
   margin-bottom: 10px;
   border: 1px solid #ccc;
 }
+
 /* 선택, 취소 버튼 */
-.div_btn{
+.div_btn {
   text-align: center;
 }
+
 .div_in {
   display: inline;
   width: 50%;
