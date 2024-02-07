@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelector(".navi-item6").setAttribute("class", "navi-item navi-item6 active");
+
+});
+
+
 function goSearch() {
   let input = document.getElementById("searchInput").value.toUpperCase();
   let selectOption = document.getElementById("selectOption").value;
@@ -43,7 +50,7 @@ function goSearch() {
 
 function goInout() {
   let inoutSelect = document.getElementById("inoutSelect");
-  var optionTxt = inoutSelect.options[document.getElementById("inoutSelect").selectedIndex].text;
+  var optionTxt = inoutSelect.value;
 
   let tbl = document.getElementById("tbl");
   let tbody = tbl.getElementsByTagName("tbody")[0];
@@ -56,10 +63,6 @@ function goInout() {
     for (let j = 0; j < cells.length; j++) {
         const cell = cells[j];
         const txtValue = cell.textContent || cell.innerText;
-
-        // console.log(txtValue);
-        // console.log(optionTxt);
-        // console.log(optionTxt===txtValue);
 
         if (optionTxt === "작업 구분" && j === 2) {
           if (txtValue.toUpperCase().indexOf(optionTxt) == -1) {

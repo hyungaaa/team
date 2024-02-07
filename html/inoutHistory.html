@@ -22,7 +22,7 @@
         src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
     </div>
     <div class="top-bar">
-      <h1>입출고 이력</h1>
+      <h1>물류관리시스템</h1>
     </div>
     <div class="top-bar-links">
       <a href="mypage.html">마이페이지</a>
@@ -48,7 +48,7 @@
   <main>
     <!-- 검색 -->
     <div id="div-select">
-      <select id="selectOption">
+      <select id="selectOption" class="searchSelect">
         <option value="all">전체</option>
         <option value="LOT">LOT No.</option>
         <option value="productCode">제품번호</option>
@@ -76,10 +76,10 @@
             <th>LOT No.</th>
             <th>전표일자-No.</th>
             <th>
-              <select id="inoutSelect" onchange="goInout()">
+              <select id="inoutSelect" class="tableSelect" onchange="goInout()">
                 <option value="작업 구분">작업 구분</option>
-                <option value="in">입고</option>
-                <option value="out">출고</option>
+                <option value="입고">입고</option>
+                <option value="출고">출고</option>
               </select>
             </th>
             <th>제품번호</th>

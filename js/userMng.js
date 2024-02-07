@@ -120,7 +120,12 @@
 //=============================================================================
 window.addEventListener("load", function () {
     bindEvents();
+
+    document.querySelector(".navi-item9").setAttribute("class", "navi-item navi-item9 active");
+
 });
+
+
 
 function bindEvents() {
     // 체크박스 전체 선택

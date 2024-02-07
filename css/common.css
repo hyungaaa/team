@@ -116,6 +116,20 @@ nav a:hover {
     color: rgb(240, 240, 240);
 }
 
+.navi-item.active {
+    position: relative;
+}
+
+.navi-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px; /* 바의 너비 조정 */
+    height: 100%;
+    background-color: #edae49; /* 바의 색상 */
+}
+
 
 /* 메인 페이지 스타일링 */
 main {

@@ -22,7 +22,7 @@
 				src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
 		</div>
 		<div class="top-bar">
-			<h1>입고 등록</h1>
+			<h1>물류관리시스템</h1>
 		</div>
 		<div class="top-bar-links">
 			<a href="mypage.html">마이페이지</a>
@@ -80,7 +80,7 @@
 				<td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="note"></td>
 				<td class="rightAlign">위치</td>
 				<td colspan="2" class="leftAlign fullWidth">
-					<select id="locSelect">
+					<select id="locSelect" class="searchSelect">
 						<option value="위치">위치</option>
 						<option value="A-01">A-01</option>
 						<option value="B-01">B-01</option>
@@ -93,12 +93,12 @@
 		<hr>
 
 		<!-- 버튼들 -->
-		<input type="date">
+		<input type="date" class="inputDate">
 		<button type="button" class="main_btn">조회</button>
 		<div class="div-btn">
 			<button type="button" class="main_btn">등록</button>
-			<button type="button" class="main_btn">삭제</button>
-			<button type="button" id="qr_button" onclick="openWindow()" class="main_btn">QR 발행</button>
+			<button type="button" class="main_btn" id="selected_del">삭제</button>
+			<button type="button" id="qr_button" onclick="openWindow()" class="main_btn2">QR 발행</button>
 		</div>
 		
 		<!-- 아래 추가된 제품 테이블 -->
@@ -130,7 +130,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-01</td>
 						<td>ESB00001</td>
 						<td>샌)망곰초코딸기샌드</td>
@@ -138,11 +138,11 @@
 						<td>BOX</td>
 						<td>5</td>
 						<td>미등록</td>
-						<td>LT2024020100001</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-01</td>
 						<td>SCC00002</td>
 						<td>롯데)허쉬너겟쿠앤크6P</td>
@@ -154,7 +154,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-01</td>
 						<td>ICA00003</td>
 						<td>나뚜루)녹차바</td>
@@ -166,7 +166,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-01</td>
 						<td>FGC00004</td>
 						<td>CJ)햇반전복미역죽</td>
@@ -178,7 +178,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox"></td>
+						<td><input type="checkbox" class="chk"></td>
 						<td>2024-02-01</td>
 						<td>BMB00005</td>
 						<td>남양)불가리스딸기150ml</td>

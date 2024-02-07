@@ -31,7 +31,7 @@
 .select_cap {
     width: 110px;
     height: 34px;
-    background-color: #eee;
+    background: transparent;
     border: none;
     text-align: center;
     font-weight: bold;

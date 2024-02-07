@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelector(".navi-item8").setAttribute("class", "navi-item navi-item8 active");
+
+});
+
+
 function exportToExcel() {
     let table = document.getElementById("tableToExport");
     let html = table.outerHTML;
