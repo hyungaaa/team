@@ -2,20 +2,25 @@
     display: flex;
     justify-content: space-between;
 }
+
 .search1 {
     display: flex;
+    align-items: center;
 }
+
 .tb {
     margin-top: 10px;
     margin-bottom: 10px;
     height: 350px;
 }
+
 table {
     width: 100%;
-    text-align: center;  
+    text-align: center;
 }
 
-td, th  {
+td,
+th {
     height: 25px;
 }
 
@@ -32,10 +37,29 @@ td, th  {
     display: flex;
     justify-content: center;
 }
+
 .page ul {
     padding: 0px;
 }
+
 .page li {
     display: inline;
     padding: 0 10px;
+}
+
+.main_normal_txt1 {
+    border: 1px solid #666;
+    background: #ffffff;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+    width: 76rem;
+    color: #666;
+    height: 30rem;
+    text-align: left;
+    padding: 3rem;
+    text-overflow: ellipsis;
+}
+
+#searchOption {
+    font-size: 13rem;
+    font-weight: 800;
 }
