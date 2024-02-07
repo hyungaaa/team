@@ -19,9 +19,9 @@ td, th  {
     height: 25px;
 }
 
-th {
-    background-color: #eee;
-}
+/* th {
+     background-color: #eee;
+} */
 
 .write {
     display: flex;
