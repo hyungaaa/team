@@ -80,6 +80,9 @@ main .sub-menu li a:hover {
     height: 50px;
     border-radius: 50px;
     transition: background-color 0.3s;
+    background: #ffffff;
+    border: 2px solid #5f8caa;
+    color: #000;
 }
 
 
@@ -234,8 +237,8 @@ main .sub-menu li a:hover {
 
 #scate_mng.active,
 #scate_mng:hover {
-    background-color: #dadada;
-    color: #5f8caa;
+    background-color: #5f8caa;
+    color: #ffffff;
 }
 
 #div-ul_mng {
