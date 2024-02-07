@@ -101,6 +101,21 @@ function checkdPopup() {
 
 }
 
+
+function openWindow() {
+  // 팝업 창 크기 설정
+  var width = 400; // 팝업 창의 너비
+  var height = 600; // 팝업 창의 높이
+
+  // 화면 중앙에 팝업 창을 위치시키기 위한 계산
+  var left = (window.screen.width / 2) - (width / 2);
+  var top = (window.screen.height / 2) - (height / 2);
+
+  // 새 팝업 창 열기
+  window.open('qrpage.html', 'newWindow', 'width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
+}
+
+
 function bind() {
 
   let plusTr = document.getElementById('plusTr');
