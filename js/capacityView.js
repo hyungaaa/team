@@ -1,5 +1,9 @@
 
+document.addEventListener("DOMContentLoaded", function () {
 
+    document.querySelector(".navi-item7").setAttribute("class", "navi-item navi-item7 active");
+
+});
 
 // 차트 보이게
 document.addEventListener("DOMContentLoaded", function () {

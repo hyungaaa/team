@@ -1,4 +1,10 @@
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelector(".navi-item2").setAttribute("class", "navi-item navi-item2 active");
+
+});
+
 // 저장 버튼 누르면 alert 창 뜨게
 function saveShow() {
     var savealert = confirm("저장 하시겠습니까?");
