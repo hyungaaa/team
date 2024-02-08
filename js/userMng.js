@@ -154,24 +154,19 @@ function bindEvents() {
     // 셀렉트 선택 검색
     document.getElementById("searchSelect").addEventListener("change", function () {
         let selectedValue = this.value;
-        let tables = document.querySelectorAll("table");
+        let rows = document.querySelectorAll("#table_cap tr");
 
-        tables.forEach(function (table) {
-            let rows = table.querySelectorAll("tr");
+        rows.forEach(function (row, index) {
+            if (index !== 0) {
+                let selectBoxes = row.querySelectorAll("select.main_search2_txt");
+                let centerValue = selectBoxes[0].value;
 
-            rows.forEach(function (row, index) {
-                if (index !== 0) {
-                    let selectBox = row.querySelector("select.main_search_txt");
-                    if (selectBox) {
-                        let centerValue = selectBox.value;
-                        if (selectedValue === "센터 검색" || centerValue === selectedValue) {
-                            row.style.display = "";
-                        } else {
-                            row.style.display = "none";
-                        }
-                    }
+                if (selectedValue === "센터 검색" || centerValue === selectedValue) {
+                    row.style.display = ""; // 해당 행을 표시
+                } else {
+                    row.style.display = "none"; // 일치하지 않는 경우 해당 행을 숨김
                 }
-            });
+            }
         });
     });
 
