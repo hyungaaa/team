@@ -2,20 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".navi-item8").setAttribute("class", "navi-item navi-item8 active");
 
-        //로그인 환경
-        const urlParams = new URLSearchParams(window.location.search);
-        const userType = urlParams.get('userType');
-    
-        if(userType == 'admin'){
-    
-        } else if (userType == 'user'){
-            
-            document.querySelector(".navi-item9").style.display = "none";
-            document.querySelector(".status-user").innerHTML = "접속자: 천안센터 사용자";
-    
-    
-        }
-
 });
 
 
