@@ -16,6 +16,26 @@ a {
     color: #000;
 }
 
+.save_btn_cap {
+    font-size: 14rem;
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    background: #6b4040;
+    border: 0px solid #5f8caa;
+    border-radius: 5rem;
+    padding: 8rem;
+    transition: background .3s;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.save_btn_cap:hover {
+    background: #4e4e4e;
+    color: #ffffff
+}
+
 /* 테이블 스크롤, 헤더 고정 */
 .div_scr {
     height: 350px;
@@ -28,6 +48,7 @@ a {
 .div_scr th {
     position: sticky;
     top: 0;
+    background-color: #eee;
 }
 
 /* ========================================= */
@@ -35,11 +56,10 @@ a {
 #div_yn {
     width: auto;
     margin-top: 2%;
-    margin-left: 88%;
+    margin-left: 87%;
 }
 
-
-#table_hd2 {
+main table td {
     height: 30px;
 }
 

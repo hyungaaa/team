@@ -95,6 +95,18 @@ a {
   margin-bottom: 10px;
 }
 
+/* 검색 부분 위치 셀렉트 */
+.searchSelect {
+  border: 1px solid #666;
+  background: #ffffff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  width: 240px;
+  color: #000;
+  height: 100%;
+  text-align: left;
+  padding: 3rem;
+}
+
 /* 테이블 */
 .div_tbl {
   text-align: center;
@@ -130,4 +142,18 @@ a {
   display: inline;
   width: 50%;
   margin: 70px;
+}
+
+.inputDate {
+  border: 1px solid #666;
+  background: #ffffff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  color: #000;
+  text-align: left;
+  padding: 3rem;
+  font-family: 'Noto Sans Korean', sans-serif;
+}
+
+input:focus {
+  outline: none;
 }

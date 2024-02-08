@@ -15,6 +15,7 @@ function saveShow() {
     }
 }
 
+
 // 검색 가능
 // 검색결과 나오게 하는 거 
 
@@ -31,16 +32,16 @@ document.addEventListener("DOMContentLoaded", function () {
             var showRow = false;
 
             if (index === 0) {
-                showRow =  true;
+                showRow = true;
             }
             else {
-            // 검색어 일치하는지 확인
-            row.querySelectorAll("td").forEach(function (cell) {
-                if (cell.textContent.toLowerCase().includes(searchKeyword)) {
-                    showRow = true;
-                }
-            });
-        }
+                // 검색어 일치하는지 확인
+                row.querySelectorAll("td").forEach(function (cell) {
+                    if (cell.textContent.toLowerCase().includes(searchKeyword)) {
+                        showRow = true;
+                    }
+                });
+            }
 
             // 일치 하는 부분 없으면 행 숨김
             if (!showRow) {
@@ -113,7 +114,7 @@ function setting_btn() {
     // 각 li 요소의 내용을 수정 가능하게 만들기
     var listItems = document.querySelectorAll("#bigCategory ul li");
 
-    listItems.forEach(function(listItem) {
+    listItems.forEach(function (listItem) {
         var currentText = listItem.textContent.trim();
         var newText = prompt("수정할 내용을 입력하세요", currentText);
 
@@ -124,25 +125,25 @@ function setting_btn() {
     });
 }
 
-//     // 새로운 li 요소 추가
-//     if (confirm("새로운 카테고리를 추가하시겠습니까?")) {
-//         var newCategory = prompt("새로운 카테고리를 입력하세요");
+// // 새로운 li 요소 추가
+// if (confirm("새로운 카테고리를 추가하시겠습니까?")) {
+//     var newCategory = prompt("새로운 카테고리를 입력하세요");
 
-//         if (newCategory !== null && newCategory !== "") {
-//             var newListItem = document.createElement("li");
-//             newListItem.innerHTML = "<a href='#'><span class='mng_span'>" + newCategory + "</span>></a>";
+//     if (newCategory !== null && newCategory !== "") {
+//         var newListItem = document.createElement("li");
+//         newListItem.innerHTML = "<a href='#'><span class='mng_span'>" + newCategory + "</span>></a>";
 
-//             // 새로운 li 요소를 main_btn 위에 추가
-//             var button = document.querySelector(".main_btn");
-//             button.parentNode.insertBefore(newListItem, button);
-//         }
+//         // 새로운 li 요소를 main_btn 위에 추가
+//         var button = document.querySelector(".main_btn");
+//         button.parentNode.insertBefore(newListItem, button);
 //     }
 // }
+
 
 // // 각 버튼을 클릭했을 때 해당 카테고리의 제품만 보이도록 하는 함수
 // function filterCategory(category) {
 //     var products = document.querySelectorAll("#productBoard tr");
-    
+
 //     products.forEach(function(product) {
 //         var productCategory = product.querySelector("td:nth-child(2)").textContent.trim();
 
@@ -164,11 +165,11 @@ function setting_btn() {
 //     filterCategory('전체');
 // });
 
+
 // 카테고리에 속하는 제품 행만 보이도록
 function filterCategory(category) {
     var productRows = document.querySelectorAll(".product-row");
-
-    productRows.forEach(function(row) {
+    productRows.forEach(function (row) {
         var rowCategory = row.dataset.category;
 
         if (category === '전체' || rowCategory === category) {
@@ -176,5 +177,45 @@ function filterCategory(category) {
         } else {
             row.style.display = "none";
         }
+
     });
+
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var catBtn = document.querySelectorAll('#scate_mng');
+
+    catBtn.forEach(function (btn) {
+
+        
+        btn.addEventListener("click",
+        filterCategory()
+        )
+        btn.addEventListener("click", function () {
+            
+            catBtn.forEach(function (otherBtn) {
+                if (otherBtn !== btn) {
+                    otherBtn.classList.remove('active');
+                }
+            });
+            btn.classList.add('active');
+        })
+
+    })
+
+});
+
+// // 호버 효과를 추가할 버튼의 클래스
+// var hoverButtons = document.querySelectorAll('.scate_btn');
+
+// // 이전에 active 클래스가 있으면 제거
+// hoverButtons.forEach(function(btn) {
+//     btn.classList.remove('active');
+// });
+
+// // 현재 클릭된 카테고리 버튼에 active 클래스 추가
+// var currentButton = document.querySelector('.scate_btn[data-category="' + category + '"]');
+// if (currentButton) {
+//     currentButton.classList.add('active');
+// }

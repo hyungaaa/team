@@ -1,9 +1,37 @@
+/* 검색 */
 #div-select {
   text-align: right;
 }
+/* 검색 셀렉트 */
+.searchSelect {
+  border: 0px;
+  background: #ffffff;
+  height: 100%;
+  text-align: left;
+  padding: 3rem;
+  font-family: 'Noto Sans Korean', sans-serif;
+}
+
+/* 테이블 높이 */
 #div-table {
   height: 410px;
 }
+
+.tableSelect {
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  /* width: 85%; */
+  height: 100%;
+  text-align: left;
+  padding: 3rem;
+  /* font-weight: bold; */
+  font-family: 'Noto Sans Korean', sans-serif;
+  font-size: 13rem;
+  font-weight: 800;
+}
+
+/* 페이징 */
 #div-ul {
   text-align: center;
 }

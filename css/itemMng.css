@@ -1,22 +1,70 @@
 .mng_span {
-    display:inline-block;
-    width:150px;
+    display: inline-block;
+    width: 150px;
 }
- 
+
 #div-ul {
     text-align: center;
-  }
-  ul {
+}
+
+ul {
     padding: 0px;
-  }
-  li {
+}
+
+li {
     display: inline;
     padding: 0 10px;
-  }
-  a {
+}
+
+a {
     text-decoration: none;
     color: #000;
-  }
+}
+
+
+/* 대분류 */
+
+main .find-item {
+    position: relative;
+    display: inline-block;
+}
+
+main .find-item > a:hover {
+    color: #5f8caa;
+}
+
+main .find-item:hover .sub-menu {
+    display: block;
+}
+
+
+main .sub-menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0%;
+    left: 160px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    visibility: visible;
+}
+
+main .sub-menu li {
+    display: block;
+
+}
+
+main .sub-menu li a {
+    color: #000;
+}
+
+main .sub-menu li a:hover {
+    color: #5f8caa;
+    text-decoration:underline;
+}
+
+
+
 
 /* 소분류 */
 #scate {
@@ -30,26 +78,62 @@
 #scate button {
     width: 150px;
     height: 50px;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+    background: #ffffff;
+    border: 2px solid #5f8caa;
+    color: #000;
 }
 
 
 /* 게시판 */
 #productBoard {
+    height: 250px;
     padding: 20px;
     padding-bottom: 10px;
     margin: 0 auto;
     border: 0px;
     width: 95%;
+    max-height: 300px;
+    overflow-y: auto;
+    /* 내용이 높이를 초과할 경우 스크롤바 표시 */
 }
 
-#productBoard table{
-    height: 250px;
-}
 
-#productBoard th{
-    height:20px;
+
+
+#productBoard th {
+    height: 20px;
     background-color: #eee;
-    
+
+}
+
+#productBoard td {
+    height: 20px;
+}
+
+.table_mng {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.table_mng th,
+.table_mng td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    height: 20px;
+
+}
+
+.table_mng th {
+    background-color: #f2f2f2;
+    height: 20px;
+}
+
+#title_mng tr {
+    height: 20px;
 }
 
 #lim_a {
@@ -67,14 +151,39 @@
 }
 
 #search {
-    text-align: right; 
-    padding-right: 20px; 
-    padding-top: 10px;  
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 
-.main_btn_mng {font-size: 14rem; font-weight: 400; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
-.main_search_txt_mng {width: 200px; height: 35px; vertical-align: top; background: transparent; border: 0; border-bottom: 2rem solid #000; text-overflow: ellipsis; padding-left: 0; font-size: 14rem;}
-.main_btn_mng:hover {background: #dadada;color: #5f8caa;}
+.main_btn_mng {
+    font-size: 14rem;
+    font-weight: 400;
+    color: #ffffff;
+    background: #5f8caa;
+    border: 0px solid #888;
+    border-radius: 5rem;
+    transition: background .3s;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.main_search_txt_mng {
+    width: 200px;
+    height: 35px;
+    vertical-align: top;
+    background: transparent;
+    border: 0;
+    border-bottom: 2rem solid #000;
+    text-overflow: ellipsis;
+    padding-left: 0;
+    font-size: 14rem;
+}
+
+.main_btn_mng:hover {
+    background: #dadada;
+    color: #5f8caa;
+}
 
 
 /*빅카테고리*/
@@ -83,25 +192,36 @@
     width: 200px;
     height: 100%;
     box-sizing: border-box;
-    padding : 5px;
+    padding: 5px;
     text-align: center;
 
 }
 
-#bigCategory ul {
+#bigCategory > ul {
     height: 400px;
     width: 200px;
     text-align: left;
 
 }
 
-#bigCategory ul li {
-    font-size: 28px;
+#bigCategory > ul > li {
+    font-size: 20px;
     padding-bottom: 10px;
-    line-height: 80px;
-   
-
+    line-height: 50px;
+    text-align: center;
 }
+
+
+#bigCategory > ul > li .sub-menu {
+    font-size: 16px;
+    padding-bottom: 10px;
+    line-height: 40px;
+    text-align: center;
+    width: 150px;
+    transition: all 0.5s;
+}
+
+
 
 #bigCategory button {
     width: 150px;
@@ -113,7 +233,12 @@
     width: 80%;
     height: 100%;
     box-sizing: border-box;
-    
+}
+
+#scate_mng.active,
+#scate_mng:hover {
+    background-color: #5f8caa;
+    color: #ffffff;
 }
 
 #div-ul_mng {
@@ -127,10 +252,8 @@
     position: relative;
     float: right;
     padding-right: 20px;
-    
-}
 
-.main_btn:hover {background: #dadada;color: #5f8caa;}
+}
 
 /*----------------------------------------------------------------------*/
 
@@ -143,17 +266,15 @@
     width: 78%;
     float: right;
     height: 400px;
-    
+
 }
 
-#productBoard_new table{
+#productBoard_new table {
     border-radius: 5px;
     height: 400px;
 }
 
-#productBoard_new th {
-    background-color: #eee;
-}
+
 
 
 /* 저장 버튼 */
@@ -195,7 +316,7 @@
     height: 40px;
     border: none;
     float: center;
-    
+
 }
 
 .select_new3 {
@@ -212,8 +333,27 @@
 
 
 /* 이미지 업로드 버튼 */
-.main_btn_new2 {font-size: 14rem; font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; padding: 10rem 24rem 10rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem; height:200px; width: 550px;}
-.main_btn_new2:hover {background: #dadada;color: #5f8caa;}
+.main_btn_new2 {
+    font-size: 14rem;
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    background: #5f8caa;
+    border: 0px solid #888;
+    border-radius: 5rem;
+    padding: 10rem 24rem 10rem;
+    transition: background .3s;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    height: 200px;
+    width: 550px;
+}
+
+.main_btn_new2:hover {
+    background: #dadada;
+    color: #5f8caa;
+}
 
 /* itemfix */
 .img_fix {
@@ -221,27 +361,8 @@
     width: 200px;
 }
 
- /* 저장 버튼 스타일 */
- #saveButton {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-/* 저장 확인 및 취소 알림 스타일 */
-.save-alert {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    display: none;
-}
-
- /* 추가한 스타일 */
- .hidden-category {
+/* 추가한 스타일 */
+.hidden-category {
     display: none;
 }
