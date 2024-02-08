@@ -2,4 +2,10 @@
 우리가 다 해먹조?
 우리가 지존이조?
 <br>
-<img src="https://raw.githubusercontent.com/hyungaaa/team/main/jal_logo_final.png" width="300" height="150"/>
+<img src="https://raw.githubusercontent.com/hyungaaa/team/main/img/jal_logo_final.png" width="300" height="150"/>
+//              __  
+//  __ _   __ _ |`|     
+// / _` | / _` || |   
+//    | || (_| || |__,
+//  __, | \__,_| \____|
+// |___/
