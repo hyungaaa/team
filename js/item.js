@@ -140,31 +140,6 @@ function setting_btn() {
 // }
 
 
-// // 각 버튼을 클릭했을 때 해당 카테고리의 제품만 보이도록 하는 함수
-// function filterCategory(category) {
-//     var products = document.querySelectorAll("#productBoard tr");
-
-//     products.forEach(function(product) {
-//         var productCategory = product.querySelector("td:nth-child(2)").textContent.trim();
-
-//         if (category === '전체' || productCategory === category) {
-//             product.style.display = "";
-//         } else {
-//             product.style.display = "none";
-//         }
-//     });
-// }
-
-// // 도시락 버튼을 눌렀을 때 도시락에 해당하는 제품만 보이도록 하는 함수
-// function showCategory(category) {
-//     filterCategory(category);
-// }
-
-// // 초기 페이지 로드시 전체 제품 보이도록 설정
-// document.addEventListener("DOMContentLoaded", function() {
-//     filterCategory('전체');
-// });
-
 
 // 카테고리에 속하는 제품 행만 보이도록
 function filterCategory(category) {
@@ -172,7 +147,7 @@ function filterCategory(category) {
     productRows.forEach(function (row) {
         var rowCategory = row.dataset.category;
 
-        if (category === '전체' || rowCategory === category) {
+        if (category ==  '전체' || rowCategory == category) {
             row.style.display = "";
         } else {
             row.style.display = "none";
@@ -206,16 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// // 호버 효과를 추가할 버튼의 클래스
-// var hoverButtons = document.querySelectorAll('.scate_btn');
 
-// // 이전에 active 클래스가 있으면 제거
-// hoverButtons.forEach(function(btn) {
-//     btn.classList.remove('active');
-// });
-
-// // 현재 클릭된 카테고리 버튼에 active 클래스 추가
-// var currentButton = document.querySelector('.scate_btn[data-category="' + category + '"]');
-// if (currentButton) {
-//     currentButton.classList.add('active');
-// }
+document.addEventListener("DOMContentLoaded", function () {
+    filterCategory('전체');
+});
