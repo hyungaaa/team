@@ -47,7 +47,12 @@ function login(){
         var password = document.querySelector("#pw").value;
 
         if (userId === "admin" && password === "admin") {
-            // 로그인 성공 시, 
+            // 관리자 로그인 성공 시, 
+            localStorage.setItem('userType', 'admin');
+            window.location.href = "dashboard.html";
+        } else if(userId === "user" && password === "user") {
+            // 사용자 로그인 성공 시, 
+            localStorage.setItem('userType', 'user');
             window.location.href = "dashboard.html";
         } else {
             // 로그인 실패 시, 

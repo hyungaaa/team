@@ -1,13 +1,28 @@
 
+
 window.addEventListener("load", function () {
     bind();
+
+
+    document.querySelector(".navi-item1").setAttribute("class", "navi-item navi-item1 active");
+
+    //로그인 환경
+    const userType = localStorage.getItem('userType');
+
+
+    if(userType == 'admin'){
+
+    } else if (userType == 'user'){
+        
+        document.querySelector(".navi-item9").style.display = "none";
+        document.querySelector(".status-user").innerHTML = "접속자: 천안센터 사용자";
+
+    }
 
 })
 
 
 function bind() {
-
-    document.querySelector(".navi-item1").setAttribute("class", "navi-item navi-item1 active");
 
     // 정보 배열로 입력  
     let listItem = [];

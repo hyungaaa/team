@@ -80,10 +80,19 @@ main .sub-menu li a:hover {
     height: 50px;
     border-radius: 50px;
     transition: background-color 0.3s;
+    
+    background-color: #5f8caa;
+    color: #ffffff;
+}
+
+
+#scate_mng.active,
+#scate_mng:hover {
     background: #ffffff;
     border: 2px solid #5f8caa;
     color: #000;
 }
+
 
 
 /* 게시판 */
@@ -102,7 +111,7 @@ main .sub-menu li a:hover {
 
 
 
-#productBoard th {
+table > tbody > tr > th {
     height: 20px;
     background-color: #eee;
 
@@ -118,7 +127,7 @@ main .sub-menu li a:hover {
     text-align: center;
 }
 
-.table_mng th,
+
 .table_mng td {
     border: 1px solid #ddd;
     padding: 8px;
@@ -127,10 +136,6 @@ main .sub-menu li a:hover {
 
 }
 
-.table_mng th {
-    background-color: #f2f2f2;
-    height: 20px;
-}
 
 #title_mng tr {
     height: 20px;
@@ -235,11 +240,6 @@ main .sub-menu li a:hover {
     box-sizing: border-box;
 }
 
-#scate_mng.active,
-#scate_mng:hover {
-    background-color: #5f8caa;
-    color: #ffffff;
-}
 
 #div-ul_mng {
     width: 860px;
