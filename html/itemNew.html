@@ -110,8 +110,16 @@
                     <option>C-02</option>
                     <option>C-03</option>
                 </select></td>
-                <th>등록일</th>
-                <td><input type="date" id="input_new2"></td>
+                <th>대분류</th>
+                <td> <select value="category" class="select_new1">
+                        <option value="easy">간편식사</option>
+                        <option value="snack">과자류</option>
+                        <option value="icecream">아이스크림</option>
+                        <option value="food">식품</option>
+                        <option value="beverage">음료</option>
+                      </select>
+                </td>
+                
             </tr>
             <tr>
                 <th>규격</th>
@@ -130,22 +138,10 @@
                         <option value="box">box</option>
                     </select>
                 </td>
-                <th>비고</th>
-                <td><input type="text" id="input_new2"></td>
+                <th>등록일</th>
+                <td><input type="date" id="input_new2"></td>
             </tr>
-            <tr>
-                <th>관련 글</th>
-                <td colspan="5">
-                    <select value="BestQna" class="select_new2">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                    <div id="new_button1">
-                    <button type="button" class="main_btn"><a href="boardList.html" id="lim_a">더 보기</button></a>
-                    </div>
-                </td>
-            </tr>
+           
        </table>
        <!-- 저장 버튼 -->
        <div id="button_new">
