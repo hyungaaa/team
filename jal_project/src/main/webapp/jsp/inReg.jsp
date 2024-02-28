@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import = "java.util.List" %>
+<%@ page import = "lee.PdDTO" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +11,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>입고 등록</title>
-	<link rel="stylesheet" href="../css/layout.css">
-	<link rel="stylesheet" href="../css/ui.css">
-	<link rel="stylesheet" href="../css/common.css">
-	<link rel="stylesheet" href="../css/inReg.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/ui.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/inReg.css">
 
-	<script src="../js/system.js"></script>
-	<script src="../js/inReg.js"></script>
+	<script src="js/system.js"></script>
+	<script src="js/inReg.js"></script>
 </head>
 
 <body>
@@ -205,6 +210,10 @@
 				<li><a href="#">&gt;</a></li>
 			</ul>
 		</div>
+		<%
+			List list = (List) request.getAttribute("list");
+			PdDTO pdDTO = new PdDTO();
+		%>
 
 		<!-- 팝업 -->
 		<div id="popup">
@@ -231,41 +240,47 @@
 							<th>단위</th>
 						</thead>
 						<tbody>
+							<%
+								for(int i = 0; i < list.size(); i++) {
+							%>
 							<tr>
 								<td><input type="radio" name="inReg-radio" value="ESB00001"></td>
-								<td>ESB00001</td>
-								<td>샌)망곰초코딸기샌드</td>
-								<td>S</td>
-								<td>BOX</td>
+								<td><%=((PdDTO)list.get(i)).getPnum()%></td>
+								<td><%=((PdDTO)list.get(i)).getPname()%></td>
+								<td><%=((PdDTO)list.get(i)).getPsize()%></td>
+								<td><%=((PdDTO)list.get(i)).getPunit()%></td>
 							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="SCC00002"></td>
-								<td>SCC00002</td>
-								<td>롯데)허쉬너겟쿠앤크6P</td>
-								<td>S</td>
-								<td>BOX</td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="ICA00003"></td>
-								<td>ICA00003</td>
-								<td>나뚜루)녹차바</td>
-								<td>M</td>
-								<td>BOX</td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="FGC00004"></td>
-								<td>FGC00004</td>
-								<td>CJ)햇반전복미역죽</td>
-								<td>M</td>
-								<td>EA</td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="BMB00005"></td>
-								<td>BMB00005</td>
-								<td>남양)불가리스딸기150ml</td>
-								<td>S</td>
-								<td>BOX</td>
-							</tr>
+							<%
+								}
+							%>
+<!-- 							<tr> -->
+<!-- 								<td><input type="radio" name="inReg-radio" value="SCC00002"></td> -->
+<!-- 								<td>SCC00002</td> -->
+<!-- 								<td>롯데)허쉬너겟쿠앤크6P</td> -->
+<!-- 								<td>S</td> -->
+<!-- 								<td>BOX</td> -->
+<!-- 							</tr> -->
+<!-- 							<tr> -->
+<!-- 								<td><input type="radio" name="inReg-radio" value="ICA00003"></td> -->
+<!-- 								<td>ICA00003</td> -->
+<!-- 								<td>나뚜루)녹차바</td> -->
+<!-- 								<td>M</td> -->
+<!-- 								<td>BOX</td> -->
+<!-- 							</tr> -->
+<!-- 							<tr> -->
+<!-- 								<td><input type="radio" name="inReg-radio" value="FGC00004"></td> -->
+<!-- 								<td>FGC00004</td> -->
+<!-- 								<td>CJ)햇반전복미역죽</td> -->
+<!-- 								<td>M</td> -->
+<!-- 								<td>EA</td> -->
+<!-- 							</tr> -->
+<!-- 							<tr> -->
+<!-- 								<td><input type="radio" name="inReg-radio" value="BMB00005"></td> -->
+<!-- 								<td>BMB00005</td> -->
+<!-- 								<td>남양)불가리스딸기150ml</td> -->
+<!-- 								<td>S</td> -->
+<!-- 								<td>BOX</td> -->
+<!-- 							</tr> -->
 						</tbody>
 					</table>
 				</div>
