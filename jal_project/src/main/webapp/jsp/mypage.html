@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS 잘해보조</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/mypage.css">
+    <script src="../js/system.js"></script>
+    <script src="../js/hello.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="top-logo">
+            <img
+                src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+        </div>
+        <div class="top-bar">
+            <h1>물류관리시스템</h1>
+        </div>
+        <div class="top-bar-links">
+            <a href="mypage.html">마이페이지</a>
+            <a href="#">설정</a>
+            <a href="login.html">로그아웃</a>
+        </div>
+    </header>
+    <nav>
+        <div class="navi-bar">
+            <ul>
+                <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
+                <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
+                <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
+                <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
+                <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
+                <li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
+                <li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
+                <li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
+                <li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <p class="mypage_p">센터 정보</p>
+        <div id="mypage_div" style="margin-left: 20px;">
+
+            <span style="width: 200px; margin-left: 50px;">센터 코드<input type="text" class="main_normal_txt"
+                    placeholder="내용을 입력해주세요." style="border-radius:5rem;"></span>
+            <span style="width: 200px; margin-left: 50px;">센터 이름<input type="text" class="main_normal_txt"
+                    placeholder="내용을 입력해주세요." style="border-radius:5rem;"></span>
+
+            <span style="width: 200px; margin-left: 50px;">센터 관리자<input type="text" class="main_normal_txt"
+                    placeholder="내용을 입력해주세요." style="border-radius:5rem;"></span>
+            <span style="width: 200px; margin-left: 50px;">전화번호<input type="text" class="main_normal_txt"
+                    placeholder="내용을 입력해주세요." style="border-radius:5rem;"></span>
+        </div>
+        <br>
+        <hr style="border-color: #ccc; padding:0%">
+        <br>
+        <div style="margin-top: -10px;">
+            <p class="mypage_p">관리자 정보</p>
+            <div>
+                <div>
+                    <span style="float: left; margin-left: 55px; margin-top: -5px;">아이디&nbsp;</span><input type="text"
+                        class="main_normal_txt" placeholder="admin_01" style=" margin-top: -10px; border-radius:5rem;">
+                </div>
+                <br>
+                <div>
+                    <span style="float: left; margin-left:16px; margin-top: 6px;">새 비밀번호* &nbsp;</span><input
+                        type="password" class="main_normal_txt" placeholder="내용을 입력해주세요." style="border-radius:5rem;">
+                    <a>(비밀번호는 6~12자리 영문자와 숫자조합으로 작성할 수 있습니다)</a>
+                </div>
+                <br>
+                <div>
+                    <span style="float: left; margin-top: 6px;">비밀번호 확인* &nbsp;&nbsp;</span><input type="password"
+                        class="main_normal_txt" placeholder="내용을 입력해주세요." style="border-radius:5rem;">
+                    <a>비밀번호 변경 시에만 입력해주세요</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr style="width: 1100px; border-color: #ccc; padding:0%; margin-top: 5px;">
+        <div style="text-align: center; margin-top: 5px;"><button type="button" class="main_btn">저장</button>
+            <button type="button" class="main_btn2">취소</button>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="status-user">
+                접속자: 천안센터 관리자
+            </div>
+            <div class="status-message">
+                데이터가 조회되었습니다.
+            </div>
+            <div class="status-time">
+                현재 시간: <span id="current-time"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

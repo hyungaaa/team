@@ -1,0 +1,56 @@
+._main {
+
+    margin-top: 30px;
+
+    margin-left: 250px;
+}
+.profile img {
+    width: 40px;
+    height: 40px;
+}
+div div img {
+    width: 100px;
+    height: 100px;
+}
+.ice {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    width: 600px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.btn {
+    width: 600px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+hr {
+    width: 70%;
+    margin-left: 0;
+    margin-bottom: 15px;
+}
+.pDate {
+    font-size: 12px;
+    display: flex;
+    color: #989898;
+}
+#sSize {
+    width: 100px;
+}
+
+#replyButton{
+    width: 100px;
+}
+#replyTextarea {
+    border: 1px solid #eee;
+    background: #eee;
+}

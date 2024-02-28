@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS 잘해보조</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/boardWrite.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
+    <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
+    <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
+    <!-- <link rel="stylesheet" href="../css/outReg.css"> -->
+    <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
+    <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
+    <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
+    <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
+    
+
+    <script src="../js/system.js"></script>
+    <script src="../js/boardWrite.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="top-logo">
+            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+        </div>
+        <div class="top-bar">
+            <h1>물류관리시스템</h1>
+        </div>
+        <div class="top-bar-links">
+            <a href="#">마이페이지</a>
+            <a href="#">설정</a>
+            <a href="#">로그아웃</a>
+        </div>
+    </header>
+    <nav>
+        <div class="navi-bar">
+            <ul>
+                <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
+                <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
+                <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
+                <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
+                <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
+                <li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
+                <li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
+                <li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
+                <li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="dt1">
+            <table class="t1">
+                <tr>
+                    <td class="left">
+                        <select class="main_normal_txt" style="width: 90%;">
+                            <option>대분류</option>
+                            <option>간편식사</option>
+                            <option>과자류</option>
+                            <option>아이스크림</option>
+                            <option>식품</option>
+                            <option>음료</option>
+                        </select>
+                    </td>
+                    <td class="right">
+                        <select class="main_normal_txt" style="width: 97.2%">
+                            <option>제품번호</option>
+                            <option>EJB00002 김)크랩가득유부초밥</option>
+                            <option>EJB00003 주)LT명란마요삼각</option>
+                            <option>EJB00004 주)놀라운매콤어묵삼각</option>
+                            <option>ECB00001 샐)놀라운치킨&에그무스</option>
+                            <option>EDB00001 도)놀라운치킨마요덮밥</option>
+                            <option>EDB00002 도)치즈닭갈비고구마밥</option>
+                            <option>ESB00001 샌)망곰초코딸기샌드</option>
+                            <option>ICA00003 나뚜루)녹차바</option>
+                            <option>BMB00005 남양)불가리스딸기150</option>
+                            <option>SCC00002 롯데)허쉬너겟쿠앤크6P</option>
+                            <option>FGC00004 CJ)햇반전복미역죽</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        <p>제목</p>
+                    </td>
+                    <td class="right">
+                        <input type="text" name="title" class="main_normal_txt"  placeholder="제목을 입력해주세요" style="width: 96%">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        <p>파일첨부</p>
+                    </td>
+                    <td class="right">
+                        <button type="button" value="pc" class="main_btn2" onclick="openFileExplorer()">내 pc</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><textarea placeholder="내용을 입력해주세요"></textarea></td>
+                </tr>
+            </table>
+        </div>
+        <input type="text" id="fileNameDisplay" class="main_normal_txt" readonly style="display: none;">
+
+        <div class="sub2" >
+            <button type="button" class="main_btn2" id="sSize">
+            <a href="boardList.html" style="color: #fff">
+                취소
+            </a>
+            </button>
+            <button type="button" class="main_btn" id="sSize" onclick="showAlert()">제출</button>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="status-user">
+                접속자: 천안센터 관리자
+            </div>
+            <div class="status-message">
+                데이터가 조회되었습니다.
+            </div>
+             <div class="status-time">
+                현재 시간: <span id="current-time"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</html>

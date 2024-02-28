@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS 잘해보조</title>
+    <link rel="stylesheet" href="../css/ui.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <script src="../js/system.js"></script>
+
+
+</head>
+<body>
+    <header>
+        <div class="top-logo">
+            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
+        </div>
+        <div class="top-bar">
+            <h1>물류관리시스템</h1>
+        </div>
+        <div class="top-bar-links">
+            <a href="mypage.html">마이페이지</a>
+            <a href="#">설정</a>
+            <a href="login.html">로그아웃</a>
+        </div>
+    </header>
+    <nav>
+        <div class="navi-bar">
+            <ul>
+                <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
+                <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
+                <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
+                <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
+                <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
+                <li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
+                <li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
+                <li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
+                <li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <input class="main_normal_txt" type="text" placeholder="검색어를 입력하세요">
+        <input class="main_search_txt" type="text" placeholder="검색어를 입력하세요">
+        <button class="main_btn">검  색</button>
+        <button class="main_btn2">저  장</button>
+        <hr><br>
+        <table>
+            <caption>caption</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>제품명</th>
+                    <th>규격</th>
+                    <th>단위</th>
+                    <th>수량</th>
+                    <th>위치</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="table_ipt" type="checkbox"></td>
+                    <td>나뚜루 녹차바</td>
+                    <td>S</td>
+                    <td>BOX</td>
+                    <td>20</td>
+                    <td>A-05</td>
+                </tr>
+                <tr>
+                    <td><input class="table_ipt" type="checkbox"></td>
+                    <td>나뚜루 녹차바</td>
+                    <td>S</td>
+                    <td>BOX</td>
+                    <td>20</td>
+                    <td>A-05</td>
+                </tr>
+                <tr>
+                    <td><input class="check" type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="radio"></td>
+                    <td><input class="table_normal_txt" type="text" placeholder="내용을 입력하세요"></td>
+                    <td><input class="table_blind_txt" type="text" value="수정되는거" ></td>
+                    <td><button class="table_btn">저  장</button><button class="table_btn">취  소</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="status-user">
+                접속자: 천안센터 관리자
+            </div>
+            <div class="status-message">
+                데이터가 조회되었습니다.
+            </div>
+            <div class="status-time">
+                현재 시간: <span id="current-time"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
