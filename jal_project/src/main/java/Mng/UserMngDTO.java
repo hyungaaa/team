@@ -2,7 +2,7 @@ package Mng;
 
 import java.sql.Date;
 
-public class userMngDTO {
+public class UserMngDTO {
 
 	String uuid;
 	String ccode;
@@ -13,7 +13,7 @@ public class userMngDTO {
 	String uemail;
 	String unum;
 	String uposition;
-	Date ubirth;
+	String ubirth;
 	String uimage;
 	String udate;
 	String umaster;
@@ -104,11 +104,11 @@ public class userMngDTO {
 		this.uposition = uposition;
 	}
 
-	public Date getUbirth() {
+	public String getUbirth() {
 		return ubirth;
 	}
 
-	public void setUbirth(Date ubirth) {
+	public void setUbirth(String ubirth) {
 		this.ubirth = ubirth;
 	}
 
@@ -226,7 +226,7 @@ public class userMngDTO {
 
 	@Override
 	public String toString() {
-		return "userMngDTO [uuid=" + uuid + ", ccode=" + ccode + ", cname=" + cname + ", upass=" + upass + ", uname="
+		return "UserMngDTO [uuid=" + uuid + ", ccode=" + ccode + ", cname=" + cname + ", upass=" + upass + ", uname="
 				+ uname + ", utel=" + utel + ", uemail=" + uemail + ", unum=" + unum + ", uposition=" + uposition
 				+ ", ubirth=" + ubirth + ", uimage=" + uimage + ", udate=" + udate + ", umaster=" + umaster
 				+ ", cmanager=" + cmanager + ", ctel=" + ctel + ", ulevel=" + ulevel + ", updv=" + updv + ", updior="
@@ -235,3 +235,4 @@ public class userMngDTO {
 	}
 
 }
+
