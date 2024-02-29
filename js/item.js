@@ -184,4 +184,113 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     filterCategory('전체');
+
+    let selected_del = document.getElementById("selected_del"); 
+  selected_del.addEventListener("click", function () {
+  
+    let list_checked = document.querySelectorAll(".chk:checked")
+    for(let i=0; i<list_checked.length; i++){
+      list_checked[i].parentNode.parentNode.remove();
+      // console.log(list_checked[i].parentNode);
+      // console.log(list_checked[i].parentNode.parentNode)
+    }
+  })
+  
 });
+
+// 삭제
+
+// let selected_del = document.getElementById("selected_del"); 
+//   selected_del.addEventListener("click", function () {
+  
+//     let list_checked = document.querySelectorAll(".chk:checked")
+//     for(let i=0; i<list_checked.length; i++){
+//       list_checked[i].parentNode.parentNode.remove();
+//       // console.log(list_checked[i].parentNode);
+//       // console.log(list_checked[i].parentNode.parentNode)
+//     }
+//   })
+
+// function showCheckboxes() {
+//     // 테이블에서 체크박스 열의 위치를 찾기
+//     var checkboxColumnIndex = 0; // 예시로 첫 번째 열로 설정했습니다.
+
+//     // 테이블 참조
+//     var table = document.getElementById("productBoard");
+
+//     // 모든 행을 가져와서 처리
+//     var rows = table.getElementsByClassName("product-row");
+//     for (var i = 0; i < rows.length; i++) {
+//         // 각 행의 셀에 체크박스 추가
+//         var checkboxCell = rows[i].insertCell(checkboxColumnIndex);
+//         var checkbox = document.createElement("input");
+//         checkbox.type = "checkbox";
+//         checkboxCell.appendChild(checkbox);
+//     }
+
+//     // 삭제 버튼을 비활성화
+//     document.getElementById("selected_del").disabled = true;
+// }
+
+// var checkboxesShown = false;
+
+// function showCheckboxes() {
+//     // 테이블 참조
+//     var table = document.getElementById("productBoard");
+
+//     // 체크박스를 이미 보여주고 있는 경우
+//     if (checkboxesShown) {
+//         // 헤더 열에서 체크박스와 "선택" 텍스트 제거
+//         var headerRow = table.querySelector("#title_mng");
+//         headerRow.deleteCell(0);
+//         headerRow.cells[headerRow.cells.length - 1].innerHTML = "";
+
+//         // 모든 행에서 체크박스 제거
+//         var rows = table.getElementsByClassName("product-row");
+//         for (var i = 0; i < rows.length; i++) {
+//             rows[i].deleteCell(0);
+//         }
+
+//         // 헤더 열을 원래 위치로 이동
+//         for (var i = headerRow.cells.length - 1; i > 0; i--) {
+//             headerRow.cells[i].innerHTML = headerRow.cells[i - 1].innerHTML;
+//         }
+//         headerRow.cells[0].innerHTML = "제품명";
+
+//         // 삭제 버튼을 다시 활성화
+//         document.getElementById("selected_del").disabled = false;
+
+//         checkboxesShown = false;
+//     } else {
+//         // 헤더 열에 체크박스 추가
+//         var headerRow = table.querySelector("#title_mng");
+//         var checkboxHeaderCell = headerRow.insertCell(0);
+//         var checkboxHeader = document.createElement("input");
+//         checkboxHeader.type = "checkbox";
+//         checkboxHeaderCell.appendChild(checkboxHeader);
+
+//         // 모든 행의 셀에 체크박스 추가
+//         var rows = table.getElementsByClassName("product-row");
+//         for (var i = 0; i < rows.length; i++) {
+//             var checkboxCell = rows[i].insertCell(0);
+//             var checkbox = document.createElement("input");
+//             checkbox.type = "checkbox";
+//             checkboxCell.appendChild(checkbox);
+//         }
+
+//         // 헤더 열을 한 칸 오른쪽으로 이동
+//         for (var i = 0; i < headerRow.cells.length - 1; i++) {
+//             headerRow.cells[i].innerHTML = headerRow.cells[i + 1].innerHTML;
+//         }
+
+//         // 빈 공간에 "선택" 텍스트 추가
+//         headerRow.cells[headerRow.cells.length - 1].innerHTML = "선택";
+
+//         // 삭제 버튼을 비활성화
+//         document.getElementById("selected_del").disabled = true;
+
+//         checkboxesShown = true;
+//     }
+// }
+
+
