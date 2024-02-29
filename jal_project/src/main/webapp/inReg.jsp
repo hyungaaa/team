@@ -213,6 +213,8 @@
 		<%
 			List list = (List) request.getAttribute("list");
 			PdDTO pdDTO = new PdDTO();
+			
+			
 		%>
 
 		<!-- 팝업 -->
