@@ -1,0 +1,11 @@
+diff a/jal_project/build/classes/.gitignore b/jal_project/build/classes/.gitignore	(rejected hunks)
+@@ -2,6 +3,5 @@
++/Mng/
+ /jal_project/
+-<<<<<<< HEAD
+-/lee/
+-=======
+ /jal_project_lim/
+->>>>>>> 557857d368eb50ce38a1eab3ce708ee033fd94de
++/lee/
++/y_02/

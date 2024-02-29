@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,10 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lee.InRegDAO;
+import lee.PdDTO;
 
 
-@WebServlet("/itemMng1")
-public class itemMngServelt extends HttpServlet {
+
+@WebServlet("/itMngServlet")
+public class itMngServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -63,10 +66,9 @@ public class itemMngServelt extends HttpServlet {
 			// SQL 작성
 			String query = "";
 			// 무조건 앞에 한 칸 띄워서 작성 " select";
-			query += " select";
-			query += " pname, scid, pnum, wzone, pday, psize";
-			query += " from";
-			query += " pd_list";
+			query += " SELECT pname, sct, pnum, wzone, pday, psize";
+			query += " FROM pd_list";
+			query += " FULL OUTER JOIN small_cat ON pd_list.scid = small_cat.scid";
 
 			System.out.println("query : " + query);
 			
@@ -75,33 +77,22 @@ public class itemMngServelt extends HttpServlet {
 			
 			// SQL 실행, ResultSet으로 결과 확보
 			ResultSet rs = ps.executeQuery();
-			// select : executeQuery()
-			// -> return : ResultSet
-			// 그 외 : executeUpdate()
-			// -> return : int 
-			// (몇 개가 업데이트, 딜레트 됐는지 나옴) (몇 개의 row가 영향을 받았는지 나옴)
-			
-			// DB 값 활용
-			// -> ResultSet : 모든 줄이 담겨져 있음
-			// -> rs.next : 모든 줄이 담겨져 있음
-			// -> next() 실행 후 ResultSet에는 다음줄이 담김
+
 			while( rs.next() ) {
 				// getxxx -> 전달인자로 컬럼명, 대소문자 구분 x
 				String pname = rs.getString("pname");
-				String scid = rs.getString("scid");
+				String sct = rs.getString("sct");
 				String pnum = rs.getString("pnum");
 				String wzone = rs.getString("wzone");
 				String pday = rs.getString("pday");
 				String psize = rs.getString("psize");
-				// java.util.Date
-				// 자바에서 날짜 사용시 사용 -> 클래스 명이 같이 때문에 
-				
+			
 				
 				// 브라우저 출력
 				PrintWriter out = response.getWriter();
 				out.println("<div>pnum : " + pnum + "</div>");
-				out.println("<div>scid : " + scid + "</div>");
-				out.println("<div>pnum : " + pnum + "</div>");
+				out.println("<div>sct : " + sct + "</div>");
+				out.println("<div>pname : " + pname + "</div>");
 				out.println("<div>wzone : " + wzone + "</div>");
 				out.println("<div>pday : " + pday + "</div>");
 				out.println("<div>psize : " + psize + "</div>");
@@ -117,5 +108,30 @@ public class itemMngServelt extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		// DB 담당에게 전달
+				
+		itMngDAO itmngDAO = new itMngDAO();
+		
+		itMngDTO itmngDTO = new itMngDTO();
+		
+		itmngDTO.setPnum(itmngDTO.getPnum());
+		itmngDTO.setPname(itmngDTO.getPname());
+		itmngDTO.setPsize(itmngDTO.getPsize());
+		itmngDTO.setWzone(itmngDTO.getWzone());
+		itmngDTO.setSct(itmngDTO.getSct());
+		itmngDTO.setPday(itmngDTO.getPday());
+		
+		// 결과 받기
+		List list = itMngDAO.selectMng(itmngDTO);
+//				System.out.println(list);
+//				System.out.println(((PdDTO)list.get(0)).getPnum());
+		
+		request.setAttribute("list", list);
+		
+		// view 담당에게 전달
+		request.getRequestDispatcher("/jsp/itemMng.jsp").forward(request, response);
 	}
-}
+
+		
+	}
+

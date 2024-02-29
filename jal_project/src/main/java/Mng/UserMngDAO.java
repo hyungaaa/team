@@ -1,3 +1,4 @@
+
 package Mng;
 
 import java.sql.Connection;
@@ -9,10 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class userMngDAO {
+public class UserMngDAO {
 
 	// select
-	public List selectEmp(userMngDTO usermngDTO) {
+	public List selectuserMng(UserMngDTO usermngDTO) {
 		List list = new ArrayList();
 
 		// DB 접속
@@ -31,15 +32,16 @@ public class userMngDAO {
 			System.out.println("Connection 생성 성공");
 
 			// SQL 만들기
+			
 			String query = "";
 			query += " select";
-			query += " uname, unum, cname, ulevel, updv, updior, updr, updiom, updm, uum";
-			query += " from";
+			query += " *";
+			query += " from";		
 			query += " user_info";
-			query += " select";
-			query += " rcategory, unum, uuid, uemail";
-			query += " from";
-			query += " req_list";
+//			query += " select";
+//			query += " rcategory, unum, uuid, uemail";
+//			query += " from";
+//			query += " req_list";
 
 			System.out.println("query : " + query);
 
@@ -51,9 +53,14 @@ public class userMngDAO {
 
 			// 결과 활용
 			while (rs.next()) {
-				String uname = rs.getString("uname");
-				String unum = rs.getString("unum");
+//				String rcategory = rs.getString("rcategory");
+				String uuid = rs.getString("uuid");
+				String ccode = rs.getString("ccode");
+				String upass = rs.getString("upass");
 				String cname = rs.getString("cname");
+				String unum = rs.getString("unum");
+				String uemail = rs.getString("uemail");
+				String uname = rs.getString("uname");
 				String ulevel = rs.getString("ulevel");
 				String updv = rs.getString("updv");
 				String updior = rs.getString("updior");
@@ -61,15 +68,16 @@ public class userMngDAO {
 				String updiom = rs.getString("updiom");
 				String updm = rs.getString("updm");
 				String uum = rs.getString("uum");
-				String uuid = rs.getString("uuid");
-				String rid = rs.getString("rid");
-				String rcategory = rs.getString("rcategory");
+//				String rid = rs.getString("rid");
 
 				// 날짜 사용하고 싶으면 클래스명이 같기 때문에
 				// java.util.Date 이 형태로 써야 한다
 
-				System.out.println("uname : " + uname);
+//				System.out.println("rcategory : " + rcategory);
 				System.out.println("unum : " + unum);
+				System.out.println("uuid : " + uuid);
+				System.out.println("uemail : " + uemail);
+				System.out.println("uname : " + uname);
 				System.out.println("cname : " + cname);
 				System.out.println("ulevel : " + ulevel);
 				System.out.println("updv : " + updv);
@@ -78,9 +86,7 @@ public class userMngDAO {
 				System.out.println("updiom : " + updiom);
 				System.out.println("updm : " + updm);
 				System.out.println("uum : " + uum);
-				System.out.println("uuid : " + uuid);
-				System.out.println("rid : " + rid);
-				System.out.println("rcategory : " + rcategory);
+//				System.out.println("rid : " + rid);
 				System.out.println("----------------------------");
 
 //				Map map = new HashMap();
@@ -89,9 +95,12 @@ public class userMngDAO {
 //				map.put("hiredate", hiredate);
 //				list.add(map);
 
-				userMngDTO dto = new userMngDTO();
-				dto.setUname(uname);
+				UserMngDTO dto = new UserMngDTO();
+//				dto.setRcategory(rcategory);
 				dto.setUnum(unum);
+				dto.setUuid(uuid);
+				dto.setUemail(uemail);
+				dto.setUname(uname);
 				dto.setCname(cname);
 				dto.setUlevel(ulevel);
 				dto.setUpdv(updv);
@@ -100,9 +109,7 @@ public class userMngDAO {
 				dto.setUpdiom(updiom);
 				dto.setUpdm(updm);
 				dto.setUum(uum);
-				dto.setUuid(uuid);
-				dto.setRid(rid);
-				dto.setRcategory(rcategory);
+//				dto.setRid(rid);
 				list.add(dto);
 
 			}

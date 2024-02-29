@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import = "java.util.List" %>
+<%@ page import = "jal_project_lim.itMngDTO" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,6 +139,13 @@
                <col width="8%" />  
             </colgroup>
             
+            <%-- 데이터 불러옴 --%>
+            <%
+            	List list = (List) request.getAttribute("list");
+            	itMngDTO itmngDTO = new itMngDTO();
+            
+            %>
+            
             <tr id="title_mng">
                 <th></th>
                 <th>제품명</th>
@@ -144,6 +155,25 @@
                 <th>등록일</th>
                 <th>규격</th>
             </tr>
+            
+            <%
+				for(int i = 0; i < list.size(); i++) {
+// 				itMngDTO item = (itMngDTO) list.get(i);
+			%>
+            
+            <tr class="product-row" data-category="<%= ((itMngDTO)list.get(i)).getSct() %>">
+                <td><input type = "checkbox" class="chk"></td>
+                <td><%= ((itMngDTO)list.get(i)).getPname() %></td>
+                <td><%= ((itMngDTO)list.get(i)).getSct() %></td>
+                <td><%= ((itMngDTO)list.get(i)).getPnum() %></td>
+                <td><%= ((itMngDTO)list.get(i)).getWzone() %></td>
+                <td><%= ((itMngDTO)list.get(i)).getPday() %></td>
+                <td><%= ((itMngDTO)list.get(i)).getPsize() %></td>
+           	</tr>
+            <%
+				}
+			%>
+             <%--  
             <tr class="product-row" data-category="주먹밥/김밥">
                 <td><input type = "checkbox" class="chk"></td>
                 <td><a href="itemfix.html">김)크랩가득유부초밥</a></td>
@@ -183,6 +213,7 @@
                 <td>2024-01-30</td>
                 <td>M(중형)</td>
             </tr>
+            --%>  
         </table>
     </div>
     
