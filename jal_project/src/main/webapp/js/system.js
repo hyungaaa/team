@@ -42,5 +42,5 @@ window.addEventListener("load", function () {
         }
     }, 200); 
 
-
+	
 })
