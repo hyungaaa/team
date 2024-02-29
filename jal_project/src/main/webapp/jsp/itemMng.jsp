@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +24,8 @@
 
 </head>
 <body>
+
+
     <header>
         <div class="top-logo">
             <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
@@ -41,7 +43,7 @@
         <div class="navi-bar">
             <ul>
                 <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
-                <li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
+                <li class="navi-item2"><a href="itemMng.jsp">제품<br>관리</a></li>
                 <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
                 <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
                 <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
@@ -123,7 +125,18 @@
     <div id="productBoard">
         
         <table class="table_mng">
+        <colgroup>
+               <col width="7%" />
+               <col width="30%" />
+               <col width="20%" />
+               <col width="10%" />
+               <col width="7%" />  
+               <col width="10%" />  
+               <col width="8%" />  
+            </colgroup>
+            
             <tr id="title_mng">
+                <th></th>
                 <th>제품명</th>
                 <th>소분류</th>
                 <th>제품번호</th>
@@ -132,6 +145,7 @@
                 <th>규격</th>
             </tr>
             <tr class="product-row" data-category="주먹밥/김밥">
+                <td><input type = "checkbox" class="chk"></td>
                 <td><a href="itemfix.html">김)크랩가득유부초밥</a></td>
                 <td>주먹밥/김밥</td>
                 <td>EJB00002</td>
@@ -141,6 +155,7 @@
                 
             </tr>
             <tr class="product-row" data-category="주먹밥/김밥">
+                <td><input type = "checkbox" class="chk"></td>
                 <td><a href="#"></a>주)놀라운매콤어묵삼각</td>
                 <td>주먹밥/김밥</td>
                 <td>EJB00004</td>
@@ -150,6 +165,7 @@
 
             </tr>
             <tr class="product-row" data-category="도시락">
+                <td><input type = "checkbox" class="chk"></td>
                 <td><a href="#"></a>도)놀라운치킨마요덮밥</td>
                 <td>도시락</td>
                 <td>EDB00001</td>
@@ -159,6 +175,7 @@
 
             </tr>
             <tr class="product-row" data-category="도시락">
+                <td><input type = "checkbox" class="chk"></td>
                 <td><a href="#"></a>도)치즈닭갈비고구마밥</td>
                 <td>도시락</td>
                 <td>EDB00002</td>
@@ -184,8 +201,8 @@
     </div>
         
         <div id="button_mng_2">
-            <button class="main_btn">제품 삭제</button>
-            <button class="main_btn"><a href="itemNew.html" id="lim_a">제품 추가</button></a>
+            <button class="main_btn" id="selected_del">제품 삭제</button>
+            <button class="main_btn"><a href="itemNew.jsp" id="lim_a">제품 추가</button></a>
         </div>
 
     </div>
@@ -207,3 +224,4 @@
     </footer>
 </body>
 </html>
+
