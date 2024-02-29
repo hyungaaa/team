@@ -1,4 +1,4 @@
-package Mng;
+package jal_project.servlet;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,11 +9,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
+
 public class ReqListDAO {
 
 	// select
-	public void checkUnum(String unum, String uuid, String uemail, int rct) {
-
+	public Boolean checkUnum(String unum) {
+		Boolean boolean1 = false;
+		
 		// DB 접속
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
@@ -35,7 +38,7 @@ public class ReqListDAO {
 			query += " select";
 			query += " *";
 			query += " from user_info";
-			query += " where lower(uuid) like '%' || lower(?) || '%'";
+			query += " where lower(unum) like '%' || lower(?) || '%'";
 
 			System.out.println("query : " + query);
 
@@ -49,10 +52,9 @@ public class ReqListDAO {
 
 			// 결과 활용
 			if (rs.next()) {
-				
 				// 일치하는 사원번호가 있다면
 				// 요청 추가
-				insertReqList(String uuid, String uemail, int rct);
+				boolean1 = true;
 			}
 
 			rs.close();
@@ -66,79 +68,62 @@ public class ReqListDAO {
 
 		}
 
-		return;
+		return boolean1;
 
 	}
 
-	// update
-	// insert
-	// delete
+	
 	public void insertReqList(String uuid, String uemail, int rct) {
-	
-		String query = "";
-		query += " insert into req_list";
-		query += " values";
-		query += " (?,?,?);";
-		
-		// 결과 활용
-					while (rs.next()) {
-						String uname = rs.getString("uname");
-						String unum = rs.getString("unum");
-						String cname = rs.getString("cname");
-						String ulevel = rs.getString("ulevel");
-						String updv = rs.getString("updv");
-						String updior = rs.getString("updior");
-						String updr = rs.getString("updr");
-						String updiom = rs.getString("updiom");
-						String updm = rs.getString("updm");
-						String uum = rs.getString("uum");
-						String uuid = rs.getString("uuid");
-						String rid = rs.getString("rid");
-						String rcategory = rs.getString("rcategory");
 
-						// 날짜 사용하고 싶으면 클래스명이 같기 때문에
-						// java.util.Date 이 형태로 써야 한다
+		// DB 접속
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
+		String user = "scott_jal";
+		String password = "jal123456";
 
-						System.out.println("uname : " + uname);
-						System.out.println("unum : " + unum);
-						System.out.println("cname : " + cname);
-						System.out.println("ulevel : " + ulevel);
-						System.out.println("updv : " + updv);
-						System.out.println("updior : " + updior);
-						System.out.println("updr : " + updr);
-						System.out.println("updiom : " + updiom);
-						System.out.println("updm : " + updm);
-						System.out.println("uum : " + uum);
-						System.out.println("uuid : " + uuid);
-						System.out.println("rid : " + rid);
-						System.out.println("rcategory : " + rcategory);
-						System.out.println("----------------------------");
+		try {
+			// 드라이버 로딩
+			// Class.forName : String 변수로 class 생성
+			Class.forName(driver);
+			System.out.println("Oracle 드라이버 로딩 성공");
+			// DB 접속
+			Connection con = DriverManager.getConnection(url, user, password);
+			System.out.println("Connection 생성 성공");
 
-						ReqListDTO dto = new ReqListDTO();
-						dto.setUuid(uuid);
-						dto.setRid(rid);
-						dto.setRcategory(rcategory);
-						list.add(dto);
-						
-						
+			
+			// SQL 만들기
+			String query = "";
+			query += " insert into req_list";
+			query += " values";
+			query += " ((select MAX(rid) + 1 from req_list), ?, ?, ?)";
 
-					}
+			System.out.println("query : " + query);
 
-					rs.close();
-					ps.close();
-					con.close();
+			// SQL 실행 준비
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, uuid);
+			String rct1 = (rct == 1)? "사용자등록" : "";
+			ps.setString(2, rct1);
+			ps.setString(3, uemail);
+			
 
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (SQLException e) {
-					e.printStackTrace();
+			// SQL 실행 및 결과 확보
+	        ps.executeUpdate(); // executeQuery() 대신 executeUpdate()로 변경
 
-				}
+	        // 변경 내용을 영구적으로 저장하고 데이터베이스에 반영
+	        // 자동커밋이 설정되어서 수동커밋 비활성화
+	        // con.commit(); 
 
-				return list;
-	
-	}
-	
-	
+			ps.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+				
+	}	
 
 }

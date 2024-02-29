@@ -39,7 +39,7 @@ public class JalFilter extends HttpFilter implements Filter {
 			
 			//indexOf 그 글씨 포함여부 : 로그인으로 접속하려고하면..
 			if(url.indexOf("login.jsp") != -1 
-				|| url.indexOf("*.do") != -1 
+				|| url.indexOf(".do") != -1 
 				|| url.indexOf("/logout") != -1 
 				|| url.indexOf("/login") != -1
 				|| url.indexOf("/css/") != -1

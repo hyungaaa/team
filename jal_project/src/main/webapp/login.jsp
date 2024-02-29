@@ -78,16 +78,16 @@
 	                </colgroup>
 	                <tr>
 	                    <td>사원번호</td>
-	                    <td colspan="2"><input type="text" class="table_normal_txt" id="req1_empno" style="width: 95%;"></td>
+	                    <td colspan="2"><input type="text" class="table_normal_txt" id="req1_empno" name="unum" style="width: 95%;"></td>
 	                </tr>
 	                <tr>
 	                    <td>아이디</td>
-	                    <td><input type="text" class="table_normal_txt" style="width: 95%;" id="req1_id"></td>
+	                    <td><input type="text" class="table_normal_txt" style="width: 95%;" id="req1_id" name="uuid"></td>
 	                    <td><button class="main_btn2" id="id_check" style="padding: 8rem 12rem 8rem;">중복확인</button></td>
 	                </tr>
 	                <tr>
 	                    <td>이메일</td>
-	                    <td colspan="2"><input class="table_normal_txt" type="email" style="width: 95%;" id="req1_email"></td>
+	                    <td colspan="2"><input class="table_normal_txt" type="email" style="width: 95%;" id="req1_email" name="uemail"></td>
 	                </tr>
 	                <tr height="28rem">
 	                    <td></td>

@@ -3,12 +3,14 @@ window.addEventListener("load", function(){
 });
 
 function bind(){
+    
     preventEnter();
     id_event();
     pw_event();
     login();
     request1();
     request2();
+    
 };
 
 //id에서 엔터 입력시 password로 이동
@@ -46,7 +48,13 @@ function preventEnter(){
 	      event.preventDefault();
 	    }
 	});
- }
+	document.querySelector("#form_idreg").addEventListener("keydown", function(event) {
+	    if (event.key === "Enter") {
+	      event.preventDefault();
+	    }
+	});
+}
+ 
 
 function login(){
     document.querySelector("#login_btn").addEventListener("click", function(){		
@@ -89,20 +97,60 @@ function request1(){
     });
 
     emailValid();
+    
+    
+    
+    //중복확인 버튼 기능
+    let validId = false;
+    document.querySelector("#id_check").addEventListener("click", function(event){
+		event.preventDefault();
+		
+		if(document.querySelector("#req1_id").value.length < 5 ){
+			alert("아이디는 5자리 이상 입력해주세요");
+		} else {
+		
+		
+			// AJAX로 중복확인 서블릿 이동
+			var xhr = new XMLHttpRequest();
+		    xhr.open("GET", "idcheck.do?uuid=" + document.querySelector("#req1_id").value, true);
+		    xhr.onreadystatechange = function() {
+		        if (xhr.readyState === XMLHttpRequest.DONE) {
+		            var response = xhr.responseText; // 서블릿에서 반환된 응답
+		            if (response.includes("invalid")) {
+		                alert("사용 불가능한 아이디입니다");
+		                validId = false;
+		            } else {
+		                alert("사용 가능한 아이디입니다");
+		                validId = true;
+		            }
+		        }
+		    };
+		    xhr.send();
+				
+		}
+	});
 
 
-    // 버튼 클릭시 div 안보이게 하기
+    // 확인 버튼 클릭시 실행& div 안보이게 하기
     document.querySelector("#popY1").addEventListener("click", function(){
 
         if (document.querySelector("#req1_empno").value =="" || document.querySelector("#req1_email").value == "" || document.querySelector("#req1_id").value ==""){
             document.querySelector("#alert_msg1").innerHTML='<span>내용을 입력하세요</span>';
         } else{
-            document.querySelector(".popup1").style.display = "none";
-            document.querySelector(".popup-content1").style.display = "none";
             
-            document.querySelector("#form_idreg").submit();
-            alert("요청되었습니다");
-            input_clear();
+            // 아이디 유효성 검사 확인 후
+            if(validId){
+				document.querySelector(".popup1").style.display = "none";
+            	document.querySelector(".popup-content1").style.display = "none";
+            	
+				document.querySelector("#form_idreg").submit();
+	            alert("요청되었습니다");
+	            input_clear();
+			} else {
+				alert("아이디를 확인하세요");
+			}
+            
+            
         }
     });
     document.querySelector("#popN1").addEventListener("click", function(){
@@ -112,6 +160,8 @@ function request1(){
     });
 
 }
+
+
 
 
 function request2(){
