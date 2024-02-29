@@ -3,6 +3,7 @@ window.addEventListener("load", function(){
 });
 
 function bind(){
+    preventEnter();
     id_event();
     pw_event();
     login();
@@ -39,11 +40,18 @@ document.querySelector("#pw")
     });
 };
 
-
+function preventEnter(){
+	document.querySelector("#form").addEventListener("keydown", function(event) {
+	    if (event.key === "Enter") {
+	      event.preventDefault();
+	    }
+	});
+ }
 
 function login(){
-    document.querySelector("#login_btn").addEventListener("click", function(){
-        var userId = document.querySelector("#userid").value;
+    document.querySelector("#login_btn").addEventListener("click", function(){		
+		
+/*        var userId = document.querySelector("#userid").value;
         var password = document.querySelector("#pw").value;
 
         if (userId === "admin" && password === "admin") {
@@ -57,7 +65,15 @@ function login(){
         } else {
             // 로그인 실패 시, 
             document.querySelector("#alert_msg").innerHTML = '<span>아이디 또는 비밀번호가 올바르지 않습니다</span>';
-        };
+        };*/
+        
+        
+        // 로그인 실패 시,
+        document.querySelector("#alert_msg").innerHTML = '<span>아이디 또는 비밀번호가 올바르지 않습니다</span>';
+
+        
+        document.querySelector("#form").submit();
+        
     });
 }
 

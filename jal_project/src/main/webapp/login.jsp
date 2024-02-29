@@ -1,64 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/login.css">
 
-    <script src="../js/login.js"></script>
+    <script src="js/login.js"></script>
 
 </head>
 <body>
-    
-    <div class="login_page">
 
-        <span class="login_title">LOGIN</span>
-        <br><br><br>
-        
-        <table class="login_table">
-
-            <colgroup>
-                <col width="20%"/>
-                <col width="*"/>
-                <col width="20%"/>
-            </colgroup>
-            <tr>
-                <td rowspan="2">
-                    <img src="../img/user.png" style="max-width: 100%;">
-                </td>
-                <td><input class="main_normal_txt"  type="text" id= "userid" tabindex="1" placeholder="아이디를 입력하세요"></td>
-                <td rowspan="2"><button class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
-            </tr>
-            <tr>
-                <td><input class="main_normal_txt"  type="password" id = "pw" tabindex="2" placeholder="비밀번호를 입력하세요"></td>
-            </tr>
-            <tr height="28rem">
-                <td></td>
-                <td>
-                    <div id="alert_msg" style="color:red; font-size:12rem;"> </div>
-                </td>
-                <td></td>
-            </tr>
-
-        </table>
-        
-        <hr>
-        <br>
-
-        <div style="display: flex;justify-content: space-around;">
-            <button class="main_btn" id="request1_btn" tabindex="4">사용권한 등록 요청</button>
-            <button class="main_btn2" id="request2_btn" tabindex="5">비밀번호 초기화 요청</button>
-        </div>
-
-        <br><br>
-        <span> 최초 사용시에는 상단의 '사용권한 등록요청'을 클릭하여 권한을 등록한 뒤 로그인 해주시기 바랍니다.</span>
-
-
-    </div>
+	<form method= "post" action="login.do" id="form">
+	    
+	    <div class="login_page">
+	
+	        <span class="login_title">LOGIN</span>
+	        <br><br><br>
+	        
+	        <table class="login_table">
+	
+	            <colgroup>
+	                <col width="20%"/>
+	                <col width="*"/>
+	                <col width="20%"/>
+	            </colgroup>
+	            <tr>
+	                <td rowspan="2">
+	                    <img src="img/user.png" style="max-width: 100%;">
+	                </td>
+	                <td><input class="main_normal_txt"  type="text" id= "userid" name = "userid" tabindex="1" placeholder="아이디를 입력하세요"></td>
+	                <td rowspan="2"><button type="submit" class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
+	            </tr>
+	            <tr>
+	                <td><input class="main_normal_txt"  type="password" id = "pw" name = "pw" tabindex="2" placeholder="비밀번호를 입력하세요"></td>
+	            </tr>
+	            <tr height="28rem">
+	                <td></td>
+	                <td>
+	                    <div id="alert_msg" style="color:red; font-size:12rem;"> </div>
+	                </td>
+	                <td></td>
+	            </tr>
+	
+	        </table>
+	        
+	        <hr>
+	        <br>
+	
+	        <div style="display: flex;justify-content: space-around;">
+	            <button class="main_btn" id="request1_btn" tabindex="4">사용권한 등록 요청</button>
+	            <button class="main_btn2" id="request2_btn" tabindex="5">비밀번호 초기화 요청</button>
+	        </div>
+	
+	        <br><br>
+	        <span> 최초 사용시에는 상단의 '사용권한 등록요청'을 클릭하여 권한을 등록한 뒤 로그인 해주시기 바랍니다.</span>
+	
+	
+	    </div>
+	    
+	</form>
     
 
     <!-- 팝업창1 -->

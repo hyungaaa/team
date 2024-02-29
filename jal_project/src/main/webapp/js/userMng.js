@@ -138,7 +138,7 @@ function bindEvents() {
             });
         });
     });
-
+    
     // 셀렉트 옵션 변경
     document.querySelectorAll("[id^='change_button']").forEach(function (button) {
         button.addEventListener("click", function () {
