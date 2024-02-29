@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,8 +49,7 @@
     </nav>
     <main>
         <div style="width: 1080px;">
-            <select id="searchSelect" class="main_search_txt"
-                style="float:left; width: 100px; margin-left: 30px; margin-top: 30px;">
+            <select id="searchSelect" class="main_search_txt" style="float:left; width: 100px; margin-left: 30px; margin-top: 30px;">
                 <option>센터 검색</option>
                 <option value="천안">천안</option>
                 <option value="아산">아산</option>
@@ -123,15 +124,16 @@
             <div class="div_scr">
                 <table id="table_cap">
                     <colgroup>
+                        <col width="9%">
+                        <col width="9%">
                         <col width="10%">
                         <col width="10%">
                         <col width="10%">
-                        <col width="10%">
-                        <col width="10%">
-                        <col width="10%">
-                        <col width="10%">
-                        <col width="10%">
-                        <col width="10%">
+                        <col width="9%">
+                        <col width="9%">
+                        <col width="9%">
+                        <col width="9%">
+                        <col width="9%">
                         <col width="10%">
                     </colgroup>
                     <thead>
@@ -160,19 +162,22 @@
                                     style="padding: 6rem;">변경</button>
                             </th>
                             <th>
-                                입/출고등록<input type="checkbox" id="select_all1">
+                                제품조회<input type="checkbox" id="select_all1" class="select_all">
                             </th>
                             <th>
-                                입/출고수정<input type="checkbox" id="select_all2">
+                                입/출고등록<input type="checkbox" id="select_all2">
                             </th>
                             <th>
-                                단가등록<input type="checkbox" id="select_all3">
+                                입/출고수정<input type="checkbox" id="select_all3">
                             </th>
                             <th>
-                                단가수정<input type="checkbox" id="select_all4">
+                                제품등록<input type="checkbox" id="select_all4">
                             </th>
                             <th>
-                                메뉴수정<input type="checkbox" id="select_all5">
+                                게시판수정<input type="checkbox" id="select_all5">
+                            </th>
+                            <th>
+                                사용자관리<input type="checkbox" id="select_all6">
                             </th>
                             <th></th>
                         </tr>
@@ -200,6 +205,7 @@
                         <td><input type="checkbox" class="chk3" checked></td>
                         <td><input type="checkbox" class="chk4" checked></td>
                         <td><input type="checkbox" class="chk5" checked></td>
+                        <td><input type="checkbox" class="chk6" checked></td>
                         <td>
                             <button type="button" class="main_btn2" style="padding: 8rem;">삭제</button>
                             <button type="button" class="main_btn" style="padding: 8rem;">수정</button>
@@ -228,6 +234,7 @@
                         <td><input type="checkbox" class="chk3" checked></td>
                         <td><input type="checkbox" class="chk4"></td>
                         <td><input type="checkbox" class="chk5"></td>
+                        <td><input type="checkbox" class="chk6"></td>
                         <td>
                             <button type="button" class="main_btn2" style="padding: 8rem;">삭제</button>
                             <button type="button" class="main_btn" style="padding: 8rem;">수정</button>
@@ -256,6 +263,7 @@
                         <td><input type="checkbox" class="chk3"></td>
                         <td><input type="checkbox" class="chk4"></td>
                         <td><input type="checkbox" class="chk5"></td>
+                        <td><input type="checkbox" class="chk6"></td>
                         <td>
                             <button type="button" class="main_btn2" style="padding: 8rem;">삭제</button>
                             <button type="button" class="main_btn" style="padding: 8rem;">수정</button>
@@ -284,6 +292,7 @@
                         <td><input type="checkbox" class="chk3"></td>
                         <td><input type="checkbox" class="chk4"></td>
                         <td><input type="checkbox" class="chk5"></td>
+                        <td><input type="checkbox" class="chk6"></td>
                         <td>
                             <button type="button" class="main_btn2" style="padding: 8rem;">삭제</button>
                             <button type="button" class="main_btn" style="padding: 8rem;">수정</button>
@@ -312,6 +321,7 @@
                         <td><input type="checkbox" class="chk3" checked></td>
                         <td><input type="checkbox" class="chk4"></td>
                         <td><input type="checkbox" class="chk5"></td>
+                        <td><input type="checkbox" class="chk6"></td>
                         <td>
                             <button type="button" class="main_btn2" style="padding: 8rem;">삭제</button>
                             <button type="button" class="main_btn" style="padding: 8rem;">수정</button>

@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,14 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>입고 등록</title>
+	<title>출고 등록</title>
 	<link rel="stylesheet" href="../css/layout.css">
 	<link rel="stylesheet" href="../css/ui.css">
 	<link rel="stylesheet" href="../css/common.css">
-	<link rel="stylesheet" href="../css/inReg.css">
+	<link rel="stylesheet" href="../css/outReg.css">
 
 	<script src="../js/system.js"></script>
-	<script src="../js/inReg.js"></script>
+	<script src="../js/outReg.js"></script>
+
 </head>
 
 <body>
@@ -51,35 +53,38 @@
 			<colgroup>
 				<col width="6%" />
 				<col width="16%" />
+				<col width="7%" />
 				<col width="6%" />
+				<col width="12%" />
 				<col width="6%" />
-				<col width="16%" />
+				<col width="12%" />
 				<col width="6%" />
-				<col width="16%" />
+				<col width="8%" />
 				<col width="6%" />
-				<col width="16%" />
-				<col width="6%" />
+				<col width="8%" />
+				<col width="7%" />
 			</colgroup>
 			<tr>
 				<td class="rightAlign">제품명</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="pdtName" readonly></td>
+				<td class="leftAlign"><input type="text" class="table_normal_txt" id="pdtName"></td>
 				<td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
 				<td class="rightAlign">규격</td>
 				<td class="leftAlign"><input type="text" class="table_normal_txt" id="size"></td>
 				<td class="rightAlign">단위</td>
 				<td class="leftAlign"><input type="text" class="table_normal_txt" id="unit"></td>
-				<td class="rightAlign">수량</td>
+				<td class="rightAlign">현재고</td>
 				<td class="leftAlign"><input type="text" class="table_normal_txt" id="count"></td>
+				<td class="rightAlign">출고 수량</td>
+				<td class="leftAlign"><input type="text" class="table_normal_txt" id="outCount"></td>
 				<td><button type="button" class="table_btn" id="plusTr">추가</button></td>
 			</tr>
 			<tr>
 				<td class="rightAlign">제품번호</td>
-				<td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="pdtNum">
-				</td>
+				<td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="pdtNum"></td>
 				<td class="rightAlign">비고</td>
 				<td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="note"></td>
 				<td class="rightAlign">위치</td>
-				<td colspan="2" class="leftAlign fullWidth">
+				<td colspan="4" class="leftAlign fullWidth">
 					<select id="locSelect" class="searchSelect">
 						<option value="위치">위치</option>
 						<option value="A-01">A-01</option>
@@ -98,9 +103,8 @@
 		<div class="div-btn">
 			<button type="button" class="main_btn">등록</button>
 			<button type="button" class="main_btn" id="selected_del">삭제</button>
-			<button type="button" id="qr_button" onclick="openWindow()" class="main_btn2">QR 발행</button>
 		</div>
-		
+
 		<!-- 아래 추가된 제품 테이블 -->
 		<div id="div-tbl2">
 			<table id="inReg-tbl2">
@@ -108,11 +112,12 @@
 					<col width="5%" />
 					<col width="7%" />
 					<col width="8%" />
-					<col width="30%" />
+					<col width="*" />
 					<col width="6%" />
 					<col width="8%" />
 					<col width="8%" />
 					<col width="8%" />
+					<col width="6%" />
 					<col width="10%" />
 					<col width="10%" />
 				</colgroup>
@@ -121,9 +126,10 @@
 					<th>등록일</th>
 					<th>제품번호</th>
 					<th>제품명</th>
-					<th>규격</th>
-					<th>단위</th>
-					<th>수량</th>
+					<th>위치</th>
+					<th>출고수량</th>
+					<th>현재고</th>
+					<th>변경 후 수량</th>
 					<th>상태</th>
 					<th>LOT No.</th>
 					<th>비고</th>
@@ -134,21 +140,23 @@
 						<td>2024-02-01</td>
 						<td>ESB00001</td>
 						<td>샌)망곰초코딸기샌드</td>
-						<td>S</td>
-						<td>BOX</td>
-						<td>5</td>
+						<td>B-01</td>
+						<td>130</td>
+						<td>130</td>
+						<td>0</td>
 						<td>미등록</td>
-						<td></td>
+						<td>LT2024020100001</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
+						<td>2024-02-02</td>
 						<td>SCC00002</td>
 						<td>롯데)허쉬너겟쿠앤크6P</td>
-						<td>S</td>
-						<td>BOX</td>
-						<td>10</td>
+						<td>C-01</td>
+						<td>70</td>
+						<td>70</td>
+						<td>0</td>
 						<td>등록 완료</td>
 						<td>LT2024020100002</td>
 						<td></td>
@@ -158,33 +166,10 @@
 						<td>2024-02-01</td>
 						<td>ICA00003</td>
 						<td>나뚜루)녹차바</td>
-						<td>M</td>
-						<td>BOX</td>
-						<td>3</td>
-						<td>등록 완료</td>
-						<td>LT2024020100005</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>FGC00004</td>
-						<td>CJ)햇반전복미역죽</td>
-						<td>M</td>
-						<td>EA</td>
-						<td>20</td>
-						<td>등록 완료</td>
-						<td>LT2024020100004</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>BMB00005</td>
-						<td>남양)불가리스딸기150ml</td>
-						<td>S</td>
-						<td>BOX</td>
-						<td>10</td>
+						<td>A-01</td>
+						<td>5</td>
+						<td>40</td>
+						<td>35</td>
 						<td>등록 완료</td>
 						<td>LT2024020100005</td>
 						<td>유통기한 짧음</td>
@@ -286,7 +271,7 @@
 			</div>
 		</div>
 	</main>
-	
+
 	<footer>
 		<div class="footer-content">
 			<div class="status-user">
