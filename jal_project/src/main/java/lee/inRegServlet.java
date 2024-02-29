@@ -31,7 +31,7 @@ public class inRegServlet extends HttpServlet {
 //		String psize = request.getParameter("psize");
 //		String punit = request.getParameter("punit");
 		
-		
+		String searchInput = request.getParameter("searchInput");
 		
 		// DB 담당에게 전달
 		InRegDAO inRegDAO = new InRegDAO();
@@ -50,7 +50,7 @@ public class inRegServlet extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		// view 담당에게 전달
-		request.getRequestDispatcher("/jsp/inReg.jsp").forward(request, response);
+		request.getRequestDispatcher("inReg.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
