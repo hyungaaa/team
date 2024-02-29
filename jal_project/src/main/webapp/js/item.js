@@ -65,50 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// 이미지 보여지게
-// document.getElementById('imageUpload').addEventListener('change', function (event) {
-//     var selectedFile = event.target.files[0];
-
-//     // 여기에 선택된 파일을 업로드하는 로직을 추가하세요.
-//     // 예를 들어, 이미지를 미리보기로 표시할 수 있습니다.
-//     if (selectedFile) {
-//         var reader = new FileReader();
-//         reader.onload = function (e) {
-//             // 선택된 이미지를 미리보기로 표시
-//             var preview = document.createElement('img');
-//             preview.src = e.target.result;
-//             preview.style.width = '100%';
-//             preview.style.height = 'auto';
-//             document.body.appendChild(preview);
-//         };
-//         reader.readAsDataURL(selectedFile);
-//     }
-// });
-
-// document.getElementById('imageUpload').addEventListener('change', function (event) {
-//     var selectedFile = event.target.files[0];
-
-//     // 선택된 파일을 업로드하는 로직을 추가할 수 있습니다.
-
-//     // 이미지를 미리보기로 표시
-//     if (selectedFile) {
-//         var reader = new FileReader();
-//         reader.onload = function (e) {
-//             // 선택된 이미지를 미리보기로 표시
-//             var preview = document.createElement('img');
-//             preview.src = e.target.result;
-//             preview.style.width = '100%';
-//             preview.style.height = 'auto';
-
-//             // 미리보기를 표시할 div에 추가
-//             var previewContainer = document.getElementById('img_prv');
-//             previewContainer.innerHTML = ''; // 이전에 추가된 미리보기가 있다면 초기화
-//             previewContainer.appendChild(preview);
-//         };
-//         reader.readAsDataURL(selectedFile);
-//     }
-// });
-
 // 카테고리 설정 버튼 누르면 li 수정 가능
 function setting_btn() {
     // 각 li 요소의 내용을 수정 가능하게 만들기
@@ -124,21 +80,6 @@ function setting_btn() {
         }
     });
 }
-
-// // 새로운 li 요소 추가
-// if (confirm("새로운 카테고리를 추가하시겠습니까?")) {
-//     var newCategory = prompt("새로운 카테고리를 입력하세요");
-
-//     if (newCategory !== null && newCategory !== "") {
-//         var newListItem = document.createElement("li");
-//         newListItem.innerHTML = "<a href='#'><span class='mng_span'>" + newCategory + "</span>></a>";
-
-//         // 새로운 li 요소를 main_btn 위에 추가
-//         var button = document.querySelector(".main_btn");
-//         button.parentNode.insertBefore(newListItem, button);
-//     }
-// }
-
 
 
 // 카테고리에 속하는 제품 행만 보이도록
@@ -184,4 +125,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     filterCategory('전체');
+
+    let selected_del = document.getElementById("selected_del"); 
+  selected_del.addEventListener("click", function () {
+  
+    let list_checked = document.querySelectorAll(".chk:checked")
+    for(let i=0; i<list_checked.length; i++){
+      list_checked[i].parentNode.parentNode.remove();
+      // console.log(list_checked[i].parentNode);
+      // console.log(list_checked[i].parentNode.parentNode)
+    }
+  })
+  
 });
+
+
+
