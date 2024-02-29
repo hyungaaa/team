@@ -45,6 +45,8 @@ function inRegSearch() {
   }
 }
 
+
+
 function checkdPopup() {
   let radioBtn = document.querySelector('input[name="inReg-radio"]:checked').value;
   let locSelect = document.getElementById('locSelect');
@@ -55,10 +57,13 @@ function checkdPopup() {
   let unit = document.getElementById('unit');
   let count = document.getElementById('count');
   console.log(radioBtn);
+  
 
   let tbl = document.getElementById("inReg-tbl2");
   let tbody = tbl.getElementsByTagName("tbody")[0];
   let rows = tbody.getElementsByTagName("tr");
+  
+  
 
   // 행 개수
   for (let i = 0; i < rows.length; i++) {

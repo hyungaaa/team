@@ -26,31 +26,35 @@ public class inRegServlet extends HttpServlet {
 		}
 		
 		// 전달받은 값 parameter 확보
-		String pnum = request.getParameter("pnum");
-		String pname = request.getParameter("pname");
-		String psize = request.getParameter("psize");
-		String punit = request.getParameter("punit");
+//		String pnum = request.getParameter("pnum");
+//		String pname = request.getParameter("pname");
+//		String psize = request.getParameter("psize");
+//		String punit = request.getParameter("punit");
+		
+		
 		
 		// DB 담당에게 전달
 		InRegDAO inRegDAO = new InRegDAO();
 		
 		PdDTO pdDTO = new PdDTO();
-		pdDTO.setPnum(pnum);
-		pdDTO.setPname(pname);
-		pdDTO.setPsize(psize);
-		pdDTO.setPunit(punit);
+		pdDTO.setPnum(pdDTO.getPnum());
+		pdDTO.setPname(pdDTO.getPname());
+		pdDTO.setPsize(pdDTO.getPsize());
+		pdDTO.setPunit(pdDTO.getPunit());
 		
 		// 결과 받기
 		List list = inRegDAO.selectPd(pdDTO);
-		System.out.println(list);
-		System.out.println(((PdDTO)list.get(0)).getPnum());
+//		System.out.println(list);
+//		System.out.println(((PdDTO)list.get(0)).getPnum());
 		
 		request.setAttribute("list", list);
+		
 		// view 담당에게 전달
 		request.getRequestDispatcher("/jsp/inReg.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

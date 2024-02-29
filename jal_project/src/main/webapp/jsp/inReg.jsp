@@ -229,8 +229,8 @@
 							<col width="10%" />
 							<col width="20%" />
 							<col width="45%" />
-							<col width="10%" />
-							<col width="15%" />
+							<col width="12%" />
+							<col width="13%" />
 						</colgroup>
 						<thead>
 							<th></th>
@@ -244,7 +244,7 @@
 								for(int i = 0; i < list.size(); i++) {
 							%>
 							<tr>
-								<td><input type="radio" name="inReg-radio" value="ESB00001"></td>
+								<td><input type="radio" name="inReg-radio" value="<%=((PdDTO)list.get(i)).getPnum()%>"></td>
 								<td><%=((PdDTO)list.get(i)).getPnum()%></td>
 								<td><%=((PdDTO)list.get(i)).getPname()%></td>
 								<td><%=((PdDTO)list.get(i)).getPsize()%></td>
@@ -253,41 +253,13 @@
 							<%
 								}
 							%>
-<!-- 							<tr> -->
-<!-- 								<td><input type="radio" name="inReg-radio" value="SCC00002"></td> -->
-<!-- 								<td>SCC00002</td> -->
-<!-- 								<td>롯데)허쉬너겟쿠앤크6P</td> -->
-<!-- 								<td>S</td> -->
-<!-- 								<td>BOX</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr> -->
-<!-- 								<td><input type="radio" name="inReg-radio" value="ICA00003"></td> -->
-<!-- 								<td>ICA00003</td> -->
-<!-- 								<td>나뚜루)녹차바</td> -->
-<!-- 								<td>M</td> -->
-<!-- 								<td>BOX</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr> -->
-<!-- 								<td><input type="radio" name="inReg-radio" value="FGC00004"></td> -->
-<!-- 								<td>FGC00004</td> -->
-<!-- 								<td>CJ)햇반전복미역죽</td> -->
-<!-- 								<td>M</td> -->
-<!-- 								<td>EA</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr> -->
-<!-- 								<td><input type="radio" name="inReg-radio" value="BMB00005"></td> -->
-<!-- 								<td>BMB00005</td> -->
-<!-- 								<td>남양)불가리스딸기150ml</td> -->
-<!-- 								<td>S</td> -->
-<!-- 								<td>BOX</td> -->
-<!-- 							</tr> -->
 						</tbody>
 					</table>
 				</div>
-				<div class="div_flex">
-					<button type="button" class="main_btn">&lt; prev</button>
-					<button type="button" class="main_btn">next &gt;</button>
-				</div>
+<!-- 				<div class="div_flex"> -->
+<!-- 					<button type="button" class="main_btn">&lt; prev</button> -->
+<!-- 					<button type="button" class="main_btn">next &gt;</button> -->
+<!-- 				</div> -->
 				<div class="div_line"></div>
 				<div class="div_btn">
 					<a href="#">
