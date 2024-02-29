@@ -16,9 +16,9 @@
 </head>
 <body>
 
-	<form method= "post" action="login.do" id="form">
+    <div class="login_page">
 	    
-	    <div class="login_page">
+		<form method= "post" action="login.do" id="form">
 	
 	        <span class="login_title">LOGIN</span>
 	        <br><br><br>
@@ -49,9 +49,8 @@
 	            </tr>
 	
 	        </table>
-	        
-	        <hr>
-	        <br>
+		</form>
+	        <hr><br>
 	
 	        <div style="display: flex;justify-content: space-around;">
 	            <button class="main_btn" id="request1_btn" tabindex="4">사용권한 등록 요청</button>
@@ -61,11 +60,8 @@
 	        <br><br>
 	        <span> 최초 사용시에는 상단의 '사용권한 등록요청'을 클릭하여 권한을 등록한 뒤 로그인 해주시기 바랍니다.</span>
 	
-	
-	    </div>
+	   </div>
 	    
-	</form>
-    
 
     <!-- 팝업창1 -->
     <div id="popup1" class="popup1">
@@ -73,39 +69,40 @@
 
             <p style="font-size: 18rem; font-weight: 500;">사용권한 등록 요청</p>
             
-            <table>
-
-                <colgroup>
-                    <col width="20%"/>
-                    <col width="*"/>
-                    <col width="30%"/>
-                </colgroup>
-                <tr>
-                    <td>사원번호</td>
-                    <td colspan="2"><input type="text" class="table_normal_txt" id="req1_empno" style="width: 95%;"></td>
-                </tr>
-                <tr>
-                    <td>아이디</td>
-                    <td><input type="text" class="table_normal_txt" style="width: 95%;" id="req1_id"></td>
-                    <td><button class="main_btn2" id="id_check" style="padding: 8rem 12rem 8rem;">중복확인</button></td>
-                </tr>
-                <tr>
-                    <td>이메일</td>
-                    <td colspan="2"><input class="table_normal_txt" type="email" style="width: 95%;" id="req1_email"></td>
-                </tr>
-                <tr height="28rem">
-                    <td></td>
-                    <td colspan="2">
-                        <div id="alert_msg1" style="color:red; font-size:12rem;"> </div>
-                    </td>
-                </tr>
-    
-            </table>
-            <br>
-            <div class="pBtn">
-                <span id="popY1">확 인</span>
-                <span id="popN1">취 소</span>
-            </div>
+            <form id="form_idreg" method="post" action="idreg.do">
+	            <table>
+	                <colgroup>
+	                    <col width="20%"/>
+	                    <col width="*"/>
+	                    <col width="30%"/>
+	                </colgroup>
+	                <tr>
+	                    <td>사원번호</td>
+	                    <td colspan="2"><input type="text" class="table_normal_txt" id="req1_empno" style="width: 95%;"></td>
+	                </tr>
+	                <tr>
+	                    <td>아이디</td>
+	                    <td><input type="text" class="table_normal_txt" style="width: 95%;" id="req1_id"></td>
+	                    <td><button class="main_btn2" id="id_check" style="padding: 8rem 12rem 8rem;">중복확인</button></td>
+	                </tr>
+	                <tr>
+	                    <td>이메일</td>
+	                    <td colspan="2"><input class="table_normal_txt" type="email" style="width: 95%;" id="req1_email"></td>
+	                </tr>
+	                <tr height="28rem">
+	                    <td></td>
+	                    <td colspan="2">
+	                        <div id="alert_msg1" style="color:red; font-size:12rem;"> </div>
+	                    </td>
+	                </tr>
+	    
+	            </table>
+	            <br>
+	            <div class="pBtn">
+	                <span id="popY1">확 인</span>
+	                <span id="popN1">취 소</span>
+	            </div>
+            </form>
 
         </div>
     </div>

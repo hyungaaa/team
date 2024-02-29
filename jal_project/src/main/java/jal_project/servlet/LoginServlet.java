@@ -142,7 +142,7 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("fail");
 					
 					//로그인 실패 시 로그인페이지로 리디렉트
-					response.sendRedirect("login.do");
+					response.sendRedirect("login");
 
 				}
 			}

@@ -99,6 +99,8 @@ function request1(){
         } else{
             document.querySelector(".popup1").style.display = "none";
             document.querySelector(".popup-content1").style.display = "none";
+            
+            document.querySelector("#form_idreg").submit();
             alert("요청되었습니다");
             input_clear();
         }

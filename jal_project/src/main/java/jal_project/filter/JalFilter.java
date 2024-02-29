@@ -39,31 +39,35 @@ public class JalFilter extends HttpFilter implements Filter {
 			
 			//indexOf 그 글씨 포함여부 : 로그인으로 접속하려고하면..
 			if(url.indexOf("login.jsp") != -1 
-				|| url.indexOf("login.do") != -1 
+				|| url.indexOf("*.do") != -1 
 				|| url.indexOf("/logout") != -1 
-				|| url.indexOf("/join.do") != -1
+				|| url.indexOf("/login") != -1
 				|| url.indexOf("/css/") != -1
 				|| url.indexOf("/js/") != -1
 				|| url.indexOf("/img/") != -1){
 				// 그냥 통과
-				// 서블릿 등의 동작
-				chain.doFilter(request, response);
+				// 원하는 페이지(예외처리한것들)로 이동 
+				System.out.println("주소 예외처리로 통과됨");
+				chain.doFilter(request, response);	//(서블릿 등의 동작)
 			} else {
-			
-				HttpSession session = req.getSession();
+				// 예외로 설정되지 않은 페이지 입력되었을때
+				System.out.println("주소 예외처리 이외의 링크임-> 로그온 여부 체크 예정");
+
 				
+				//세션에 로그온 되어있는지 정보 가져오기
+				HttpSession session = req.getSession();
 				String isLogon = (String)session.getAttribute("isLogon");
 				
 				if("ok".equals(isLogon)) {
-					//로그인 했다면
-					
+					//로그온 되어있다면
+					//원하는 페이지로 이동
 					chain.doFilter(request, response);
 				} else {
 					//로그인을 안했다면
 					HttpServletResponse resp = (HttpServletResponse) response;
-					resp.sendRedirect("login.do");
+					//로그인 페이지로 이동
+					resp.sendRedirect("login");
 
-					
 				}
 			
 			}
