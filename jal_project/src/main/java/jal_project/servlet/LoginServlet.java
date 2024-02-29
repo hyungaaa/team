@@ -135,21 +135,21 @@ public class LoginServlet extends HttpServlet {
 					ps2.close();
 					
 					//로그인 성공 시 대시보드로 리디렉트
-					response.sendRedirect("dashboard.jsp");
+					response.sendRedirect("dashboard");
 
 					
 				} else{
 					System.out.println("fail");
 					
 					//로그인 실패 시 로그인페이지로 리디렉트
-					response.sendRedirect("login.jsp");
+					response.sendRedirect("login.do");
 
 				}
 			}
 			
 			rs.close();
 			ps.close();
-//			con.close();
+			con.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -22,25 +22,29 @@ public class JalFilter extends HttpFilter implements Filter {
 		
 		if(request instanceof HttpServletRequest) {
 			HttpServletRequest req = (HttpServletRequest) request;
-			
-			String url = req.getRequestURI();
-			System.out.println("요청 url: " + url);
+	        
+	        String url = req.getRequestURI();
+	        System.out.println("요청 url: " + url);
+	        
+	        // 정적 자원인 경우 필터를 실행하지 않음
+	        if (url.endsWith(".css") || url.endsWith(".js") || url.endsWith(".png")) {
+	            chain.doFilter(request, response);
+	            return;
+	        }
 			
 			
 			// 반복해야할 작업 - 모든것이 거쳐감
 			request.setCharacterEncoding("utf-8");
-			//css 파일인 경우는 따로처리
-			if (url.endsWith(".css")) {
-			    response.setContentType("text/css; charset=utf-8");
-			} else {
-				response.setContentType("text/html; charset=utf-8;");
-			}
+			
 			
 			//indexOf 그 글씨 포함여부 : 로그인으로 접속하려고하면..
 			if(url.indexOf("login.jsp") != -1 
-					|| url.indexOf("login.do") != -1 
-					|| url.indexOf("/logout") != -1 
-					|| url.indexOf("/join.do") != -1){
+				|| url.indexOf("login.do") != -1 
+				|| url.indexOf("/logout") != -1 
+				|| url.indexOf("/join.do") != -1
+				|| url.indexOf("/css/") != -1
+				|| url.indexOf("/js/") != -1
+				|| url.indexOf("/img/") != -1){
 				// 그냥 통과
 				// 서블릿 등의 동작
 				chain.doFilter(request, response);
@@ -57,7 +61,7 @@ public class JalFilter extends HttpFilter implements Filter {
 				} else {
 					//로그인을 안했다면
 					HttpServletResponse resp = (HttpServletResponse) response;
-					resp.sendRedirect("login.jsp");
+					resp.sendRedirect("login.do");
 
 					
 				}
