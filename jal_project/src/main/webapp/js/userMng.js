@@ -129,10 +129,7 @@ window.addEventListener("load", function () {
 
 function bindEvents() {
     // 체크박스 전체 선택
-    document.getElementById("data-table").addEventListener("click", function (event) {
-        if (event.target.checked) {
     document.querySelectorAll("[id^='select_all']").forEach(function (checkbox) {
-        
         checkbox.addEventListener("click", function (event) {
             let checkboxClass = event.target.id.replace("select_all", "chk");
             let checkboxes = document.querySelectorAll("." + checkboxClass);
@@ -141,14 +138,7 @@ function bindEvents() {
             });
         });
     });
-        }});
-
     
-
-
- 
-    
-
     // 셀렉트 옵션 변경
     document.querySelectorAll("[id^='change_button']").forEach(function (button) {
         button.addEventListener("click", function () {
