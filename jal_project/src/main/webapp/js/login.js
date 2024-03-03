@@ -115,7 +115,9 @@ function request1(){
 		    xhr.open("GET", "idcheck.do?uuid=" + document.querySelector("#req1_id").value, true);
 		    xhr.onreadystatechange = function() {
 		        if (xhr.readyState === XMLHttpRequest.DONE) {
+					
 		            var response = xhr.responseText; // 서블릿에서 반환된 응답
+		            
 		            if (response.includes("invalid")) {
 		                alert("사용 불가능한 아이디입니다");
 		                validId = false;
@@ -123,6 +125,8 @@ function request1(){
 		                alert("사용 가능한 아이디입니다");
 		                validId = true;
 		            }
+		            
+					
 		        }
 		    };
 		    xhr.send();

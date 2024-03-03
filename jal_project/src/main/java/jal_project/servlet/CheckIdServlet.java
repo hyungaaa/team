@@ -16,11 +16,21 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/idcheck.do")
 public class CheckIdServlet extends HttpServlet {
+	
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	UserInfoDTO userInfoDTO = new UserInfoDTO();
+    	
         String uuid = request.getParameter("uuid");
-        boolean isDuplicate = checkIdExists(uuid);
-
+        userInfoDTO.setUuid(uuid);
+        
+        
+        UserInfoDAO userInfoDAO = new UserInfoDAO();
+        
+        //ID 중복확인
+        boolean isDuplicate = userInfoDAO.checkIdExists(userInfoDTO);
+        
         if(isDuplicate || uuid.length() < 4){
         	System.out.println("uuid: "+ uuid);
             System.out.println("중복아이디 여부: " + isDuplicate);
@@ -37,26 +47,4 @@ public class CheckIdServlet extends HttpServlet {
         }
     }
 
-    private boolean checkIdExists(String uuid) {
-        String driver = "oracle.jdbc.driver.OracleDriver";
-        String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
-        String user = "scott_jal";
-        String password = "jal123456";
-
-        try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(url, user, password);
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM user_info WHERE uuid = ?");
-            ps.setString(1, uuid);
-            ResultSet rs = ps.executeQuery();
-            boolean isDuplicate = rs.next();
-            rs.close();
-            ps.close();
-            con.close();
-            return isDuplicate;
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 }
