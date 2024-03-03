@@ -1,8 +1,226 @@
+//package Mng
+//
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class UserMngDAO {
+//	private final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+//	private final String URL = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
+//	private final String USER = "scott_jal";
+//	private final String PASSWORD = "jal123456";
+//
+//	// select
+//	public List<UserMngDTO> selectUserMng() {
+//		List<UserMngDTO> list = new ArrayList<>();
+//		Connection con = null;
+//		PreparedStatement ps = null;
+//		ResultSet rs = null;
+//
+//		try {
+//			// 드라이버 로딩
+//			Class.forName(DRIVER);
+//			System.out.println("Oracle 드라이버 로딩 성공");
+//
+//			// DB 접속
+//			con = DriverManager.getConnection(URL, USER, PASSWORD);
+//			System.out.println("Connection 생성 성공");
+//
+//			// SQL 생성
+//			String query = "SELECT * FROM user_info";
+//			System.out.println("query : " + query);
+//
+//			// SQL 실행 준비
+//			ps = con.prepareStatement(query);
+//
+//			// SQL 실행 및 결과 확보
+//			rs = ps.executeQuery();
+//
+//			// 결과 활용
+//			while (rs.next()) {
+//				UserMngDTO dto = new UserMngDTO();
+//				dto.setUuid(rs.getString("uuid"));
+//				dto.setCcode(rs.getString("ccode"));
+//				dto.setUpass(rs.getString("upass"));
+//				dto.setUname(rs.getString("uname"));
+//				dto.setUtel(rs.getString("utel"));
+//				dto.setUemail(rs.getString("uemail"));
+//				dto.setUnum(rs.getString("unum"));
+//				dto.setUposition(rs.getString("uposition"));
+//				dto.setUbirth(rs.getDate("ubirth"));
+//				dto.setUimage(rs.getString("uimage"));
+//				dto.setUdate(rs.getString("udate"));
+//				dto.setUmaster(rs.getString("umaster"));
+//				dto.setUlevel(rs.getString("ulevel"));
+//				dto.setUpdv(rs.getString("updv"));
+//				dto.setUpdior(rs.getString("updior"));
+//				dto.setUpdr(rs.getString("updr"));
+//				dto.setUpdiom(rs.getString("updiom"));
+//				dto.setUbdm(rs.getString("ubdm"));
+//				dto.setUum(rs.getString("uum"));
+//				dto.setRcategory(rs.getString("rcategory"));
+//
+//				list.add(dto);
+//			}
+//		} catch (ClassNotFoundException | SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			// 연결 해제
+//			try {
+//				if (rs != null)
+//					rs.close();
+//				if (ps != null)
+//					ps.close();
+//				if (con != null)
+//					con.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return list;
+//	}
+//
+//	// update
+//	// insert
+//	// delete
+//}
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class UserMngDAO {
+//	private final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+//	private final String URL = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
+//	private final String USER = "scott_jal";
+//	private final String PASSWORD = "jal123456";
+//
+//	// select
+//	public List<UserMngDTO> selectAllTables() {
+//		List<UserMngDTO> list = new ArrayList<>();
+//		Connection con = null;
+//		PreparedStatement ps = null;
+//		ResultSet rs = null;
+//
+//		try {
+//			// 드라이버 로딩
+//			Class.forName(DRIVER);
+//			System.out.println("Oracle 드라이버 로딩 성공");
+//
+//			// DB 접속
+//			con = DriverManager.getConnection(URL, USER, PASSWORD);
+//			System.out.println("Connection 생성 성공");
+//
+//			// SQL 생성 - 각 테이블에서 필요한 정보를 가져오도록 쿼리 작성
+//			String queryUserInfo = "SELECT * FROM user_info";
+//			String queryCenterList = "SELECT * FROM center_list";
+//			String queryReqList = "SELECT * FROM req_list";
+//			String queryUserPower = "SELECT * FROM user_power";
+//
+//			// SQL 실행 준비
+//			ps = con.prepareStatement(queryUserInfo);
+//
+//			// SQL 실행 및 결과 확보 - user_info 테이블 정보 가져오기
+//			rs = ps.executeQuery();
+//
+//			// 결과 활용 - UserMngDTO 객체에 필드 설정 후 리스트에 추가
+//			while (rs.next()) {
+//				UserMngDTO dto = new UserMngDTO();
+//				dto.setUserInfoUuid(rs.getString("uuid"));
+//				dto.setUserInfoCcode(rs.getString("ccode"));
+//				dto.setUserInfoUpass(rs.getString("upass"));
+//				dto.setUserInfoUname(rs.getString("uname"));
+//				dto.setUserInfoUtel(rs.getString("utel"));
+//				dto.setUserInfoUemail(rs.getString("uemail"));
+//				dto.setUserInfoUnum(rs.getString("unum"));
+//				dto.setUserInfoUposition(rs.getString("uposition"));
+//				dto.setUserInfoUbirth(rs.getDate("ubirth"));
+//				dto.setUserInfoUimage(rs.getString("uimage"));
+//				dto.setUserInfoUdate(rs.getString("udate"));
+//				dto.setUserInfoUmaster(rs.getString("umaster"));
+//				dto.setUserInfoUlevel(rs.getString("ulevel"));
+//				dto.setUserInfoUpdv(rs.getString("updv"));
+//				dto.setUserInfoUpdior(rs.getString("updior"));
+//				dto.setUserInfoUpdr(rs.getString("updr"));
+//				dto.setUserInfoUpdiom(rs.getString("updiom"));
+//				dto.setUserInfoUbdm(rs.getString("ubdm"));
+//				dto.setUserInfoUum(rs.getString("uum"));
+//				dto.setReqListRcategory(rs.getString("rcategory"));
+//
+//				list.add(dto);
+//			}
+//
+//			// CenterListDTO 정보 가져오기
+//			ps = con.prepareStatement(queryCenterList);
+//			rs = ps.executeQuery();
+//			while (rs.next()) {
+//				UserMngDTO dto = new UserMngDTO();
+//				dto.setCenterListCcode(rs.getString("ccode"));
+//				dto.setCenterListCname(rs.getString("cname"));
+//				dto.setCenterListCmanager(rs.getString("cmanager"));
+//				dto.setCenterListCtel(rs.getString("ctel"));
+//				list.add(dto);
+//			}
+//
+//			// ReqListDTO 정보 가져오기
+//			ps = con.prepareStatement(queryReqList);
+//			rs = ps.executeQuery();
+//			while (rs.next()) {
+//				UserMngDTO dto = new UserMngDTO();
+//				dto.setReqListRid(rs.getString("rid"));
+//				dto.setReqListUuid(rs.getString("uuid"));
+//				dto.setReqListRcategory(rs.getString("rcategory"));
+//				list.add(dto);
+//			}
+//
+//			// UserPowerDTO 정보 가져오기
+//			ps = con.prepareStatement(queryUserPower);
+//			rs = ps.executeQuery();
+//			while (rs.next()) {
+//				UserMngDTO dto = new UserMngDTO();
+//				dto.setUserPowerUuid(rs.getString("uuid"));
+//				dto.setUserPowerUlevel(rs.getString("ulevel"));
+//				dto.setUserPowerUpdv(rs.getString("updv"));
+//				dto.setUserPowerUpdior(rs.getString("updior"));
+//				dto.setUserPowerUpdr(rs.getString("updr"));
+//				dto.setUserPowerUpdiom(rs.getString("updiom"));
+//				dto.setUserPowerUbdm(rs.getString("ubdm"));
+//				dto.setUserPowerUum(rs.getString("uum"));
+//				list.add(dto);
+//			}
+//		} catch (ClassNotFoundException | SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			// 연결 해제
+//			try {
+//				if (rs != null)
+//					rs.close();
+//				if (ps != null)
+//					ps.close();
+//				if (con != null)
+//					con.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return list;
+//	}
+//
+//	// update
+//	// insert
+//	// delete
+//}
 
 package Mng;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,126 +229,83 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserMngDAO {
+	private final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+	private final String URL = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
+	private final String USER = "scott_jal";
+	private final String PASSWORD = "jal123456";
 
-	// select
-	public List selectuserMng(UserMngDTO usermngDTO) {
-		List list = new ArrayList();
-
-		// DB 접속
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
-		String user = "scott_jal";
-		String password = "jal123456";
+	public List<UserMngDTO> selectAllTables() {
+		List<UserMngDTO> list = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 
 		try {
-			// 드라이버 로딩
-			// Class.forName : String 변수로 class 생성
-			Class.forName(driver);
+			Class.forName(DRIVER);
 			System.out.println("Oracle 드라이버 로딩 성공");
-			// DB 접속
-			Connection con = DriverManager.getConnection(url, user, password);
+
+			con = DriverManager.getConnection(URL, USER, PASSWORD);
 			System.out.println("Connection 생성 성공");
 
-			// SQL 만들기
-			
-			String query = "";
-			query += " select";
-			query += " *";
-			query += " from";		
-			query += " user_info";
-//			query += " select";
-//			query += " rcategory, unum, uuid, uemail";
-//			query += " from";
-//			query += " req_list";
+			// 모든 테이블의 데이터를 가져오는 쿼리
+			String query = "SELECT * FROM user_info " + "UNION ALL " + "SELECT * FROM center_list " + "UNION ALL "
+					+ "SELECT * FROM req_list " + "UNION ALL " + "SELECT * FROM user_power";
+			ps = con.prepareStatement(query);
+			rs = ps.executeQuery();
 
-			System.out.println("query : " + query);
-
-			// SQL 실행 준비
-			PreparedStatement ps = con.prepareStatement(query);
-
-			// SQL 실행 및 결과 확보
-			ResultSet rs = ps.executeQuery();
-
-			// 결과 활용
 			while (rs.next()) {
-//				String rcategory = rs.getString("rcategory");
-				String uuid = rs.getString("uuid");
-				String ccode = rs.getString("ccode");
-				String upass = rs.getString("upass");
-				String cname = rs.getString("cname");
-				String unum = rs.getString("unum");
-				String uemail = rs.getString("uemail");
-				String uname = rs.getString("uname");
-				String ulevel = rs.getString("ulevel");
-				String updv = rs.getString("updv");
-				String updior = rs.getString("updior");
-				String updr = rs.getString("updr");
-				String updiom = rs.getString("updiom");
-				String updm = rs.getString("updm");
-				String uum = rs.getString("uum");
-//				String rid = rs.getString("rid");
-
-				// 날짜 사용하고 싶으면 클래스명이 같기 때문에
-				// java.util.Date 이 형태로 써야 한다
-
-//				System.out.println("rcategory : " + rcategory);
-				System.out.println("unum : " + unum);
-				System.out.println("uuid : " + uuid);
-				System.out.println("uemail : " + uemail);
-				System.out.println("uname : " + uname);
-				System.out.println("cname : " + cname);
-				System.out.println("ulevel : " + ulevel);
-				System.out.println("updv : " + updv);
-				System.out.println("updior : " + updior);
-				System.out.println("updr : " + updr);
-				System.out.println("updiom : " + updiom);
-				System.out.println("updm : " + updm);
-				System.out.println("uum : " + uum);
-//				System.out.println("rid : " + rid);
-				System.out.println("----------------------------");
-
-//				Map map = new HashMap();
-//				map.put("empno", empno);
-//				map.put("ename", ename);
-//				map.put("hiredate", hiredate);
-//				list.add(map);
-
 				UserMngDTO dto = new UserMngDTO();
-//				dto.setRcategory(rcategory);
-				dto.setUnum(unum);
-				dto.setUuid(uuid);
-				dto.setUemail(uemail);
-				dto.setUname(uname);
-				dto.setCname(cname);
-				dto.setUlevel(ulevel);
-				dto.setUpdv(updv);
-				dto.setUpdior(updior);
-				dto.setUpdr(updr);
-				dto.setUpdiom(updiom);
-				dto.setUpdm(updm);
-				dto.setUum(uum);
-//				dto.setRid(rid);
+				// 각 필드에 데이터 설정
+				dto.setUserInfoUuid(rs.getString("uuid"));
+				dto.setUserInfoCcode(rs.getString("ccode"));
+				dto.setUserInfoUpass(rs.getString("upass"));
+				dto.setUserInfoUname(rs.getString("uname"));
+				dto.setUserInfoUtel(rs.getString("utel"));
+				dto.setUserInfoUemail(rs.getString("uemail"));
+				dto.setUserInfoUnum(rs.getString("unum"));
+				dto.setUserInfoUposition(rs.getString("uposition"));
+				dto.setUserInfoUbirth(rs.getDate("ubirth"));
+				dto.setUserInfoUimage(rs.getString("uimage"));
+				dto.setUserInfoUdate(rs.getString("udate"));
+				dto.setUserInfoUmaster(rs.getString("umaster"));
+				dto.setUserInfoUlevel(rs.getString("ulevel"));
+				dto.setUserInfoUpdv(rs.getString("updv"));
+				dto.setUserInfoUpdior(rs.getString("updior"));
+				dto.setUserInfoUpdr(rs.getString("updr"));
+				dto.setUserInfoUpdiom(rs.getString("updiom"));
+				dto.setUserInfoUbdm(rs.getString("ubdm"));
+				dto.setUserInfoUum(rs.getString("uum"));
+				dto.setCenterListCcode(rs.getString("ccode"));
+				dto.setCenterListCname(rs.getString("cname"));
+				dto.setCenterListCmanager(rs.getString("cmanager"));
+				dto.setCenterListCtel(rs.getString("ctel"));
+				dto.setReqListRid(rs.getString("rid"));
+				dto.setReqListUuid(rs.getString("uuid"));
+				dto.setReqListRcategory(rs.getString("rcategory"));
+				dto.setUserPowerUuid(rs.getString("uuid"));
+				dto.setUserPowerUlevel(rs.getString("ulevel"));
+				dto.setUserPowerUpdv(rs.getString("updv"));
+				dto.setUserPowerUpdior(rs.getString("updior"));
+				dto.setUserPowerUpdr(rs.getString("updr"));
+				dto.setUserPowerUpdiom(rs.getString("updiom"));
+				dto.setUserPowerUbdm(rs.getString("ubdm"));
+				dto.setUserPowerUum(rs.getString("uum"));
 				list.add(dto);
-
 			}
-
-			rs.close();
-			ps.close();
-			con.close();
-
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-
 		return list;
-
 	}
-
-	// update
-	// insert
-	// delete
-
 }

@@ -19,6 +19,7 @@ CREATE TABLE center_list (
 	cmanager	varchar2(20),
 	ctel	varchar2(20)
 );
+
 CREATE TABLE bd_list (
 	bno	number(8)		NOT NULL,
 	uuid	varchar2(20)		NOT NULL,
@@ -164,6 +165,18 @@ REFERENCES user_info (
 	uuid
 );
 
+select * from user_info;
+select * from center_list;
+select * from bd_list;
+select * from bd_re;
+select * from pd_list;
+select * from req_list;
+select * from wh_list;
+select * from user_power;
+select * from pd_out;
+select * from pd_in;
+select * from big_cat;
+select * from small_cat;
 
 
 
