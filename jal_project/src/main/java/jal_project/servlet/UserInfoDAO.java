@@ -166,6 +166,40 @@ public class UserInfoDAO {
     }
 	
 	
+    // 패스워드 초기화 (upass 랜덤 String로 업데이트)
+	public void resetUpass(UserInfoDTO userInfoDTO) {
+		
+		// DB 접속
+		Connection con = getConn();
+		// 연결 실패 시 
+		if(con==null) {
+			System.out.println("DB 연결에 실패하였습니다. 연결을 다시 시도하세요.");
+		}
+				
+        try {
+
+			// 유저 아이디로 레코드 검색하여 임시 비밀번호 부여
+			String query = "";
+			query += " UPDATE user_info";
+			query += " SET upass = dbms_random.string('X',8)";
+			query += " WHERE lower(uuid) like '%' || lower(?) || '%'";
+			
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, userInfoDTO.getUuid());
+			ResultSet rs = ps.executeQuery();
+			
+			// 센터명 세션에 저장
+			if(rs.next()) {
+				System.out.println("비밀번호를 초기화하였습니다.");
+			}
+			
+			rs.close();
+			ps.close();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }	
 	
 
 }

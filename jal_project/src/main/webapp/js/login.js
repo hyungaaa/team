@@ -147,7 +147,7 @@ function request1(){
 				document.querySelector(".popup1").style.display = "none";
             	document.querySelector(".popup-content1").style.display = "none";
             	
-				document.querySelector("#form_idreg").submit();
+            	document.querySelector("#form_idreg").submit();
 	            alert("요청되었습니다");
 	            input_clear();
 			} else {
@@ -183,11 +183,40 @@ function request2(){
         if (document.querySelector("#req2_empno").value =="" || document.querySelector("#req2_email").value == "" || document.querySelector("#req2_id").value ==""){
             document.querySelector("#alert_msg2").innerHTML='<span>내용을 입력하세요</span>';
         } else{
-
-            document.querySelector(".popup2").style.display = "none";
-            document.querySelector(".popup-content2").style.display = "none";
-            alert("요청되었습니다");
+			
+			
+        	// AJAX로 비밀번호초기화 요청 서블릿 이동
+			var xhr = new XMLHttpRequest();
+		    xhr.open("GET", "resetpw.do?unum=" + document.querySelector("#req2_empno").value + "&uuid=" + document.querySelector("#req2_id").value + "&uemail=" + document.querySelector("#req2_email").value, true);
+		    xhr.onreadystatechange = function() {
+		        if (xhr.readyState === XMLHttpRequest.DONE) {
+					
+		            var response = xhr.responseText; // 서블릿에서 반환된 응답
+		            
+		            if (response.includes("no match-unum")) {
+						
+		                alert("일치하는 사원번호가 없습니다");
+		                
+		            } else if (response.includes("no match-uemail")) {
+						
+		                alert("이메일 주소가 일치하지 않습니다");
+		                
+		            } else {
+						
+						document.querySelector(".popup2").style.display = "none";
+		        		document.querySelector(".popup-content2").style.display = "none";
+		        		alert("요청되었습니다");
+        		
+					}
+		            
+		        }
+		    };
+		    xhr.send();
+			    
+			//document.querySelector("#form_resetpw").submit();
+            
             input_clear();
+
         }
     });
     document.querySelector("#popN2").addEventListener("click", function(){

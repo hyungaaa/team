@@ -84,6 +84,7 @@ public class ReqListDAO {
 		return boolean1;
 
 	}
+		
 	
 	// select - 입력한 이메일과 일치하는 사원이 있는지 확인
 		public Boolean checkUemail(UserInfoDTO userInfoDTO) {
@@ -151,7 +152,7 @@ public class ReqListDAO {
 			String query = "";
 			query += " insert into req_list";
 			query += " values";
-			query += " ((select MAX(rid) + 1 from req_list), ?, ?, ?)";
+			query += " ((select COALESCE(MAX(rid) + 1, 1) from req_list), ?, ?, ?)";
 
 			System.out.println("query : " + query);
 

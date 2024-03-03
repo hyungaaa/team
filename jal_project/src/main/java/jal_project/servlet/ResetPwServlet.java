@@ -32,6 +32,7 @@ public class ResetPwServlet extends HttpServlet {
 		// db 담당에게 전달하고
 		ReqListDAO reqListDAO = new ReqListDAO();
 		
+		
 		// 존재하는 사원번호인지 확인
 		if(reqListDAO.checkUnum(userInfoDTO)) {
 			
@@ -47,7 +48,7 @@ public class ResetPwServlet extends HttpServlet {
 				String htmlResponse = "no match-uemail";
 	            response.getWriter().println(htmlResponse);
 	            
-				response.sendRedirect("login");
+//				response.sendRedirect("login");
 			}
 
 		}else{
@@ -56,7 +57,7 @@ public class ResetPwServlet extends HttpServlet {
 			String htmlResponse = "no match-unum";
             response.getWriter().println(htmlResponse);
             
-			response.sendRedirect("login");
+//			response.sendRedirect("login");
 		};
 		
 	}

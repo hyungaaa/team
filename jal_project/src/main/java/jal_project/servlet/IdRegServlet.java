@@ -15,6 +15,7 @@ public class IdRegServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
+		MemberInfoDTO memberInfoDTO = new MemberInfoDTO();
 
 		// 전달받은 parameter 확보
 		String unum = request.getParameter("unum");
@@ -28,15 +29,16 @@ public class IdRegServlet extends HttpServlet {
 		
 		// db 담당에게 전달하고
 		ReqListDAO reqListDAO = new ReqListDAO();
+		MemberInfoDAO memberInfoDAO = new MemberInfoDAO();
 		
 		// 존재하는 사원번호인지 확인
-		if(reqListDAO.checkUnum(userInfoDTO)) {
+		if(memberInfoDAO.checkUnumUuid(memberInfoDTO)) {
 			// table에 insert 실행
 			reqListDAO.insertReqList(userInfoDTO, rct);
 			response.sendRedirect("login");
 
 		}else{
-			System.out.println("일치하는 사원번호 없음");
+			System.out.println("일치하는 사원번호 없음 / 이미 아이디가 존재함");
 			
 			String htmlResponse = "no match-unum";
             response.getWriter().println(htmlResponse);
