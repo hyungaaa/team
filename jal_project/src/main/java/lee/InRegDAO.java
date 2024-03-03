@@ -11,7 +11,7 @@ import java.util.List;
 public class InRegDAO {
 
 	//select
-	public List selectPd(PdDTO pdDTO) {
+	public List selectPd(PdDTO pdDTO, String searchInput) {
 		List list = new ArrayList();
 		
 		try {
@@ -25,13 +25,14 @@ public class InRegDAO {
 			query += " pnum, pname, psize, punit";
 			query += " from";
 			query += " pd_list";
-//			query += " where pname=?";
+			query += " where pname like '%' || ? || '%'";
 
 			System.out.println("query : " + query);
 			
 			// SQL 실행 준비
 			PreparedStatement ps = con.prepareStatement(query);
-//			ps.setString(1, pdDTO.getPname());
+			ps.setString(1, searchInput);
+			System.out.println("이건 DAO: searchInput " + searchInput);
 			
 			// SQL 실행 및 결과 확보
 			ResultSet rs = ps.executeQuery();

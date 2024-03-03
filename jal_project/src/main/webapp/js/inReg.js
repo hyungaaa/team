@@ -16,34 +16,34 @@ function closePopup() {
 }
 
 // 
-function inRegSearch() {
-  // input창
-  let input = document.getElementById("searchInput").value.toUpperCase();
-
-  let tbl = document.getElementById("popup-tbl");
-  let tbody = tbl.getElementsByTagName("tbody")[0];
-  let rows = tbody.getElementsByTagName("tr");
-
-  for (let i = 0; i < rows.length; i++) {
-    const cells = rows[i].getElementsByTagName("td");
-    let match = false;
-
-    for (let j = 0; j < cells.length; j++) {
-      const cell = cells[j];
-      const txtValue = cell.textContent || cell.innerText;
-
-      if (j === 2) {
-        if (txtValue.toUpperCase().indexOf(input) > -1) {
-          console.log(input);
-          match = true;
-          break;
-        }
-      }
-    }
-
-    rows[i].style.display = match ? "" : "none";
-  }
-}
+//function inRegSearch() {
+//  // input창
+//  let input = document.getElementById("searchInput").value.toUpperCase();
+//
+//  let tbl = document.getElementById("popup-tbl");
+//  let tbody = tbl.getElementsByTagName("tbody")[0];
+//  let rows = tbody.getElementsByTagName("tr");
+//
+//  for (let i = 0; i < rows.length; i++) {
+//    const cells = rows[i].getElementsByTagName("td");
+//    let match = false;
+//
+//    for (let j = 0; j < cells.length; j++) {
+//      const cell = cells[j];
+//      const txtValue = cell.textContent || cell.innerText;
+//
+//      if (j === 2) {
+//        if (txtValue.toUpperCase().indexOf(input) > -1) {
+//          console.log(input);
+//          match = true;
+//          break;
+//        }
+//      }
+//    }
+//
+//    rows[i].style.display = match ? "" : "none";
+//  }
+//}
 
 
 
@@ -168,3 +168,32 @@ function bind() {
     }
   })
 }
+
+// inReg.js
+
+function inRegSearch2() {
+    var searchInput = document.getElementById("searchInput").value;
+    // AJAX를 사용하여 서블릿으로 검색어 전달
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "inReg?searchInput=" + searchInput, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // 서블릿으로부터 받은 결과를 현재 페이지에 적용
+            // xhr.responseText에서 필요한 부분만 추출하여 삽입
+		    var parser = new DOMParser();
+		    var doc = parser.parseFromString(xhr.responseText, "text/html");
+		    var popupTr = doc.getElementById("popup-tr");
+		
+		    // popup-container에 추출한 부분 삽입
+//		    var tbl = document.getElementById("popup-tbl");
+			
+		    document.getElementById("popup-tboby").innerHTML = popupTr;
+            
+            console.log(xhr.responseText);
+            console.log(popupTr);
+            console.log(searchInput);
+        }
+    };
+    xhr.send();
+}
+

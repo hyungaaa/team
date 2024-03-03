@@ -214,7 +214,9 @@
 			List list = (List) request.getAttribute("list");
 			PdDTO pdDTO = new PdDTO();
 			
-			
+			String searchInput = request.getParameter("searchInput");
+			System.out.println("이건 jsp: searchInput " + searchInput);
+			System.out.println(list.size());
 		%>
 
 		<!-- 팝업 -->
@@ -223,7 +225,7 @@
 				<div class="div_top">
 					제품명
 					<input type="text" class="main_search_txt" id="searchInput">
-					<button type="button" class="main_btn" onclick="inRegSearch()">검색</button>
+					<button type="button" class="main_btn" onclick="inRegSearch2()">검색</button>
 				</div>
 				<div class="div_tbl">
 					<table id="popup-tbl">
@@ -241,11 +243,11 @@
 							<th>규격</th>
 							<th>단위</th>
 						</thead>
-						<tbody>
+						<tbody id="popup-tboby">
 							<%
 								for(int i = 0; i < list.size(); i++) {
 							%>
-							<tr>
+							<tr id="popup-tr">
 								<td><input type="radio" name="inReg-radio" value="<%=((PdDTO)list.get(i)).getPnum()%>"></td>
 								<td><%=((PdDTO)list.get(i)).getPnum()%></td>
 								<td><%=((PdDTO)list.get(i)).getPname()%></td>

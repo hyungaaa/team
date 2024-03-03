@@ -37,13 +37,14 @@ public class inRegServlet extends HttpServlet {
 		InRegDAO inRegDAO = new InRegDAO();
 		
 		PdDTO pdDTO = new PdDTO();
-		pdDTO.setPnum(pdDTO.getPnum());
-		pdDTO.setPname(pdDTO.getPname());
-		pdDTO.setPsize(pdDTO.getPsize());
-		pdDTO.setPunit(pdDTO.getPunit());
+//		pdDTO.setPnum(pdDTO.getPnum());
+//		pdDTO.setPname(pdDTO.getPname());
+//		pdDTO.setPsize(pdDTO.getPsize());
+//		pdDTO.setPunit(pdDTO.getPunit());
 		
 		// 결과 받기
-		List list = inRegDAO.selectPd(pdDTO);
+		List list = inRegDAO.selectPd(pdDTO, searchInput);
+		System.out.println("이건 servlet: searchInput " + searchInput);
 //		System.out.println(list);
 //		System.out.println(((PdDTO)list.get(0)).getPnum());
 		
