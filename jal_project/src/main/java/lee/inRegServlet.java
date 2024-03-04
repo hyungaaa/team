@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 @WebServlet("/inReg")
 public class inRegServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -62,6 +58,15 @@ public class inRegServlet extends HttpServlet {
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		InRegDAO dao = new InRegDAO();
+		Pd_inDTO dto = new Pd_inDTO();
+		
+		int cnt = dao.insertPd(dto);
+		if(cnt == 1) {
+			System.out.println("DB 입력 성공");
+		} else {
+			System.out.println("DB 입력 실패");
+		}
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

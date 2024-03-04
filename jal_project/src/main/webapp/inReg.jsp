@@ -87,7 +87,7 @@
 		<input type="date" class="inputDate">
 		<button type="button" class="main_btn">조회</button>
 		<div class="div-btn">
-			<button type="button" class="main_btn">등록</button>
+			<button type="button" class="main_btn" id="add-btn">등록</button>
 			<button type="button" class="main_btn" id="selected_del">삭제</button>
 			<button type="button" id="qr_button" onclick="openWindow()" class="main_btn2">QR 발행</button>
 		</div>
@@ -125,7 +125,7 @@
 						<td>2024-02-01</td>
 						<td>ESB00001</td>
 						<td>샌)망곰초코딸기샌드</td>
-						<td>S</td>
+						<td>S(소형)</td>
 						<td>BOX</td>
 						<td>5</td>
 						<td>미등록</td>

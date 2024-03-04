@@ -11,10 +11,8 @@ import java.util.List;
 
 public class UserMngDAO {
 
-	public List<List<UserMngDTO>> selectAllTables() {
-		List<List<UserMngDTO>> resultList = new ArrayList<>();
-		List<UserMngDTO> list = new ArrayList<>();
-		List<UserMngDTO> list2 = new ArrayList<>();
+	public List<UserMngDTO> selectAllTables() {
+		List<UserMngDTO> resultList = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -28,7 +26,7 @@ public class UserMngDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				UserMngDTO dto = createUserMngDTOFromResultSet(rs);
-				list.add(dto);
+				resultList.add(dto);
 			}
 
 			// center_list 테이블 조회
@@ -37,8 +35,7 @@ public class UserMngDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				UserMngDTO dto = createUserMngDTOFromResultSet(rs);
-				list.add(dto);
-				list2.add(dto);
+				resultList.add(dto);
 			}
 
 			// req_list 테이블 조회
@@ -47,16 +44,7 @@ public class UserMngDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				UserMngDTO dto = createUserMngDTOFromResultSet(rs);
-				list.add(dto);
-			}
-
-			// req_list2 테이블 조회
-			String queryReqList2 = "SELECT uuid, uemail, rid, rcategory FROM req_list";
-			ps = con.prepareStatement(queryReqList2);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				UserMngDTO dto = createUserMngDTOFromResultSet2(rs);
-				list2.add(dto);
+				resultList.add(dto);
 			}
 
 			// user_power 테이블 조회
@@ -65,7 +53,7 @@ public class UserMngDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				UserMngDTO dto = createUserMngDTOFromResultSet(rs);
-				list.add(dto);
+				resultList.add(dto);
 			}
 
 		} catch (SQLException e) {
@@ -82,8 +70,6 @@ public class UserMngDAO {
 				e.printStackTrace();
 			}
 		}
-		resultList.add(list);
-		resultList.add(list2);
 		return resultList;
 	}
 
@@ -109,15 +95,6 @@ public class UserMngDAO {
 		}
 
 		return con;
-	}
-
-	private UserMngDTO createUserMngDTOFromResultSet2(ResultSet rs) throws SQLException {
-		UserMngDTO dto = new UserMngDTO();
-		dto.setRid(rs.getString("rid"));
-		dto.setRcategory(rs.getString("rcategory"));
-		dto.setUuid(rs.getString("uuid"));
-		dto.setUemail(rs.getString("uemail"));
-		return dto;
 	}
 
 	private UserMngDTO createUserMngDTOFromResultSet(ResultSet rs) throws SQLException {

@@ -25,8 +25,6 @@ public class UserMngDTO {
 	// req_list table fields
 	private String rid;
 	private String rcategory;
-	private String uemail1;
-	private String uuid1;
 
 	// user_power table fields
 	private String ulevel;
@@ -36,22 +34,6 @@ public class UserMngDTO {
 	private String updiom;
 	private String ubdm;
 	private String uum;
-
-	public String getUemail1() {
-		return uemail1;
-	}
-
-	public void setUemail1(String uemail1) {
-		this.uemail1 = uemail1;
-	}
-
-	public String getUuid1() {
-		return uuid1;
-	}
-
-	public void setUuid1(String uuid1) {
-		this.uuid1 = uuid1;
-	}
 
 	public String getUuid() {
 		return uuid;
@@ -251,8 +233,8 @@ public class UserMngDTO {
 				+ utel + ", uemail=" + uemail + ", unum=" + unum + ", uposition=" + uposition + ", ubirth=" + ubirth
 				+ ", uimage=" + uimage + ", udate=" + udate + ", umaster=" + umaster + ", cname=" + cname
 				+ ", cmanager=" + cmanager + ", ctel=" + ctel + ", rid=" + rid + ", rcategory=" + rcategory
-				+ ", uemail1=" + uemail1 + ", uuid1=" + uuid1 + ", ulevel=" + ulevel + ", updv=" + updv + ", updior="
-				+ updior + ", updr=" + updr + ", updiom=" + updiom + ", ubdm=" + ubdm + ", uum=" + uum + "]";
+				+ ", ulevel=" + ulevel + ", updv=" + updv + ", updior=" + updior + ", updr=" + updr + ", updiom="
+				+ updiom + ", ubdm=" + ubdm + ", uum=" + uum + "]";
 	}
 
 }
