@@ -455,13 +455,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WMS 잘해보조</title>
-<link rel="stylesheet" href="../css/layout.css">
-<link rel="stylesheet" href="../css/ui.css">
-<link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/userMng.css">
-<script src="../js/userMng.js"></script>
-<script src="../js/system.js"></script>
-<script src="../js/hello.js"></script>
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/ui.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/userMng.css">
+<script src="js/userMng.js"></script>
+<script src="js/system.js"></script>
+<script src="js/hello.js"></script>
 </head>
 <body>
 	<header>
@@ -504,6 +504,7 @@
 	<main>
 		<%
 		List<UserMngDTO> userList = (List<UserMngDTO>) request.getAttribute("userList");
+		List<UserMngDTO> userList2 = (List<UserMngDTO>) request.getAttribute("userList2");
 		%>
 
 		<div style="width: 1080px;">
@@ -536,21 +537,34 @@
 								<th>선택</th>
 							</tr>
 							<%
-							if (userList != null) {
+							if (userList != null && !userList.isEmpty()) {
 								for (int i = 0; i < userList.size(); i++) {
 									UserMngDTO user = userList.get(i);
 							%>
 							<tr>
-								<td><%=user.getReqListRcategory()%></td>
-								<td><%=user.getUserInfoUnum()%></td>
-								<td><%=user.getUserInfoUuid()%></td>
-								<td><%=user.getUserInfoUemail()%></td>
+								<td><%=user.getRcategory()%></td>
+								<td><%=user.getUnum()%></td>
+								<td><%=user.getUuid()%></td>
+								<td><%=user.getUemail()%></td>
 								<td><input type="checkbox" class="chk"></td>
 							</tr>
 							<%
 							}
+							} else {
+							%>
+							<tr>
+								<td>데이터가 없습니다.</td>
+								<td>데이터가 없습니다.</td>
+								<td>데이터가 없습니다.</td>
+								<td>데이터가 없습니다.</td>
+								<td><input type="checkbox" class="chk"></td>
+							</tr>
+							<%
 							}
 							%>
+
+
+
 
 
 						</table>
@@ -626,13 +640,13 @@
 					</thead>
 					<tbody>
 						<%
-						if (userList != null) {
+						if (userList != null && !userList.isEmpty()) {
 							for (int i = 0; i < userList.size(); i++) {
 								UserMngDTO user = userList.get(i);
 						%>
 						<tr>
-							<td><%=userList.get(i).getUserInfoUname()%></td>
-							<td><%=userList.get(i).getUserInfoUnum()%></td>
+							<td><%=user.getUname()%></td>
+							<td><%=user.getUnum()%></td>
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">
 									<option value="천안" class="select_op1">천안</option>
@@ -659,8 +673,40 @@
 						</tr>
 						<%
 						}
+						} else {
+						%>
+						<tr>
+							<td>데이터가 없습니다.</td>
+							<td>데이터가 없습니다.</td>
+							<td><select class="main_search2_txt"
+								style="width: 90px; height: 20px;">
+									<option value="천안" class="select_op1">천안</option>
+									<option value="아산" class="select_op1">아산</option>
+									<option value="평택" class="select_op1">평택</option>
+							</select></td>
+							<td><select class="main_search2_txt"
+								style="width: 90px; height: 20px;">
+									<option value="게스트" class="select_op2">게스트</option>
+									<option value="사용자" class="select_op2">사용자</option>
+									<option value="부관리자" class="select_op2">부관리자</option>
+									<option value="관리자" class="select_op2" selected>관리자</option>
+							</select></td>
+							<td><input type="checkbox" class="chk1" checked></td>
+							<td><input type="checkbox" class="chk2" checked></td>
+							<td><input type="checkbox" class="chk3" checked></td>
+							<td><input type="checkbox" class="chk4" checked></td>
+							<td><input type="checkbox" class="chk5" checked></td>
+							<td><input type="checkbox" class="chk6" checked></td>
+							<td>
+								<button type="button" data-id class="main_btn2"
+									style="padding: 8rem;">삭제</button>
+								<button type="button" class="main_btn" style="padding: 8rem;">수정</button>
+							</td>
+						</tr>
+						<%
 						}
 						%>
+
 					</tbody>
 				</table>
 			</div>
