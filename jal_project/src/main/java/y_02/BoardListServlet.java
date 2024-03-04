@@ -17,47 +17,46 @@ public class BoardListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 전달받은 값 parameter 확보
-		String uuid = request.getParameter("uuid");
-		String strbno = request.getParameter("bno");
-		String btitle = request.getParameter("btitle");
-		String pnum = request.getParameter("pnum");
-		String bdate = request.getParameter("bdate");
-		String strbbits = request.getParameter("bbits");
-		
-		
-		int bno = -1;
-		int bbits = -1;
-		try {
-			bno = Integer.parseInt(strbno);
-			bbits = Integer.parseInt(strbbits);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// db 담당에게 전달하고
+//		// 전달받은 값 parameter 확보
+//		String uuid = request.getParameter("uuid");
+//		String strbno = request.getParameter("bno");
+//		String btitle = request.getParameter("btitle");
+//		String pnum = request.getParameter("pnum");
+//		String bdate = request.getParameter("bdate");
+//		String strbbits = request.getParameter("bbits");
+//		
+//		
+//		int bno = -1;
+//		int bbits = -1;
+//		try {
+//			bno = Integer.parseInt(strbno);
+//			bbits = Integer.parseInt(strbbits);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		// db 담당에게 전달하고
 		BoardListDAO dao = new BoardListDAO();
 		
-		BoardListDTO dto = new BoardListDTO();
-		dto.setBno(bno);
-		dto.setUuid(uuid);
-		dto.setBtitle(btitle);
-		dto.setPnum(pnum);
-		dto.setBdate(bdate);
-		dto.setBbits(bbits);
+//		dto.setBno(bno);
+//		dto.setUuid(uuid);
+//		dto.setBtitle(btitle);
+//		dto.setPnum(pnum);
+//		dto.setBdate(bdate);
+//		dto.setBbits(bbits);
 
 		// 결과를 받아서
 //      List list = dao.selectBoard(bno, uuid);
 
-		List list = dao.selectBoard(dto);
+		List list = dao.selectBoard();
 		System.out.println(list);
-		System.out.println(((BoardListDTO)list.get(0)).getBno());
+//		System.out.println(((BoardListDTO)list.get(0)).getBno());
 
 
 		request.setAttribute("list", list);
 
 		// view 담당에게 전달
-		request.getRequestDispatcher("/jsp/boardList.jsp").forward(request, response);
+		request.getRequestDispatcher("boardList.jsp").forward(request, response);
 //      response.getWriter().println(sb);
 
 	}

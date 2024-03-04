@@ -189,54 +189,29 @@ function bind() {
 	}
     
 
-
-    //게시판 불러오기
-
-    let tableView = document.querySelector("#tableView");
-
-    let iframe = document.querySelector("#dash-iframe");
-    let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-
-        var table = iframeDoc.getElementsByTagName('table')[0];
-
-        // 선택한 열의 데이터를 저장할 배열
-        var columnData_title = [];
-        var columnData_open = [];
-    
-        // 테이블의 각 행을 순회하며 해당 열의 데이터 추출
-        for (var i = 1; i < table.rows.length; i++) {
-            var cell = table.rows[i].cells[3];
-            if (cell) {
-                columnData_title.push(cell.textContent || cell.innerText);
-            }
-        }
-        for (var i = 1; i < table.rows.length; i++) {
-            var cell = table.rows[i].cells[5];
-            if (cell) {
-                columnData_open.push(cell.textContent || cell.innerText);
-            }
-        }
-    
-        // 결과 확인
-        // console.log(columnData_title);
-    
-        html = '<colgroup><col width="85%"/><col width="*"/></colgroup><thead><th>제목</th><th>조회수</th></thead>';
-        for(let i = 0; i <4; i++){
-            html += ' <tr>';
-            html += ' <td>';
-            html += ' <a href="board.html">';
-            html += columnData_title[i];
-            html += ' </a>';
-            html += ' </td>';
-            html += ' <td>';
-            html += columnData_open[i];
-            html += ' </td>';
-            html += ' </tr>';
-        }
-
-        tableView.innerHTML = html;
-
-
+	// 글제목 클릭 했을 때 클릭이벤트 부여
+	 document.querySelectorAll('.btitle').forEach(function(span) {
+	    span.addEventListener('click', function() {
+	        // 클릭된 span의 부모인 td의 이전 형제 요소(td)에서 텍스트 내용(bno)을 얻음
+	        var bno = this.parentNode.previousElementSibling.innerText;
+	        console.log(bno);
+	        
+	        goBoard(bno);
+	    });
+	});
+	
+	// 글로 이동하는 링크
+	function goBoard(bno) {
+	
+	window.location.href = 'board?bno=' + bno;
+	
+	}
+	
+	// 건의게시판 클릭 했을 때 게시글 리스트로 이동하는 링크 부여
+	document.querySelector(".golistbtn").addEventListener("click", function(){
+		window.location.href = 'boardList';
+	})
+	
+	
 };
 
