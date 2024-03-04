@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList"%>
 <%@ page import="Mng.UserMngDTO"%>
+<%@ page import="Mng.UserMngDTO2"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +23,7 @@
 	<main>
 		<%
 		List<UserMngDTO> userList = (List<UserMngDTO>) request.getAttribute("userList");
-		List<UserMngDTO> userList2 = (List<UserMngDTO>) request.getAttribute("userList2");
-
-		if (userList2 == null) {
-			userList2 = new ArrayList<>();
-		}
+		List<UserMngDTO2> userList2 = (List<UserMngDTO2>) request.getAttribute("userList2");
 		%>
 
 		<div style="width: 1080px;">
@@ -61,7 +57,7 @@
 							</tr>
 							<%
 							if (userList2 != null && !userList2.isEmpty()) {
-								for (UserMngDTO user : userList2) {
+								for (UserMngDTO2 user : userList2) {
 							%>
 							<tr>
 								<td><%=user.getRcategory()%></td>
@@ -176,6 +172,9 @@
 									<option value="부관리자" class="select_op2">부관리자</option>
 									<option value="관리자" class="select_op2" selected>관리자</option>
 							</select></td>
+							<%-- <%
+							if (user.getUpdv() == "1") {
+							%> --%>
 							<td><input type="checkbox" class="chk1" checked></td>
 							<td><input type="checkbox" class="chk2" checked></td>
 							<td><input type="checkbox" class="chk3" checked></td>
