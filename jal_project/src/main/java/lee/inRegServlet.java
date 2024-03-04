@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 @WebServlet("/inReg")
 public class inRegServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,13 +29,10 @@ public class inRegServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		// 전달받은 값 parameter 확보
-//		String pnum = request.getParameter("pnum");
-//		String pname = request.getParameter("pname");
-//		String psize = request.getParameter("psize");
-//		String punit = request.getParameter("punit");
-		
 		String searchInput = request.getParameter("searchInput");
+		String radioBtn = request.getParameter("radioBtn");
+		System.out.println("radioBtn: " + radioBtn);
+		
 		
 		// DB 담당에게 전달
 		InRegDAO inRegDAO = new InRegDAO();
@@ -44,6 +45,8 @@ public class inRegServlet extends HttpServlet {
 		
 		// 결과 받기
 		List list = inRegDAO.selectPd(pdDTO, searchInput);
+//		List list2 = inRegDAO.selectPd(pdDTO, radioBtn);
+		
 		System.out.println("이건 servlet: searchInput " + searchInput);
 //		System.out.println(list);
 //		System.out.println(((PdDTO)list.get(0)).getPnum());
