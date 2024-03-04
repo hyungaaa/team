@@ -16,40 +16,15 @@
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/inReg.css">
 
+	<script src="//code.jquery.com/jquery.min.js"></script>
 	<script src="js/system.js"></script>
 	<script src="js/inReg.js"></script>
 </head>
 
 <body>
-	<header>
-		<div class="top-logo">
-			<img
-				src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
-		</div>
-		<div class="top-bar">
-			<h1>물류관리시스템</h1>
-		</div>
-		<div class="top-bar-links">
-			<a href="mypage.html">마이페이지</a>
-			<a href="#">설정</a>
-			<a href="login.html">로그아웃</a>
-		</div>
-	</header>
-	<nav>
-		<div class="navi-bar">
-			<ul>
-				<li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
-				<li class="navi-item2"><a href="itemMng.html">제품<br>관리</a></li>
-				<li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
-				<li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
-				<li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
-				<li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
-				<li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
-				<li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
-				<li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
-			</ul>
-		</div>
-	</nav>
+	<%@include file="header.jsp" %>	
+    
+    <%@include file="nav.jsp" %>
 	<main>
 		<!-- 상단 제품 추가 전 정보 테이블 -->
 		<table id="inReg-tbl1">
@@ -65,9 +40,20 @@
 				<col width="16%" />
 				<col width="6%" />
 			</colgroup>
-			<tr>
+			<%
+			List list = (List) request.getAttribute("list");
+			PdDTO pdDTO = new PdDTO();
+			
+			String searchInput = request.getParameter("searchInput");
+			System.out.println("이건 jsp: searchInput " + searchInput);
+			
+			%>
+							
+			<tr id= "input-tr">
 				<td class="rightAlign">제품명</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="pdtName" readonly></td>
+				<td class="leftAlign">
+					<input type="text" class="table_normal_txt" id="pdtName" value="" readonly>
+				</td>
 				<td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
 				<td class="rightAlign">규격</td>
 				<td class="leftAlign"><input type="text" class="table_normal_txt" id="size"></td>
@@ -146,54 +132,7 @@
 						<td></td>
 						<td></td>
 					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>SCC00002</td>
-						<td>롯데)허쉬너겟쿠앤크6P</td>
-						<td>S</td>
-						<td>BOX</td>
-						<td>10</td>
-						<td>등록 완료</td>
-						<td>LT2024020100002</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>ICA00003</td>
-						<td>나뚜루)녹차바</td>
-						<td>M</td>
-						<td>BOX</td>
-						<td>3</td>
-						<td>등록 완료</td>
-						<td>LT2024020100005</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>FGC00004</td>
-						<td>CJ)햇반전복미역죽</td>
-						<td>M</td>
-						<td>EA</td>
-						<td>20</td>
-						<td>등록 완료</td>
-						<td>LT2024020100004</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>BMB00005</td>
-						<td>남양)불가리스딸기150ml</td>
-						<td>S</td>
-						<td>BOX</td>
-						<td>10</td>
-						<td>등록 완료</td>
-						<td>LT2024020100005</td>
-						<td>유통기한 짧음</td>
-					</tr>
+					
 				</tbody>
 			</table>
 		</div>
@@ -210,14 +149,7 @@
 				<li><a href="#">&gt;</a></li>
 			</ul>
 		</div>
-		<%
-			List list = (List) request.getAttribute("list");
-			PdDTO pdDTO = new PdDTO();
-			
-			String searchInput = request.getParameter("searchInput");
-			System.out.println("이건 jsp: searchInput " + searchInput);
-			System.out.println(list.size());
-		%>
+		
 
 		<!-- 팝업 -->
 		<div id="popup">
@@ -255,7 +187,7 @@
 								<td><%=((PdDTO)list.get(i)).getPunit()%></td>
 							</tr>
 							<%
-								}
+ 								}
 							%>
 						</tbody>
 					</table>
@@ -267,7 +199,7 @@
 				<div class="div_line"></div>
 				<div class="div_btn">
 					<a href="#">
-						<div class="div_in" onclick="checkdPopup()">선택</div>
+						<div class="div_in" onclick="checkedPopup()">선택</div>
 					</a>
 					|
 					<a href="#">
@@ -278,19 +210,7 @@
 		</div>
 	</main>
 	
-	<footer>
-		<div class="footer-content">
-			<div class="status-user">
-				접속자: 천안센터 관리자
-			</div>
-			<div class="status-message">
-				데이터가 조회되었습니다.
-			</div>
-			<div class="status-time">
-				현재 시간: <span id="current-time"></span>
-			</div>
-		</div>
-	</footer>
+	<%@include file="footer.jsp" %>
 </body>
 
 </html>

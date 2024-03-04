@@ -1,12 +1,15 @@
 package lee;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InRegDAO {
 
@@ -25,14 +28,39 @@ public class InRegDAO {
 			query += " pnum, pname, psize, punit";
 			query += " from";
 			query += " pd_list";
-			query += " where pname like '%' || ? || '%'";
+			query += " where 1=1 ";
+//					+ "and pname like '%' || ? || '%'";
+			
+			if(searchInput != null) {
+				query += " and pname like '%' || ? || '%'";
+				System.out.println("11111");
+				if(searchInput.startsWith("E")) {
+					query += " or pnum = ?";
+				}
+			} 
+//			if(pname != null){
+//				query += " and pname like '%' || ? || '%'";
+//				System.out.println("222222");
+//			}
 
 			System.out.println("query : " + query);
 			
+			
+			
 			// SQL 실행 준비
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(1, searchInput);
+			if(searchInput != null) {
+				ps.setString(1, searchInput);
+				System.out.println("11111");
+				if(searchInput.startsWith("E")) {
+					ps.setString(2, searchInput);
+					System.out.println("22222");
+				}
+			} 
+			
+//			ps.setString(2, searchInput);
 			System.out.println("이건 DAO: searchInput " + searchInput);
+			
 			
 			// SQL 실행 및 결과 확보
 			ResultSet rs = ps.executeQuery();
@@ -50,6 +78,7 @@ public class InRegDAO {
 				System.out.println("psize : " + psize);
 				System.out.println("punit : " + punit);
 				System.out.println("-----------------------------");
+				
 				
 				PdDTO dto = new PdDTO();
 				dto.setPnum(pnum);
@@ -69,6 +98,8 @@ public class InRegDAO {
 		return list;
 		
 	}
+	
+	
 	
 	private Connection getConn() {
 		// DB 접속
@@ -95,66 +126,66 @@ public class InRegDAO {
 	
 	//update
 	//insert
-//	public int insertPd(Pd_inDTO pd_inDTO) {
-//		List list = new ArrayList();
-//		int cnt = -1;
-//		
-//		try {
-//
-//			// DB 접속
-//			Connection con = getConn();
-//			
-//			// SQL 만들기
-//			String query = "";
-//			query += " insert into";
-//			query += " pd_in";
-//			query += " values";
-//			query += " (?, ?, ?, ?, ?, ?)";
-//			
-//			System.out.println("query : " + query);
-//			// SQL 실행 준비
-//			PreparedStatement ps = con.prepareStatement(query);
-//			
-//			// SQL 실행 및 결과 확보
-////			int rs = ps.executeUpdate();
-//			
-//			// 결과 활용
-//			ps.setString(1, pd_inDTO.getPlot());
-//			ps.setString(2, pd_inDTO.getPnum());
-//			ps.setString(3, pd_inDTO.getWzone());
-//			ps.setDate(4, pd_inDTO.getPindate());
-//			ps.setInt(5, pd_inDTO.getPincnt());
-//			ps.setString(6, pd_inDTO.getPnote());
-//
-//			cnt = ps.executeUpdate();
-//			
-//			con.commit();
-//				
-//				// 콘솔 출력
-////			System.out.println("pnum : " + pnum);
-////			System.out.println("pname : " + pname);
-////			System.out.println("psize : " + psize);
-////			System.out.println("punit : " + punit);
-////			System.out.println("-----------------------------");
-//				
-////			PdDTO dto = new PdDTO();
-////			dto.setPnum(pnum);
-////			dto.setPname(pname);
-////			dto.setPsize(psize);
-////			dto.setPunit(punit);
-////			list.add(dto);
-//			
-////			rs.close();
-////			ps.close();
-////			con.close();
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return cnt;
-//		
-//	}
+	public int insertPd(Pd_inDTO pd_inDTO) {
+		List list = new ArrayList();
+		int cnt = -1;
+		
+		try {
+
+			// DB 접속
+			Connection con = getConn();
+			
+			// SQL 만들기
+			String query = "";
+			query += " insert into";
+			query += " pd_in";
+			query += " values";
+			query += " (?, ?, ?, ?, ?, ?)";
+			
+			System.out.println("query : " + query);
+			// SQL 실행 준비
+			PreparedStatement ps = con.prepareStatement(query);
+			
+			// SQL 실행 및 결과 확보
+//			int rs = ps.executeUpdate();
+			
+			// 결과 활용
+			ps.setString(1, pd_inDTO.getPlot());
+			ps.setString(2, pd_inDTO.getPnum());
+			ps.setString(3, pd_inDTO.getWzone());
+			ps.setDate(4, pd_inDTO.getPindate());
+			ps.setInt(5, pd_inDTO.getPincnt());
+			ps.setString(6, pd_inDTO.getPnote());
+
+			cnt = ps.executeUpdate();
+			
+			con.commit();
+				
+				// 콘솔 출력
+//			System.out.println("pnum : " + pnum);
+//			System.out.println("pname : " + pname);
+//			System.out.println("psize : " + psize);
+//			System.out.println("punit : " + punit);
+//			System.out.println("-----------------------------");
+				
+//			PdDTO dto = new PdDTO();
+//			dto.setPnum(pnum);
+//			dto.setPname(pname);
+//			dto.setPsize(psize);
+//			dto.setPunit(punit);
+//			list.add(dto);
+			
+//			rs.close();
+//			ps.close();
+//			con.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+		
+	}
 	
 	//delete
 }
