@@ -214,9 +214,9 @@ function bindEvents() {
 	// 삭제 버튼 클릭 시 해당 행 삭제
 	document.querySelectorAll('.main_btn2').forEach(button => {
 		button.addEventListener('click', function() {
-			let id = this.getAttribute("data-id"); // J0002
+			/*let id = this.getAttribute("data-id"); // J0002
 			console.log(id);
-			//			location.href = "userUpdate?id="+id
+			//			location.href = "userUpdate?id="+id*/
 			const row = this.parentNode.parentNode;
 			row.parentNode.removeChild(row);
 		});

@@ -1,7 +1,6 @@
 package Mng;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -17,15 +16,11 @@ public class UserMngServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 한글 깨짐 방지
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=utf-8;");
-
 		// DAO를 통해 모든 테이블에서 데이터 조회
 		UserMngDAO userMngDAO = new UserMngDAO();
-		List<UserMngDTO> list = null;
+		List<List<UserMngDTO>> resultList = null;
 		try {
-			list = userMngDAO.selectAllTables();
+			resultList = userMngDAO.selectAllTables();
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 예외 처리
@@ -34,31 +29,16 @@ public class UserMngServlet extends HttpServlet {
 		}
 
 		// 결과를 request에 저장
-		request.setAttribute("userList", list);
-//		request.setAttribute("userList2", list);
+		if (resultList.size() == 2) {
+			request.setAttribute("userList", resultList.get(0));
+			// userList2가 비어있을 때를 대비하여 userList2에 데이터가 있는지 확인 후에 저장
+			if (resultList.get(1) != null && !resultList.get(1).isEmpty()) {
+				request.setAttribute("userList2", resultList.get(1));
+			}
+		}
 
 		// view로 포워딩
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/userMng.jsp");
 		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 클라이언트로부터 전송된 사용자 ID를 받아옴
-		String userId = request.getParameter("userId");
-
-		// UserMngDAO를 사용하여 사용자 삭제 작업 수행
-		UserMngDAO dao = new UserMngDAO();
-		boolean isDeleted = dao.deleteUser(userId);
-
-		// 클라이언트에 응답 보내기
-		response.setContentType("text/plain"); // 텍스트 형식으로 응답
-		PrintWriter out = response.getWriter();
-		if (isDeleted) {
-			out.print("User deleted successfully");
-		} else {
-			out.print("Failed to delete user");
-		}
-		out.flush();
 	}
 }
