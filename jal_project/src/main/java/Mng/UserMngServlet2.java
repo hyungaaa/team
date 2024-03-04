@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/userMng")
-public class UserMngServlet extends HttpServlet {
+@WebServlet("/userMng2")
+public class UserMngServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// DAO를 통해 모든 테이블에서 데이터 조회
-		UserMngDAO userMngDAO = new UserMngDAO();
-		List<UserMngDTO> userList = null;
+		UserMngDAO2 userMngDAO2 = new UserMngDAO2();
+		List<UserMngDTO2> resultList = null;
 		try {
-			userList = userMngDAO.selectAllTables();
+			resultList = userMngDAO2.selectAllTables();
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 예외 처리
@@ -29,7 +29,7 @@ public class UserMngServlet extends HttpServlet {
 		}
 
 		// 결과를 request에 저장
-		request.setAttribute("userList", userList);
+		request.setAttribute("userList2", resultList);
 
 		// view로 포워딩
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/userMng.jsp");
