@@ -57,7 +57,10 @@ public class itMngDServlet extends HttpServlet {
             con.commit(); // 모든 삭제가 성공하면 커밋
 //            System.out.println("선택된 제품 삭제 완료.");
          // 삭제 후 목록 페이지로 리다이렉트
-            response.sendRedirect("itMng");
+//            request.getRequestDispatcher("itMngD");
+//            request.getRequestDispatcher("itMngD");
+            response.sendRedirect("itemMng.jsp");
+
 
 //        } catch (SQLException e) {
 //            e.printStackTrace();
@@ -65,6 +68,7 @@ public class itMngDServlet extends HttpServlet {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //            response.getWriter().println("에러 발생~~~");
+            // 예외 처리
         } catch (SQLException e) {
                 e.printStackTrace();
                 try {

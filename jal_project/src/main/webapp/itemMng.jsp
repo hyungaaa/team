@@ -20,6 +20,7 @@
     <script src="../js/item.js"></script>
     
     <script>
+    <!-- 
     function validateForm() {
         var checkboxes = document.getElementsByName('selectedItems');
         var isChecked = false;
@@ -38,7 +39,34 @@
 
         return true;
     }
-</script>
+    -->
+    function validateForm() {
+        var checkboxes = document.getElementsByName('selectedItems');
+        var isChecked = false;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        if (!isChecked) {
+            alert('삭제할 항목을 선택하세요.');
+            return false;
+        }
+
+        return true;
+    }
+    
+	    function confirmAndDelete() {
+	        if (confirm('선택한 제품을 삭제하시겠습니까?')) {
+	            // 서버에 삭제 요청을 보내는 코드 추가
+	            document.forms[0].submit(); // 폼 제출
+	        }
+	        return false; // 기존의 confirm 창에서도 확인을 누르면 폼이 두 번 제출되는 것을 방지
+	    }
+	</script>
 
 
 </head>
@@ -134,7 +162,7 @@
             <%-- 데이터 불러옴 --%>
             <%
             	List list = (List) request.getAttribute("list");
-            	itMngDTO itmngDTO = new itMngDTO();
+            	// itMngDTO itmngDTO = new itMngDTO();
             
             %>
             
@@ -151,7 +179,7 @@
             <%
             	if (list != null) {
 					for(int i = 0; i < list.size(); i++) {
-	// 				itMngDTO item = (itMngDTO) list.get(i);
+	
 			%>
             
             <tr class="product-row" data-category="<%= ((itMngDTO)list.get(i)).getSct() %>">
@@ -189,13 +217,12 @@
     </div>
         
         <div id="button_mng_2">
-            <button type="submit" class="main_btn" id="selected_del" onclick="return confirm('선택한 제품을 삭제하시겠습니까?')">제품 삭제</button>
+            <button type="submit" class="main_btn" id="selected_del" onclick="return confirmAndDelete()">제품 삭제</button>
             <button class="main_btn"><a href="itemNew.jsp" id="lim_a">제품 추가</button></a>          
         </div>
-
-    </div>
-
     </form>
+    </div>
+    
     </main>
     
    <%@include file="footer.jsp" %>

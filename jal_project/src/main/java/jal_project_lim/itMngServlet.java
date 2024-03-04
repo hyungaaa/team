@@ -90,22 +90,49 @@ public class itMngServlet extends HttpServlet {
 
 	    if (deleteItems != null) {
             // DAO에 트랜잭션으로 삭제를 요청
-            int rowsDeleted = 0;
-			try {
-				rowsDeleted = itmngDAO.deleteProducts(null, deleteItems);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            System.out.println(rowsDeleted + "개의 상품이 삭제되었습니다.");
-        }
+	    	Connection con = null;
+	    	try {
+	            // DB 접속
+	            con = itMngDAO.getDBConnection();
 
-        // 삭제 후 목록 페이지로 리다이렉트
-        response.sendRedirect("itemMng.jsp");
+	            // 트랜잭션 시작
+	            con.setAutoCommit(false);
+
+	            int rowsDeleted = itmngDAO.deleteProducts(con, deleteItems);
+	            System.out.println(rowsDeleted + "개의 상품이 삭제되었습니다.");
+
+	            // 모든 삭제 작업이 성공하면 커밋
+	            con.commit();
+	    	} catch (SQLException e) {
+	            // 예외 발생 시 롤백
+	            try {
+	                if (con != null) {
+	                    con.rollback();
+	                }
+	            } catch (SQLException rollbackEx) {
+	                rollbackEx.printStackTrace();
+	            }
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                if (con != null) {
+	                    // 트랜잭션 종료 및 AutoCommit 복원
+	                    con.setAutoCommit(true);
+	                    itMngDAO.closeDBConnection(con);
+	                }
+	            } catch (SQLException closeEx) {
+	                closeEx.printStackTrace();
+	            }
+	        }
+	    }
+
+	    // 삭제 후 목록 페이지로 리다이렉트
+	    response.sendRedirect("itMng.jsp");
+	}
 
 //        // 다시 목록을 불러와서 화면에 표시
 //        controller(request, response);
-    }
+    
 	
 
 	

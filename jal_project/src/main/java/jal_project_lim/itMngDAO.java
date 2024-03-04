@@ -108,8 +108,11 @@ public class itMngDAO {
 	
 	// 여러 개의 제품을 선택한 경우, IN 절을 사용하여 삭제
     public int deleteSelectedProducts(String[] selectedItems) {
+    	System.out.println("deleteProducts 메서드 호출");
+    	
         int rowsDeleted = 0;
         Connection con = null;
+        
         try {
             con = getConn();
             con.setAutoCommit(false); // 트랜잭션 시작
@@ -134,36 +137,34 @@ public class itMngDAO {
     }
 
     // 여러 개의 제품을 삭제하는 메서드
-    public int deleteItems(Connection con, String[] selectedItems) {
+    public int deleteItems(Connection con, String[] selectedItems) throws SQLException {
+    	
         int rowsDeleted = 0;
 
-        try {
-            // 여러 개의 제품을 선택한 경우, IN 절을 사용하여 삭제 쿼리 작성
-            StringBuilder deleteQuery = new StringBuilder("DELETE FROM pd_list WHERE pnum IN (");
-            for (int i = 0; i < selectedItems.length; i++) {
-                deleteQuery.append("?");
-                if (i < selectedItems.length - 1) {
-                    deleteQuery.append(",");
-                }
+        StringBuilder deleteQuery = new StringBuilder("DELETE FROM pd_list WHERE pnum IN (");
+        for (int i = 0; i < selectedItems.length; i++) {
+            deleteQuery.append("?");
+            if (i < selectedItems.length - 1) {
+                deleteQuery.append(",");
             }
-            deleteQuery.append(")");
+        }
 
-            PreparedStatement deletePs = con.prepareStatement(deleteQuery.toString());
+        deleteQuery.append(")");
 
+        try (PreparedStatement deletePs = con.prepareStatement(deleteQuery.toString())) {
             // pnum 매개변수 설정
             for (int i = 0; i < selectedItems.length; i++) {
                 deletePs.setString(i + 1, selectedItems[i]);
             }
-
             rowsDeleted = deletePs.executeUpdate();
-            deletePs.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
+            throw e;
         }
 
         return rowsDeleted;
-    }
+        }
+    
 
 	
 //	public int deleteProducts(Connection con, String[] productNums)  {
@@ -197,6 +198,7 @@ public class itMngDAO {
 //    }
     
     public int deleteProducts(Connection con, String[] productNums) throws SQLException {
+    	System.out.println("deleteProducts 메서드 호출");
         int rowsAffected = 0;
 
         try {
@@ -229,10 +231,6 @@ public class itMngDAO {
      
 			}
 		
-	
-
-
-
     // 삭제된 상품 수 반환
     public int deleteProduct(Connection con, String productNum) throws SQLException {
         int rowsAffected = 0;
