@@ -40,7 +40,7 @@
             </div>
             <div class="dash-box3">
                 <span>건의게시판</span>
-                <iframe class="dash-iframe" id="dash-iframe" src="jsp/boardList.html"></iframe>
+                <!--  <iframe class="dash-iframe" id="dash-iframe" src="jsp/boardList.jsp"></iframe>-->
                 <table id="tableView" style="margin-top: 10px;">
                     <!-- 건의게시판 내용 가져오기 -->
                 </table>

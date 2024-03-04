@@ -83,126 +83,110 @@ function bind() {
 
 
 
+    // AJAX를 사용하여 서버로 요청을 보냄
+    let dataServer;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'whhis.do', true);
 
-
-    // chart 부분 정보 불러오기
-    for (let i = 0; i < 9; i++) {
-
-        var chartID = `doughnut-chart${i}`;
-        var newDataset = new Array(9);
-        newDataset[0] = [3, 1745];
-        newDataset[1] = [30, 1745];
-        newDataset[2] = [300, 1745];
-        newDataset[3] = [3000, 1745];
-        newDataset[4] = [3000, 1];
-        newDataset[5] = [3000, 17];
-        newDataset[6] = [3000, 174];
-        newDataset[7] = [300, 1745];
-        newDataset[8] = [30, 17];
-
-        var newName = new Array(9);
-        newName[0] = "A-01";
-        newName[1] = "A-02";
-        newName[2] = "B-01";
-        newName[3] = "B-02";
-        newName[4] = "B-03";
-        newName[5] = "B-04";
-        newName[6] = "C-01";
-        newName[7] = "C-02";
-        newName[8] = "C-03";
-
-        let chart_doughnut = new Chart(document.getElementById(chartID), {
-            type: 'doughnut',
-            data: {
-                labels: ["사용", "미사용"],
-                datasets: [
-                    {
-                        label: "수용량 (%)",
-                        backgroundColor: ["#3e95cd", "#cccccc"],
-                        data: newDataset[i]
-                    }
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: newName[i]
-                }
-            }
-        });
-    }
-
-    var newDataset_line = new Array(9);
-    newDataset_line[0] = {
-        data: [0, 66, 81, 81, 76, 51, 65],
-        label: "A-01",
-        borderColor: "#3e95cd",
-        fill: false
-    };
-    newDataset_line[1] = {
-        data: [66, 43, 22, 10, 5, 18, 25],
-        label: "A-02",
-        borderColor: "#8e5ea2",
-        fill: false
-    };
-    newDataset_line[2] = {
-        data: [83, 62, 31, 82, 8, 84, 40],
-        label: "B-01",
-        borderColor: "#33FF57",
-        fill: false
-    };
-    newDataset_line[3] = {
-        data: [97, 100, 17, 12, 86, 75, 54],
-        label: "B-02",
-        borderColor: "#FF33F6",
-        fill: false
-    };
-    newDataset_line[4] = {
-        data: [58, 53, 55, 82, 48, 88, 7],
-        label: "B-03",
-        borderColor: "#FFC300",
-        fill: false
-    };
-    newDataset_line[5] = {
-        data: [96, 70, 1, 77, 10, 61, 33],
-        label: "B-04",
-        borderColor: "#FF5733",
-        fill: false
-    };
-    newDataset_line[6] = {
-        data: [97, 99, 50, 51, 56, 99, 55],
-        label: "C-01",
-        borderColor: "#F333FF",
-        fill: false
-    };
-    newDataset_line[7] = {
-        data: [86, 15, 57, 1, 99, 68, 63],
-        label: "C-02",
-        borderColor: "#33FFF6",
-        fill: false
-    };
-    newDataset_line[8] = {
-        data: [2, 71, 58, 72, 35, 32, 14],
-        label: "C-03",
-        borderColor: "#8e5ea2",
-        fill: false
-    };
-
-    let Chart_line = new Chart (document.getElementById("line-chart"), {
-        type: 'line',
-        data: {
-            labels: ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04", "2024-02-05", "2024-02-06", "2024-02-07"],
-            datasets: [newDataset_line[currentIndex], newDataset_line[currentIndex+1], newDataset_line[currentIndex+2], newDataset_line[currentIndex+3]
-            ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: '주간 수용량 변화'
-            }
+    // 요청이 완료되었을 때의 동작
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            // 요청이 성공했을 때의 동작
+            dataServer = JSON.parse(xhr.responseText);
+			
+			// chart 갱신 함수 실행
+			updateChart(dataServer)
+			
+        } else {
+            // 요청이 실패했을 때의 동작
+            console.error('Request failed. Status code: ' + xhr.status);
         }
-    });
+    };
 
+    // 요청 보내기
+    xhr.send();
+    
+	// 차트 갱신 함수
+	function updateChart(dataServer) {
+		console.log(dataServer);
+		console.log(dataServer[0]);
+		
+		// 도넛 차트 이름 업데이트
+		var newName = new Array(9);
+		for(let i =0;  i < newName.length ;i++){
+        	newName[i] = dataServer[i].wzone;
+        }
+        
+        
+        // 도넛 차트 내용 업데이트
+		var newDataset = new Array(9);
+		for(let i =0;  i < newDataset.length ;i++){
+			// j : 최근 일주일 데이터 중 가장 마지막일
+			let j = dataServer.length - (newDataset.length -1);
+        	newDataset[i] = [dataServer[j].wcnt,dataServer[j].wcnt*dataServer[j].wpercent/100];
+        }
+        
+        
+	    // chart 부분 정보 불러오기
+	    for (let i = 0; i < 9; i++) {
+	
+	        var chartID = `doughnut-chart${i}`;
+	        
+	        let chart_doughnut = new Chart(document.getElementById(chartID), {
+	            type: 'doughnut',
+	            data: {
+	                labels: ["사용", "미사용"],
+	                datasets: [
+	                    {
+	                        label: "수용량 (%)",
+	                        backgroundColor: ["#3e95cd", "#cccccc"],
+	                        data: newDataset[i]
+	                    }
+	                ]
+	            },
+	            options: {
+	                title: {
+	                    display: true,
+	                    text: newName[i]
+	                }
+	            }
+	        });
+	    }
+	
+	
+	
+		// line chart (주간 수용량 변화)
+	    var newDataset_line = new Array(9);
+	    
+	    colorSet = ["#3e95cd","#8e5ea2","#33FF57","#FF33F6","#FFC300", "#FF5733", "#F333FF", "#33FFF6", "#8e5ea2"];
+	    
+	    for(let i = 0; i < newDataset_line.length; i++){
+	    
+	    	newDataset_line[i] = {
+	        data: [dataServer[i+0*newDataset_line.length].wpercent, dataServer[i+1*newDataset_line.length].wpercent, dataServer[i+2*newDataset_line.length].wpercent, dataServer[i+3*newDataset_line.length].wpercent, dataServer[i+4*newDataset_line.length].wpercent, dataServer[i+5*newDataset_line.length].wpercent, dataServer[i+6*newDataset_line.length].wpercent],
+	        label: dataServer[i].wzone,
+	        borderColor: colorSet[i],
+	        fill: false
+	    	};
+	    
+	    }
+	    
+	    
+	    let Chart_line = new Chart (document.getElementById("line-chart"), {
+	        type: 'line',
+	        data: {
+	            labels: [dataServer[0*newDataset_line.length].wdate, dataServer[1*newDataset_line.length].wdate, dataServer[2*newDataset_line.length].wdate, dataServer[3*newDataset_line.length].wdate, dataServer[4*newDataset_line.length].wdate, dataServer[5*newDataset_line.length].wdate, dataServer[6*newDataset_line.length].wdate],
+	            datasets: [newDataset_line[currentIndex], newDataset_line[currentIndex+1], newDataset_line[currentIndex+2], newDataset_line[currentIndex+3]
+	            ]
+	        },
+	        options: {
+	            title: {
+	                display: true,
+	                text: '주간 수용량 변화'
+	            }
+	        }
+	    });
+	}
     
 
 
