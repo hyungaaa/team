@@ -92,7 +92,7 @@ function bind() {
 
     let html = '';
     html += '<tr>';
-    html += '  <td><input type="checkbox"></td>';
+    html += '  <td><input type="checkbox" class="chk"></td>';
     html += '  <td>' + todayString + '</td>';
     html += '  <td>' + pdtNum.value + '</td>';
     html += '  <td>' + pdtName.value + '</td>';
@@ -124,12 +124,14 @@ function bind() {
     }
   })
   
-  let main_btn = document.getElementById("main_btn");
-  main_btn.addEventListener("click", function() {
+  let add_btn = document.getElementById("add-btn");
+  add_btn.addEventListener("click", function() {
+	  
+	  console.log('버튼이 눌리긴 했니?');
 	  
 	  let list_checked = document.querySelectorAll(".chk:checked")
 	  for(let i = 0; i< list_checked.length; i++) {
-		  
+		  console.log(list_checked[i]);
 	  }
 	  
   })
