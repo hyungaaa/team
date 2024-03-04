@@ -9,62 +9,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
-    <link rel="stylesheet" href="../css/itemMng.css">
-    <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
-    <!-- <link rel="stylesheet" href="../css/outReg.css"> -->
-    <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
-    <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
-    <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
-    <!-- <link rel="stylesheet" href="../css/boardList.css"> -->
-    <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
+    <link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/ui.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/inReg.css">
+    <link rel="stylesheet" href="css/itemMng.css">
+
 
     <script src="../js/system.js"></script>
     <script src="../js/item.js"></script>
+    
+    <script>
+    function validateForm() {
+        var checkboxes = document.getElementsByName('selectedItems');
+        var isChecked = false;
+        
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+        
+        if (!isChecked) {
+            alert('삭제할 항목을 선택하세요.');
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 
 </head>
 <body>
 
 
-    <header>
-        <div class="top-logo">
-            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
-        </div>
-        <div class="top-bar">
-            <h1>물류관리시스템</h1>
-        </div>
-        <div class="top-bar-links">
-            <a href="mypage.html">마이페이지</a>
-            <a href="#">설정</a>
-            <a href="login.html">로그아웃</a>
-        </div>
-    </header>
-    <nav>
-        <div class="navi-bar">
-            <ul>
-                <li class="navi-item1"><a href="dashboard.html">대시<br>보드</a></li>
-                <li class="navi-item2"><a href="itemMng.jsp">제품<br>관리</a></li>
-                <li class="navi-item3"><a href="inReg.html">입고<br>등록</a></li>
-                <li class="navi-item4"><a href="outReg.html">출고<br>등록</a></li>
-                <li class="navi-item5"><a href="invenView.html">재고<br>현황</a></li>
-                <li class="navi-item6"><a href="inoutHistory.html">입출고<br>이력</a></li>
-                <li class="navi-item7"><a href="capacityView.html">수용량<br>현황</a></li>
-                <li class="navi-item8"><a href="boardList.html">건의<br>게시판</a></li>
-                <li class="navi-item9"><a href="userMng.html">사용자<br>관리</a></li>
-            </ul>
-        </div>
-    </nav>
+    <%@include file="header.jsp" %>	
+    
+    <%@include file="nav.jsp" %>
+    	
     <main>
     <!-- 입출고 이력 -->
 
     <!-- 대분류 카테고리 -->
     <div id="bigCategory">
         <ul>
-            <li onclick="filterCategory('간편식사')" class="find-item"><a href="itemMng.html"><span class="mng_span">간편식사</span>></a>
+            <li onclick="filterCategory('간편식사')" class="find-item"><a href="itemMng.jsp"><span class="mng_span">간편식사</span>></a>
                 <ul class="sub-menu">
                     <li><a href="#" onclick="filterCategory('도시락')">도시락</a></li>
                     <li><a href="#" onclick="filterCategory('샌드위치/햄버거')">샌드위치/햄버거</a></li>
@@ -127,7 +118,8 @@
 
     <!-- 제품 게시판? -->
     <div id="productBoard">
-        
+        <form action="itMngD" method="post"
+         enctype="multipart/form-data" onsubmit="return validateForm();"> <!-- 폼 추가 -->
         <table class="table_mng">
         <colgroup>
                <col width="7%" />
@@ -147,7 +139,7 @@
             %>
             
             <tr id="title_mng">
-                <th></th>
+                <th><input type="checkbox" id="selectAll" onclick="toggleCheckboxes(this)"></th>
                 <th>제품명</th>
                 <th>소분류</th>
                 <th>제품번호</th>
@@ -157,12 +149,14 @@
             </tr>
             
             <%
-				for(int i = 0; i < list.size(); i++) {
-// 				itMngDTO item = (itMngDTO) list.get(i);
+            	if (list != null) {
+					for(int i = 0; i < list.size(); i++) {
+	// 				itMngDTO item = (itMngDTO) list.get(i);
 			%>
             
             <tr class="product-row" data-category="<%= ((itMngDTO)list.get(i)).getSct() %>">
-                <td><input type = "checkbox" class="chk"></td>
+                <td><input type = "checkbox" class="chk"  
+                name="selectedItems" value="<%= ((itMngDTO)list.get(i)).getPnum() %>"></td>
                 <td><%= ((itMngDTO)list.get(i)).getPname() %></td>
                 <td><%= ((itMngDTO)list.get(i)).getSct() %></td>
                 <td><%= ((itMngDTO)list.get(i)).getPnum() %></td>
@@ -170,50 +164,13 @@
                 <td><%= ((itMngDTO)list.get(i)).getPday() %></td>
                 <td><%= ((itMngDTO)list.get(i)).getPsize() %></td>
            	</tr>
+         
             <%
 				}
+            } else {
+            	System.out.println("null입니다~.");
+            }
 			%>
-             <%--  
-            <tr class="product-row" data-category="주먹밥/김밥">
-                <td><input type = "checkbox" class="chk"></td>
-                <td><a href="itemfix.html">김)크랩가득유부초밥</a></td>
-                <td>주먹밥/김밥</td>
-                <td>EJB00002</td>
-                <td>B-01</td>
-                <td>2024-02-01</td>
-                <td>S(소형)</td>
-                
-            </tr>
-            <tr class="product-row" data-category="주먹밥/김밥">
-                <td><input type = "checkbox" class="chk"></td>
-                <td><a href="#"></a>주)놀라운매콤어묵삼각</td>
-                <td>주먹밥/김밥</td>
-                <td>EJB00004</td>
-                <td>B-02</td>
-                <td>2024-02-01 </td>
-                <td>S(소형)</td>
-
-            </tr>
-            <tr class="product-row" data-category="도시락">
-                <td><input type = "checkbox" class="chk"></td>
-                <td><a href="#"></a>도)놀라운치킨마요덮밥</td>
-                <td>도시락</td>
-                <td>EDB00001</td>
-                <td>B-03</td>
-                <td>2024-01-31</td>
-                <td>S(소형)</td>
-
-            </tr>
-            <tr class="product-row" data-category="도시락">
-                <td><input type = "checkbox" class="chk"></td>
-                <td><a href="#"></a>도)치즈닭갈비고구마밥</td>
-                <td>도시락</td>
-                <td>EDB00002</td>
-                <td>B-03</td>
-                <td>2024-01-30</td>
-                <td>M(중형)</td>
-            </tr>
-            --%>  
         </table>
     </div>
     
@@ -232,27 +189,16 @@
     </div>
         
         <div id="button_mng_2">
-            <button class="main_btn" id="selected_del">제품 삭제</button>
-            <button class="main_btn"><a href="itemNew.jsp" id="lim_a">제품 추가</button></a>
+            <button type="submit" class="main_btn" id="selected_del" onclick="return confirm('선택한 제품을 삭제하시겠습니까?')">제품 삭제</button>
+            <button class="main_btn"><a href="itemNew.jsp" id="lim_a">제품 추가</button></a>          
         </div>
 
     </div>
 
+    </form>
     </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="status-user">
-                접속자: 천안센터 관리자
-            </div>
-            <div class="status-message">
-                데이터가 조회되었습니다.
-            </div>
-            <div class="status-time">
-                현재 시간: <span id="current-time"></span>
-            </div>
-        </div>
-    </footer>
+    
+   <%@include file="footer.jsp" %>
+   
 </body>
 </html>
-
