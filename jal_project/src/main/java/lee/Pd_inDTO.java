@@ -10,6 +10,7 @@ public class Pd_inDTO {
 	Date pindate;
 	int pincnt;
 	String pnote;
+	String pstate;
 	
 	
 	public String getPlot() {
@@ -47,6 +48,12 @@ public class Pd_inDTO {
 	}
 	public void setPnote(String pnote) {
 		this.pnote = pnote;
+	}
+	public String getPstate() {
+		return pstate;
+	}
+	public void setPstate(String pstate) {
+		this.pstate = pstate;
 	}
 	
 	

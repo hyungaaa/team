@@ -20,7 +20,6 @@ public class BoardListDAO {
 		String password = "jal123456";
 
 		// 드라이버 로딩
-		// Class.forName : String 변수로 class 생성
 		try {
 			Class.forName(driver);
 			System.out.println("Oracle 드라이버 로딩 성공");
@@ -35,14 +34,10 @@ public class BoardListDAO {
 			query += " from";
 			query += " bd_list";
 			query += " inner join user_info on bd_list.uuid = user_info.uuid";
-//			query += " where bno = ?";
-//			query += " and lower(uuid) like '%' || lower(?) || '%'";
 			System.out.println("query : " + query);
 
 			// SQL 실행준비
 			PreparedStatement ps = con.prepareStatement(query);
-//			ps.setInt(1, dto.getBno());
-//			ps.setString(2, dto.getUuid());
 
 			// SQL 실행 및 결과 확보
 			ResultSet rs = ps.executeQuery();
@@ -205,6 +200,8 @@ public class BoardListDAO {
 //	}
 
 	// insert
+	
+	
 	
 	
 	// delete
