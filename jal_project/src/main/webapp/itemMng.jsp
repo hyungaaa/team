@@ -147,7 +147,7 @@
     <!-- 제품 게시판? -->
     <div id="productBoard">
         <form action="itMngD" method="post"
-         enctype="multipart/form-data" onsubmit="return validateForm();"> <!-- 폼 추가 -->
+         onsubmit="return validateForm();"> <!-- 폼 추가 -->
         <table class="table_mng">
         <colgroup>
                <col width="7%" />
@@ -200,7 +200,8 @@
             }
 			%>
         </table>
-    </div>
+    	</form>
+        </div>
     
 
     <!-- 페이지 -->
@@ -217,10 +218,10 @@
     </div>
         
         <div id="button_mng_2">
-            <button type="submit" class="main_btn" id="selected_del" onclick="return confirmAndDelete()">제품 삭제</button>
+            <button type="button" class="main_btn" id="selected_del" onclick="return confirmAndDelete()">제품 삭제</button>
             <button class="main_btn"><a href="itemNew.jsp" id="lim_a">제품 추가</button></a>          
         </div>
-    </form>
+
     </div>
     
     </main>
