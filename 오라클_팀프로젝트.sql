@@ -177,6 +177,8 @@ select * from pd_out;
 select * from pd_in;
 select * from big_cat;
 select * from small_cat;
+select * from member_info;
+
 
 
 

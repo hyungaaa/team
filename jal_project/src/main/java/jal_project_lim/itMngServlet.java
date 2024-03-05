@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,15 +16,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import lee.InRegDAO;
-import lee.PdDTO;
 
-
-
-@WebServlet("/itMngServlet")
+@WebServlet("/itMng")
 public class itMngServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -31,10 +30,111 @@ public class itMngServlet extends HttpServlet {
 	}
 
 	
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+//			throws ServletException, IOException {
+//	    String[] deleteItems = request.getParameterValues("deleteCheckbox");
+//
+//	    if (deleteItems != null) {
+//	        // 트랜잭션 처리를 위한 Connection
+//	        Connection con = null;
+//	        
+//	        try {
+//	            // DB 접속
+//	            con = itMngDAO.getConn();
+//	            
+//	            // 트랜잭션 시작
+//	            con.setAutoCommit(false);
+//
+//	            for (String pnum : deleteItems) {
+//	                // 삭제 로직을 트랜잭션으로 감싸서 실행
+//	                itMngDAO.deleteProduct(con, pnum);
+//	            }
+//
+//	            // 모든 삭제 작업이 성공하면 커밋
+//	            con.commit();
+//	        } catch (SQLException e) {
+//	            // 예외 발생 시 롤백
+//	            try {
+//	                if (con != null) {
+//	                    con.rollback();
+//	                }
+//	            } catch (SQLException rollbackEx) {
+//	                rollbackEx.printStackTrace();
+//	            }
+//	            e.printStackTrace();
+//	        } finally {
+//	            try {
+//	                if (con != null) {
+//	                    // 트랜잭션 종료 및 AutoCommit 복원
+//	                    con.setAutoCommit(true);
+//	                    con.close();
+//	                }
+//	            } catch (SQLException closeEx) {
+//	                closeEx.printStackTrace();
+//	            }
+//	        }
+//	    }
+//
+//	    // 삭제 후 목록 페이지로 리다이렉트
+//	    response.sendRedirect("itemMng.jsp");
+//
+//	    // 다시 목록을 불러와서 화면에 표시
+//	    controller(request, response);
+//    }
+	
+	itMngDAO itmngDAO = new itMngDAO();
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		controller(request, response);
+	        throws ServletException, IOException {
+	    String[] deleteItems = request.getParameterValues("deleteCheckbox");
+
+	    if (deleteItems != null) {
+            // DAO에 트랜잭션으로 삭제를 요청
+	    	Connection con = null;
+	    	try {
+	            // DB 접속
+	            con = itMngDAO.getDBConnection();
+
+	            // 트랜잭션 시작
+	            con.setAutoCommit(false);
+
+	            int rowsDeleted = itmngDAO.deleteProducts(con, deleteItems);
+	            System.out.println(rowsDeleted + "개의 상품이 삭제되었습니다.");
+
+	            // 모든 삭제 작업이 성공하면 커밋
+	            con.commit();
+	    	} catch (SQLException e) {
+	            // 예외 발생 시 롤백
+	            try {
+	                if (con != null) {
+	                    con.rollback();
+	                }
+	            } catch (SQLException rollbackEx) {
+	                rollbackEx.printStackTrace();
+	            }
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                if (con != null) {
+	                    // 트랜잭션 종료 및 AutoCommit 복원
+	                    con.setAutoCommit(true);
+	                    itMngDAO.closeDBConnection(con);
+	                }
+	            } catch (SQLException closeEx) {
+	                closeEx.printStackTrace();
+	            }
+	        }
+	    }
+
+	    // 삭제 후 목록 페이지로 리다이렉트
+	    response.sendRedirect("itMng.jsp");
 	}
+
+//        // 다시 목록을 불러와서 화면에 표시
+//        controller(request, response);
+    
+	
+
 	
 	protected void controller(HttpServletRequest request, HttpServletResponse response) {
 		// 한글 깨짐 방지
@@ -52,6 +152,10 @@ public class itMngServlet extends HttpServlet {
 		String user = "scott_jal";
 		String password = "jal123456";
 		
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
 		try {
 			// 드라이버 로딩
 			// Class.forName : String 변수로 class 생성
@@ -59,7 +163,7 @@ public class itMngServlet extends HttpServlet {
 			System.out.println("★ Oracle 드라이버 로딩 성공 ★");
 			
 			// DB 접속
-			Connection con = DriverManager.getConnection(url, user, password);
+			con = DriverManager.getConnection(url, user, password);
 			System.out.println("★ Connection 생성 성공 ★");
 			
 			
@@ -68,15 +172,15 @@ public class itMngServlet extends HttpServlet {
 			// 무조건 앞에 한 칸 띄워서 작성 " select";
 			query += " SELECT pname, sct, pnum, wzone, pday, psize";
 			query += " FROM pd_list";
-			query += " FULL OUTER JOIN small_cat ON pd_list.scid = small_cat.scid";
+			query += " LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid";
 
 			System.out.println("query : " + query);
 			
 			// SQL 실행 준비
-			PreparedStatement ps = con.prepareStatement(query);
+			ps = con.prepareStatement(query);
 			
 			// SQL 실행, ResultSet으로 결과 확보
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 
 			while( rs.next() ) {
 				// getxxx -> 전달인자로 컬럼명, 대소문자 구분 x
@@ -106,32 +210,47 @@ public class itMngServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+	
 		
 		// DB 담당에게 전달
 				
 		itMngDAO itmngDAO = new itMngDAO();
-		
 		itMngDTO itmngDTO = new itMngDTO();
 		
-		itmngDTO.setPnum(itmngDTO.getPnum());
-		itmngDTO.setPname(itmngDTO.getPname());
-		itmngDTO.setPsize(itmngDTO.getPsize());
-		itmngDTO.setWzone(itmngDTO.getWzone());
-		itmngDTO.setSct(itmngDTO.getSct());
-		itmngDTO.setPday(itmngDTO.getPday());
+		itmngDTO.setPnum(request.getParameter("pnum"));
+		itmngDTO.setPname(request.getParameter("pname"));
+		itmngDTO.setPsize(request.getParameter("psize"));
+		itmngDTO.setWzone(request.getParameter("wzone"));
+		itmngDTO.setSct(request.getParameter("sct"));
+		itmngDTO.setPday(request.getParameter("pday"));
 		
-		// 결과 받기
-		List list = itMngDAO.selectMng(itmngDTO);
-//				System.out.println(list);
-//				System.out.println(((PdDTO)list.get(0)).getPnum());
+		try {
+		    // 결과 받기
+		    List<itMngDTO> list = itmngDAO.selectMng(itmngDTO);
+		    request.setAttribute("list", list);
+
+		    // forward 하기 전에 response에 데이터를 전송하지 않도록 수정
+		    request.getRequestDispatcher("itemMng.jsp").forward(request, response);
+//		    response.sendRedirect("itemMng.jsp");
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+    }
 		
-		request.setAttribute("list", list);
-		
-		// view 담당에게 전달
-		request.getRequestDispatcher("/jsp/itemMng.jsp").forward(request, response);
-	}
+}
 
 		
 	}
-

@@ -2,6 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".navi-item8").setAttribute("class", "navi-item navi-item8 active");
 
+
+	// 글제목 클릭 했을 때 클릭이벤트 부여
+	 document.querySelectorAll('.btitle').forEach(function(span) {
+	    span.addEventListener('click', function() {
+	        // 클릭된 span의 부모인 td의 이전 형제 요소(td)에서 텍스트 내용(bno)을 얻음
+	        var bno = this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+	        console.log(bno);
+	        
+	        goBoard(bno);
+	    });
+	});
 });
 
 
@@ -64,4 +75,14 @@ function searchOnEnter(event) {
     if (event.key === "Enter") {
         searchTable();
     }
+}
+
+
+
+
+// 글로 이동하는 링크
+function goBoard(bno) {
+	
+	window.location.href = 'board?bno=' + bno;
+	
 }

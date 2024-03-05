@@ -25,13 +25,10 @@ public class inRegServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		// 전달받은 값 parameter 확보
-//		String pnum = request.getParameter("pnum");
-//		String pname = request.getParameter("pname");
-//		String psize = request.getParameter("psize");
-//		String punit = request.getParameter("punit");
-		
 		String searchInput = request.getParameter("searchInput");
+		String radioBtn = request.getParameter("radioBtn");
+		System.out.println("radioBtn: " + radioBtn);
+		
 		
 		// DB 담당에게 전달
 		InRegDAO inRegDAO = new InRegDAO();
@@ -44,6 +41,8 @@ public class inRegServlet extends HttpServlet {
 		
 		// 결과 받기
 		List list = inRegDAO.selectPd(pdDTO, searchInput);
+//		List list2 = inRegDAO.selectPd(pdDTO, radioBtn);
+		
 		System.out.println("이건 servlet: searchInput " + searchInput);
 //		System.out.println(list);
 //		System.out.println(((PdDTO)list.get(0)).getPnum());
@@ -59,6 +58,15 @@ public class inRegServlet extends HttpServlet {
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		InRegDAO dao = new InRegDAO();
+		Pd_inDTO dto = new Pd_inDTO();
+		
+		int cnt = dao.insertPd(dto);
+		if(cnt == 1) {
+			System.out.println("DB 입력 성공");
+		} else {
+			System.out.println("DB 입력 실패");
+		}
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
