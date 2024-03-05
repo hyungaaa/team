@@ -83,7 +83,7 @@
 	                <tr>
 	                    <td>아이디</td>
 	                    <td><input type="text" class="table_normal_txt" style="width: 95%;" id="req1_id" name="uuid"></td>
-	                    <td><button class="main_btn2" id="id_check" style="padding: 8rem 12rem 8rem;">중복확인</button></td>
+	                    <td><button type="button" class="main_btn2" id="id_check" style="padding: 8rem 12rem 8rem;">중복확인</button></td>
 	                </tr>
 	                <tr>
 	                    <td>이메일</td>

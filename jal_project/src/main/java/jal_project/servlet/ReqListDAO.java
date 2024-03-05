@@ -161,9 +161,9 @@ public class ReqListDAO {
 			
 			// 사용자등록 : 1 , 비밀번호초기화 : 2
 			String rct1 = (rct ==1)? "사용자등록": "비밀번호초기화";
-			ps.setString(1, userInfoDTO.getUuid());
-			ps.setString(2, rct1);
-			ps.setString(3, userInfoDTO.getUemail());
+			ps.setString(1, rct1);
+			ps.setString(2, userInfoDTO.getUemail());
+			ps.setString(3, userInfoDTO.getUuid());
 			
 			// SQL 실행 및 결과 확보
 	        ps.executeUpdate(); // executeQuery() 대신 executeUpdate()로 변경

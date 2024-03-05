@@ -9,7 +9,7 @@
             <h1>물류관리시스템</h1>
         </div>
         <div class="top-bar-links">
-            <a href="mypage.html">마이페이지</a>
+            <a href="mypage">마이페이지</a>
             <a href="#">설정</a>
             <a href="logout" id="logout_btn">로그아웃</a>
         </div>

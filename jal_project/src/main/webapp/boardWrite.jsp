@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/ui.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/boardWrite.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/boardWrite.css">
     <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
     <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
     <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
@@ -21,39 +21,15 @@
     <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
     
 
-    <script src="../js/system.js"></script>
-    <script src="../js/boardWrite.js"></script>
+    <script src="js/system.js"></script>
+    <script src="js/boardWrite.js"></script>
 
 </head>
 <body>
-    <header>
-        <div class="top-logo">
-            <img src="https://github.com/hyungaaa/team/blob/764a5932f4e0fe6e3dfc7ae81c561905ef779660/jal_logo_final.png?raw=true">
-        </div>
-        <div class="top-bar">
-            <h1>물류관리시스템</h1>
-        </div>
-        <div class="top-bar-links">
-            <a href="#">마이페이지</a>
-            <a href="#">설정</a>
-            <a href="#">로그아웃</a>
-        </div>
-    </header>
-    <nav>
-        <div class="navi-bar">
-            <ul>
-                <li class="navi-item1"><a href="dashboard.jsp">대시<br>보드</a></li>
-                <li class="navi-item2"><a href="itemMng.jsp">제품<br>관리</a></li>
-                <li class="navi-item3"><a href="inReg.jsp">입고<br>등록</a></li>
-                <li class="navi-item4"><a href="outReg.jsp">출고<br>등록</a></li>
-                <li class="navi-item5"><a href="invenView.jsp">재고<br>현황</a></li>
-                <li class="navi-item6"><a href="inoutHistory.jsp">입출고<br>이력</a></li>
-                <li class="navi-item7"><a href="capacityView.jsp">수용량<br>현황</a></li>
-                <li class="navi-item8"><a href="boardList.jsp">건의<br>게시판</a></li>
-                <li class="navi-item9"><a href="userMng.jsp">사용자<br>관리</a></li>
-            </ul>
-        </div>
-    </nav>
+    <%@include file="header.jsp" %>
+
+    <%@include file="nav.jsp" %>
+
     <main>
         <div class="dt1">
             <table class="t1">
@@ -117,19 +93,9 @@
             <button type="button" class="main_btn" id="sSize" onclick="showAlert()">제출</button>
         </div>
     </main>
-    <footer>
-        <div class="footer-content">
-            <div class="status-user">
-                접속자: 천안센터 관리자
-            </div>
-            <div class="status-message">
-                데이터가 조회되었습니다.
-            </div>
-             <div class="status-time">
-                현재 시간: <span id="current-time"></span>
-            </div>
-        </div>
-    </footer>
+    
+    <%@include file="footer.jsp" %>
+
 </body>
 </html>
 
