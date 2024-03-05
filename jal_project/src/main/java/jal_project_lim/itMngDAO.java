@@ -29,7 +29,7 @@ public class itMngDAO {
 			String query = "";
 			query += " SELECT pname, sct, pnum, wzone, pday, psize";
 			query += " FROM pd_list";
-			query += " LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid";
+			query += " LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid order by pday";
 			
 			System.out.println("query : " + query);
 			

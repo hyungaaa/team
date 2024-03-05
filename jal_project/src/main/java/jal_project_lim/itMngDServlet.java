@@ -46,8 +46,10 @@ public class itMngDServlet extends HttpServlet {
 
             String query = "DELETE FROM pd_list WHERE pnum = ?";
             ps = con.prepareStatement(query);
+            System.out.println(selectedItems);
 
             if (selectedItems != null) {
+            	// (selectedItems) 에서 선택 한 거에서 하나씩 나옴
                 for (String pnum : selectedItems) {
                     ps.setString(1, pnum);
                     ps.executeUpdate();
@@ -59,7 +61,7 @@ public class itMngDServlet extends HttpServlet {
          // 삭제 후 목록 페이지로 리다이렉트
 //            request.getRequestDispatcher("itMngD");
 //            request.getRequestDispatcher("itMngD");
-            response.sendRedirect("itemMng.jsp");
+            response.sendRedirect("itMng");
 
 
 //        } catch (SQLException e) {
