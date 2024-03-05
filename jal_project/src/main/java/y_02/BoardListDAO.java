@@ -205,5 +205,7 @@ public class BoardListDAO {
 //	}
 
 	// insert
+	
+	
 	// delete
 }
