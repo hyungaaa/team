@@ -2,6 +2,7 @@
 
 <%@ page import = "java.util.List" %>
 <%@ page import = "lee.PdDTO" %>
+<%@ page import = "lee.Pd_inDTO" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,10 +43,14 @@
 			</colgroup>
 			<%
 			List list = (List) request.getAttribute("list");
+// 			List list2 = (List) request.getAttribute("list2");
 			PdDTO pdDTO = new PdDTO();
+			Pd_inDTO pd_inDTO = new Pd_inDTO();
 			
 			String searchInput = request.getParameter("searchInput");
 			System.out.println("이건 jsp: searchInput " + searchInput);
+			
+			
 			
 			%>
 							
@@ -120,18 +125,38 @@
 					<th>비고</th>
 				</thead>
 				<tbody>
+				<%
+					List<List<Object>> list2 = (List<List<Object>>) request.getAttribute("list2");
+		            for (List<Object> items : list2) {
+		                PdDTO pdDTO1 = (PdDTO) items.get(0);
+		                Pd_inDTO pd_inDTO1 = (Pd_inDTO) items.get(1);
+				%>
 					<tr>
 						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>ESB00001</td>
-						<td>샌)망곰초코딸기샌드</td>
-						<td>S(소형)</td>
-						<td>BOX</td>
-						<td>5</td>
-						<td>미등록</td>
-						<td></td>
-						<td></td>
+						<td><%=pd_inDTO1.getPindate()%></td>
+						<td><%=pdDTO1.getPnum()%></td>
+						<td><%=pdDTO1.getPname()%></td>
+						<td><%=pdDTO1.getPsize()%></td>
+						<td><%=pdDTO1.getPunit()%></td>
+						<td><%=pd_inDTO1.getPincnt()%></td>
+						<td><%=pd_inDTO1.getPstate()%></td>
+						<td><%=pd_inDTO1.getPlot()%></td>
+						<%
+							if(pd_inDTO1.getPnote() == null) {
+						%>
+								<td></td>
+						<%
+							} else {
+						%>
+								<td><%=pd_inDTO1.getPnote()%></td>
+						<%
+							}
+						%>
 					</tr>
+				<%
+					
+					}
+				%>
 					
 				</tbody>
 			</table>
