@@ -34,6 +34,7 @@ public class inRegServlet extends HttpServlet {
 		InRegDAO inRegDAO = new InRegDAO();
 		
 		PdDTO pdDTO = new PdDTO();
+		Pd_inDTO pd_inDTO = new Pd_inDTO();
 //		pdDTO.setPnum(pdDTO.getPnum());
 //		pdDTO.setPname(pdDTO.getPname());
 //		pdDTO.setPsize(pdDTO.getPsize());
@@ -41,13 +42,13 @@ public class inRegServlet extends HttpServlet {
 		
 		// 결과 받기
 		List list = inRegDAO.selectPd(pdDTO, searchInput);
-//		List list2 = inRegDAO.selectPd(pdDTO, radioBtn);
+		List list2 = inRegDAO.selectTbl(pdDTO, pd_inDTO);
 		
 		System.out.println("이건 servlet: searchInput " + searchInput);
-//		System.out.println(list);
 //		System.out.println(((PdDTO)list.get(0)).getPnum());
 		
 		request.setAttribute("list", list);
+		request.setAttribute("list2", list2);
 		
 		// view 담당에게 전달
 		request.getRequestDispatcher("inReg.jsp").forward(request, response);
@@ -58,15 +59,15 @@ public class inRegServlet extends HttpServlet {
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		InRegDAO dao = new InRegDAO();
-		Pd_inDTO dto = new Pd_inDTO();
-		
-		int cnt = dao.insertPd(dto);
-		if(cnt == 1) {
-			System.out.println("DB 입력 성공");
-		} else {
-			System.out.println("DB 입력 실패");
-		}
+//		InRegDAO dao = new InRegDAO();
+//		Pd_inDTO dto = new Pd_inDTO();
+//		
+//		int cnt = dao.insertPd(dto);
+//		if(cnt == 1) {
+//			System.out.println("DB 입력 성공");
+//		} else {
+//			System.out.println("DB 입력 실패");
+//		}
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
