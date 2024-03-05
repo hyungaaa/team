@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class capVServlet
- */
+
 @WebServlet("/capV")
 public class capVServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
