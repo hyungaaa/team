@@ -130,9 +130,9 @@
 							<th><select id="select_change2" class="table_normal_txt"
 								style="width: 60px; height: 25px;">
 									<option>권한</option>
-									<option value="게스트" class="select_op2">게스트</option>
-									<option value="사용자" class="select_op2">사용자</option>
-									<option value="부관리자" class="select_op2">부관리자</option>
+									<option value="사원" class="select_op2">사원</option>
+									<option value="대리" class="select_op2">대리</option>
+									<option value="팀장" class="select_op2">팀장</option>
 									<option value="관리자" class="select_op2">관리자</option>
 							</select>
 								<button type="button" id="change_button2" class="table_btn"
@@ -172,16 +172,20 @@
 							<td><%=user.getUnum()%></td>
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">
-									<option value="천안" class="select_op1"><%=user.getCname()%></option>
-									<option value="아산" class="select_op1"><%=user.getCname()%></option>
-									<option value="평택" class="select_op1"><%=user.getCname()%></option>
+									<option value="천안" class="select_op1"><%=user.getCname() == null ? "천안" : ""%></option>
+									<option value="아산" class="select_op1"><%=user.getCname() == null ? "아산" : ""%></option>
+									<option value="평택" class="select_op1"><%=user.getCname() == null ? "평택" : ""%></option>
 							</select></td>
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">
-									<option value="게스트" class="select_op2"><%=user.getUposition()%></option>
-									<option value="사용자" class="select_op2"><%=user.getUposition()%></option>
-									<option value="부관리자" class="select_op2"><%=user.getUposition()%></option>
-									<option value="관리자" class="select_op2" selected>관리자</option>
+									<option value="사원" class="select_op2"
+										<%=user.getUposition().equals("사원") ? "selected" : ""%>>사원</option>
+									<option value="대리" class="select_op2"
+										<%=user.getUposition().equals("대리") ? "selected" : ""%>>대리</option>
+									<option value="팀장" class="select_op2"
+										<%=user.getUposition().equals("팀장") ? "selected" : ""%>>팀장</option>
+									<option value="관리자" class="select_op2"
+										<%=user.getUposition().equals("관리자") ? "selected" : ""%>>관리자</option>
 							</select></td>
 							<td><input type="checkbox" class="chk1"
 								<%=user.getUpdv() != null && user.getUpdv().equals("1") ? "checked" : ""%>></td>
