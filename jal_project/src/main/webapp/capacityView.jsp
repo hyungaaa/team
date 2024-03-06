@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="css/ui.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/itemMng.css">
-    <link rel="stylesheet" href="css/inReg.css">
+    <link rel="stylesheet" href="css/capacityView.css">
 
 
     <script src="js/chart.js"></script>
