@@ -179,13 +179,14 @@
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">
 									<option value="사원" class="select_op2"
-										<%=user.getUposition().equals("사원") ? "selected" : ""%>>사원</option>
+										<%=(user.getUposition() != null && user.getUposition().equals("사원")) ? "selected" : ""%>>사원</option>
 									<option value="대리" class="select_op2"
-										<%=user.getUposition().equals("대리") ? "selected" : ""%>>대리</option>
+										<%=(user.getUposition() != null && user.getUposition().equals("대리")) ? "selected" : ""%>>대리</option>
 									<option value="팀장" class="select_op2"
-										<%=user.getUposition().equals("팀장") ? "selected" : ""%>>팀장</option>
+										<%=(user.getUposition() != null && user.getUposition().equals("팀장")) ? "selected" : ""%>>팀장</option>
 									<option value="관리자" class="select_op2"
-										<%=user.getUposition().equals("관리자") ? "selected" : ""%>>관리자</option>
+										<%=(user.getUposition() != null && user.getUposition().equals("관리자")) ? "selected" : ""%>>관리자</option>
+
 							</select></td>
 							<td><input type="checkbox" class="chk1"
 								<%=user.getUpdv() != null && user.getUpdv().equals("1") ? "checked" : ""%>></td>
