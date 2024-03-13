@@ -1,14 +1,11 @@
 package Mng;
 
-
 public class UserMngDTO2 {
 
-	private String unum;
-
-	private String rid;
 	private String rcategory;
-	private String uemail;
+	private String unum;
 	private String uuid;
+	private String uemail;
 
 	public String getUnum() {
 		return unum;
@@ -16,14 +13,6 @@ public class UserMngDTO2 {
 
 	public void setUnum(String unum) {
 		this.unum = unum;
-	}
-
-	public String getRid() {
-		return rid;
-	}
-
-	public void setRid(String rid) {
-		this.rid = rid;
 	}
 
 	public String getRcategory() {
@@ -52,8 +41,7 @@ public class UserMngDTO2 {
 
 	@Override
 	public String toString() {
-		return "UserMngDTO2 [unum=" + unum + ", rid=" + rid + ", rcategory=" + rcategory + ", uemail=" + uemail
-				+ ", uuid=" + uuid + "]";
+		return "UserMngDTO2 [unum=" + unum + ", rcategory=" + rcategory + ", uemail=" + uemail + ", uuid=" + uuid + "]";
 	}
 
 }

@@ -25,7 +25,6 @@
 		List<UserMngDTO> userList = (List<UserMngDTO>) request.getAttribute("userList");
 		List<UserMngDTO2> userList2 = (List<UserMngDTO2>) request.getAttribute("userList2");
 		%>
-
 		<div style="width: 1080px;">
 			<select id="searchSelect" class="main_search_txt"
 				style="float: left; width: 100px; margin-left: 30px; margin-top: 30px;">
@@ -45,7 +44,7 @@
 								<col width="10%">
 								<col width="10%">
 								<col width="10%">
-								<col width="10%">
+								<col width="20%">
 								<col width="10%">
 							</colgroup>
 							<tr id="pop_tr">
@@ -55,18 +54,21 @@
 								<th>이메일</th>
 								<th>선택</th>
 							</tr>
+
 							<%
 							if (userList2 != null && !userList2.isEmpty()) {
-								for (UserMngDTO2 user : userList2) {
+								for (UserMngDTO2 user2 : userList2) {
+									if (user2.getRcategory() != null) {
 							%>
 							<tr>
-								<td><%=user.getRcategory()%></td>
-								<td><%=user.getUnum()%></td>
-								<td><%=user.getUuid()%></td>
-								<td><%=user.getUemail()%></td>
+								<td><%=user2.getRcategory()%></td>
+								<td><%=user2.getUnum()%></td>
+								<td><%=user2.getUuid()%></td>
+								<td><%=user2.getUemail()%></td>
 								<td><input type="checkbox" class="chk"></td>
 							</tr>
 							<%
+							}
 							}
 							} else {
 							%>
@@ -128,9 +130,9 @@
 							<th><select id="select_change2" class="table_normal_txt"
 								style="width: 60px; height: 25px;">
 									<option>권한</option>
-									<option value="게스트" class="select_op2">게스트</option>
-									<option value="사용자" class="select_op2">사용자</option>
-									<option value="부관리자" class="select_op2">부관리자</option>
+									<option value="사원" class="select_op2">사원</option>
+									<option value="대리" class="select_op2">대리</option>
+									<option value="팀장" class="select_op2">팀장</option>
 									<option value="관리자" class="select_op2">관리자</option>
 							</select>
 								<button type="button" id="change_button2" class="table_btn"
@@ -153,70 +155,60 @@
 					</thead>
 					<tbody>
 						<%
-						if (userList != null && !userList.isEmpty()) {
-							for (UserMngDTO user : userList) {
+						if (userList == null || userList.isEmpty()) {
+						%>
+						<tr>
+							<td colspan="11">데이터가 없습니다.</td>
+						</tr>
+						<%
+						} else {
+						%>
+						<%-- 사용자 목록을 반복하여 출력 --%>
+						<%
+						for (UserMngDTO user : userList) {
 						%>
 						<tr>
 							<td><%=user.getUname()%></td>
 							<td><%=user.getUnum()%></td>
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">
-									<option value="천안" class="select_op1">천안</option>
-									<option value="아산" class="select_op1">아산</option>
-									<option value="평택" class="select_op1">평택</option>
+									<option value="천안" class="select_op1"><%=user.getCname() == null ? "천안" : ""%></option>
+									<option value="아산" class="select_op1"><%=user.getCname() == null ? "아산" : ""%></option>
+									<option value="평택" class="select_op1"><%=user.getCname() == null ? "평택" : ""%></option>
 							</select></td>
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">
-									<option value="게스트" class="select_op2">게스트</option>
-									<option value="사용자" class="select_op2">사용자</option>
-									<option value="부관리자" class="select_op2">부관리자</option>
-									<option value="관리자" class="select_op2" selected>관리자</option>
+									<option value="사원" class="select_op2"
+										<%=(user.getUposition() != null && user.getUposition().equals("사원")) ? "selected" : ""%>>사원</option>
+									<option value="대리" class="select_op2"
+										<%=(user.getUposition() != null && user.getUposition().equals("대리")) ? "selected" : ""%>>대리</option>
+									<option value="팀장" class="select_op2"
+										<%=(user.getUposition() != null && user.getUposition().equals("팀장")) ? "selected" : ""%>>팀장</option>
+									<option value="관리자" class="select_op2"
+										<%=(user.getUposition() != null && user.getUposition().equals("관리자")) ? "selected" : ""%>>관리자</option>
+
 							</select></td>
-							<%-- <%
-							if (user.getUpdv() == "1") {
-							%> --%>
-							<td><input type="checkbox" class="chk1" checked></td>
-							<td><input type="checkbox" class="chk2" checked></td>
-							<td><input type="checkbox" class="chk3" checked></td>
-							<td><input type="checkbox" class="chk4" checked></td>
-							<td><input type="checkbox" class="chk5" checked></td>
-							<td><input type="checkbox" class="chk6" checked></td>
-							<td>
-								<button type="button" class="main_btn2" style="padding: 8rem;">삭제</button>
+							<td><input type="checkbox" class="chk1"
+								<%=user.getUpdv() != null && user.getUpdv().equals("1") ? "checked" : ""%>></td>
+							<td><input type="checkbox" class="chk2"
+								<%=user.getUpdior() != null && user.getUpdior().equals("1") ? "checked" : ""%>></td>
+							<td><input type="checkbox" class="chk3"
+								<%=user.getUpdiom() != null && user.getUpdiom().equals("1") ? "checked" : ""%>></td>
+							<td><input type="checkbox" class="chk4"
+								<%=user.getUpdr() != null && user.getUpdr().equals("1") ? "checked" : ""%>></td>
+							<td><input type="checkbox" class="chk5"
+								<%=user.getUbdm() != null && user.getUbdm().equals("1") ? "checked" : ""%>></td>
+							<td><input type="checkbox" class="chk6"
+								<%=user.getUum() != null && user.getUum().equals("1") ? "checked" : ""%>></td>
+
+							<td><button type="button" data-in class="main_btn2"
+									style="padding: 8rem;">삭제</button>
 								<button type="button" class="main_btn" style="padding: 8rem;">수정</button>
 							</td>
 						</tr>
 						<%
 						}
-						} else {
 						%>
-						<tr>
-							<td>데이터가 없습니다.</td>
-							<td>데이터가 없습니다.</td>
-							<td><select class="main_search2_txt"
-								style="width: 90px; height: 20px;">
-									<option value="천안" class="select_op1">천안</option>
-									<option value="아산" class="select_op1">아산</option>
-									<option value="평택" class="select_op1">평택</option>
-							</select></td>
-							<td><select class="main_search2_txt"
-								style="width: 90px; height: 20px;">
-									<option value="게스트" class="select_op2">게스트</option>
-									<option value="사용자" class="select_op2">사용자</option>
-									<option value="부관리자" class="select_op2">부관리자</option>
-									<option value="관리자" class="select_op2" selected>관리자</option>
-							</select></td>
-							<td><input type="checkbox" class="chk1" checked></td>
-							<td><input type="checkbox" class="chk2" checked></td>
-							<td><input type="checkbox" class="chk3" checked></td>
-							<td><input type="checkbox" class="chk4" checked></td>
-							<td><input type="checkbox" class="chk5" checked></td>
-							<td><input type="checkbox" class="chk6" checked></td>
-							<td>
-								<button type="button" class="main_btn2" style="padding: 8rem;">삭제</button>
-								<button type="button" class="main_btn" style="padding: 8rem;">수정</button>
-							</td>
-						</tr>
 						<%
 						}
 						%>
