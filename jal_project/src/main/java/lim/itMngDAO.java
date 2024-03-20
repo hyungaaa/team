@@ -1,4 +1,4 @@
-package jal_project_lim;
+package lim;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -80,6 +80,7 @@ public class itMngDAO {
 		
 	}
 	
+	// DB연결 
 	static Connection getConn() {
 		// DB 접속
 		String driver = "oracle.jdbc.driver.OracleDriver";
@@ -243,30 +244,30 @@ public class itMngDAO {
     }
     
  // DB 연결 메서드
-    public static Connection getDBConnection() throws SQLException {
-        String driver = "oracle.jdbc.driver.OracleDriver";
-        String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
-        String user = "scott_jal";
-        String password = "jal123456";
-
-        Connection con = null;
-
-        try {
-            // 드라이버 로딩
-            Class.forName(driver);
-            System.out.println("★ Oracle 드라이버 로딩 성공 ★");
-
-            // DB 접속
-            con = DriverManager.getConnection(url, user, password);
-            System.out.println("★ Connection 생성 성공 ★");
-
-            return con;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
+//    public static Connection getDBConnection() throws SQLException {
+//        String driver = "oracle.jdbc.driver.OracleDriver";
+//        String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
+//        String user = "scott_jal";
+//        String password = "jal123456";
+//
+//        Connection con = null;
+//
+//        try {
+//            // 드라이버 로딩
+//            Class.forName(driver);
+//            System.out.println("★ Oracle 드라이버 로딩 성공 ★");
+//
+//            // DB 접속
+//            con = DriverManager.getConnection(url, user, password);
+//            System.out.println("★ Connection 생성 성공 ★");
+//
+//            return con;
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return null;
+//    }
 
     
  // DB 연결 닫기 메서드

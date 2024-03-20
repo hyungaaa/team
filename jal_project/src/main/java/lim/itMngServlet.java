@@ -1,4 +1,4 @@
-package jal_project_lim;
+package lim;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,58 +30,6 @@ public class itMngServlet extends HttpServlet {
 	}
 
 	
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-//			throws ServletException, IOException {
-//	    String[] deleteItems = request.getParameterValues("deleteCheckbox");
-//
-//	    if (deleteItems != null) {
-//	        // 트랜잭션 처리를 위한 Connection
-//	        Connection con = null;
-//	        
-//	        try {
-//	            // DB 접속
-//	            con = itMngDAO.getConn();
-//	            
-//	            // 트랜잭션 시작
-//	            con.setAutoCommit(false);
-//
-//	            for (String pnum : deleteItems) {
-//	                // 삭제 로직을 트랜잭션으로 감싸서 실행
-//	                itMngDAO.deleteProduct(con, pnum);
-//	            }
-//
-//	            // 모든 삭제 작업이 성공하면 커밋
-//	            con.commit();
-//	        } catch (SQLException e) {
-//	            // 예외 발생 시 롤백
-//	            try {
-//	                if (con != null) {
-//	                    con.rollback();
-//	                }
-//	            } catch (SQLException rollbackEx) {
-//	                rollbackEx.printStackTrace();
-//	            }
-//	            e.printStackTrace();
-//	        } finally {
-//	            try {
-//	                if (con != null) {
-//	                    // 트랜잭션 종료 및 AutoCommit 복원
-//	                    con.setAutoCommit(true);
-//	                    con.close();
-//	                }
-//	            } catch (SQLException closeEx) {
-//	                closeEx.printStackTrace();
-//	            }
-//	        }
-//	    }
-//
-//	    // 삭제 후 목록 페이지로 리다이렉트
-//	    response.sendRedirect("itemMng.jsp");
-//
-//	    // 다시 목록을 불러와서 화면에 표시
-//	    controller(request, response);
-//    }
-	
 	itMngDAO itmngDAO = new itMngDAO();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -93,7 +41,7 @@ public class itMngServlet extends HttpServlet {
 	    	Connection con = null;
 	    	try {
 	            // DB 접속
-	            con = itMngDAO.getDBConnection();
+	            con = itMngDAO.getConn();
 
 	            // 트랜잭션 시작
 	            con.setAutoCommit(false);

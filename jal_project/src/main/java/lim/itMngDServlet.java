@@ -1,4 +1,4 @@
-package jal_project_lim;
+package lim;
 
 import java.io.IOException;
 import java.io.PrintWriter;

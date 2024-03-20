@@ -1,4 +1,4 @@
-package jal_project_lim;
+package lim;
 
 public class itMngDTO {
 
