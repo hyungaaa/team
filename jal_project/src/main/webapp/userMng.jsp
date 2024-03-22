@@ -37,7 +37,7 @@
 				<button onclick="openPopup()" class="main_btn">권한 요청 목록</button>
 				<button onclick="openPopup()" id="num1">2</button>
 				<div id="popup" class="popup">
-					<div class="popup-content">
+					<div class="popup-content div_scr">
 						<p class="userMng_p">사용자 요청 목록</p>
 						<table id="table_hd2">
 							<colgroup>
@@ -83,17 +83,17 @@
 							}
 							%>
 						</table>
-						<div id="div-ul">
-							<ul>
-								<li><a href="#">&lt;</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&gt;</a></li>
-							</ul>
-						</div>
+						<!-- 						<div id="div-ul"> -->
+						<!-- 							<ul> -->
+						<!-- 								<li><a href="#">&lt;</a></li> -->
+						<!-- 								<li><a href="#">1</a></li> -->
+						<!-- 								<li><a href="#">2</a></li> -->
+						<!-- 								<li><a href="#">3</a></li> -->
+						<!-- 								<li><a href="#">4</a></li> -->
+						<!-- 								<li><a href="#">5</a></li> -->
+						<!-- 								<li><a href="#">&gt;</a></li> -->
+						<!-- 							</ul> -->
+						<!-- 						</div> -->
 						<span class="popY">승인</span> <span class="popN"
 							onclick="closePopup()">취소</span>
 					</div>
