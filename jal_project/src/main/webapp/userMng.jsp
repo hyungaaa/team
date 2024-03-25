@@ -150,7 +150,8 @@
 							</th>
 							<th>사용자관리<input type="checkbox" id="select_all6">
 							</th>
-							<th></th>
+							<th><button type="button"
+									style="padding: 6rem; border: 0px solid #888; color: #ffffff; border-radius: 5rem; background: #36698c;">전체적용</button></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -168,7 +169,8 @@
 						for (UserMngDTO user : userList) {
 						%>
 						<tr>
-							<td><%=user.getUname()%></td>
+							<td><%=user.getUname()%><input type="checkbox"
+								id="select_chk"></td>
 							<td><%=user.getUnum()%></td>
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">
