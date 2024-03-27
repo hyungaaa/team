@@ -94,7 +94,7 @@
 						<!-- 								<li><a href="#">&gt;</a></li> -->
 						<!-- 							</ul> -->
 						<!-- 						</div> -->
-						<span class="popY">승인</span> <span class="popN"
+						<br> <span class="popY">승인</span> <span class="popN"
 							onclick="closePopup()">취소</span>
 					</div>
 				</div>
