@@ -167,37 +167,7 @@ public class itMngDAO {
         }
     
 
-	
-//	public int deleteProducts(Connection con, String[] productNums)  {
-//        int rowsAffected = 0;
-//     
-//
-//        try {
-//        	con = getConn();
-//            con.setAutoCommit(false); // 트랜잭션 시작
-//
-//            for (String pnum : productNums) {
-//                rowsAffected += deleteProduct(con, pnum);
-//            }
-//
-//            con.commit(); // 모든 삭제가 성공하면 커밋
-//            
-//        } catch (SQLException e) {
-//            try {
-//                if (con != null) {
-//                    con.rollback(); // 롤백
-//                }
-//            } catch (SQLException rollbackEx) {
-//                rollbackEx.printStackTrace();
-//            }
-//            e.printStackTrace();
-//        } finally {
-//            closeDBConnection(con);
-//        }
-//
-//        return rowsAffected;
-//    }
-    
+
     public int deleteProducts(Connection con, String[] productNums) throws SQLException {
     	System.out.println("deleteProducts 메서드 호출");
         int rowsAffected = 0;
@@ -243,32 +213,6 @@ public class itMngDAO {
         	return rowsAffected;
     }
     
- // DB 연결 메서드
-//    public static Connection getDBConnection() throws SQLException {
-//        String driver = "oracle.jdbc.driver.OracleDriver";
-//        String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
-//        String user = "scott_jal";
-//        String password = "jal123456";
-//
-//        Connection con = null;
-//
-//        try {
-//            // 드라이버 로딩
-//            Class.forName(driver);
-//            System.out.println("★ Oracle 드라이버 로딩 성공 ★");
-//
-//            // DB 접속
-//            con = DriverManager.getConnection(url, user, password);
-//            System.out.println("★ Connection 생성 성공 ★");
-//
-//            return con;
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-
     
  // DB 연결 닫기 메서드
     public static void closeDBConnection(Connection con) {

@@ -179,6 +179,10 @@ select * from big_cat;
 select * from small_cat;
 select * from member_info;
 
+--------------- pd_list img Ãß°¡ 0327
+alter table pd_list add img varchar2(4000) default '-' not null;
+
+
 
 
 
