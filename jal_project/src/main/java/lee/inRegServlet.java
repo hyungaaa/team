@@ -59,15 +59,15 @@ public class inRegServlet extends HttpServlet {
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		InRegDAO dao = new InRegDAO();
-//		Pd_inDTO dto = new Pd_inDTO();
-//		
-//		int cnt = dao.insertPd(dto);
-//		if(cnt == 1) {
-//			System.out.println("DB 입력 성공");
-//		} else {
-//			System.out.println("DB 입력 실패");
-//		}
+		InRegDAO dao = new InRegDAO();
+		Pd_inDTO dto = new Pd_inDTO();
+		
+		int cnt = dao.insertPd(dto);
+		if(cnt == 1) {
+			System.out.println("DB 입력 성공");
+		} else {
+			System.out.println("DB 입력 실패");
+		}
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

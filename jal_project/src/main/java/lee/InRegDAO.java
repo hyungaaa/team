@@ -2,12 +2,16 @@ package lee;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 
 public class InRegDAO {
 
@@ -18,7 +22,7 @@ public class InRegDAO {
 		try {
 
 			// DB 접속
-			Connection con = getConn();
+			connDB();
 			
 			// SQL 만들기
 			String query = "";
@@ -105,7 +109,7 @@ public class InRegDAO {
 		try {
 
 			// DB 접속
-			Connection con = getConn();
+			connDB();
 			
 			// SQL 만들기
 			String query = "";
@@ -182,92 +186,74 @@ public class InRegDAO {
 	}
 	
 	
+	private Connection con;
 	
-	private Connection getConn() {
-		// DB 접속
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
-		String user = "scott_jal";
-		String password = "jal123456";
-
-		Connection con = null;
+	// DB 연결 메소드
+	private void connDB() {
 		try {
-			// 드라이버 로딩
-			Class.forName(driver);
-			System.out.println("Oracle 드라이버 로딩 성공");
-
-			// DB 접속
-			con = DriverManager.getConnection(url, user, password);
-			System.out.println("Connection 생성 성공");
+			
+			Context ctx = new InitialContext();
+			DataSource dataFactory = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle2");
+			this.con = dataFactory.getConnection();
+			
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return con;
 	}
 	
 	//update
 	//insert
-//	public int insertPd(Pd_inDTO pd_inDTO) {
-//		List list = new ArrayList();
-//		int cnt = -1;
-//		
-//		try {
-//
-//			// DB 접속
-//			Connection con = getConn();
-//			
-//			// SQL 만들기
-//			String query = "";
-//			query += " insert into";
-//			query += " pd_in";
-//			query += " values";
-//			query += " (?, ?, ?, ?, ?, ?)";
-//			
-//			System.out.println("query : " + query);
-//			// SQL 실행 준비
-//			PreparedStatement ps = con.prepareStatement(query);
-//			
-//			// SQL 실행 및 결과 확보
-////			int rs = ps.executeUpdate();
-//			
-//			// 결과 활용
-//			ps.setString(1, pd_inDTO.getPlot());
-//			ps.setString(2, pd_inDTO.getPnum());
-//			ps.setString(3, pd_inDTO.getWzone());
-//			ps.setDate(4, pd_inDTO.getPindate());
-//			ps.setInt(5, pd_inDTO.getPincnt());
-//			ps.setString(6, pd_inDTO.getPnote());
-//
-//			cnt = ps.executeUpdate();
-//			
-//			con.commit();
-//				
-//				// 콘솔 출력
-////			System.out.println("pnum : " + pnum);
-////			System.out.println("pname : " + pname);
-////			System.out.println("psize : " + psize);
-////			System.out.println("punit : " + punit);
-////			System.out.println("-----------------------------");
-//				
-////			PdDTO dto = new PdDTO();
-////			dto.setPnum(pnum);
-////			dto.setPname(pname);
-////			dto.setPsize(psize);
-////			dto.setPunit(punit);
-////			list.add(dto);
-//			
-////			rs.close();
-////			ps.close();
-////			con.close();
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return cnt;
-//		
-//	}
+	int insertPd(Pd_inDTO pd_inDTO) {
+		int result = -9999;
+		
+		connDB();
+
+		PreparedStatement ps = null;
+		
+		try {
+			// SQL 준비
+			String query = " insert into pd_in";
+			query += " values(?, ?, ?, ?, ?, ?, ?)";
+
+			ps = con.prepareStatement(query);
+			ps.setString(1, pd_inDTO.getPlot());
+			ps.setString(2, pd_inDTO.getPnum());
+			ps.setString(3, pd_inDTO.getWzone());
+			ps.setDate(4, pd_inDTO.getPindate());
+			ps.setInt(5, pd_inDTO.getPincnt());
+			ps.setString(6, pd_inDTO.getPnote());
+			ps.setString(7, pd_inDTO.getPstate());
+
+			// SQL 실행 및 결과 확보
+			result = ps.executeUpdate();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if (this.con != null) {
+				try {
+					this.con.close();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return result;
+	}
 	
 	//delete
 }
