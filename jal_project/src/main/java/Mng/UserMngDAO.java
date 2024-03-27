@@ -19,9 +19,11 @@ public class UserMngDAO {
 		try {
 			con = getConn();
 
-			// user_info 테이블 조회
-			String queryUserInfo = "SELECT uname, unum, uposition FROM user_info";
-			ps = con.prepareStatement(queryUserInfo);
+			// user_info와 user_power를 uuid로 조인하여 데이터 조회
+			String queryAllTables = "SELECT u.uname, u.unum, u.uposition, p.updv, p.updior, p.updiom, p.updr, p.ubdm, p.uum "
+					+ "FROM user_info u " + "JOIN user_power p ON u.uuid = p.uuid";
+
+			ps = con.prepareStatement(queryAllTables);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				UserMngDTO dto = createUserMngDTOFromResultSet(rs);
@@ -35,21 +37,6 @@ public class UserMngDAO {
 			while (rs.next()) {
 				UserMngDTO dto = new UserMngDTO();
 				dto.setCname(rs.getString("cname"));
-				resultList.add(dto);
-			}
-
-			// user_power 테이블 조회
-			String queryUserPower = "SELECT updv, updior, updiom, updr, ubdm, uum FROM user_power";
-			ps = con.prepareStatement(queryUserPower);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				UserMngDTO dto = new UserMngDTO();
-				dto.setUpdv(rs.getString("updv"));
-				dto.setUpdior(rs.getString("updior"));
-				dto.setUpdiom(rs.getString("updiom"));
-				dto.setUpdr(rs.getString("updr"));
-				dto.setUbdm(rs.getString("ubdm"));
-				dto.setUum(rs.getString("uum"));
 				resultList.add(dto);
 			}
 
@@ -96,6 +83,12 @@ public class UserMngDAO {
 		dto.setUname(rs.getString("uname"));
 		dto.setUnum(rs.getString("unum"));
 		dto.setUposition(rs.getString("uposition"));
+		dto.setUpdv(rs.getString("updv"));
+		dto.setUpdior(rs.getString("updior"));
+		dto.setUpdiom(rs.getString("updiom"));
+		dto.setUpdr(rs.getString("updr"));
+		dto.setUbdm(rs.getString("ubdm"));
+		dto.setUum(rs.getString("uum"));
 
 		return dto;
 	}

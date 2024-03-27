@@ -37,7 +37,7 @@
 				<button onclick="openPopup()" class="main_btn">권한 요청 목록</button>
 				<button onclick="openPopup()" id="num1">2</button>
 				<div id="popup" class="popup">
-					<div class="popup-content">
+					<div class="popup-content div_scr">
 						<p class="userMng_p">사용자 요청 목록</p>
 						<table id="table_hd2">
 							<colgroup>
@@ -83,18 +83,18 @@
 							}
 							%>
 						</table>
-						<div id="div-ul">
-							<ul>
-								<li><a href="#">&lt;</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&gt;</a></li>
-							</ul>
-						</div>
-						<span class="popY">승인</span> <span class="popN"
+						<!-- 						<div id="div-ul"> -->
+						<!-- 							<ul> -->
+						<!-- 								<li><a href="#">&lt;</a></li> -->
+						<!-- 								<li><a href="#">1</a></li> -->
+						<!-- 								<li><a href="#">2</a></li> -->
+						<!-- 								<li><a href="#">3</a></li> -->
+						<!-- 								<li><a href="#">4</a></li> -->
+						<!-- 								<li><a href="#">5</a></li> -->
+						<!-- 								<li><a href="#">&gt;</a></li> -->
+						<!-- 							</ul> -->
+						<!-- 						</div> -->
+						<br> <span class="popY">승인</span> <span class="popN"
 							onclick="closePopup()">취소</span>
 					</div>
 				</div>
@@ -150,7 +150,8 @@
 							</th>
 							<th>사용자관리<input type="checkbox" id="select_all6">
 							</th>
-							<th></th>
+							<th><button type="button"
+									style="padding: 6rem; border: 0px solid #888; color: #ffffff; border-radius: 5rem; background: #36698c;">전체적용</button></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -168,7 +169,8 @@
 						for (UserMngDTO user : userList) {
 						%>
 						<tr>
-							<td><%=user.getUname()%></td>
+							<td><%=user.getUname()%><input type="checkbox"
+								id="select_chk"></td>
 							<td><%=user.getUnum()%></td>
 							<td><select class="main_search2_txt"
 								style="width: 90px; height: 20px;">

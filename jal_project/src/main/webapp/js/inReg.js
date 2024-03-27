@@ -124,6 +124,8 @@ function bind() {
     }
   })
   
+  
+  // 등록버튼
   let add_btn = document.getElementById("add-btn");
   add_btn.addEventListener("click", function() {
 	  
