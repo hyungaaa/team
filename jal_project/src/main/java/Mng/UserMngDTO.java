@@ -12,12 +12,22 @@ public class UserMngDTO {
 	private String cname;
 
 	// user_power table fields
+
+	private String uuid;
 	private String updv;
 	private String updior;
 	private String updr;
 	private String updiom;
 	private String ubdm;
 	private String uum;
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
 	public String getUname() {
 		return uname;
@@ -102,8 +112,8 @@ public class UserMngDTO {
 	@Override
 	public String toString() {
 		return "UserMngDTO [uname=" + uname + ", unum=" + unum + ", uposition=" + uposition + ", cname=" + cname
-				+ ", updv=" + updv + ", updior=" + updior + ", updr=" + updr + ", updiom=" + updiom + ", ubdm=" + ubdm
-				+ ", uum=" + uum + "]";
+				+ ", uuid=" + uuid + ", updv=" + updv + ", updior=" + updior + ", updr=" + updr + ", updiom=" + updiom
+				+ ", ubdm=" + ubdm + ", uum=" + uum + "]";
 	}
 
 }
