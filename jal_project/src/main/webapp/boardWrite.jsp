@@ -31,6 +31,7 @@
     <%@include file="nav.jsp" %>
 
     <main>
+        <form method="get" action="boardList">
         <div class="dt1">
             <table class="t1">
                 <tr>
@@ -66,7 +67,7 @@
                         <p>제목</p>
                     </td>
                     <td class="right">
-                        <input type="text" name="title" class="main_normal_txt"  placeholder="제목을 입력해주세요" style="width: 96%">
+                        <input type="text" name="btitle" class="main_normal_txt"  placeholder="제목을 입력해주세요" style="width: 96%">
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +79,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><textarea placeholder="내용을 입력해주세요"></textarea></td>
+                    <td colspan="2"><textarea name="btext" placeholder="내용을 입력해주세요"></textarea></td>
                 </tr>
             </table>
         </div>
@@ -90,8 +91,9 @@
                 취소
             </a>
             </button>
-            <button type="button" class="main_btn" id="sSize" onclick="showAlert()">제출</button>
+            	<input type="submit" class="main_btn" id="sSize">
         </div>
+       </form>
     </main>
     
     <%@include file="footer.jsp" %>
