@@ -62,14 +62,19 @@ function bind() {
 
 
 		console.log('버튼이 눌리긴 했니?');
-
-		let list_checked = document.querySelectorAll(".chk:checked")
 		
-		for (let i = 0; i < list_checked.length; i++) {
-			console.log(list_checked[i]);
-			let tr = list_checked[i].parentNode.parentNode;
-			console.log("tr" + tr)
-		}
+		
+
+		let list_checked = document.querySelectorAll(".chk:checked");
+		console.log(list_checked.length);
+		
+//		for (let i = 0; i < list_checked.length; i++) {
+//			console.log(list_checked[i]);
+//			let tr = list_checked[i].parentNode.parentNode;
+//			console.log("tr : " + tr);
+//			console.log(list_checked[i].parentNode);
+//			console.log(list_checked[i].parentNode.parentNode);
+//		}
 
 	})
 }
