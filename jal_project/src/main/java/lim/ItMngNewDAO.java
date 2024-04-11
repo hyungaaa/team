@@ -38,7 +38,7 @@ public class ItMngNewDAO {
 		try {
 			// SQL 준비
 			String query = " insert into pd_list (img, pname, sct, pnum, wzone, bct, psize, punit, pday)";
-			query += 	   " values(?, ?, ?, ?) ";
+			query += 	   " values(?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
 			ps = con.prepareStatement(query);
 			ps.setString(1, itnDTO.getImg());

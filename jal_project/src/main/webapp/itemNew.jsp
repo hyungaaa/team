@@ -41,7 +41,7 @@
 
     <!-- 제품 추가 -->
 
-    
+    <form method="post" action="itMngNew">
     <div id="productBoard_new">
        <table>
             <tr>
@@ -56,14 +56,16 @@
             <tr>
                 <th>제품명</th>
                 <td colspan="3"><input type="text" id="input_new1"></td>
-                <th>소분류</th>
-                <td><select value="smallCategory" class="select_new1">
-                    <option value="all">전체</option>
-                    <option value="lunch">도시락</option>
-                    <option value="sand">샌드위치/햄버거</option>
-                    <option value="bob">주먹밥/김밥</option>
-                    <option value="etc">기타</option>
-                </select></td>
+                <th>대분류</th>
+                <td>
+                	<select value="category" class="select_new1">
+                        <option value="easy">간편식사</option>
+                        <option value="snack">과자류</option>
+                        <option value="icecream">아이스크림</option>
+                        <option value="food">식품</option>
+                        <option value="beverage">음료</option>
+                      </select>
+                   </td>
             </tr>
             <tr>
                 <th>제품번호</th>
@@ -80,14 +82,25 @@
                     <option>C-02</option>
                     <option>C-03</option>
                 </select></td>
-                <th>대분류</th>
-                <td> <select value="category" class="select_new1">
-                        <option value="easy">간편식사</option>
-                        <option value="snack">과자류</option>
-                        <option value="icecream">아이스크림</option>
-                        <option value="food">식품</option>
-                        <option value="beverage">음료</option>
-                      </select>
+                <th>소분류</th>
+                <td> 
+                <select value="smallCategory" class="select_new1">
+                 	<option value="all">전체</option>
+                    <option value="lunch">도시락</option>
+                    <option value="sand">샌드위치/햄버거</option>
+                    <option value="bob">주먹밥/김밥</option>
+                    <option value="lunch">스낵/비스켓</option>
+                    <option value="sand">빵/디저트</option>
+                    <option value="bob">껌/초콜릿/캔디</option>
+                    <option value="etc">콘</option>
+                    <option value="lunch">바</option>
+                    <option value="sand">샌드</option>
+                    <option value="bob">가공식사</option>
+                    <option value="etc">안주류</option>
+                    <option value="lunch">음료</option>
+                    <option value="sand">유제품</option>
+                    <option value="etc">기타</option>
+                </select>
                 </td>
                 
             </tr>
@@ -115,10 +128,11 @@
        </table>
        <!-- 저장 버튼 -->
        <div id="button_new">
-           <button type="button" class="main_btn"><a href="itemMng.html" id="lim_a">취소</button></a>
-           <button type="button" class="main_btn"><a href="itemMng.html" id="lim_a" onclick="saveShow()">저장</button></a>
+           <button type="submit" class="main_btn"><a href="itMng" id="lim_a">취소</button></a>
+           <button type="submit" class="main_btn"><a href="itMng" id="lim_a" onclick="saveShow()">저장</button></a>
        </div>
     </div>
+    </form>
 
 
     </main>
