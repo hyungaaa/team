@@ -1,46 +1,59 @@
 package y_02;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 public class BoardListDAO {
+
+	private Connection con;
+
+	private void connDB() {
+		try {
+			
+			Context ctx = new InitialContext();
+			DataSource dataFactory = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle2");
+			this.con = dataFactory.getConnection();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	// select
 	public List selectBoard() {
+
+		connDB();
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
 		List list = new ArrayList();
-		// DB 접속
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
-		String user = "scott_jal";
-		String password = "jal123456";
 
-		// 드라이버 로딩
 		try {
-			Class.forName(driver);
-			System.out.println("Oracle 드라이버 로딩 성공");
-			// DB 접속
-			Connection con = DriverManager.getConnection(url, user, password);
-			System.out.println("Connection 생성 성공");
-
-			// SQL 만들기
+			// SQL 준비
 			String query = "";
 			query += " select";
 			query += " bd_list.*, user_info.uname";
 			query += " from";
 			query += " bd_list";
 			query += " inner join user_info on bd_list.uuid = user_info.uuid";
+			
+			
 			System.out.println("query : " + query);
 
-			// SQL 실행준비
-			PreparedStatement ps = con.prepareStatement(query);
+			ps = con.prepareStatement(query);
 
 			// SQL 실행 및 결과 확보
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 
 			// 결과 활용
 			while (rs.next()) {
@@ -52,19 +65,6 @@ public class BoardListDAO {
 				int bbits = rs.getInt("bbits");
 				String uname = rs.getString("uname");
 				String btext = rs.getString("btext");
-				
-				
-				// 콘솔 출력
-				System.out.println("bno : " + bno);
-				System.out.println("uuid : " + uuid);
-				System.out.println("uname : " + uname);
-				System.out.println("btitle : " + btitle);
-				System.out.println("pnum : " + pnum);
-				System.out.println("bdate : " + bdate);
-				System.out.println("bbits : " + bbits);
-				System.out.println("btext : " + btext);
-				System.out.println("-----------------------------");
-				
 
 				BoardListDTO dto1 = new BoardListDTO();
 				dto1.setBno(bno);
@@ -76,133 +76,124 @@ public class BoardListDAO {
 				dto1.setBbits(bbits);
 				dto1.setBtext(btext);
 				list.add(dto1);
-
 			}
 
-			rs.close();
-			ps.close();
-			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (this.con != null) {
+				try {
+					this.con.close();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 
 		return list;
 
 	}
 
-	
-	
-	
 	// select
 	public List selectedView(BoardListDTO boardListDTO) {
-		
-		List list = new ArrayList();		
-		// DB 접속
-		Connection con = getConn();
-		// 연결 실패 시 
-		if(con==null) {
-			System.out.println("DB 연결에 실패하였습니다. 연결을 다시 시도하세요.");
-		}
-				
-        try {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM bd_list WHERE bno = ?");
-            ps.setInt(1, boardListDTO.getBno());
-            ResultSet rs = ps.executeQuery();
-            
-            
-            if(rs.next()) {
-            
-            	int bno = rs.getInt("bno");
+
+		connDB();
+		List list = new ArrayList();
+		// 연결 실패 시
+
+		try {
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM bd_list WHERE bno = ?");
+			ps.setInt(1, boardListDTO.getBno());
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+
+				int bno = rs.getInt("bno");
 				String btitle = rs.getString("btitle");
 				String bdate = rs.getString("bdate");
-				String uname = rs.getString("uname"); 
+				String uname = rs.getString("uname");
 				String pnum = rs.getString("pnum");
-				String btext = rs.getString("btext"); 
-				
+				String btext = rs.getString("btext");
+
 				list.add(bno);
 				list.add(btitle);
 				list.add(bdate);
 				list.add(uname);
 				list.add(pnum);
 				list.add(btext);
-				
-            }
-            
-            //연결 종료
-            rs.close();
-            ps.close();
-            con.close();
-            
-            return list;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            
-            return list;
-        }
 
-	}
-		
-		
+			}
 
-	private Connection getConn() {
-		// DB 접속
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@112.148.46.134:51521:xe";
-		String user = "scott_jal";
-		String password = "jal123456";
+			// 연결 종료
+			rs.close();
+			ps.close();
+			con.close();
 
-		Connection con = null;
-		
-		try {
-			Class.forName(driver);
-			System.out.println("Oracle 드라이버 로딩 성공");
-
-			con = DriverManager.getConnection(url, user, password);
-			System.out.println("Connection 생성 성공");
-		} catch (Exception e) {
+			return list;
+		} catch (SQLException e) {
 			e.printStackTrace();
+
+			return list;
 		}
-		
-		return con;
+
 	}
-
-	// update
-//	public int updateBdl(BoardListDTO dto) {
-//		int result = -1;
-//		
-//		// DB 접속
-//		Connection con = getConn();
-//		
-//		// SQL 준비 및 실행
-//		String sql = "";	
-//		sql += " update bdl2";
-//		sql += " set uuid = ?";
-//		sql += " where bno = ?";
-//		
-//		try {
-//			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setInt(1,dto.getBno());
-//			ps.setString(2,dto.getUuid());
-//			
-//			
-//			result = ps.executeUpdate();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-
-	// 결과 활용
-//		return result;
-//		
-//		
-//	}
 
 	// insert
-	
-	
-	
-	
+
+	int insert(BoardListDTO boardListDTO) {
+		int result = -9999;
+		
+		connDB();
+		PreparedStatement ps = null;
+		
+		try {
+			// SQL 준비
+			String query = " insert into bd_list (bno, btitle, btext) values(seq_bd_list.nextval,?,?)";
+
+			ps = con.prepareStatement(query);
+			ps.setString(1, boardListDTO.getBtitle());
+			ps.setString(2, boardListDTO.getBtext());
+
+			// SQL 실행 및 결과 확보
+			result = ps.executeUpdate();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return result;
+	}
+
 	// delete
 }

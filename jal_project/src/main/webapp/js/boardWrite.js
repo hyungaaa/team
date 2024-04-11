@@ -29,6 +29,6 @@ function showAlert() {
     }
      else {
         alert("정상적으로 등록되었습니다.");
-        window.location.href = "boardList.html";
+        window.location.href = "boardList.jsp";
     }
   }
