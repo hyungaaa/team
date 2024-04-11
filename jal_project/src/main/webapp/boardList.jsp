@@ -50,10 +50,10 @@
             </div>
 
         </div>
-		<%
-			List list = (List) request.getAttribute("list");
-			BoardListDTO dto = new BoardListDTO();
-		%>
+      <%
+         List list = (List) request.getAttribute("list");
+         BoardListDTO dto = new BoardListDTO();
+      %>
 
         <div class="tb">
             <table id="tableToExport">
@@ -78,22 +78,22 @@
                 
                 <%
                 if (list != null) {
-                	for(int i=0; i<list.size(); i++) {
-                		 String pnum = ((BoardListDTO)list.get(i)).getPnum();
+                   for(int i=0; i<list.size(); i++) {
+                       String pnum = ((BoardListDTO)list.get(i)).getPnum();
                 %>
                 
                 <tr>
-                	<td><%=((BoardListDTO)list.get(i)).getBno()%></td>
-                	<td><%=((BoardListDTO)list.get(i)).getUname()%></td>
-                	<td><%= pnum != null ? pnum : "-" %></td>
-                	<td><span class="btitle"><%=((BoardListDTO)list.get(i)).getBtitle()%></span></td>
-                	<td><%=((BoardListDTO)list.get(i)).getBdate()%></td>
-                	<td><%=((BoardListDTO)list.get(i)).getBbits()%></td>
+                   <td><%=((BoardListDTO)list.get(i)).getBno()%></td>
+                   <td><%=((BoardListDTO)list.get(i)).getUname()%></td>
+                   <td><%= pnum != null ? pnum : "-" %></td>
+                   <td><span class="btitle"><%=((BoardListDTO)list.get(i)).getBtitle()%></span></td>
+                   <td><%= ((BoardListDTO)list.get(i)).getBdate() %></td>
+                   <td><%=((BoardListDTO)list.get(i)).getBbits()%></td>
                 </tr>
-				<%
-                	}
+            <%
+                   }
                 }
-				%>                		
+            %>                      
             </table>
         </div>
             <div class="write">
