@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ page import = "java.util.List" %>
-<%@ page import = "lee.PdDTO" %>
-<%@ page import = "lee.Pd_inDTO" %>
+<%@ page import = "com.spring.lee.PdDTO" %>
+<%@ page import = "com.spring.lee.Pd_inDTO" %>
 
 <!DOCTYPE html>
 <html lang="en">
