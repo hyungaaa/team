@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
-<%@ page import="Mng.UserMngDTO"%>
-<%@ page import="Mng.UserMngDTO2"%>
+<%@ page import="com.spring.Mng.UserMngDTO"%>
+<%@ page import="com.spring.Mng.UserMngDTO2"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

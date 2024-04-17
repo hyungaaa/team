@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ page import = "java.util.List" %>
-<%@ page import = "y_02.BoardListDTO" %>
+<%@ page import = "com.spring.y_02.BoardListDTO" %>
 <!DOCTYPE html>
 <html lang="en">
 
