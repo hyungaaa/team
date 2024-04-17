@@ -4,28 +4,28 @@
 <%@ page import = "com.spring.y_02.BoardListDTO" %>
 <%@ page import = "com.spring.y_02.BoardListDAO" %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/ui.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <title>WMS 잘해보조</title> -->
+<!--     <link rel="stylesheet" href="../../../css/layout.css"> -->
+<!--     <link rel="stylesheet" href="../../../css/ui.css"> -->
+<!--     <link rel="stylesheet" href="../../../css/common.css"> -->
+<!--     <link rel="stylesheet" href="../../../css/dashboard.css"> -->
 
-    <script src="js/hello.js"></script>
-    <script src="js/chart.js"></script>
-    <script src="js/system.js"></script>
-    <script src="js/dashboard.js"></script>
+<!--     <script src="js/hello.js"></script> -->
+<!--     <script src="js/chart.js"></script> -->
+<!--     <script src="js/system.js"></script> -->
+<!--     <script src="js/dashboard.js"></script> -->
 
 
-</head>
-<body>
-    <%@include file="header.jsp" %>	
+<!-- </head> -->
+<!-- <body> -->
+<%--     <%@include file="header.jsp" %>	 --%>
     
-    <%@include file="nav.jsp" %>	
+<%--     <%@include file="nav.jsp" %>	 --%>
     
     <main>
         <div class="dashboard">
@@ -44,7 +44,7 @@
             </div>
             <div class="dash-box3">
                 <span class="golistbtn">건의게시판 (더보기)</span>
-                <iframe class="dash-iframe" id="dash-iframe" src="boardList.jsp"></iframe>
+                <iframe class="dash-iframe" id="dash-iframe" src="board/boardList.jsp"></iframe>
                 <table id="tableView" style="margin-top: 10px;">
                     <!-- 건의게시판 내용 가져오기 -->
                     <colgroup><col width="10%"/><col width="75%"/><col width="*"/></colgroup><thead><th>번호</th><th>제목</th><th>조회수</th></thead>
@@ -79,7 +79,5 @@
         
     </main>
     
-    <%@include file="footer.jsp" %>
+<%--     <%@include file="footer.jsp" %> --%>
     
-</body>
-</html>

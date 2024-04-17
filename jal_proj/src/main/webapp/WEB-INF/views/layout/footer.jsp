@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <% 
-int umaster = (int) session.getAttribute("umaster");
+// int umaster = (int) session.getAttribute("umaster");
 %>
 
     <footer>
@@ -12,9 +12,9 @@ int umaster = (int) session.getAttribute("umaster");
                 ${cname} 센터
                 ${uname} 
                 <%
-                if(umaster==1){
+//                 if(umaster==1){
                 	out.println("관리자");
-                }
+//                 }
                 %>
             </div>
             <div class="status-message">
