@@ -1,0 +1,201 @@
+
+/* 테이블  */
+.cap_view {
+    text-align: center;
+    width: 90%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    bottom: 7%;
+    left: 0.5%
+}
+
+.cap_view_table {
+
+    width: 985px;
+    background-color: #eee;
+    border-bottom: none;
+    text-align: center;
+}
+
+.cap_view_table2 {
+
+    width: 1000px;
+    height: 200px;
+}
+
+
+
+
+
+.select_cap {
+    width: 110px;
+    height: 34px;
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 창고 지도 */
+.storage_map_img {
+    position: relative;
+    width: 550px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 0px;
+    box-sizing: border-box;
+    right: 24%;
+}
+
+.map_img {
+    width: 550px;
+    height: 250px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+/* map div hover */
+#a_01 {
+    background-color: none;
+    Position: absolute;
+    width: 154px;
+    height: 132px;
+    transform: translate(60px, -195px);
+}
+#a_01:hover {
+    background-color: #d89ed849;
+}
+
+#a_02 {
+    background-color: none;
+    Position: absolute;
+    width: 154px;
+    height: 50px;
+    transform: translate(60px, -63px);
+}
+#a_02:hover {
+    background-color: #d89ed849;
+}
+
+#b_01 {
+    background-color: none;
+    Position: absolute;
+    width: 76px;
+    height: 38px;
+    transform: translate(215px, -195px);
+}
+#b_01:hover {
+    background-color: #abdee670;
+}
+
+#b_02 {
+    background-color: none;
+    Position: absolute;
+    width: 76px;
+    height: 57px;
+    transform: translate(215px, -157px);
+}
+#b_02:hover {
+    background-color: #abdee670;
+}
+
+#b_03 {
+    background-color: none;
+    Position: absolute;
+    width: 76px;
+    height: 56px;
+    transform: translate(215px, -100px);
+}
+#b_03:hover {
+    background-color: #abdee670;
+}
+
+#b_04 {
+    background-color: none;
+    Position: absolute;
+    width: 76px;
+    height: 31px;
+    transform: translate(215px, -44px);
+}
+#b_04:hover {
+    background-color: #abdee670;
+}
+
+#c_01 {
+    background-color: none;
+    Position: absolute;
+    width: 128px;
+    height: 57px;
+    transform: translate(370px, -195px);
+}
+#c_01:hover {
+    background-color: #fafa9170;
+}
+#c_02 {
+    background-color: none;
+    Position: absolute;
+    width: 128px;
+    height: 38px;
+    transform: translate(370px, -138px);
+}
+#c_02:hover {
+    background-color: #fafa9170;
+}
+
+#c_03 {
+    background-color: none;
+    Position: absolute;
+    width: 128px;
+    height: 87px;
+    transform: translate(370px, -100px);
+}
+#c_03:hover{
+    background-color: #fafa9170;
+}
+
+
+
+/* hover시 이미지..? */
+.hover_test {
+
+    border-radius: 10px;
+    position: absolute;
+    transform: translate(534px, -260px);
+    width: 450px;
+    height: 140px;
+}
+
+/* #hoverTest {
+    position: absolute; opacity: 0; 
+} */
+
+/* 검색창 */
+.search_cap {
+    position: relative;
+    margin: 0 auto;
+    width: 320px;
+    height: 40px;
+    bottom: 10%;
+    left: 31%;
+}
+
+.search_cap button {
+    width: 50px;
+    height: 35px;
+    text-align: center;
+}
+
+.main_btn_cap {font-size: 14rem; font-weight: 400; color: #ffffff; background: #5f8caa;border: 0px solid #888; border-radius: 5rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
+.main_search_txt_cap {width: 200px; height: 35px; vertical-align: top; background: transparent; border: 0; border-bottom: 2rem solid #000; text-overflow: ellipsis; padding-left: 0; font-size: 14rem;}
+.main_btn_cap:hover {background: #dadada;color: #5f8caa;}
+.save_btn_cap{font-size: 14rem; font-weight: 400; color: #ffffff; background: #aa5f6d;border: 0px solid #888; border-radius: 5rem; transition: background .3s; margin-left: 2rem;margin-right: 2rem;}
+.save_btn_cap:hover {background: #dadada;color: #5f8caa;}
+
+.edit-input {
+    width: 100px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+

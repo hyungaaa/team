@@ -1,0 +1,38 @@
+ul {
+    padding: 0px;
+}
+
+li {
+    display: inline;
+    padding: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+head th,
+tr,
+td {
+    border: 0px solid;
+    text-align: center;
+    height: 30px;
+    width: 50px;
+}
+
+.mypage_p {
+    font-size: 18rem;
+    font-weight: bold;
+}
+
+#mypage_div {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+
+main div span {
+    font-size: 14rem;
+}

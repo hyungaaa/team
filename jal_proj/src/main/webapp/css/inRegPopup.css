@@ -1,0 +1,48 @@
+/* main이 있어야 테이블 선 생김 */
+main {
+  margin-left: 0px;
+  padding: 0px;
+}
+/* 팝업사이즈 맞추려고 지정 (나중에는 100%로 수정하고 js에서 크기 지정) */
+div {
+  /* border: 1px solid #000; */
+  width: 350px;
+}
+.all {
+  margin: 15px;
+}
+/* 검색 부분 */
+.div_top {
+  text-align: center;
+  margin-bottom: 10px;
+}
+/* 테이블 */
+.div_tbl {
+  text-align: center;
+}
+.tbl {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+/* 이전, 다음 버튼 */
+.div_flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+/* 선 */
+.div_line {
+  width: 350px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+/* 선택, 취소 버튼 */
+.div_btn{
+  text-align: center;
+}
+.div_in {
+  display: inline;
+  width: 50%;
+  margin: 70px;
+}
