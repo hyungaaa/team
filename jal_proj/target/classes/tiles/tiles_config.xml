@@ -46,10 +46,13 @@
 	<definition name="board" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/board/boardList.jsp" />
 	</definition>
+<<<<<<< HEAD
 
 	<definition name="boardWirte" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/board/boardWrite.jsp" />
 	</definition>
+=======
+>>>>>>> 2425a0d2f7ffbc8511a6bf1ceb26bc946172a207
 	
 	<definition name="userMng" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/userMng.jsp" />

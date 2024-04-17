@@ -3,29 +3,17 @@
 <%@ page import = "java.util.List" %>
 <%@ page import = "com.spring.y_02.BoardListDTO" %>
 <%@ page import = "com.spring.y_02.BoardListDAO" %>
-
-<!-- <!DOCTYPE html> -->
-<!-- <html lang="en"> -->
-<!-- <head> -->
-<!--     <meta charset="UTF-8"> -->
-<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<!--     <title>WMS 잘해보조</title> -->
-<!--     <link rel="stylesheet" href="../../../css/layout.css"> -->
-<!--     <link rel="stylesheet" href="../../../css/ui.css"> -->
-<!--     <link rel="stylesheet" href="../../../css/common.css"> -->
-<!--     <link rel="stylesheet" href="../../../css/dashboard.css"> -->
-
-<!--     <script src="js/hello.js"></script> -->
-<!--     <script src="js/chart.js"></script> -->
-<!--     <script src="js/system.js"></script> -->
-<!--     <script src="js/dashboard.js"></script> -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 
 
-<!-- </head> -->
-<!-- <body> -->
-<%--     <%@include file="header.jsp" %>	 --%>
-    
-<%--     <%@include file="nav.jsp" %>	 --%>
+<link rel="stylesheet" href="css/dashboard.css">
+
+<script src="js/hello.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/dashboard.js"></script>
     
     <main>
         <div class="dashboard">

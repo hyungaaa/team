@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+window.addEventListener("DOMContentLoaded", function () {
   bind();
 
   document.querySelector(".navi-item3").setAttribute("class", "navi-item navi-item3 active");

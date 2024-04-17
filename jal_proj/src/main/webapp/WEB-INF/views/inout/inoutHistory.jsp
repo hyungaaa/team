@@ -1,24 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>입출고 이력</title>
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/ui.css">
-  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/inoutHistory.css">
 
-  <script src="js/system.js"></script>
   <script src="js/inoutHistory.js"></script>
 
-</head>
-
-<body>
-  <%@include file="header.jsp" %>
-  <%@include file="nav.jsp" %>
   <main>
     <!-- 검색 -->
     <div id="div-select">
@@ -169,20 +158,15 @@
     </div>
 
     <!-- 페이징 -->
-    <div id="div-ul">
-      <ul>
-        <li><a href="#">&lt;</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">&gt;</a></li>
-      </ul>
-    </div>
+<!--     <div id="div-ul"> -->
+<!--       <ul> -->
+<!--         <li><a href="#">&lt;</a></li> -->
+<!--         <li><a href="#">1</a></li> -->
+<!--         <li><a href="#">2</a></li> -->
+<!--         <li><a href="#">3</a></li> -->
+<!--         <li><a href="#">4</a></li> -->
+<!--         <li><a href="#">5</a></li> -->
+<!--         <li><a href="#">&gt;</a></li> -->
+<!--       </ul> -->
+<!--     </div> -->
   </main>
-  
-  <%@include file="footer.jsp" %>
-</body>
-
-</html>
