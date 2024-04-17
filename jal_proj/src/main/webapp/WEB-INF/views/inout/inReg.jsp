@@ -1,31 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <%@ page import = "java.util.List" %>
 <%@ page import = "com.spring.lee.PdDTO" %>
 <%@ page import = "com.spring.lee.Pd_inDTO" %>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>입고 등록</title>
-	<link rel="stylesheet" href="css/layout.css">
-	<link rel="stylesheet" href="css/ui.css">
-	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/inReg.css">
 
 	<script src="//code.jquery.com/jquery.min.js"></script>
-	<script src="js/system.js"></script>
 	<script src="js/inReg.js"></script>
-</head>
-
-<body>
-	<%@include file="header.jsp" %>	
-    
-    <%@include file="nav.jsp" %>
 	<main>
 		<!-- 상단 제품 추가 전 정보 테이블 -->
 		<table id="inReg-tbl1">
@@ -41,6 +27,7 @@
 				<col width="16%" />
 				<col width="6%" />
 			</colgroup>
+			<%-- 
 			<%
 			List list = (List) request.getAttribute("list");
 // 			List list2 = (List) request.getAttribute("list2");
@@ -53,6 +40,7 @@
 			
 			
 			%>
+			--%>
 							
 			<tr id= "input-tr">
 				<td class="rightAlign">제품명</td>
@@ -125,12 +113,15 @@
 					<th>비고</th>
 				</thead>
 				<tbody>
+				<%--
 				<%
 					List<List<Object>> list2 = (List<List<Object>>) request.getAttribute("list2");
 		            for (List<Object> items : list2) {
 		                PdDTO pdDTO1 = (PdDTO) items.get(0);
 		                Pd_inDTO pd_inDTO1 = (Pd_inDTO) items.get(1);
 				%>
+				--%>
+				<%-- 
 					<tr>
 						<td><input type="checkbox" class="chk"></td>
 						<td><%=pd_inDTO1.getPindate()%></td>
@@ -153,27 +144,30 @@
 							}
 						%>
 					</tr>
+					--%>
+					<%-- 
 				<%
 					
 					}
 				%>
+				--%>
 					
 				</tbody>
 			</table>
 		</div>
 
 		<!-- 페이징 -->
-		<div id="div-ul">
-			<ul>
-				<li><a href="#">&lt;</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">&gt;</a></li>
-			</ul>
-		</div>
+<!-- 		<div id="div-ul"> -->
+<!-- 			<ul> -->
+<!-- 				<li><a href="#">&lt;</a></li> -->
+<!-- 				<li><a href="#">1</a></li> -->
+<!-- 				<li><a href="#">2</a></li> -->
+<!-- 				<li><a href="#">3</a></li> -->
+<!-- 				<li><a href="#">4</a></li> -->
+<!-- 				<li><a href="#">5</a></li> -->
+<!-- 				<li><a href="#">&gt;</a></li> -->
+<!-- 			</ul> -->
+<!-- 		</div> -->
 		
 
 		<!-- 팝업 -->
@@ -201,6 +195,7 @@
 							<th>단위</th>
 						</thead>
 						<tbody id="popup-tboby">
+						<%-- 
 							<%
 								for(int i = 0; i < list.size(); i++) {
 							%>
@@ -214,6 +209,8 @@
 							<%
  								}
 							%>
+							
+							--%>
 						</tbody>
 					</table>
 				</div>
@@ -234,8 +231,3 @@
 			</div>
 		</div>
 	</main>
-	
-	<%@include file="footer.jsp" %>
-</body>
-
-</html>
