@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ItemMngController {
 	
-	@RequestMapping(value = "/itMng", method = RequestMethod.GET)
+	@RequestMapping(value = "/itemMng", method = RequestMethod.GET)
 	public String test() {
 		return "item";
 	}
