@@ -173,7 +173,7 @@
 			<version>2.13.4</version>
 		</dependency>
 
-<<<<<<< HEAD
+
 		<!-- JSON -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -199,7 +199,7 @@
 			<artifactId>tiles-jsp</artifactId>
 			<version>3.0.8</version>
 		</dependency>
-=======
+
 		<!-- Tiles -->
 	    <dependency>
 	       <groupId>org.apache.tiles</groupId>
@@ -218,7 +218,7 @@
 	       <artifactId>tiles-jsp</artifactId>
 	       <version>3.0.8</version>
 	    </dependency>
->>>>>>> 5de60a67d8601bf16f6b00f5c3017d635fe4baec
+
 
 	</dependencies>
 	<build>
