@@ -1,37 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <%@ page import = "java.util.List" %>
 <%@ page import = "com.spring.y_02.BoardListDTO" %>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/ui.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/boardList.css">
-    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
-    <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
-    <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
-    <!-- <link rel="stylesheet" href="../css/outReg.css"> -->
-    <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
-    <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
-    <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
-    <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
+<link rel="stylesheet" href="css/boardList.css">
+<script src="js/boardList.js"></script>
 
-    <script src="js/system.js"></script>
-    <script src="js/boardList.js"></script>
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
 
-</head>
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <title>WMS 잘해보조</title> -->
+<!--     <link rel="stylesheet" href="css/layout.css"> -->
+<!--     <link rel="stylesheet" href="css/ui.css"> -->
+<!--     <link rel="stylesheet" href="css/common.css"> -->
+<!--     <link rel="stylesheet" href="css/boardList.css"> -->
+<!--     <link rel="stylesheet" href="../css/dashboard.css"> -->
+<!--     <link rel="stylesheet" href="../css/itemMng.css"> -->
+<!--     <link rel="stylesheet" href="../css/inReg.css"> -->
+<!--     <link rel="stylesheet" href="../css/outReg.css"> -->
+<!--     <link rel="stylesheet" href="../css/invenView.css"> -->
+<!--     <link rel="stylesheet" href="../css/inoutHistory.css"> -->
+<!--     <link rel="stylesheet" href="../css/capacityView.css"> -->
+<!--     <link rel="stylesheet" href="../css/userMng.css"> -->
 
-<body>
-<div class="wrapper">
-    <%@include file="header.jsp" %>
-    <%@include file="nav.jsp" %>
+<!--     <script src="js/system.js"></script> -->
+
+<!-- </head> -->
+
+<!-- <body> -->
+<!-- <div class="wrapper"> -->
+<%--     <%@include file="header.jsp" %> --%>
+<%--     <%@include file="nav.jsp" %> --%>
     <main>
         <div class="search">
             <div class="excel">
@@ -103,24 +109,12 @@
                     </a>
                 </button>
             </div>
-    
-            <div class="page">
-                <ul>
-                    <li><a href="#">&lt;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
-                </ul>
-            </div>
 
     </main>
     
-    <%@include file="footer.jsp" %>
+<%--     <%@include file="footer.jsp" %> --%>
     
-</div>
-</body>
+<!-- </div> -->
+<!-- </body> -->
 
-</html>
+<!-- </html> -->

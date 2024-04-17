@@ -1,23 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <%@ page import = "java.util.List" %>
 <%@ page import = "com.spring.lim.itMngDTO" %>
+<link rel="stylesheet" href="css/itemMng.css">
+<script src="js/item.js"></script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="css/layout.css">
-	<link rel="stylesheet" href="css/ui.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/inReg.css">
-    <link rel="stylesheet" href="css/itemMng.css">
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <title>WMS 잘해보조</title> -->
+<!--     <link rel="stylesheet" href="css/layout.css"> -->
+<!-- 	<link rel="stylesheet" href="css/ui.css"> -->
+<!-- 	<link rel="stylesheet" href="css/common.css"> -->
+<!-- 	<link rel="stylesheet" href="css/inReg.css"> -->
+<!--     <link rel="stylesheet" href="css/itemMng.css"> -->
 
 
-    <script src="../js/system.js"></script>
-    <script src="../js/item.js"></script>
+<!--     <script src="../js/system.js"></script> -->
     
     <script>
     <!-- 
@@ -40,42 +44,42 @@
         return true;
     }
     -->
-    function validateForm() {
-        var checkboxes = document.getElementsByName('selectedItems');
-        var isChecked = false;
+//     function validateForm() {
+//         var checkboxes = document.getElementsByName('selectedItems');
+//         var isChecked = false;
 
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                isChecked = true;
-                break;
-            }
-        }
+//         for (var i = 0; i < checkboxes.length; i++) {
+//             if (checkboxes[i].checked) {
+//                 isChecked = true;
+//                 break;
+//             }
+//         }
 
-        if (!isChecked) {
-            alert('삭제할 항목을 선택하세요.');
-            return false;
-        }
+//         if (!isChecked) {
+//             alert('삭제할 항목을 선택하세요.');
+//             return false;
+//         }
 
-        return true;
-    }
+//         return true;
+//     }
     
-	    function confirmAndDelete() {
-	        if (confirm('선택한 제품을 삭제하시겠습니까?')) {
-	            // 서버에 삭제 요청을 보내는 코드 추가
-	            document.forms[0].submit(); // 폼 제출
-	        }
-	        return false; // 기존의 confirm 창에서도 확인을 누르면 폼이 두 번 제출되는 것을 방지
-	    }
+// 	    function confirmAndDelete() {
+// 	        if (confirm('선택한 제품을 삭제하시겠습니까?')) {
+// 	            // 서버에 삭제 요청을 보내는 코드 추가
+// 	            document.forms[0].submit(); // 폼 제출
+// 	        }
+// 	        return false; // 기존의 confirm 창에서도 확인을 누르면 폼이 두 번 제출되는 것을 방지
+// 	    }
 	</script>
 
 
-</head>
-<body>
+<!-- </head> -->
+<!-- <body> -->
 
 
-    <%@include file="header.jsp" %>	
+<%--     <%@include file="header.jsp" %>	 --%>
     
-    <%@include file="nav.jsp" %>
+<%--     <%@include file="nav.jsp" %> --%>
     	
     <main>
     <!-- 입출고 이력 -->
@@ -205,17 +209,17 @@
     
 
     <!-- 페이지 -->
-    <div id="div-ul_mng">
-        <ul>
-          <li><a href="#">&lt;</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&gt;</a></li>
-        </ul>
-    </div>
+<!--     <div id="div-ul_mng"> -->
+<!--         <ul> -->
+<!--           <li><a href="#">&lt;</a></li> -->
+<!--           <li><a href="#">1</a></li> -->
+<!--           <li><a href="#">2</a></li> -->
+<!--           <li><a href="#">3</a></li> -->
+<!--           <li><a href="#">4</a></li> -->
+<!--           <li><a href="#">5</a></li> -->
+<!--           <li><a href="#">&gt;</a></li> -->
+<!--         </ul> -->
+<!--     </div> -->
         
         <div id="button_mng_2">
             <button type="button" class="main_btn" id="selected_del" onclick="return confirmAndDelete()">제품 삭제</button>
@@ -226,7 +230,7 @@
     
     </main>
     
-   <%@include file="footer.jsp" %>
+<%--    <%@include file="footer.jsp" %> --%>
    
-</body>
-</html>
+<!-- </body> -->
+<!-- </html> -->

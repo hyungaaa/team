@@ -1,34 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/ui.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/boardWrite.css">
-    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
-    <!-- <link rel="stylesheet" href="../css/itemMng.css"> -->
-    <!-- <link rel="stylesheet" href="../css/inReg.css"> -->
-    <!-- <link rel="stylesheet" href="../css/outReg.css"> -->
-    <!-- <link rel="stylesheet" href="../css/invenView.css"> -->
-    <!-- <link rel="stylesheet" href="../css/inoutHistory.css"> -->
-    <!-- <link rel="stylesheet" href="../css/capacityView.css"> -->
-    <!-- <link rel="stylesheet" href="../css/userMng.css"> -->
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <title>WMS 잘해보조</title> -->
+<!--     <link rel="stylesheet" href="css/layout.css"> -->
+<!--     <link rel="stylesheet" href="css/ui.css"> -->
+<!--     <link rel="stylesheet" href="css/common.css"> -->
+<!--     <link rel="stylesheet" href="css/boardWrite.css"> -->
+<!--     <link rel="stylesheet" href="../css/dashboard.css"> -->
+<!--     <link rel="stylesheet" href="../css/itemMng.css"> -->
+<!--     <link rel="stylesheet" href="../css/inReg.css"> -->
+<!--     <link rel="stylesheet" href="../css/outReg.css"> -->
+<!--     <link rel="stylesheet" href="../css/invenView.css"> -->
+<!--     <link rel="stylesheet" href="../css/inoutHistory.css"> -->
+<!--     <link rel="stylesheet" href="../css/capacityView.css"> -->
+<!--     <link rel="stylesheet" href="../css/userMng.css"> -->
     
 
-    <script src="js/system.js"></script>
-    <script src="js/boardWrite.js"></script>
+<!--     <script src="js/system.js"></script> -->
+<!--     <script src="js/boardWrite.js"></script> -->
 
-</head>
-<body>
-    <%@include file="header.jsp" %>
+<!-- </head> -->
+<!-- <body> -->
+<%--     <%@include file="header.jsp" %> --%>
 
-    <%@include file="nav.jsp" %>
+<%--     <%@include file="nav.jsp" %> --%>
 
     <main>
         <form method="get" action="boardList">
@@ -96,8 +96,8 @@
        </form>
     </main>
     
-    <%@include file="footer.jsp" %>
+<%--     <%@include file="footer.jsp" %> --%>
 
-</body>
-</html>
+<!-- </body> -->
+<!-- </html> -->
 

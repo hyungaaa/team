@@ -1,27 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<!DOCTYPE html>
-<html lang="en">
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/ui.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/board.css">
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <title>WMS 잘해보조</title> -->
+<!--     <link rel="stylesheet" href="css/layout.css"> -->
+<!--     <link rel="stylesheet" href="css/ui.css"> -->
+<!--     <link rel="stylesheet" href="css/common.css"> -->
+<!--     <link rel="stylesheet" href="css/board.css"> -->
 
-    <script src="js/system.js"></script>
-    <script src="js/board.js"></script>
+<!--     <script src="js/system.js"></script> -->
+<!--     <script src="js/board.js"></script> -->
 
-</head>
+<!-- </head> -->
 
-<body>
-    <%@include file="header.jsp" %>
+<!-- <body> -->
+<%--     <%@include file="header.jsp" %> --%>
 
-    <%@include file="nav.jsp" %>
+<%--     <%@include file="nav.jsp" %> --%>
 
 	<%
 	    String btitle = (String) request.getAttribute("btitle");
@@ -64,8 +64,5 @@
 
     </main>
     
-    <%@include file="footer.jsp" %>
+<%--     <%@include file="footer.jsp" %> --%>
 
-</body>
-
-</html>

@@ -1,30 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" href="css/capacityView.css">
+<script src="js/capacityView.js"></script>
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMS 잘해보조</title>
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/ui.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/capacityView.css">
+<!-- <head> -->
+<!--     <meta charset="UTF-8"> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!--     <title>WMS 잘해보조</title> -->
+<!--     <link rel="stylesheet" href="css/layout.css"> -->
+<!--     <link rel="stylesheet" href="css/ui.css"> -->
+<!--     <link rel="stylesheet" href="css/common.css"> -->
+<!--     <link rel="stylesheet" href="css/dashboard.css"> -->
+<!--     <link rel="stylesheet" href="css/capacityView.css"> -->
 
 
-    <script src="js/chart.js"></script>
-    <script src="js/system.js"></script>
-    <script src="js/capacityView.js"></script>
+<!--     <script src="js/chart.js"></script> -->
+<!--     <script src="js/system.js"></script> -->
+<!--     <script src="js/capacityView.js"></script> -->
  
 
 
-</head>
+<!-- </head> -->
 
-<body>
-    <%@include file="header.jsp" %>	
+<!-- <body> -->
+<%--     <%@include file="header.jsp" %>	 --%>
     
-    <%@include file="nav.jsp" %>
+<%--     <%@include file="nav.jsp" %> --%>
     
     <main>
         <!-- 창고 이미지 -->
@@ -188,8 +194,8 @@
 
     </main>
     
-    <%@include file="footer.jsp" %>
+<%--     <%@include file="footer.jsp" %> --%>
    
-</body>
+<!-- </body> -->
 
-</html>
+<!-- </html> -->
