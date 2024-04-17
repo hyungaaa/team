@@ -8,8 +8,8 @@
 
 
 	<!-- mapper에서 사용할 타입이 길어서 짧게 별칭 지정 -->
-	<typeAliases>
-		<typeAlias type="com.spring.prac.dto.EmpDTO" alias="empDTO"/>
-	</typeAliases>
+<!-- 	<typeAliases> -->
+<!-- 		<typeAlias type="com.spring.prac.dto.EmpDTO" alias="empDTO"/> -->
+<!-- 	</typeAliases> -->
 	
 </configuration>

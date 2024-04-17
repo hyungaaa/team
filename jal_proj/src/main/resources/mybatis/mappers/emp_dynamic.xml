@@ -5,8 +5,8 @@
 <mapper namespace="mapper.emp">
 	
 	<!-- select -->
-	<select id="selectEmp" resultType="empDTO">
-		SELECT * FROM emp3
-	</select>
+<!-- 	<select id="selectEmp" resultType="empDTO"> -->
+<!-- 		SELECT * FROM emp3 -->
+<!-- 	</select> -->
 	
 </mapper>

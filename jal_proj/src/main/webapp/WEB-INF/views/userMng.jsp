@@ -18,8 +18,8 @@
 <script src="js/hello.js"></script>
 </head>
 <body>
-	<%@include file="header.jsp"%>
-	<%@include file="nav.jsp"%>
+	<%@include file="layout/header.jsp"%>
+	<%@include file="layout/nav.jsp"%>
 	<main>
 		<%
 		List<UserMngDTO> userList = (List<UserMngDTO>) request.getAttribute("userList");
@@ -218,6 +218,6 @@
 				</table>
 			</div>
 	</main>
-	<%@include file="footer.jsp"%>
+	<%@include file="layout/footer.jsp"%>
 </body>
 </html>
