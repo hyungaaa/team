@@ -14,10 +14,7 @@
    <!-- Enables the Spring MVC @Controller programming model -->
    <annotation-driven />
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 2425a0d2f7ffbc8511a6bf1ceb26bc946172a207
    <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
    <resources mapping="/**" location="/" />
    <resources mapping="/**" location="/css" />
