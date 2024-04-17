@@ -172,6 +172,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.4</version>
 		</dependency>
+<<<<<<< HEAD
 
 
 		<!-- JSON -->
@@ -180,6 +181,8 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.4</version>
 		</dependency>
+=======
+>>>>>>> 4661733aa8f2a3401781c586c857ef337e8bb9a1
 		
 		<!-- Tiles -->
 		<dependency>
@@ -199,7 +202,10 @@
 			<artifactId>tiles-jsp</artifactId>
 			<version>3.0.8</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4661733aa8f2a3401781c586c857ef337e8bb9a1
 		<!-- Tiles -->
 	    <dependency>
 	       <groupId>org.apache.tiles</groupId>
@@ -218,7 +224,10 @@
 	       <artifactId>tiles-jsp</artifactId>
 	       <version>3.0.8</version>
 	    </dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4661733aa8f2a3401781c586c857ef337e8bb9a1
 
 	</dependencies>
 	<build>
