@@ -6,33 +6,12 @@
 	<definition name="baseLayout"  template="/WEB-INF/views/common/layout.jsp">
 		<put-attribute name="title" value="기본 타이틀" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="side" value="/WEB-INF/views/common/side.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/nav.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-	<definition name="baseLayout2"  template="/WEB-INF/views/common/layout2.jsp">
-		<put-attribute name="body" value="" />
-	</definition>
-   
-	<definition name="main1" extends="baseLayout">
-		<put-attribute name="title" value="메인 페이지" />
-		<put-attribute name="body" value="/WEB-INF/views/main1.jsp" />
-	</definition>
-	
-	<definition name="main2" extends="baseLayout">
-		<put-attribute name="body" value="/WEB-INF/views/main2.jsp" />
-	</definition>
-	
-	<definition name="home" extends="baseLayout2">
-		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
-	</definition>
-	
-	<definition name="*.noTiles" extends="baseLayout2">
-		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
-	</definition>
-	
-	<definition name="*/*.noTiles" extends="baseLayout2">
+	<definition name="*/*.noTiles" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>
 
