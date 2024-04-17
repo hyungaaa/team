@@ -1,0 +1,149 @@
+#div-ul {
+	text-align: center;
+}
+
+ul {
+	padding: 0px;
+}
+
+li {
+	display: inline;
+	padding: 0 10px;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+.save_btn_cap {
+	font-size: 14rem;
+	font-weight: 400;
+	line-height: 1.0;
+	letter-spacing: -0.025em;
+	color: #ffffff;
+	background: #6b4040;
+	border: 0px solid #5f8caa;
+	border-radius: 5rem;
+	padding: 8rem;
+	transition: background .3s;
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.save_btn_cap:hover {
+	background: #4e4e4e;
+	color: #ffffff
+}
+
+/* 테이블 스크롤, 헤더 고정 */
+.div_scr {
+	height: 350px;
+	overflow-y: auto;
+	margin-top: 30px;
+	margin-left: 20px;
+	position: relative;
+}
+
+.div_scr th {
+	position: sticky;
+	top: 0;
+	background-color: #eee;
+}
+
+/* ========================================= */
+
+#div_yn {
+	width: auto;
+	margin-top: 2%;
+	margin-left: 87%;
+}
+
+main table td {
+	height: 30px;
+}
+
+#num1 {
+	position: absolute;
+	margin-top: -15px;
+	margin-left: -15px;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	background-color: red;
+	border: 0px;
+}
+
+#num1:hover,
+#num1:focus {
+	color: #ffffff;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* popup */
+
+.userMng_p {
+	text-align: center;
+	font-size: 20px;
+}
+
+#pop_tr {
+	background-color: #eee;
+}
+
+.popup {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 600px;
+	height: 400px;
+}
+
+.popN {
+	width: auto;
+	float: inline-end;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	background: #676767;
+	margin-right: 150px;
+	border-radius: 3rem;
+	padding: 2rem 6rem 2rem;
+}
+
+.popN:hover,
+.popN:focus,
+.popY:hover,
+.popY:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.popY {
+	width: auto;
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 150px;
+	border: 0px;
+	color: #ffffff;
+	background: #5f8caa;
+	border-radius: 3rem;
+	padding: 2rem 6rem 2rem;
+}
