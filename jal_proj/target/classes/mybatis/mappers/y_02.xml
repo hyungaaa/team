@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.emp">
+<mapper namespace="mapper.board">
 <!-- 	select -->
-	<select id="selectEmp" resultType="empDTO">
+	<select id="selectEmp" resultType="boardlistDTO">
 		SELECT bno, uname, pnum, btitle, 
 		TO_CHAR(bdate, 'YYYY-MM-DD') AS bdate, bbits 
 		FROM (SELECT * FROM bd_list ORDER BY bno DESC) WHERE ROWNUM <![CDATA[ <= ]]> 7

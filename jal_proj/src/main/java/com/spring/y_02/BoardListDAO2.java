@@ -13,9 +13,8 @@ public class BoardListDAO2 {
 	private SqlSession sqlSession;
 
 	// select
-	public List selectEmp() {
-		List list = sqlSession.selectList("mapper.emp.selectEmp");
-
+	public List selectList() {
+		List list = sqlSession.selectList("mapper.board.selectEmp");
 		return list;
 	}
 }
