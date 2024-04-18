@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.emp">
+<!-- 	select -->
+	<select id="selectEmp" resultType="empDTO">
+		SELECT bno, uname, pnum, btitle, 
+		TO_CHAR(bdate, 'YYYY-MM-DD') AS bdate, bbits 
+		FROM (SELECT * FROM bd_list ORDER BY bno DESC) WHERE ROWNUM <![CDATA[ <= ]]> 7
+	</select>	
+</mapper>
