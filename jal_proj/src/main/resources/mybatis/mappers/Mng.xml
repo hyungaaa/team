@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.userMng">
+
+	<select id="infoPower" resultType="UserMngDTO">
+		SELECT u.uname, u.unum,
+		u.uposition, p.updv, p.updior, p.updiom, p.updr,
+		p.ubdm, p.uum
+		FROM
+		user_info u
+		JOIN user_power p ON u.uuid = p.uuid
+	</select>
+	<select id="centerList" resultType="UserMngDTO">
+		SELECT cname From center_list
+	</select>
+
+
+	<select id="userInfo" resultType="UserMngDTO2">
+		SELECT unum
+		FROM user_info
+	</select>
+	<select id="reqList" resultType="UserMngDTO2">
+		SELECT rcategory, uuid, uemail
+		FROM req_list
+	</select>
+
+</mapper>

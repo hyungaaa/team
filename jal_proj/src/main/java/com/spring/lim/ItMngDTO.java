@@ -3,17 +3,15 @@ package com.spring.lim;
 import lombok.Data;
 
 @Data
-public class ItMngNewDTO {
+public class ItMngDTO {
 
-	String img;
 	String pname;
-	String sct;
 	String pnum;
 	String wzone;
-	String bct;
+	String scid;
 	String psize;
 	String punit;
 	String pday;
-	int pamount;
-	
+	String img;
+
 }

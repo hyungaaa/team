@@ -176,7 +176,7 @@ public class itMngServlet extends HttpServlet {
 		// DB 담당에게 전달
 				
 		itMngDAO itmngDAO = new itMngDAO();
-		itMngDTO itmngDTO = new itMngDTO();
+		ItMngDTO itmngDTO = new ItMngDTO();
 		
 		itmngDTO.setPnum(request.getParameter("pnum"));
 		itmngDTO.setPname(request.getParameter("pname"));
@@ -187,7 +187,7 @@ public class itMngServlet extends HttpServlet {
 		
 		try {
 		    // 결과 받기
-		    List<itMngDTO> list = itmngDAO.selectMng(itmngDTO);
+		    List<ItMngDTO> list = itmngDAO.selectMng(itmngDTO);
 		    request.setAttribute("list", list);
 
 		    // forward 하기 전에 response에 데이터를 전송하지 않도록 수정

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%@ page import = "java.util.List" %>
-<%@ page import = "com.spring.lim.itMngDTO" %>
+<%@ page import = "com.spring.lim.ItMngDTO" %>
 <link rel="stylesheet" href="css/itemMng.css">
 <script src="js/item.js"></script>
 
@@ -87,12 +87,12 @@
     <!-- 대분류 카테고리 -->
     <div id="bigCategory">
         <ul>
-            <li onclick="filterCategory('간편식사')" class="find-item"><a href="itemMng.jsp"><span class="mng_span">간편식사</span>></a>
+            <li onclick="filterCategory('간편식사')" class="find-item"><a href="itemMng"><span class="mng_span">간편식사</span>></a>
                 <ul class="sub-menu">
-                    <li><a href="#" onclick="filterCategory('도시락')">도시락</a></li>
-                    <li><a href="#" onclick="filterCategory('샌드위치/햄버거')">샌드위치/햄버거</a></li>
-                    <li><a href="#" onclick="filterCategory('주먹밥')">주먹밥</a></li>
-                    <li><a href="#">기타</a></li>
+                    <li onclick="filterCategory('도시락')"><a href="itemMng?scid=${scid}">도시락</a></li>
+                    <li onclick="filterCategory('샌드위치/햄버거')">샌드위치/햄버거</li>
+                    <li onclick="filterCategory('주먹밥')">주먹밥</li>
+                    <li>기타</li>
                 </ul>
             </li>
             <li onclick="filterCategory('과자류')" class="find-item"><a href="itemMng_snack.html"><span class="mng_span">과자류</span>></a>
@@ -165,9 +165,8 @@
             
             <%-- 데이터 불러옴 --%>
             <%
-            	List list = (List) request.getAttribute("list");
-            	// itMngDTO itmngDTO = new itMngDTO();
-            
+            List list = (List) request.getAttribute("list");
+                        	// itMngDTO itmngDTO = new itMngDTO();
             %>
             
             <tr id="title_mng">
@@ -181,20 +180,19 @@
             </tr>
             
             <%
-            	if (list != null) {
-					for(int i = 0; i < list.size(); i++) {
-	
-			%>
+                        if (list != null) {
+                        			for(int i = 0; i < list.size(); i++) {
+                        %>
             
-            <tr class="product-row" data-category="<%= ((itMngDTO)list.get(i)).getSct() %>">
+            <tr class="product-row" data-category="<%=((ItMngDTO)list.get(i)).getScid()%>">
                 <td><input type = "checkbox" class="chk"  
-                name="selectedItems" value="<%= ((itMngDTO)list.get(i)).getPnum() %>"></td>
-                <td><%= ((itMngDTO)list.get(i)).getPname() %></td>
-                <td><%= ((itMngDTO)list.get(i)).getSct() %></td>
-                <td><%= ((itMngDTO)list.get(i)).getPnum() %></td>
-                <td><%= ((itMngDTO)list.get(i)).getWzone() %></td>
-                <td><%= ((itMngDTO)list.get(i)).getPday() %></td>
-                <td><%= ((itMngDTO)list.get(i)).getPsize() %></td>
+                name="selectedItems" value="<%=((ItMngDTO)list.get(i)).getPnum()%>"></td>
+                <td><%=((ItMngDTO)list.get(i)).getPname()%></td>
+                <td><%=((ItMngDTO)list.get(i)).getScid()%></td>
+                <td><%=((ItMngDTO)list.get(i)).getPnum()%></td>
+                <td><%=((ItMngDTO)list.get(i)).getWzone()%></td>
+                <td><%=((ItMngDTO)list.get(i)).getPday()%></td>
+                <td><%=((ItMngDTO)list.get(i)).getPsize()%></td>
            	</tr>
          
             <%
