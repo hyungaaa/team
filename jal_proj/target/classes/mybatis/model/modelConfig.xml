@@ -6,47 +6,23 @@
 
 	<!-- mapper에서 사용할 타입이 길어서 짧게 별칭 지정 -->
 	<typeAliases>
+		<!-- lee -->
 		<typeAlias type="com.spring.lee.Pd_inDTO" alias="pdinDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
 		<typeAlias type="com.spring.lee.PdDTO" alias="pdDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
+		
+		<!-- 02 -->
 		<typeAlias type="com.spring.lim.itMngDTO" alias="itmngDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
 		<typeAlias type="com.spring.lim.ItMngNewDTO" alias="itmngnewDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
-		<typeAlias type="com.spring.Mng.UserMngDTO" alias="usermngDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
-		<typeAlias type="com.spring.Mng.UserMngDTO2" alias="usermngDTO2"/>
-	</typeAliases>
-	
-	<typeAliases>
-		<typeAlias type="com.spring.servlet.MemberInfoDTO" alias="memberinfoDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
-		<typeAlias type="com.spring.servlet.ReqListDTO" alias="reqlistDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
-		<typeAlias type="com.spring.servlet.UserInfoDTO" alias="userinfoDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
-		<typeAlias type="com.spring.servlet.WhHisDTO" alias="whhisDTO"/>
-	</typeAliases>
-	
-	<typeAliases>
 		<typeAlias type="com.spring.y_02.BoardListDTO" alias="boardlistDTO"/>
+		
+		<!-- park -->
+		<typeAlias type="com.spring.Mng.UserMngDTO" alias="usermngDTO"/>
+		<typeAlias type="com.spring.Mng.UserMngDTO2" alias="usermngDTO2"/>
+		
+		<typeAlias type="com.spring.servlet.MemberInfoDTO" alias="memberinfoDTO"/>
+		<typeAlias type="com.spring.servlet.ReqListDTO" alias="reqlistDTO"/>
+		<typeAlias type="com.spring.servlet.UserInfoDTO" alias="userinfoDTO"/>
+		<typeAlias type="com.spring.servlet.WhHisDTO" alias="whhisDTO"/>
 	</typeAliases>
 	
 </configuration>
