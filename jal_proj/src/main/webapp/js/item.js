@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".navi-item2").setAttribute("class", "navi-item navi-item2 active");
@@ -138,6 +137,13 @@ document.addEventListener("DOMContentLoaded", function () {
   })
   
 });
+
+// 글로 이동하는 링크
+function goScid(scid) {
+	
+	window.location.href = 'itemMng?scid=' + scid;
+	
+}
 
 
 

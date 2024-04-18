@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.item">
+
+	<!-- item select -->
+	<select id="selectItem" resultType="itmngDTO">
+		SELECT pname, sct, pnum, wzone, 
+		TO_CHAR(pday, 'yyyy-mm-dd') as pday, psize
+		FROM pd_list
+		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid order by pday
+	</select>
+	
+	<!-- item sort -->
+	<select id="selectDetail" resultType="itmngDTO">
+		SELECT pname, sct, pnum, wzone, 
+       	TO_CHAR(pday, 'yyyy-mm-dd') AS pday, psize
+		FROM pd_list
+		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid
+		WHERE pd_list.scid = #{scid}
+		ORDER BY pday
+	</select>
+	
+	
+	
+</mapper>
