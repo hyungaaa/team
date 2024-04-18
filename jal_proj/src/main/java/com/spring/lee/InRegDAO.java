@@ -104,7 +104,7 @@ public class InRegDAO {
 	// select2
 	public List selectTbl(PdDTO pdDTO, Pd_inDTO pd_inDTO) {
 		List list = new ArrayList();
-		List<Object> lists = new ArrayList<>();
+		List<Object> lists = new ArrayList<Object>();
 		
 		try {
 

@@ -2,10 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%@ page import = "java.util.List" %>
 <%@ page import = "com.spring.lee.PdDTO" %>
 <%@ page import = "com.spring.lee.Pd_inDTO" %>
+<%@ page import = "com.spring.lee.JoinedDTO" %>
 
 
 	<link rel="stylesheet" href="css/inReg.css">
@@ -27,20 +29,18 @@
 				<col width="16%" />
 				<col width="6%" />
 			</colgroup>
-			<%-- 
-			<%
-			List list = (List) request.getAttribute("list");
-// 			List list2 = (List) request.getAttribute("list2");
-			PdDTO pdDTO = new PdDTO();
-			Pd_inDTO pd_inDTO = new Pd_inDTO();
 			
-			String searchInput = request.getParameter("searchInput");
-			System.out.println("이건 jsp: searchInput " + searchInput);
-			
-			
+	<%-- 		<%
+// 				List list = (List) request.getAttribute("list");
+// 	// 			List list2 = (List) request.getAttribute("list2");
+// 				PdDTO pdDTO = new PdDTO();
+// 				Pd_inDTO pd_inDTO = new Pd_inDTO();
+				
+// 				String searchInput = request.getParameter("searchInput");
+// 				System.out.println("이건 jsp: searchInput " + searchInput);
 			
 			%>
-			--%>
+--%>
 							
 			<tr id= "input-tr">
 				<td class="rightAlign">제품명</td>
@@ -113,14 +113,33 @@
 					<th>비고</th>
 				</thead>
 				<tbody>
-				<%--
+				<%-- 
 				<%
-					List<List<Object>> list2 = (List<List<Object>>) request.getAttribute("list2");
+					List list2 = (List) request.getAttribute("list2");
 		            for (List<Object> items : list2) {
 		                PdDTO pdDTO1 = (PdDTO) items.get(0);
 		                Pd_inDTO pd_inDTO1 = (Pd_inDTO) items.get(1);
 				%>
 				--%>
+				<c:forEach var="list2" items="${pdInList}">
+					<tr>
+						<td><input type="checkbox" class="chk"></td>
+						<td>${list2.pd_inDTO.pindate}</td>
+						<td>${list2.pd_inDTO.pnum}</td>
+						<td>${list2.pdDTO.pname}</td>
+						<td>${list2.pdDTO.psize}</td>
+						<td>${list2.pdDTO.punit}</td>
+						<td>${list2.pd_inDTO.pincnt}</td>
+						<td>${list2.pd_inDTO.pstate}</td>
+						<td>${list2.pd_inDTO.plot}</td>
+						<c:if test="${list2.pd_inDTO.pnote == null}">
+							<td></td>
+						</c:if>
+						<c:if test="${list2.pd_inDTO.pnote != null}">
+							<td>${list2.pd_inDTO.pnote}</td>
+						</c:if>
+					</tr>
+				</c:forEach>
 				<%-- 
 					<tr>
 						<td><input type="checkbox" class="chk"></td>
@@ -145,6 +164,7 @@
 						%>
 					</tr>
 					--%>
+					
 					<%-- 
 				<%
 					
@@ -195,7 +215,17 @@
 							<th>단위</th>
 						</thead>
 						<tbody id="popup-tboby">
-						<%-- 
+						 
+						 <c:forEach var="pdList" items="${pdList}">
+						 	<tr id="popup-tr">
+								<td><input type="radio" name="inReg-radio" value="${list.pnum}"></td>
+								<td>${pdList.pnum}</td>
+								<td>${pdList.pname}</td>
+								<td>${pdList.psize}</td>
+								<td>${pdList.punit}</td>
+							</tr>
+						 </c:forEach>
+						 <%-- 
 							<%
 								for(int i = 0; i < list.size(); i++) {
 							%>
@@ -206,6 +236,7 @@
 								<td><%=((PdDTO)list.get(i)).getPsize()%></td>
 								<td><%=((PdDTO)list.get(i)).getPunit()%></td>
 							</tr>
+							
 							<%
  								}
 							%>
