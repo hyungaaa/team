@@ -6,7 +6,33 @@
 	
 	<!-- select -->
 	<select id="selectPd" resultType="pdDTO">
-		SELECT * FROM pd_list
+		SELECT pnum, pname, psize, punit
+		FROM pd_list
 	</select>
+	
+	<resultMap id="joinResult" type="com.spring.lee.JoinedDTO">
+	    <association property="pd_inDTO" javaType="com.spring.lee.Pd_inDTO">
+	        <id property="pnum" column="pnum" />
+	        <result property="pindate" column="pindate" />
+	        <result property="pincnt" column="pincnt" />
+	        <result property="pstate" column="pstate" />
+	        <result property="plot" column="plot" />
+	        <result property="pnote" column="pnote" />
+	    </association>
+	    <association property="pdDTO" javaType="com.spring.lee.PdDTO">
+	        <id property="pnum" column="pnum" />
+	        <result property="pname" column="pname" />
+	        <result property="psize" column="psize" />
+	        <result property="punit" column="punit" />
+	    </association>
+	</resultMap>
+	
+	<select id="selectPdin" resultMap="joinResult">
+		SELECT
+			pindate, pd_in.pnum, pname, psize, punit, pincnt, pstate, plot, pnote
+		FROM
+			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
+	</select>
+	
 	
 </mapper>
