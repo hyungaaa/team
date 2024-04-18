@@ -2,6 +2,17 @@ package com.spring.lee;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Component
+//@Getter
+//@Setter
+//@ToString
+//@RequiredArgsConstructor // 생성자
+//@EqualsAndHashCode // hashcode + equals // 객체가 같은지 판단 기준 map의 key로 사용하는 등의 경우
+@Data	// 통합
 public class Pd_inDTO {
 
 	String plot;
@@ -11,51 +22,5 @@ public class Pd_inDTO {
 	int pincnt;
 	String pnote;
 	String pstate;
-	
-	
-	public String getPlot() {
-		return plot;
-	}
-	public void setPlot(String plot) {
-		this.plot = plot;
-	}
-	public String getPnum() {
-		return pnum;
-	}
-	public void setPnum(String pnum) {
-		this.pnum = pnum;
-	}
-	public String getWzone() {
-		return wzone;
-	}
-	public void setWzone(String wzone) {
-		this.wzone = wzone;
-	}
-	public Date getPindate() {
-		return pindate;
-	}
-	public void setPindate(Date pindate) {
-		this.pindate = pindate;
-	}
-	public int getPincnt() {
-		return pincnt;
-	}
-	public void setPincnt(int pincnt) {
-		this.pincnt = pincnt;
-	}
-	public String getPnote() {
-		return pnote;
-	}
-	public void setPnote(String pnote) {
-		this.pnote = pnote;
-	}
-	public String getPstate() {
-		return pstate;
-	}
-	public void setPstate(String pstate) {
-		this.pstate = pstate;
-	}
-	
-	
 	
 }

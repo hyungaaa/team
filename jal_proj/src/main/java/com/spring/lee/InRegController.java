@@ -8,6 +8,7 @@ public class InRegController {
 
 	@RequestMapping("/inReg")
 	public String inReg() {
+		
 		return "inReg";
 	}
 }
