@@ -47,7 +47,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/board/boardList.jsp" />
 	</definition>
 
-	<definition name="boardWirte" extends="baseLayout">
+	<definition name="boardSelect" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/board/board.jsp" />
+	</definition>
+
+	<definition name="boardWrite" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/board/boardWrite.jsp" />
 	</definition>
 	

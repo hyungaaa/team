@@ -14,7 +14,6 @@ import javax.sql.DataSource;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
 public class BoardListDAO {
 
    private Connection con;
@@ -64,7 +63,7 @@ public class BoardListDAO {
             String pnum = rs.getString("pnum");
             int bbits = rs.getInt("bbits");
             String uname = rs.getString("uname");
-            Date bdate = rs.getDate("bdate");
+            String bdate = rs.getString("bdate");
             
 
             BoardListDTO dto1 = new BoardListDTO();
@@ -167,7 +166,7 @@ public class BoardListDAO {
       
       try {
          // SQL 준비
-         String query = " insert into bd_list (bno, uname, btitle, btext, bdate) values(seq_bd_list.nextval,'임가현',?,?,sysdate)";
+         String query = " insert into bd_list (bno, uname, btitle, btext, bdate) values(seq_bd_list.nextval,'이가희',?,?,sysdate)";
 
          ps = con.prepareStatement(query);
          ps.setString(1, boardListDTO.getBtitle());

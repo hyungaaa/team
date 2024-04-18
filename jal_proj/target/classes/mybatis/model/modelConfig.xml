@@ -14,7 +14,7 @@
 		<!-- 02 -->
 		<typeAlias type="com.spring.lim.itMngDTO" alias="itmngDTO"/>
 		<typeAlias type="com.spring.lim.ItMngNewDTO" alias="itmngnewDTO"/>
-		<typeAlias type="com.spring.y_02.BoardListDTO" alias="boardlistDTO"/>
+		<typeAlias type="com.spring.y_02.BoardListDTO" alias="boardListDTO"/>
 		
 		<!-- park -->
 		<typeAlias type="com.spring.Mng.UserMngDTO" alias="usermngDTO"/>

@@ -10,34 +10,6 @@ pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/boardList.css">
 <script src="js/boardList.js"></script>
 
-<!-- <!DOCTYPE html> -->
-<!-- <html lang="en"> -->
-
-<!-- <head> -->
-<!--     <meta charset="UTF-8"> -->
-<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<!--     <title>WMS 잘해보조</title> -->
-<!--     <link rel="stylesheet" href="css/layout.css"> -->
-<!--     <link rel="stylesheet" href="css/ui.css"> -->
-<!--     <link rel="stylesheet" href="css/common.css"> -->
-<!--     <link rel="stylesheet" href="css/boardList.css"> -->
-<!--     <link rel="stylesheet" href="../css/dashboard.css"> -->
-<!--     <link rel="stylesheet" href="../css/itemMng.css"> -->
-<!--     <link rel="stylesheet" href="../css/inReg.css"> -->
-<!--     <link rel="stylesheet" href="../css/outReg.css"> -->
-<!--     <link rel="stylesheet" href="../css/invenView.css"> -->
-<!--     <link rel="stylesheet" href="../css/inoutHistory.css"> -->
-<!--     <link rel="stylesheet" href="../css/capacityView.css"> -->
-<!--     <link rel="stylesheet" href="../css/userMng.css"> -->
-
-<!--     <script src="js/system.js"></script> -->
-
-<!-- </head> -->
-
-<!-- <body> -->
-<!-- <div class="wrapper"> -->
-<%--     <%@include file="header.jsp" %> --%>
-<%--     <%@include file="nav.jsp" %> --%>
     <main>
         <div class="search">
             <div class="excel">
@@ -104,7 +76,7 @@ pageEncoding="UTF-8"%>
         </div>
             <div class="write">
                 <button type="button" value="write" class="main_btn">
-                    <a href="boardWrite.jsp" style="color: #fff">
+                    <a href="boardWrite" style="color: #fff">
                         글쓰기
                     </a>
                 </button>
@@ -112,9 +84,3 @@ pageEncoding="UTF-8"%>
 
     </main>
     
-<%--     <%@include file="footer.jsp" %> --%>
-    
-<!-- </div> -->
-<!-- </body> -->
-
-<!-- </html> -->
