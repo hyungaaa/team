@@ -102,7 +102,7 @@ function checkedPopup() {
 	console.log(radioBtn);
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "inReg?searchInput=" + radioBtn, true);
+	xhr.open("GET", "inReg2?searchInput=" + radioBtn, true);
 	xhr.onload = function() {
 		let pdtName = document.getElementById('pdtName');
 		let pdtNum = document.getElementById('pdtNum');
@@ -115,7 +115,7 @@ function checkedPopup() {
 		var popupTr = doc.querySelector('#popup-tr');
 
 		var tds = popupTr.querySelectorAll('td');
-		//	    console.log(tds[1].innerText);
+		console.log(tds[1].innerText);
 
 		pdtNum.value = tds[1].innerText;
 		pdtName.value = tds[2].innerText;
@@ -136,7 +136,7 @@ function checkedPopup() {
 
 
 }
-    
+
 function openWindow() {
 	// 팝업 창 크기 설정
 	var width = 400; // 팝업 창의 너비
@@ -157,10 +157,11 @@ function inRegSearch2() {
 
 	// AJAX를 사용하여 서블릿으로 검색어 전달
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "inReg?searchInput=" + searchInput, true);
+	xhr.open("GET", "inReg2?searchInput=" + searchInput, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
+			console.log("searchInput : " + searchInput)
 			// xhr.responseText에서 필요한 부분만 추출
 			var parser = new DOMParser();
 			var doc = parser.parseFromString(xhr.responseText, "text/html");

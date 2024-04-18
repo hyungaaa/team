@@ -15,6 +15,10 @@ public class InRegService {
 		return inRegDAO.selectPdList();
 	}
 	
+	public List listPd(String searchInput) {
+		return inRegDAO.selectPdList(searchInput);
+	}
+	
 	public List listPdin() {
 		return inRegDAO.selectPdinList();
 	}

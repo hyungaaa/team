@@ -8,6 +8,12 @@
 	<select id="selectPd" resultType="pdDTO">
 		SELECT pnum, pname, psize, punit
 		FROM pd_list
+		where 1=1
+		<if test="searchInput == null">
+		</if>
+		<if test="searchInput != null">
+			pnum = #{searchInput}
+		</if>
 	</select>
 	
 	<resultMap id="joinResult" type="com.spring.lee.JoinedDTO">
