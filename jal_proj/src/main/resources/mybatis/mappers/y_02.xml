@@ -3,10 +3,22 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.board">
-<!-- 	select -->
-	<select id="selectEmp" resultType="boardlistDTO">
-		SELECT bno, uname, pnum, btitle, 
-		TO_CHAR(bdate, 'YYYY-MM-DD') AS bdate, bbits 
+	<!-- select -->
+	<select id="selectBdList" resultType="boardListDTO">
+		SELECT bno, uname, pnum, btitle,bbits, 
+		TO_CHAR(bdate, 'YYYY-MM-DD')as bdate  
 		FROM (SELECT * FROM bd_list ORDER BY bno DESC) WHERE ROWNUM <![CDATA[ <= ]]> 7
-	</select>	
+	</select>
+	
+	<!-- select where -->
+	<select id="selectBd" resultType="boardListDTO">
+		SELECT * FROM bd_list WHERE bno = #{bno}
+	</select>
+
+	<!-- insert -->
+	<insert id="insertBd" parameterType="boardListDTO">
+		INSERT INTO bd_list (bno, uname, btitle, btext, bdate) 
+		VALUES(seq_bd_list.nextval,'이가희',#{btitle},#{btext},sysdate)
+	</insert>
+		
 </mapper>

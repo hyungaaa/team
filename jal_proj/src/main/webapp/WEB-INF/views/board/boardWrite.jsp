@@ -1,37 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!-- <!DOCTYPE html> -->
-<!-- <html lang="en"> -->
-<!-- <head> -->
-<!--     <meta charset="UTF-8"> -->
-<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<!--     <title>WMS 잘해보조</title> -->
-<!--     <link rel="stylesheet" href="css/layout.css"> -->
-<!--     <link rel="stylesheet" href="css/ui.css"> -->
-<!--     <link rel="stylesheet" href="css/common.css"> -->
-<!--     <link rel="stylesheet" href="css/boardWrite.css"> -->
-<!--     <link rel="stylesheet" href="../css/dashboard.css"> -->
-<!--     <link rel="stylesheet" href="../css/itemMng.css"> -->
-<!--     <link rel="stylesheet" href="../css/inReg.css"> -->
-<!--     <link rel="stylesheet" href="../css/outReg.css"> -->
-<!--     <link rel="stylesheet" href="../css/invenView.css"> -->
-<!--     <link rel="stylesheet" href="../css/inoutHistory.css"> -->
-<!--     <link rel="stylesheet" href="../css/capacityView.css"> -->
-<!--     <link rel="stylesheet" href="../css/userMng.css"> -->
-    
-
-<!--     <script src="js/system.js"></script> -->
-<!--     <script src="js/boardWrite.js"></script> -->
-
-<!-- </head> -->
-<!-- <body> -->
-<%--     <%@include file="header.jsp" %> --%>
-
-<%--     <%@include file="nav.jsp" %> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<link rel="stylesheet" href="css/boardWrite.css">
+<script src="js/boardWrite.js"></script>  
 
     <main>
-        <form method="get" action="boardList">
+        <form method="get" action="boardWrite2">
         <div class="dt1">
             <table class="t1">
                 <tr>
@@ -95,9 +71,5 @@
         </div>
        </form>
     </main>
-    
-<%--     <%@include file="footer.jsp" %> --%>
 
-<!-- </body> -->
-<!-- </html> -->
 

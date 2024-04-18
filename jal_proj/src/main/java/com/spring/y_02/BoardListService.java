@@ -15,4 +15,15 @@ public class BoardListService {
 	public List selectList() {
 		return boardListDAO.selectList();
 	}
+	
+	// selectedView
+	public List selectedView(BoardListDTO dto) {
+		return boardListDAO.selectedView(dto);
+	}
+	
+	// insert
+	public int insertBd(BoardListDTO dto) {
+		return boardListDAO.insertBd(dto);
+	}
+	
 }
