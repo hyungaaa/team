@@ -33,9 +33,9 @@
 	<div id="all1">
 		<div id="scate">
 			<button class="main_btn" id="scate_mng" onclick="filterCategory('전체')">전체</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('도시락')">도시락</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('샌드위치/햄버거')">샌드위치/햄버거</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('주먹밥')">주먹밥</button>
+			<button class="main_btn" id="scate_mng" onclick="filterCategory('콘')">콘</button>
+			<button class="main_btn" id="scate_mng" onclick="filterCategory('바')">바</button>
+			<button class="main_btn" id="scate_mng" onclick="filterCategory('샌드')">샌드</button>
 			<button class="main_btn" id="scate_mng" onclick="filterCategory('기타')">기타</button>
 		</div>
 

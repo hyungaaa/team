@@ -13,5 +13,6 @@ public class ItMngDTO {
 	String punit;
 	String pday;
 	String img;
+	String sct;
 
 }

@@ -143,7 +143,6 @@
 <!-- 				<li><a href="#">&gt;</a></li> -->
 <!-- 			</ul> -->
 <!-- 		</div> -->
-		
 
 	<!-- 팝업 -->
 	<div id="popup">
@@ -172,7 +171,7 @@
 					<tbody id="popup-tboby">
 						 <c:forEach var="pdList" items="${pdList}">
 						 	<tr id="popup-tr">
-								<td><input type="radio" name="inReg-radio" value="${list.pnum}"></td>
+								<td><input type="radio" name="inReg-radio" value="${pdList.pnum}"></td>
 								<td>${pdList.pnum}</td>
 								<td>${pdList.pname}</td>
 								<td>${pdList.psize}</td>

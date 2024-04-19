@@ -102,7 +102,7 @@ function checkedPopup() {
 	console.log(radioBtn);
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "inReg2?searchInput=" + radioBtn, true);
+	xhr.open("GET", "inReg?searchInput=" + radioBtn, true);
 	xhr.onload = function() {
 		let pdtName = document.getElementById('pdtName');
 		let pdtNum = document.getElementById('pdtNum');
@@ -112,9 +112,13 @@ function checkedPopup() {
 		// xhr.responseText에서 필요한 부분만 추출
 		var parser = new DOMParser();
 		var doc = parser.parseFromString(xhr.responseText, "text/html");
+		console.log(doc);
 		var popupTr = doc.querySelector('#popup-tr');
+		console.log(popupTr);
 
 		var tds = popupTr.querySelectorAll('td');
+		console.log(tds);
+		console.log(tds[0]);
 		console.log(tds[1].innerText);
 
 		pdtNum.value = tds[1].innerText;
@@ -157,7 +161,7 @@ function inRegSearch2() {
 
 	// AJAX를 사용하여 서블릿으로 검색어 전달
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "inReg2?searchInput=" + searchInput, true);
+	xhr.open("GET", "inReg?searchInput=" + searchInput, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
@@ -165,18 +169,21 @@ function inRegSearch2() {
 			// xhr.responseText에서 필요한 부분만 추출
 			var parser = new DOMParser();
 			var doc = parser.parseFromString(xhr.responseText, "text/html");
+			console.log(doc)
+			
 			var popupTr = doc.querySelectorAll('#popup-tr');	// 맨 위 tr만 나옴 쿼리셀렉터로 해야함
 
-			var popup_tbody = document.getElementById("popup-tboby");
+			let popup_tbody = document.getElementById("popup-tboby");
 
 			document.getElementById('popup-tbl').style.display = "block";
 			popup_tbody.innerHTML = "";
 
+			// 팝업에서 뜨는 제품들
 			for (var i = 0; i < popupTr.length; i++) {
 				console.log(popupTr[i]);
-				document.getElementById("popup-tboby").append(popupTr[i]);
+				popup_tbody.append(popupTr[i]);
 			}
-
+			console.log(popup_tbody);
 			console.log(xhr.responseText);
 			console.log(popupTr[0]);
 		}

@@ -22,6 +22,18 @@
 	<definition name="item" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/item/itemMng.jsp" />
 	</definition>
+	<definition name="item2" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemMng2.jsp" />
+	</definition>
+	<definition name="item3" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemMng3.jsp" />
+	</definition>
+	<definition name="item4" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemMng4.jsp" />
+	</definition>
+	<definition name="item5" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemMng5.jsp" />
+	</definition>
 	
 	<definition name="inReg" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/inout/inReg.jsp" />

@@ -7,20 +7,47 @@
 	<!-- item select -->
 	<select id="selectItem" resultType="itmngDTO">
 		SELECT pname, sct, pnum, wzone, 
-		TO_CHAR(pday, 'yyyy-mm-dd') as pday, psize
+       	TO_CHAR(pday, 'yyyy-mm-dd') AS pday, psize
 		FROM pd_list
-		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid order by pday
+		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid
+		WHERE pd_list.scid IN ('sc1', 'sc2', 'sc3')
+		ORDER BY pday
 	</select>
-	
-	<!-- item sort -->
-	<select id="selectDetail" resultType="itmngDTO">
+	<select id="selectItem2" resultType="itmngDTO">
 		SELECT pname, sct, pnum, wzone, 
        	TO_CHAR(pday, 'yyyy-mm-dd') AS pday, psize
 		FROM pd_list
 		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid
-		WHERE pd_list.scid = #{scid}
+		WHERE pd_list.scid IN ('sc5', 'sc6', 'sc7')
 		ORDER BY pday
 	</select>
+	<select id="selectItem3" resultType="itmngDTO">
+		SELECT pname, sct, pnum, wzone, 
+       	TO_CHAR(pday, 'yyyy-mm-dd') AS pday, psize
+		FROM pd_list
+		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid
+		WHERE pd_list.scid IN ('sc9', 'sc10', 'sc11')
+		ORDER BY pday
+	</select>
+	<select id="selectItem4" resultType="itmngDTO">
+		SELECT pname, sct, pnum, wzone, 
+       	TO_CHAR(pday, 'yyyy-mm-dd') AS pday, psize
+		FROM pd_list
+		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid
+		WHERE pd_list.scid IN ('sc13', 'sc14')
+		ORDER BY pday
+	</select>
+	<select id="selectItem5" resultType="itmngDTO">
+		SELECT pname, sct, pnum, wzone, 
+       	TO_CHAR(pday, 'yyyy-mm-dd') AS pday, psize
+		FROM pd_list
+		LEFT OUTER JOIN small_cat ON pd_list.scid = small_cat.scid
+		WHERE pd_list.scid IN ('sc16', 'sc17')
+		ORDER BY pday
+	</select>
+	
+	
+
 	
 	
 	

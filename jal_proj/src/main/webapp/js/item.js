@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".navi-item2").setAttribute("class", "navi-item navi-item2 active");
@@ -112,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             catBtn.forEach(function (otherBtn) {
                 if (otherBtn !== btn) {
                     otherBtn.classList.remove('active');
+            console.log("실행됨 근데 db가 되어야 함 븅아")
                 }
             });
             btn.classList.add('active');
@@ -137,13 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
   })
   
 });
-
-// 글로 이동하는 링크
-function goScid(scid) {
-	
-	window.location.href = 'itemMng?scid=' + scid;
-	
-}
 
 
 

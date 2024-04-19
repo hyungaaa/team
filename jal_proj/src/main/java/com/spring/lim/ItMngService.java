@@ -15,9 +15,18 @@ public class ItMngService {
 	public List selectList() {
 		return itMngDAO.selectList();
 	}
-
-	// select detail
-	public List selectDetail(ItMngDTO dto) {
-		return itMngDAO.selectDetail(dto);
+	public List selectList2() {
+		return itMngDAO.selectList2();
 	}
+	public List selectList3() {
+		return itMngDAO.selectList3();
+	}
+	public List selectList4() {
+		return itMngDAO.selectList4();
+	}
+	public List selectList5() {
+		return itMngDAO.selectList5();
+	}
+
+	
 }
