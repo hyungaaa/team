@@ -1,31 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@ page import="java.util.List"%> --%>
-<%-- <%@ page import="com.spring.Mng.UserMngDTO"%> --%>
-<%-- <%@ page import="com.spring.Mng.UserMngDTO2"%> --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
-<!-- <!DOCTYPE html> -->
-<!-- <html lang="en"> -->
-<!-- <head> -->
-<!-- <meta charset="UTF-8"> -->
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<!-- <title>WMS 잘해보조</title> -->
-<!-- <link rel="stylesheet" href="css/layout.css"> -->
-<!-- <link rel="stylesheet" href="css/ui.css"> -->
-<!-- <link rel="stylesheet" href="css/common.css"> -->
 <link rel="stylesheet" href="${path}/css/userMng.css">
 <script src="${path}/js/userMng.js"></script>
 <script src="${path}/js/system.js"></script>
 <script src="${path}/js/hello.js"></script>
-<!-- </head> -->
-<!-- <body> -->
-<%-- 	<%@include file="layout/header.jsp"%> --%>
-<%-- 	<%@include file="layout/nav.jsp"%> --%>
 
 <main>
 	<div style="width: 1080px;">
@@ -86,6 +70,7 @@
 		<div class="div_scr">
 			<table id="table_cap">
 				<colgroup>
+					<col width="2%">
 					<col width="9%">
 					<col width="9%">
 					<col width="10%">
@@ -100,10 +85,11 @@
 				</colgroup>
 				<thead>
 					<tr>
+						<th></th>
 						<th>이름</th>
 						<th>사원번호</th>
 						<th><select id="select_change1" class="table_normal_txt"
-							style="width: 60px; height: 25px;">
+							style="width: 50px; height: 25px;">
 								<option>센터</option>
 								<option value="천안" class="select_op1">천안</option>
 								<option value="아산" class="select_op1">아산</option>
@@ -112,7 +98,7 @@
 							<button type="button" id="change_button1" class="table_btn"
 								style="padding: 6rem;">변경</button></th>
 						<th><select id="select_change2" class="table_normal_txt"
-							style="width: 60px; height: 25px;">
+							style="width: 50px; height: 25px;">
 								<option>권한</option>
 								<option value="사원" class="select_op2">사원</option>
 								<option value="대리" class="select_op2">대리</option>
@@ -121,8 +107,7 @@
 						</select>
 							<button type="button" id="change_button2" class="table_btn"
 								style="padding: 6rem;">변경</button></th>
-						<th>제품조회<input type="checkbox" id="select_all1"
-							class="select_all"></th>
+						<th>제품조회<input type="checkbox" id="select_all1"></th>
 						<th>입/출고등록<input type="checkbox" id="select_all2"></th>
 						<th>입/출고수정<input type="checkbox" id="select_all3"></th>
 						<th>제품등록<input type="checkbox" id="select_all4"></th>
@@ -144,7 +129,8 @@
 						<c:otherwise>
 							<c:forEach items="${infoPower}" var="user">
 								<tr>
-									<td>${user.uname}<input type="checkbox" id="select_chk"></td>
+									<td><input type="checkbox" class="select_chk"></td>
+									<td>${user.uname}</td>
 									<td>${user.unum}</td>
 									<td><select class="main_search2_txt"
 										style="width: 90px; height: 20px;">
@@ -189,7 +175,3 @@
 		</div>
 	</div>
 </main>
-
-<%-- 	<%@include file="layout/footer.jsp"%> --%>
-<!-- </body> -->
-<!-- </html> -->

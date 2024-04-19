@@ -177,7 +177,7 @@ function bindEvents() {
 			// 클릭된 버튼이 속한 행 찾기
 			var row = button.closest('tr');
 			// 행의 첫 번째 열과 두 번째 열을 입력 필드로 변경
-			var cells = row.querySelectorAll('td:nth-child(1), td:nth-child(2)');
+			var cells = row.querySelectorAll('td:nth-child(2), td:nth-child(3)');
 			cells.forEach(function(cell) {
 				var inputValue = cell.innerText;
 				cell.innerHTML = '<input type="text" class="edit-input" value="' + inputValue + '">';
@@ -195,7 +195,7 @@ function bindEvents() {
 			// 확인 버튼 클릭 이벤트 리스너 등록
 			confirmButton.addEventListener('click', function() {
 				// 입력 필드로 교체된 값으로 열 내용 교체
-				var editedCells = row.querySelectorAll('td:nth-child(1), td:nth-child(2)');
+				var editedCells = row.querySelectorAll('td:nth-child(2), td:nth-child(3)');
 				editedCells.forEach(function(editedCell) {
 					var inputValue = editedCell.querySelector('input').value;
 					editedCell.innerHTML = inputValue;
