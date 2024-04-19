@@ -6,14 +6,48 @@
 	
 	<!-- select -->
 	<select id="selectPd" resultType="pdDTO">
-		SELECT pnum, pname, psize, punit
-		FROM pd_list
-		where 1=1
-		<if test="searchInput == null">
-		</if>
-		<if test="searchInput != null">
-			pnum = #{searchInput}
-		</if>
+<!-- 		SELECT pnum, pname, psize, punit -->
+<!-- 		FROM pd_list -->
+<!-- 		where 1=1 -->
+<!-- 		<if test="searchInput == null"> -->
+<!-- 		</if> -->
+<!-- 		<if test="searchInput != null"> -->
+<!-- 			pnum = #{searchInput} -->
+<!-- 		</if> -->
+
+		<![CDATA[
+	        SELECT 
+	            pnum, pname, psize, punit 
+	        FROM 
+	            pd_list 
+	        WHERE 
+	            1 = 1 
+	    ]]> 
+	    <if test="searchInput != null">
+	        AND pname LIKE '%' || #{searchInput} || '%'
+	        <if test="searchInput.startsWith('E')">
+	            OR pnum = #{searchInput}
+	        </if>
+	    </if>
+	    
+<!-- 	     <![CDATA[ -->
+<!-- 	        SELECT -->
+<!-- 	            pnum, pname, psize, punit -->
+<!-- 	        FROM -->
+<!-- 	            pd_list -->
+<!-- 	        WHERE -->
+<!-- 	            1 = 1 -->
+<!-- 	    ]]> -->
+<!-- 	    <if test="searchInput != null"> -->
+<!-- 	        AND ( -->
+<!-- 	            pname LIKE '%' || #{searchInput} || '%' -->
+<!-- 	        </if> -->
+<!-- 	        <if test="searchInput.startsWith('E')"> -->
+<!-- 	            OR pnum = #{searchInput} -->
+<!-- 	        </if> -->
+<!-- 	        <if test="searchInput != null"> -->
+<!-- 	        ) -->
+<!-- 	    </if> -->
 	</select>
 	
 	<resultMap id="joinResult" type="com.spring.lee.JoinedDTO">

@@ -38,7 +38,7 @@ public class InRegController {
 	
 	
 	
-	@RequestMapping("/inReg2?searchInput=")
+	@RequestMapping("/inReg?searchInput=")
 	public String listInRegPd2(
 			@RequestParam("searchInput") String searchInput,
 			Model model) {
