@@ -27,20 +27,42 @@ public class ItemMngController {
 	}
 
 	@RequestMapping(value = "/itemMng2", method = RequestMethod.GET)
-	public String selectDetail(
-			@RequestParam("scid") String scid,
-			Model model
-		){
-		ItMngDTO dto = new ItMngDTO();
-		dto.setScid(scid);
-		
-		System.out.println("scid : " + scid);
-		List list = itMngService.selectList();
+	public String selectList2(Model model) {
+		List list = itMngService.selectList2();
 		if(list != null) {
 			System.out.println("list.size : " + list.size());
 		}
 		model.addAttribute("list", list);
-//		System.out.println("list: "+list);
-		return "item";
+		return "item2";
 	}
+
+	@RequestMapping(value = "/itemMng3", method = RequestMethod.GET)
+	public String selectList3(Model model) {
+		List list = itMngService.selectList3();
+		if(list != null) {
+			System.out.println("list.size : " + list.size());
+		}
+		model.addAttribute("list", list);
+		return "item3";
+	}
+	@RequestMapping(value = "/itemMng4", method = RequestMethod.GET)
+	public String selectList4(Model model) {
+		List list = itMngService.selectList4();
+		if(list != null) {
+			System.out.println("list.size : " + list.size());
+		}
+		model.addAttribute("list", list);
+		return "item4";
+	}
+	@RequestMapping(value = "/itemMng5", method = RequestMethod.GET)
+	public String selectList5(Model model) {
+		List list = itMngService.selectList5();
+		if(list != null) {
+			System.out.println("list.size : " + list.size());
+		}
+		model.addAttribute("list", list);
+		return "item5";
+	}
+
+
 }

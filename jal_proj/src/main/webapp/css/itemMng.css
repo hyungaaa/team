@@ -225,6 +225,11 @@ table > tbody > tr > th {
     width: 150px;
     transition: all 0.5s;
 }
+li.find-item {
+	margin-bottom: 27px;
+	font-weight: 900;
+}
+
 
 
 
