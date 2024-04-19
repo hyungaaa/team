@@ -40,7 +40,7 @@ public class ItemMngController {
 			System.out.println("list.size : " + list.size());
 		}
 		model.addAttribute("list", list);
-		System.out.println("list: "+list);
+//		System.out.println("list: "+list);
 		return "item";
 	}
 }
