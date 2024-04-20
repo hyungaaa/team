@@ -80,7 +80,7 @@ a {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 385px;
+  width: 362px;
   height: 380px;
 }
 
@@ -109,7 +109,10 @@ a {
 
 /* 테이블 */
 .div_tbl {
-  text-align: center;
+	text-align: center;
+	overflow-y: auto;
+	width: 360px;
+    height: 300px;
 }
 
 .tbl {
@@ -157,6 +160,8 @@ a {
 input:focus {
   outline: none;
 }
+
+/* -------------------------------------- */
 
 /*.div_tbl {*/
 /*	overflow: auto;*/

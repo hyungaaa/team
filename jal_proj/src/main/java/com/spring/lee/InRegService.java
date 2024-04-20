@@ -22,4 +22,8 @@ public class InRegService {
 	public List listPdin() {
 		return inRegDAO.selectPdinList();
 	}
+	
+	public int insertInReg(JoinedDTO joinedDTO) {
+		return inRegDAO.insertPdinList(joinedDTO);
+	}
 }
