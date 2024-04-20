@@ -46,9 +46,9 @@
 		FROM
 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
 	</select>
-	
+<!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
 	<insert id="insertPdin" parameterType="joinedDTO">
 		insert into pd_in
-		values ('LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000'), #{pdDTO.pnum}, #{pd_inDTO.wzone}, to_char(sysdate, 'YYYY-MM-DD'), #{pd_inDTO.pincnt}, #{pd_inDTO.pnote}, '미등록')
+		values (pdnum.nextval, '', #{pdDTO.pnum}, #{pd_inDTO.wzone}, to_char(sysdate, 'YYYY-MM-DD'), #{pd_inDTO.pincnt}, #{pd_inDTO.pnote}, '미등록')
 	</insert>
 </mapper>
