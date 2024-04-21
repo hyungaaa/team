@@ -32,6 +32,7 @@ function bind() {
 		html += '  <td></td>';
 		html += '  <td></td>';
 		html += '</tr>';
+		
 
 		if (pdtName.value == '') {
 			alert('제품을 검색해주세요.');
@@ -60,13 +61,12 @@ function bind() {
 	let add_btn = document.getElementById("add-btn");
 	add_btn.addEventListener("click", function() {
 
-
 		console.log('버튼이 눌리긴 했니?');
 		
-		
-
 		let list_checked = document.querySelectorAll(".chk:checked");
 		console.log(list_checked.length);
+		
+		
 		
 //		for (let i = 0; i < list_checked.length; i++) {
 //			console.log(list_checked[i]);
@@ -93,6 +93,7 @@ function closePopup() {
 }
 
 
+// 팝업 선택버튼
 function checkedPopup() {
 	closePopup();
 	let radioBtn = document.querySelector('input[name="inReg-radio"]:checked').value;
@@ -114,7 +115,7 @@ function checkedPopup() {
 		var doc = parser.parseFromString(xhr.responseText, "text/html");
 		console.log(doc);
 		var popupTr = doc.querySelector('#popup-tr');
-		console.log(popupTr);
+		console.log(popupTr);	// 맨위만 나옴 왜?
 
 		var tds = popupTr.querySelectorAll('td');
 		console.log(tds);

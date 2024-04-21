@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -59,4 +60,38 @@ public class InRegController {
 		return "inReg";
 	}
 	
+	@RequestMapping("/inReg/insert")
+	public String insertInReg(
+			Model model,
+			@ModelAttribute PdDTO pdDTO,
+			@ModelAttribute Pd_inDTO pdinDTO
+	) {
+		
+		JoinedDTO joinedDTO = new JoinedDTO();
+		joinedDTO.setPd_inDTO(pdinDTO);
+		joinedDTO.setPdDTO(pdDTO);
+		System.out.println("joinedDTO : " + joinedDTO);
+		
+		System.out.println("pdDTO : " + pdDTO);
+		System.out.println("pdinDTO : " + pdinDTO);
+		
+		System.out.println("joinedDTO.pdDTO.pnum : " + joinedDTO.getPdDTO().getPnum());
+		System.out.println("pdDTO.getPnum() : " + pdDTO.getPnum());
+		
+		int result = inRegService.insertInReg(joinedDTO);
+		System.out.println("insert : " + result);
+		
+		System.out.println();
+		
+		return "redirect:/inReg";
+	}
+	
+	@RequestMapping("/inReg/update")
+	public String updateInReg(
+			Model model,
+			@ModelAttribute PdDTO pdDTO,
+			@ModelAttribute Pd_inDTO pdinDTO
+	) {
+		return "redirect:/inReg";
+	}
 }

@@ -6,50 +6,23 @@
 	
 	<!-- select -->
 	<select id="selectPd" resultType="pdDTO">
-<!-- 		SELECT pnum, pname, psize, punit -->
-<!-- 		FROM pd_list -->
-<!-- 		where 1=1 -->
-<!-- 		<if test="searchInput == null"> -->
-<!-- 		</if> -->
-<!-- 		<if test="searchInput != null"> -->
-<!-- 			pnum = #{searchInput} -->
-<!-- 		</if> -->
-
-		<![CDATA[
-	        SELECT 
-	            pnum, pname, psize, punit 
-	        FROM 
-	            pd_list 
-	        WHERE 
-	            1 = 1 
-	    ]]> 
-	    <if test="searchInput != null">
-	        AND pname LIKE '%' || #{searchInput} || '%'
-	        <if test="searchInput.startsWith('E')">
-	            OR pnum = #{searchInput}
-	        </if>
-	    </if>
-	    
-<!-- 	     <![CDATA[ -->
-<!-- 	        SELECT -->
-<!-- 	            pnum, pname, psize, punit -->
-<!-- 	        FROM -->
-<!-- 	            pd_list -->
-<!-- 	        WHERE -->
-<!-- 	            1 = 1 -->
-<!-- 	    ]]> -->
-<!-- 	    <if test="searchInput != null"> -->
-<!-- 	        AND ( -->
-<!-- 	            pname LIKE '%' || #{searchInput} || '%' -->
-<!-- 	        </if> -->
-<!-- 	        <if test="searchInput.startsWith('E')"> -->
-<!-- 	            OR pnum = #{searchInput} -->
-<!-- 	        </if> -->
-<!-- 	        <if test="searchInput != null"> -->
-<!-- 	        ) -->
-<!-- 	    </if> -->
+		
+        SELECT 
+            pnum, pname, psize, punit 
+        FROM 
+            pd_list 
+        <where>
+            1 = 1 
+		    <if test="searchInput != null">
+		        AND pname LIKE '%' || #{searchInput} || '%'
+		        <if test="searchInput.startsWith('E')">
+		            OR pnum = #{searchInput}
+		        </if>
+		    </if>
+        </where> 
 	</select>
 	
+	<!-- 입고등록 아래 테이블 join -->
 	<resultMap id="joinResult" type="com.spring.lee.JoinedDTO">
 	    <association property="pd_inDTO" javaType="com.spring.lee.Pd_inDTO">
 	        <id property="pnum" column="pnum" />
@@ -73,6 +46,9 @@
 		FROM
 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
 	</select>
-	
-	
+<!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
+	<insert id="insertPdin" parameterType="joinedDTO">
+		insert into pd_in
+		values (pdnum.nextval, '', #{pdDTO.pnum}, #{pd_inDTO.wzone}, to_char(sysdate, 'YYYY-MM-DD'), #{pd_inDTO.pincnt}, #{pd_inDTO.pnote}, '미등록')
+	</insert>
 </mapper>
