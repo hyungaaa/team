@@ -39,6 +39,9 @@
 	<definition name="item5" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/item/itemMng5.jsp" />
 	</definition>
+	<definition name="itemNew" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemNew.jsp" />
+	</definition>
 	
 	<definition name="inReg" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/inout/inReg.jsp" />

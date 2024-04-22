@@ -112,7 +112,7 @@
 			<button type="button" class="main_btn" id="selected_del"
 				onclick="return confirmAndDelete()">제품 삭제</button>
 			<button class="main_btn">
-				<a href="itemNew.jsp" id="lim_a">제품 추가 
+				<a href="itemNew" id="lim_a">제품 추가 
 			</button>
 			</a>
 		</div>
