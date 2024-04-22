@@ -77,6 +77,12 @@
 		#{pname}, #{pday}, #{punit}, #{psize}
 		FROM dual
 	</insert>
+	
+	<!-- delete -->
+	<delete id="deleteItem" parameterType="ItMngDTO">
+		delete from pd_list
+		where pnum = #{pnum}
+	</delete>
 
 
 </mapper>

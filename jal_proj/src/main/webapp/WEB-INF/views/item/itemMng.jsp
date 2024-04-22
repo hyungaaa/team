@@ -49,8 +49,8 @@
 		</div>
 
 		<!-- 제품 게시판? -->
+		<form action="itemNew3" method="get">
 		<div id="productBoard">
-			<form action="itMngD" method="post" onsubmit="return validateForm();">
 				<!-- 폼 추가 -->
 				<table class="table_mng">
 					<colgroup>
@@ -104,18 +104,18 @@
 					}
 					%>
 				</table>
-			</form>
 		</div>
 
 
 		<div id="button_mng_2">
-			<button type="button" class="main_btn" id="selected_del"
-				onclick="return confirmAndDelete()">제품 삭제</button>
+			<input type="submit" class="main_btn" id="selected_del" value="제품 삭제">
+<!-- 				onclick="return confirmAndDelete()" -->
 			<button class="main_btn">
 				<a href="itemNew" id="lim_a">제품 추가 
 			</button>
 			</a>
 		</div>
+			</form>
 
 	</div>
 

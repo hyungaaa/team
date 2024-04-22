@@ -13,4 +13,9 @@ public class ItemInsertService {
 	public int insertItem(ItMngDTO dto) {
 		return itemInsertDAO.insertItem(dto);
 	}
+
+	// delete
+	public int deleteItem(ItMngDTO dto) {
+		return itemInsertDAO.insertItem(dto);
+	}
 }
