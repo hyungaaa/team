@@ -7,32 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class InRegDAO2 {
+public class OutRegDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
 	
 	// 제품 select
 	public List selectPdList() {
-		List list = sqlSession.selectList("mapper.pd.selectPd");
+		List list = sqlSession.selectList("mapper.pdout.selectPd");
 		return list;
 	}
 	
 	public List selectPdList(String searchInput) {
-		List list = sqlSession.selectList("mapper.pd.selectPd", searchInput);
+		List list = sqlSession.selectList("mapper.pdout.selectPd", searchInput);
 		return list;
 	}
 	
 	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인)
 	public List selectPdinList() {
-		List list = sqlSession.selectList("mapper.pd.selectPdin");
+		List list = sqlSession.selectList("mapper.pdout.selectPdin");
 		return list;
 	}
-	
-	// pd_in insert
-	public int insertPdinList(JoinedDTO joinedDTO) {
-		int result = sqlSession.insert("mapper.pd.insertPdin", joinedDTO);
-		return result;
-	}
-	
 }

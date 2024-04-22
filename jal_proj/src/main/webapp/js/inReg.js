@@ -49,31 +49,74 @@ function bind() {
 	// 삭제 버튼 클릭시 아래 테이블 행 삭제
 	selected_del.addEventListener("click", function() {
 
+		let chkValue;
 		let list_checked = document.querySelectorAll(".chk:checked")
+		
 		for (let i = 0; i < list_checked.length; i++) {
+			chkValue = list_checked[i].value;
 			list_checked[i].parentNode.parentNode.remove();
 			// console.log(list_checked[i].parentNode);
 			// console.log(list_checked[i].parentNode.parentNode)
 		}
+		console.log('삭제 chkValue:' + chkValue);
+		
+		let url = "inReg/delete?chkValue=";
+
+        // ajax 객체 생성
+        let xhr = new XMLHttpRequest();
+        // 보낼 준비
+        xhr.open("get", url + chkValue);
+		console.log('삭제 chkValue : ' + chkValue);	// undefined
+        // 보내기(단! 언제 끝날지 모름)
+        xhr.send();
+
+        // 다녀온 후(응답 이후)
+        xhr.onload = function () {
+            // 받아온 내용이 저장되는 곳
+            let data = xhr.responseText;
+//            console.log(data);
+            
+            let parser = new DOMParser();
+			let doc = parser.parseFromString(xhr.responseText, "text/html");
+			// 체크박스 td
+//			let tblTd = doc.querySelector('#inReg-tbl2 tbody tr td');
+//			let chkValue = tblTd.querySelector('.chk').value;
+//            console.log(chkValue);
+
+        }
+		
+		
 	})
   
 	// 등록 버튼
 	let add_btn = document.getElementById("add-btn");
 	add_btn.addEventListener("click", function() {
 
+		let list_chks = document.querySelectorAll(".chk");
 		let list_checked = document.querySelectorAll(".chk:checked");
+		console.log('체크박스 개수:' + list_chks.length);
 		console.log('체크된 개수:' + list_checked.length);
 		
-		let chkValue = list_checked.value;
+		let chkValues = [];
+		let chkValue;
 		
-		for (let i = 0; i < list_checked.length; i++) {
-			console.log(list_checked[i].value);
+		if(list_checked.length > 0) {
+			for (let i = 0; i < list_checked.length; i++) {
+			console.log('list_checked[i].value : ' + list_checked[i].value);
+			chkValue = list_checked[i].value;
+			chkValues.push(list_checked[i].value);
 			
-			let tr = list_checked[i].parentNode.parentNode;
-			console.log("tr : " + tr);
-			console.log(list_checked[i].parentNode);
-			console.log(list_checked[i].parentNode.parentNode);
+			console.log('chkValues:' + chkValues);
+//			let tr = list_checked[i].parentNode.parentNode;
+//			console.log("tr : " + tr);
+//			console.log(list_checked[i].parentNode);
+//			console.log(list_checked[i].parentNode.parentNode);
+			}
 		}
+		
+//		let chkValue = list_checked.value;
+		console.log('chkValue : ' + chkValue)	// undefined
+		
 		
 		let url = "inReg/update?chkValue=";
 
@@ -81,7 +124,7 @@ function bind() {
         let xhr = new XMLHttpRequest();
         // 보낼 준비
         xhr.open("get", url + chkValue);
-
+		console.log('chkValue : ' + chkValue);	// undefined
         // 보내기(단! 언제 끝날지 모름)
         xhr.send();
 
@@ -98,13 +141,8 @@ function bind() {
 			let chkValue = tblTd.querySelector('.chk').value;
             console.log(chkValue);
 
-//            let json = JSON.parse(data);
-//            console.log(json);
-//            console.log(json[2]);
-//            console.log(json[2].name);
-//            console.log(json[2].address.street);
         }
-		
+		location.href="inReg";
 		
 
 	})
