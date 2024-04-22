@@ -104,23 +104,14 @@ import java.util.List;
 @Repository
 public class UserMngDAO {
 
-	@Autowired
-	private SqlSession sqlSession;
+    @Autowired
+    private SqlSession sqlSession;
 
-	public List<UserMngDTO> selectInfoPower() {
-		return sqlSession.selectList("mapper.userMng.infoPower");
-	}
-
-	public List<UserMngDTO> selectCenterList() {
-		return sqlSession.selectList("mapper.userMng.centerList");
-	}
-
-	public int deleteUserPower(String uuid) {
-        return sqlSession.delete("mapper.userMng.deleteUserPower", uuid);
+    public List<UserMngDTO> selectInfoPower() {
+        return sqlSession.selectList("mapper.userMng.infoPower");
     }
 
-    public int deleteUser(String uuid) {
-        return sqlSession.delete("mapper.userMng.deleteUser", uuid);
+    public List<UserMngDTO> selectCenterList() {
+        return sqlSession.selectList("mapper.userMng.centerList");
     }
-
 }

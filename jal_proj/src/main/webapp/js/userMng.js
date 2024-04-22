@@ -1,4 +1,3 @@
-
 window.addEventListener("DOMContentLoaded", function() {
 	bindEvents();
 
@@ -79,6 +78,7 @@ function filterRows() {
 	});
 }
 
+
 // 수정 및 삭제 버튼 설정 함수
 function setupEditAndDeleteButtons() {
 	document.querySelectorAll('.main_btn').forEach(button => {
@@ -108,15 +108,14 @@ function setupEditAndDeleteButtons() {
 			});
 		});
 	});
-//	document.querySelectorAll('.main_btn2').forEach(button => {
-//		button.addEventListener('click', function() {
-//			let row = this.parentNode.parentNode;
-//			row.parentNode.removeChild(row);
-//		});
-//	}); // 페이지에서만 삭제 js
 
+	document.querySelectorAll('.main_btn2').forEach(button => {
+		button.addEventListener('click', function() {
+			let row = this.parentNode.parentNode;
+			row.parentNode.removeChild(row);
+		});
+	});
 }
-
 
 // 팝업 열기 및 닫기 함수
 function openPopup() {

@@ -14,6 +14,5 @@ public class ItMngDTO {
 	String pday;
 	String img;
 	String sct;
-	String bcid;
 
 }

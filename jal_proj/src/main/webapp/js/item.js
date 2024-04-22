@@ -140,29 +140,5 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 
-$(document).ready(function() {
-    $("#selected_del").click(function(e) {
-        e.preventDefault();
-        
-        // 선택된 제품들의 pnum 값을 수집합니다.
-        var selectedItems = [];
-        $(".chk:checked").each(function() {
-            selectedItems.push($(this).val());
-        });
-        
-        // 선택된 제품들의 pnum 값을 서버로 전송하여 삭제합니다.
-        $.ajax({
-            type: "get",
-            url: "itemNew3", // 실제 삭제를 수행하는 서버의 엔드포인트 URL
-            data: { pnums: selectedItems }, // 선택된 제품들의 pnum 값을 서버로 전송합니다.
-            success: function(response) {
-                // 삭제 작업이 성공하면 페이지를 새로고침합니다.
-                window.location.reload();
-            },
-            error: function(xhr, status, error) {
-                console.error("Error:", error);
-            }
-        });
-    });
-});
+
 
