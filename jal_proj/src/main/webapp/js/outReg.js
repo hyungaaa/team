@@ -16,33 +16,67 @@ function closePopup() {
 }
 
 // 
+//function inRegSearch() {
+//  // input창
+//  let input = document.getElementById("searchInput").value.toUpperCase();
+//
+//  let tbl = document.getElementById("popup-tbl");
+//  let tbody = tbl.getElementsByTagName("tbody")[0];
+//  let rows = tbody.getElementsByTagName("tr");
+//
+//  for (let i = 0; i < rows.length; i++) {
+//    const cells = rows[i].getElementsByTagName("td");
+//    let match = false;
+//
+//    for (let j = 0; j < cells.length; j++) {
+//      const cell = cells[j];
+//      const txtValue = cell.textContent || cell.innerText;
+//
+//      if (j === 2) {
+//        if (txtValue.toUpperCase().indexOf(input) > -1) {
+//          console.log(input);
+//          match = true;
+//          break;
+//        }
+//      }
+//    }
+//
+//    rows[i].style.display = match ? "" : "none";
+//  }
+//}
+
 function inRegSearch() {
-  // input창
-  let input = document.getElementById("searchInput").value.toUpperCase();
+	var searchInput = document.getElementById("searchInput").value;
 
-  let tbl = document.getElementById("popup-tbl");
-  let tbody = tbl.getElementsByTagName("tbody")[0];
-  let rows = tbody.getElementsByTagName("tr");
+	// AJAX를 사용하여 서블릿으로 검색어 전달
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "outReg/search?searchInput=" + searchInput, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
 
-  for (let i = 0; i < rows.length; i++) {
-    const cells = rows[i].getElementsByTagName("td");
-    let match = false;
+			console.log("searchInput : " + searchInput)
+			// xhr.responseText에서 필요한 부분만 추출
+			var parser = new DOMParser();
+			var doc = parser.parseFromString(xhr.responseText, "text/html");
+			console.log(doc)
+			
+			var popupTr = doc.querySelectorAll('#popup-tr');	// 맨 위 tr만 나옴 쿼리셀렉터로 해야함
+			console.log(popupTr)
+			let popup_tbody = document.getElementById("popup-tboby");
 
-    for (let j = 0; j < cells.length; j++) {
-      const cell = cells[j];
-      const txtValue = cell.textContent || cell.innerText;
+			document.getElementById('popup-tbl').style.display = "block";
+			popup_tbody.innerHTML = "";
 
-      if (j === 2) {
-        if (txtValue.toUpperCase().indexOf(input) > -1) {
-          console.log(input);
-          match = true;
-          break;
-        }
-      }
-    }
-
-    rows[i].style.display = match ? "" : "none";
-  }
+			// 팝업에서 뜨는 제품들
+			for (var i = 0; i < popupTr.length; i++) {
+				console.log(popupTr[i]);
+				popup_tbody.append(popupTr[i]);
+			}
+			console.log(popup_tbody);
+			console.log(xhr.responseText);
+		}
+	};
+	xhr.send();
 }
 
 
@@ -155,4 +189,6 @@ function bind() {
       // console.log(list_checked[i].parentNode.parentNode)
     }
   })
+  
+  
 }

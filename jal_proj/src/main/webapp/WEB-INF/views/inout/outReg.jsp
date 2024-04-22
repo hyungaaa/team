@@ -2,11 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
 
-	<link rel="stylesheet" href="${path}/css/outReg.css">
+	<link rel="stylesheet" href="css/outReg.css">
 
-	<script src="${path}/js/outReg.js"></script>
+	<script src="js/outReg.js"></script>
 
 	<main>
 		<!-- 상단 제품 추가 전 정보 테이블 -->
@@ -96,45 +95,26 @@
 					<th>비고</th>
 				</thead>
 				<tbody>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>ESB00001</td>
-						<td>샌)망곰초코딸기샌드</td>
-						<td>B-01</td>
-						<td>130</td>
-						<td>130</td>
-						<td>0</td>
-						<td>미등록</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-02</td>
-						<td>SCC00002</td>
-						<td>롯데)허쉬너겟쿠앤크6P</td>
-						<td>C-01</td>
-						<td>70</td>
-						<td>70</td>
-						<td>0</td>
-						<td>등록 완료</td>
-						<td>LT2024020100002</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="chk"></td>
-						<td>2024-02-01</td>
-						<td>ICA00003</td>
-						<td>나뚜루)녹차바</td>
-						<td>A-01</td>
-						<td>5</td>
-						<td>40</td>
-						<td>35</td>
-						<td>등록 완료</td>
-						<td>LT2024020100005</td>
-						<td>유통기한 짧음</td>
-					</tr>
+					<c:forEach var="pdOut" items="${pdOutList}">
+						<tr>
+							<td><input type="checkbox" class="chk" value="${pdOut.pd_inDTO.pnum}"></td>
+							<td>${pdOut.pd_inDTO.pindate}</td>
+							<td>${pdOut.pd_inDTO.pnum}</td>
+							<td>${pdOut.pdDTO.pname}</td>
+							<td>${pdOut.pdDTO.wzone}</td>
+							<td>${pdOut.pd_inDTO.pincnt}</td>
+							<td>${pdOut.pd_inDTO.pincnt}</td>
+							<td>${pdOut.pd_inDTO.pincnt}</td>
+							<td>${pdOut.pd_inDTO.pstate}</td>
+							<td>${pdOut.pd_inDTO.plot}</td>
+							<c:if test="${pdOut.pd_inDTO.pnote == null}">
+								<td></td>
+							</c:if>
+							<c:if test="${pdOut.pd_inDTO.pnote != null}">
+								<td>${pdOut.pd_inDTO.pnote}</td>
+							</c:if>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>

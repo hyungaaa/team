@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
     	
     <wb-module deploy-name="jal_proj">
                 
@@ -17,4 +18,33 @@
         	
     </wb-module>
     
+=======
+        	
+    
+    <wb-module deploy-name="jal-1.0.0-BUILD-SNAPSHOT">
+                        
+        
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                		
+        
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                		
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                		
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+                		
+        
+        <property name="java-output-path" value="target/classes"/>
+                        
+        
+        <property name="context-root" value="jal"/>
+                	
+    
+    </wb-module>
+        
+
+>>>>>>> 897250ba9e421cb150b728220405b47f85dc563a
 </project-modules>

@@ -2,6 +2,9 @@ package com.spring.servlet;
 
 import java.sql.Date;
 
+import lombok.Data;
+
+@Data
 public class UserInfoDTO {
 
 	private String uuid;
