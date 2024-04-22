@@ -5,11 +5,8 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
 
 public class WhHisDAO {
 
@@ -40,7 +37,7 @@ public class WhHisDAO {
 	
 	// 데이터 조회 메서드 (최근 일주일)
     public List<WhHisDTO> getWhHisList() {
-        List<WhHisDTO> whHisList = new ArrayList<>();
+        List<WhHisDTO> whHisList = new ArrayList<WhHisDTO>();
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
