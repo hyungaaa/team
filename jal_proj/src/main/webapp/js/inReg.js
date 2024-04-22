@@ -61,21 +61,81 @@ function bind() {
 	let add_btn = document.getElementById("add-btn");
 	add_btn.addEventListener("click", function() {
 
-		console.log('버튼이 눌리긴 했니?');
-		
 		let list_checked = document.querySelectorAll(".chk:checked");
-		console.log(list_checked.length);
+		console.log('체크된 개수:' + list_checked.length);
 		
+		let chkValue = list_checked.value;
 		
+		for (let i = 0; i < list_checked.length; i++) {
+			console.log(list_checked[i].value);
+			
+			let tr = list_checked[i].parentNode.parentNode;
+			console.log("tr : " + tr);
+			console.log(list_checked[i].parentNode);
+			console.log(list_checked[i].parentNode.parentNode);
+		}
 		
-//		for (let i = 0; i < list_checked.length; i++) {
-//			console.log(list_checked[i]);
-//			let tr = list_checked[i].parentNode.parentNode;
-//			console.log("tr : " + tr);
-//			console.log(list_checked[i].parentNode);
-//			console.log(list_checked[i].parentNode.parentNode);
-//		}
+		let url = "inReg/update?chkValue=";
 
+        // ajax 객체 생성
+        let xhr = new XMLHttpRequest();
+        // 보낼 준비
+        xhr.open("get", url + chkValue);
+
+        // 보내기(단! 언제 끝날지 모름)
+        xhr.send();
+
+        // 다녀온 후(응답 이후)
+        xhr.onload = function () {
+            // 받아온 내용이 저장되는 곳
+            let data = xhr.responseText;
+            console.log(data);
+            
+            let parser = new DOMParser();
+			let doc = parser.parseFromString(xhr.responseText, "text/html");
+			// 체크박스 td
+			let tblTd = doc.querySelector('#inReg-tbl2 tbody tr td');
+			let chkValue = tblTd.querySelector('.chk').value;
+            console.log(chkValue);
+
+//            let json = JSON.parse(data);
+//            console.log(json);
+//            console.log(json[2]);
+//            console.log(json[2].name);
+//            console.log(json[2].address.street);
+        }
+		
+		
+
+	})
+	
+	// 조회 버튼
+	// main_btn 버튼 클릭 시 실행되는 함수
+	let dateBtn = document.querySelector('#dateCheck'); 
+	dateBtn.addEventListener('click', function() {
+	    // inputDate 요소에서 선택된 날짜 가져오기
+	    var selectedDate = document.querySelector('.inputDate').value;
+	    console.log('selectedDate : ' + selectedDate);
+	    
+	    // inReg-tbl2 테이블의 모든 행 가져오기
+	    var rows = document.querySelectorAll('#inReg-tbl2 tbody tr');
+	    console.log('rows : ' + rows);
+	    
+	    // 모든 행 숨기기
+	    for (var i = 0; i < rows.length; i++) {
+	        rows[i].style.display = 'none';
+	    }
+	    
+	    // 등록일이 선택된 날짜와 동일한 행들을 보여주기
+	    for (var i = 0; i < rows.length; i++) {
+	        var rowDate = rows[i].querySelector('td:nth-child(2)').innerText; // 등록일 셀
+	        console.log('rowDate : ' + rowDate);
+	        
+	        // 등록일이 선택된 날짜와 동일한 경우 해당 행을 표시
+	        if (rowDate === selectedDate) {
+	            rows[i].style.display = 'table-row';
+	        }
+    	}
 	})
 }
 
@@ -96,14 +156,15 @@ function closePopup() {
 // 팝업 선택버튼
 function checkedPopup() {
 	closePopup();
-	let radioBtn = document.querySelector('input[name="inReg-radio"]:checked').value;
+	// 라디오버튼
+	let searchInput = document.querySelector('input[name="inReg-radio"]:checked').value;
 	let locSelect = document.getElementById('locSelect');
 
 	//    let count = document.getElementById('count');
-	console.log(radioBtn);
+	console.log(searchInput);
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "inReg?searchInput=" + radioBtn, true);
+	xhr.open("GET", "inReg/search?searchInput=" + searchInput, true);
 	xhr.onload = function() {
 		let pdtName = document.getElementById('pdtName');
 		let pdtNum = document.getElementById('pdtNum');
@@ -127,14 +188,13 @@ function checkedPopup() {
 		size.value = tds[3].innerText;
 		unit.value = tds[4].innerText;
 
-		if (radioBtn.substr(2, 1) == "A") {
+		if (searchInput.substr(2, 1) == "A") {
 			locSelect.value = locSelect[1].value;
-		} else if (radioBtn.substr(2, 1) == "B") {
+		} else if (searchInput.substr(2, 1) == "B") {
 			locSelect.value = locSelect[2].value;
-		} else if (radioBtn.substr(2, 1) == "C") {
+		} else if (searchInput.substr(2, 1) == "C") {
 			locSelect.value = locSelect[3].value;
 		}
-
 
 	};
 	xhr.send();
@@ -162,7 +222,7 @@ function inRegSearch2() {
 
 	// AJAX를 사용하여 서블릿으로 검색어 전달
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "inReg?searchInput=" + searchInput, true);
+	xhr.open("GET", "inReg/search?searchInput=" + searchInput, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 
@@ -173,7 +233,7 @@ function inRegSearch2() {
 			console.log(doc)
 			
 			var popupTr = doc.querySelectorAll('#popup-tr');	// 맨 위 tr만 나옴 쿼리셀렉터로 해야함
-
+			console.log(popupTr)
 			let popup_tbody = document.getElementById("popup-tboby");
 
 			document.getElementById('popup-tbl').style.display = "block";
@@ -186,7 +246,6 @@ function inRegSearch2() {
 			}
 			console.log(popup_tbody);
 			console.log(xhr.responseText);
-			console.log(popupTr[0]);
 		}
 	};
 	xhr.send();
