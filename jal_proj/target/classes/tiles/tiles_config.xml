@@ -74,5 +74,9 @@
 	<definition name="mypage" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/mypage.jsp" />
 	</definition>
+
+	<definition name="login">
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
 	
 </tiles-definitions>
