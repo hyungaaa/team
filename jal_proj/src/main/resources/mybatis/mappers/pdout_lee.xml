@@ -41,7 +41,7 @@
 	    </association>
 	</resultMap>
 	
-	<select id="selectPdin" resultMap="joinResult">
+	<select id="selectPdout" resultMap="joinResult">
 		SELECT
 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt,pincnt as p, pincnt as m, pstate, plot, pnote
 		FROM

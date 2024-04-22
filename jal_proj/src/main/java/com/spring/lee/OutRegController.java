@@ -20,16 +20,16 @@ public class OutRegController {
 		Model model
 	) {
 		List pdList = outRegService.listPd();
-		List pdInList = outRegService.listPdin();
+		List pdOutList = outRegService.listPdin();
 		
 		System.out.println("controller > listOutRegPd pdList : " + pdList);
-		System.out.println("controller > listOutRegPd pdInList : " + pdInList);
+		System.out.println("controller > listOutRegPd pdOutList : " + pdOutList);
 		
 		System.out.println("out - pdList.size() : " + pdList.size());
-		System.out.println("out - pdInList.size() : " + pdInList.size());
+		System.out.println("out - pdOutList.size() : " + pdOutList.size());
 		
 		model.addAttribute("pdList", pdList);
-		model.addAttribute("pdInList", pdInList);
+		model.addAttribute("pdOutList", pdOutList);
 		
 		return "outReg";
 	}
@@ -42,7 +42,6 @@ public class OutRegController {
 		System.out.println("searchInput : " + searchInput);
 		List pdList = outRegService.listPd(searchInput);
 		List pdOutList = outRegService.listPdin();
-		
 		
 		System.out.println("controller > listOutRegPd2 pdList : " + pdList);
 		System.out.println("controller > listOutRegPd2 pdOutListList : " + pdOutList);

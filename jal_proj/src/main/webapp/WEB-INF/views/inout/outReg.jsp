@@ -95,22 +95,23 @@
 					<th>비고</th>
 				</thead>
 				<tbody>
-					<c:forEach var="list2" items="${pdOutList}">z
+					<c:forEach var="pdOut" items="${pdOutList}">
 						<tr>
-							<td><input type="checkbox" class="chk" value="${list2.pd_inDTO.pnum}"></td>
-							<td>${list2.pd_inDTO.pindate}</td>
-							<td>${list2.pd_inDTO.pnum}</td>
-							<td>${list2.pdDTO.pname}</td>
-							<td>${list2.pdDTO.psize}</td>
-							<td>${list2.pdDTO.punit}</td>
-							<td>${list2.pd_inDTO.pincnt}</td>
-							<td>${list2.pd_inDTO.pstate}</td>
-							<td>${list2.pd_inDTO.plot}</td>
-							<c:if test="${list2.pd_inDTO.pnote == null}">
+							<td><input type="checkbox" class="chk" value="${pdOut.pd_inDTO.pnum}"></td>
+							<td>${pdOut.pd_inDTO.pindate}</td>
+							<td>${pdOut.pd_inDTO.pnum}</td>
+							<td>${pdOut.pdDTO.pname}</td>
+							<td>${pdOut.pdDTO.wzone}</td>
+							<td>${pdOut.pd_inDTO.pincnt}</td>
+							<td>${pdOut.pd_inDTO.pincnt}</td>
+							<td>${pdOut.pd_inDTO.pincnt}</td>
+							<td>${pdOut.pd_inDTO.pstate}</td>
+							<td>${pdOut.pd_inDTO.plot}</td>
+							<c:if test="${pdOut.pd_inDTO.pnote == null}">
 								<td></td>
 							</c:if>
-							<c:if test="${list2.pd_inDTO.pnote != null}">
-								<td>${list2.pd_inDTO.pnote}</td>
+							<c:if test="${pdOut.pd_inDTO.pnote != null}">
+								<td>${pdOut.pd_inDTO.pnote}</td>
 							</c:if>
 						</tr>
 					</c:forEach>
