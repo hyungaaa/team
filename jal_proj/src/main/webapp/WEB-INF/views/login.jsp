@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/ui.css">
     <link rel="stylesheet" href="css/login.css">
 
-    <script src="js/login.js"></script>
+    <script src="js/login.js?ver=1"></script>
 
 </head>
 <body>

@@ -181,7 +181,7 @@ function bind() {
 function openPopup() {
 	document.getElementById('popup').style.display = "block";
 	//  document.getElementById('popup-tbl').innerHTML = "";
-	document.getElementById('popup-tbl').style.display = "none";
+//	document.getElementById('popup-tbl').style.display = "none";
 	document.getElementById("searchInput").value = "";
 }
 

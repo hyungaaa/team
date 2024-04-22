@@ -77,7 +77,7 @@ function login(){
         
         
         // 로그인 실패 시,
-        document.querySelector("#alert_msg").innerHTML = '<span>아이디 또는 비밀번호가 올바르지 않습니다</span>';
+//        document.querySelector("#alert_msg").innerHTML = '<span>아이디 또는 비밀번호가 올바르지 않습니다</span>';
 
         
         document.querySelector("#form").submit();
