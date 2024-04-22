@@ -21,7 +21,7 @@ public class BoardListController {
 	public String selectList(Model model) {
 		List list = boardListService.selectList();
 		if(list != null) {
-			System.out.println("list.size : " + list.size());
+			System.out.println("boardlist.size : " + list.size());
 		}
 		model.addAttribute("list", list);
 		return "board";
@@ -38,7 +38,7 @@ public class BoardListController {
 		
 		List list = boardListService.selectedView(dto);
 		model.addAttribute("boardList", list);
-		System.out.println("list : " + list);
+		System.out.println("boardlist : " + list);
 		return "boardSelect";
 	}
 	

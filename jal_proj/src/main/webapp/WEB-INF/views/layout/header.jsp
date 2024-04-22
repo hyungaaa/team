@@ -11,6 +11,6 @@
         <div class="top-bar-links">
             <a href="mypage">마이페이지</a>
             <a href="#">설정</a>
-            <a href="logout" id="logout_btn">로그아웃</a>
+            <a href="login2" id="logout_btn">로그아웃</a>
         </div>
     </header>
