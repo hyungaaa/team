@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="css/inReg.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
-<script src="js/inReg.js"></script>
+<script src="js/inReg.js?ver=1" ></script>
 
 <script>
 	
@@ -74,7 +74,7 @@
 
 	<!-- 버튼들 -->
 	<input type="date" class="inputDate">
-	<button type="button" class="main_btn">조회</button>
+	<button type="button" class="main_btn" id="dateCheck">조회</button>
 	<div class="div-btn">
 		<button type="button" class="main_btn" id="add-btn">등록</button>
 		<button type="button" class="main_btn" id="selected_del">삭제</button>

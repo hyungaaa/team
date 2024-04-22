@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -39,14 +40,15 @@ public class InRegController {
 	
 	
 	
-	@RequestMapping("/inReg?searchInput=")
+	@RequestMapping(value="/inReg/search", method=RequestMethod.GET)
 	public String listInRegPd2(
 			@RequestParam("searchInput") String searchInput,
 			Model model) {
+		
+		System.out.println("searchInput : " + searchInput);
 		List pdList = inRegService.listPd(searchInput);
 		List pdInList = inRegService.listPdin();
 		
-		System.out.println("searchInput : " + searchInput);
 		
 		System.out.println("controller > listInRegPd2 pdList : " + pdList);
 		System.out.println("controller > listInRegPd2 pdInList : " + pdInList);
@@ -90,8 +92,11 @@ public class InRegController {
 	public String updateInReg(
 			Model model,
 			@ModelAttribute PdDTO pdDTO,
-			@ModelAttribute Pd_inDTO pdinDTO
+			@ModelAttribute Pd_inDTO pdinDTO,
+			@RequestParam("chkValue") String chkValue
 	) {
+		
+		System.out.println("chkValue : " + chkValue);
 		return "redirect:/inReg";
 	}
 }

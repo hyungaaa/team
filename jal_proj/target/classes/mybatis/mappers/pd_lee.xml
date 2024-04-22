@@ -13,10 +13,10 @@
             pd_list 
         <where>
             1 = 1 
-		    <if test="searchInput != null">
-		        AND pname LIKE '%' || #{searchInput} || '%'
-		        <if test="searchInput.startsWith('E')">
-		            OR pnum = #{searchInput}
+		    <if test="_parameter != null">
+		        AND pname LIKE '%' || #{_parameter} || '%'
+		        <if test="_parameter.startsWith('E')">
+		            OR pnum = #{_parameter}
 		        </if>
 		    </if>
         </where> 
@@ -51,4 +51,10 @@
 		insert into pd_in
 		values (pdnum.nextval, '', #{pdDTO.pnum}, #{pd_inDTO.wzone}, to_char(sysdate, 'YYYY-MM-DD'), #{pd_inDTO.pincnt}, #{pd_inDTO.pnote}, '미등록')
 	</insert>
+	
+	<update id="updatePdin" parameterType="joinedDTO">
+		update pd_in
+		set pstate='등록' and plot = 'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000')
+		where pnum in #{_parameter}
+	</update>
 </mapper>

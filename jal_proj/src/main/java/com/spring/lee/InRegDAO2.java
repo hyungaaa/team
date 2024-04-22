@@ -29,12 +29,8 @@ public class InRegDAO2 {
 		return list;
 	}
 	
+	// pd_in insert
 	public int insertPdinList(JoinedDTO joinedDTO) {
-		
-		System.out.println("joinedDTO.getPdDTO().pnum : " + joinedDTO.getPdDTO().pnum);
-		System.out.println("joinedDTO.getPd_inDTO().pnum : " + joinedDTO.getPd_inDTO().wzone);
-		System.out.println("joinedDTO.getPd_inDTO().pnum : " + joinedDTO.getPd_inDTO().pincnt);
-		System.out.println("joinedDTO.getPd_inDTO().pnum : " + joinedDTO.getPd_inDTO().pnote);
 		int result = sqlSession.insert("mapper.pd.insertPdin", joinedDTO);
 		return result;
 	}
