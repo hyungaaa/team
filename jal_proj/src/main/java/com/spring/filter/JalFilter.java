@@ -1,6 +1,7 @@
 package com.spring.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpSession;
 @WebFilter("/*")
 public class JalFilter extends HttpFilter implements Filter {
        
-
+	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		System.out.println("doFilter 실행");
 		
@@ -24,13 +25,13 @@ public class JalFilter extends HttpFilter implements Filter {
 			HttpServletRequest req = (HttpServletRequest) request;
 	        
 	        String url = req.getRequestURI();
-	        System.out.println("요청 url: " + url);
+	        System.out.println("요청 url123: " + url);
 	        
-	        // 정적 자원인 경우 필터를 실행하지 않음
-	        if (url.endsWith(".css") || url.endsWith(".js") || url.endsWith(".png")) {
-	            chain.doFilter(request, response);
-	            return;
-	        }
+//	        // 정적 자원인 경우 필터를 실행하지 않음
+//	        if (url.endsWith(".css") || url.endsWith(".js") || url.endsWith(".png")) {
+//	            chain.doFilter(request, response);
+//	            return;
+//	        }
 			
 			
 			// 반복해야할 작업 - 모든것이 거쳐감
@@ -38,11 +39,13 @@ public class JalFilter extends HttpFilter implements Filter {
 			
 			
 			//indexOf 그 글씨 포함여부 : 로그인으로 접속하려고하면..
-			if(url.indexOf("login.jsp") != -1 
+			if(url.indexOf("login") != -1 
 				|| url.indexOf(".do") != -1 
+				|| url.indexOf(".jsp") != -1 
 				|| url.indexOf("/logout") != -1 
 				|| url.indexOf("/login") != -1
-				|| url.indexOf("/css/") != -1
+//				|| url.indexOf("/css/") != -1
+				|| url.indexOf(".css") != -1
 				|| url.indexOf("/js/") != -1
 				|| url.indexOf("/img/") != -1){
 				// 그냥 통과
@@ -77,6 +80,9 @@ public class JalFilter extends HttpFilter implements Filter {
 
 
 	public void init(FilterConfig fConfig) throws ServletException {
+	}
+	public void destroy() {
+		
 	}
 
 }

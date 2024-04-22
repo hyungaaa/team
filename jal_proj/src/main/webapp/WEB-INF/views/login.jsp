@@ -18,7 +18,7 @@
 
     <div class="login_page">
 	    
-		<form method= "post" action="login.do" id="form">
+		<form method= "post" action="login" id="form">
 	
 	        <span class="login_title">LOGIN</span>
 	        <br><br><br>
