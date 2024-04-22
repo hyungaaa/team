@@ -4,7 +4,7 @@
 <mapper namespace="mapper.userMng">
 
 	<select id="infoPower" resultType="UserMngDTO">
-		SELECT u.uname, u.unum,
+		SELECT u.uname, u.unum, u.uuid,
 		u.uposition, p.updv, p.updior, p.updiom, p.updr,
 		p.ubdm, p.uum
 		FROM
@@ -24,5 +24,18 @@
 		SELECT rcategory, uuid, uemail
 		FROM req_list
 	</select>
+
+	<!-- 사용자의 권한 레코드 삭제 쿼리 -->
+	<delete id="deleteUserPower" parameterType="String">
+		DELETE FROM
+		user_power WHERE uuid = #{uuid}
+	</delete>
+
+	<delete id="deleteUser" parameterType="String">
+		DELETE FROM user_info
+		WHERE uuid = #{uuid}
+	</delete>
+
+
 
 </mapper>
