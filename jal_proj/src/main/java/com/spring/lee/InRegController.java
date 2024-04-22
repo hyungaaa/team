@@ -91,12 +91,25 @@ public class InRegController {
 	@RequestMapping("/inReg/update")
 	public String updateInReg(
 			Model model,
-			@ModelAttribute PdDTO pdDTO,
-			@ModelAttribute Pd_inDTO pdinDTO,
 			@RequestParam("chkValue") String chkValue
 	) {
 		
 		System.out.println("chkValue : " + chkValue);
+		
+		int result = inRegService.updateInReg(chkValue);
+		return "redirect:/inReg";
+	}
+	
+	
+	@RequestMapping("/inReg/delete")
+	public String deleteInReg(
+			Model model,
+			@RequestParam("chkValue") String chkValue
+	) {
+		
+		System.out.println("chkValue : " + chkValue);
+		
+		int result = inRegService.deleteInReg(chkValue);
 		return "redirect:/inReg";
 	}
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.pd">
+<mapper namespace="mapper.pdin">
 	
 	<!-- select -->
 	<select id="selectPd" resultType="pdDTO">
@@ -45,6 +45,7 @@
 			pindate, pd_in.pnum, pname, psize, punit, pincnt, pstate, plot, pnote
 		FROM
 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
+		order by pindate
 	</select>
 <!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
 	<insert id="insertPdin" parameterType="joinedDTO">
@@ -54,7 +55,12 @@
 	
 	<update id="updatePdin" parameterType="joinedDTO">
 		update pd_in
-		set pstate='등록' and plot = 'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000')
-		where pnum in #{_parameter}
+		set pstate='등록', plot = 'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000')
+		where pnum = #{_parameter}
 	</update>
+	
+	<delete id="deletePdin" parameterType="joinedDTO">
+		delete from pd_in
+		where pnum = #{_parameter}
+	</delete>
 </mapper>
