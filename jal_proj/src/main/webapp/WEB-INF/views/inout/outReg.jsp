@@ -5,7 +5,7 @@
 
 	<link rel="stylesheet" href="css/outReg.css">
 
-	<script src="js/outReg.js"></script>
+	<script src="js/outReg.js?ver=1"></script>
 
 	<main>
 		<!-- 상단 제품 추가 전 정보 테이블 -->
@@ -24,7 +24,6 @@
 				<col width="8%" />
 				<col width="7%" />
 			</colgroup>
-<<<<<<< HEAD
 			
 			<form method="post" action="outReg/insert">
 				<tr>
@@ -58,44 +57,13 @@
 					</td>
 				</tr>
 			</form>
-=======
-			<tr>
-				<td class="rightAlign">제품명</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="pdtName"></td>
-				<td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
-				<td class="rightAlign">규격</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="size"></td>
-				<td class="rightAlign">단위</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="unit"></td>
-				<td class="rightAlign">현재고</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="count"></td>
-				<td class="rightAlign">출고 수량</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="outCount"></td>
-				<td><button type="button" class="table_btn" id="plusTr">추가</button></td>
-			</tr>
-			<tr>
-				<td class="rightAlign">제품번호</td>
-				<td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="pdtNum"></td>
-				<td class="rightAlign">비고</td>
-				<td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="note"></td>
-				<td class="rightAlign">위치</td>
-				<td colspan="4" class="leftAlign fullWidth">
-					<select id="locSelect" class="searchSelect">
-						<option value="위치">위치</option>
-						<option value="A-01">A-01</option>
-						<option value="B-01">B-01</option>
-						<option value="C-01">C-01</option>
-					</select>
-				</td>
-			</tr>
->>>>>>> 619199df7f3aed7f755e4d2bf034fd2172c6327a
 		</table>
 
 		<hr>
 
 		<!-- 버튼들 -->
 		<input type="date" class="inputDate">
-		<button type="button" class="main_btn">조회</button>
+		<button type="button" class="main_btn" id="dateCheck">조회</button>
 		<div class="div-btn">
 			<button type="button" class="main_btn">등록</button>
 			<button type="button" class="main_btn" id="selected_del">삭제</button>
@@ -138,9 +106,9 @@
 							<td>${pdOut.pd_inDTO.pnum}</td>
 							<td>${pdOut.pdDTO.pname}</td>
 							<td>${pdOut.pdDTO.wzone}</td>
+							<td>${pdOut.pd_outDTO.poutcnt}</td>
 							<td>${pdOut.pd_inDTO.pincnt}</td>
-							<td>${pdOut.pd_inDTO.pincnt}</td>
-							<td>${pdOut.pd_inDTO.pincnt}</td>
+							<td>${(pdOut.pd_inDTO.pincnt-pdOut.pd_outDTO.poutcnt)}</td>
 							<td>${pdOut.pd_inDTO.pstate}</td>
 							<td>${pdOut.pd_inDTO.plot}</td>
 							<c:if test="${pdOut.pd_inDTO.pnote == null}">
@@ -174,15 +142,15 @@
 				<div class="div_top">
 					제품명
 					<input type="text" class="main_search_txt" id="searchInput">
-					<button type="button" class="main_btn" onclick="inRegSearch()">검색</button>
+					<button type="button" class="main_btn" onclick="outRegSearch()">검색</button>
 				</div>
 				<div class="div_tbl">
 					<table id="popup-tbl">
 						<colgroup>
 							<col width="10%" />
 							<col width="20%" />
-							<col width="45%" />
-							<col width="10%" />
+							<col width="*" />
+							<col width="15%" />
 							<col width="15%" />
 						</colgroup>
 						<thead>
@@ -192,7 +160,6 @@
 							<th>규격</th>
 							<th>단위</th>
 						</thead>
-<<<<<<< HEAD
 						<tbody id="popup-tboby">
 						 <c:forEach var="pdOutList" items="${pdOutList}">
 						 	<tr id="popup-tr">
@@ -202,55 +169,19 @@
 								<td>${pdOutList.pdDTO.psize}</td>
 								<td>${pdOutList.pdDTO.punit}</td>
 								<td style="display:none"><input type="hidden" id="pincnt" value="${pdOutList.pd_inDTO.pincnt}"></td>
-=======
-						<tbody>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="ESB00001"></td>
-								<td>ESB00001</td>
-								<td>샌)망곰초코딸기샌드</td>
-								<td>S</td>
-								<td>BOX</td>
->>>>>>> 619199df7f3aed7f755e4d2bf034fd2172c6327a
 							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="SCC00002"></td>
-								<td>SCC00002</td>
-								<td>롯데)허쉬너겟쿠앤크6P</td>
-								<td>S</td>
-								<td>BOX</td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="ICA00003"></td>
-								<td>ICA00003</td>
-								<td>나뚜루)녹차바</td>
-								<td>M</td>
-								<td>BOX</td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="FGC00004"></td>
-								<td>FGC00004</td>
-								<td>CJ)햇반전복미역죽</td>
-								<td>M</td>
-								<td>EA</td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="inReg-radio" value="BMB00005"></td>
-								<td>BMB00005</td>
-								<td>남양)불가리스딸기150ml</td>
-								<td>S</td>
-								<td>BOX</td>
-							</tr>
-						</tbody>
+						 </c:forEach>
+					</tbody>
 					</table>
 				</div>
-				<div class="div_flex">
-					<button type="button" class="main_btn">&lt; prev</button>
-					<button type="button" class="main_btn">next &gt;</button>
-				</div>
+<!-- 				<div class="div_flex"> -->
+<!-- 					<button type="button" class="main_btn">&lt; prev</button> -->
+<!-- 					<button type="button" class="main_btn">next &gt;</button> -->
+<!-- 				</div> -->
 				<div class="div_line"></div>
 				<div class="div_btn">
 					<a href="#">
-						<div class="div_in" onclick="checkdPopup()">선택</div>
+						<div class="div_in" onclick="checkedPopup()">선택</div>
 					</a>
 					|
 					<a href="#">

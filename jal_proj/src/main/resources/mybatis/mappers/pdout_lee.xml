@@ -6,7 +6,6 @@
 	
 	<!-- select -->
 	<select id="selectPd" resultType="pdDTO">
-		
         SELECT 
             pnum, pname, psize, punit 
         FROM 
@@ -45,15 +44,38 @@
 	    </association>
 	</resultMap>
 	
+<!-- 	<select id="selectPdout" resultMap="joinResult"> -->
+<!-- 		SELECT -->
+<!-- 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt,pincnt as p, pincnt as m, pstate, plot, pnote -->
+<!-- 		FROM -->
+<!-- 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum -->
+<!-- 		order by pindate -->
+<!-- 	</select> -->
+
 	<select id="selectPdout" resultMap="joinResult">
+<!-- 		SELECT -->
+<!-- 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt as p, pincnt as m,  -->
+<!-- 			CASE WHEN pstate = '등록' THEN '미등록' ELSE pstate END AS pstate, plot, pnote, punit, psize -->
+<!-- 		FROM -->
+<!-- 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum -->
+<!-- 		WHERE pstate='등록' -->
+<!-- 		order by pindate -->
+		
 		SELECT
-			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt,pincnt as p, pincnt as m, pstate, plot, pnote
+		    pd_in.pindate, pd_in.pnum, pname, pd_list.wzone, pd_out.poutcnt, pd_in.pincnt, (pd_in.pincnt-pd_out.poutcnt), 
+		    CASE WHEN pd_in.pstate = '등록' THEN '미등록' ELSE pd_in.pstate END AS pstate, pd_in.plot, pnote, punit, psize
 		FROM
-			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
-		order by pindate
+		    pd_in
+		INNER JOIN
+		    pd_list ON pd_list.pnum = pd_in.pnum
+		LEFT JOIN
+		    pd_out ON pd_out.plot = pd_in.plot
+		WHERE
+		    pd_in.pstate = '등록'
+		ORDER BY
+		    pd_in.pindate
 	</select>
 	
-<<<<<<< HEAD
 	<!-- join한 테이블에서 검색 -->
 	<select id="selectPdout2" resultMap="joinResult">
 		SELECT
@@ -74,8 +96,6 @@
 	    ORDER BY pindate
 	</select>
 	
-=======
->>>>>>> 619199df7f3aed7f755e4d2bf034fd2172c6327a
 <!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
 	<insert id="insertPdout" parameterType="joinedDTO">
 		insert into pd_out
@@ -93,8 +113,8 @@
 		where pnum = #{_parameter}
 	</update>
 	
-	<delete id="deletePdin" parameterType="joinedDTO">
-		delete from pd_in
+	<delete id="deletePdout" parameterType="joinedDTO">
+		delete from pd_out
 		where pnum = #{_parameter}
 	</delete>
 </mapper>

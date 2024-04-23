@@ -21,7 +21,7 @@ public class OutRegController {
 		Model model
 	) {
 		List pdList = outRegService.listPd();
-		List pdOutList = outRegService.listPdin();
+		List pdOutList = outRegService.listPdout();
 		
 		System.out.println("controller > listOutRegPd pdList : " + pdList);
 		System.out.println("controller > listOutRegPd pdOutList : " + pdOutList);
@@ -42,7 +42,7 @@ public class OutRegController {
 		
 		System.out.println("searchInput : " + searchInput);
 		List pdList = outRegService.listPd(searchInput);
-		List pdOutList = outRegService.listPdin();
+		List pdOutList = outRegService.listPdout();
 		
 		System.out.println("controller > listOutRegPd2 pdList : " + pdList);
 		System.out.println("controller > listOutRegPd2 pdOutListList : " + pdOutList);
@@ -55,7 +55,6 @@ public class OutRegController {
 		
 		return "outReg";
 	}
-<<<<<<< HEAD
 	
 	@RequestMapping("/outReg/insert")
 	public String insertInReg(
@@ -97,6 +96,5 @@ public class OutRegController {
 		int result = outRegService.deleteOutReg(chkValue);
 		return "redirect:/outReg";
 	}
-=======
->>>>>>> 619199df7f3aed7f755e4d2bf034fd2172c6327a
+
 }
