@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 @Component
 public class ItMngDTO {
-
 	String pname;
 	String pnum;
 	String wzone;
@@ -18,5 +17,4 @@ public class ItMngDTO {
 	String img;
 	String sct;
 	String bcid;
-
 }

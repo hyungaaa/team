@@ -68,6 +68,16 @@
 		('sc16', 'sc17')
 		ORDER BY pday
 	</select>
+	
+	<select id="itemDetail" resultType="itmngDTO">
+		SELECT pd_list.pname, small_cat.sct, pd_list.pnum,
+		       pd_list.wzone, pd_list.scid, small_cat.bcid,
+		       TO_CHAR(pd_list.pday, 'yyyy-mm-dd') AS pday, pd_list.psize
+		FROM pd_list
+		LEFT JOIN small_cat ON pd_list.scid = small_cat.scid
+		WHERE pd_list.pnum = #{pnum}
+		ORDER BY pd_list.pday
+	</select>
 
 	<!-- insert -->
 	<insert id="insertItem" parameterType="ItMngDTO">

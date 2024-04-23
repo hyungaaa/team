@@ -125,6 +125,14 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 
+function goToProductDetail(pnum) {
+    // 제품 상세 정보 페이지 URL을 생성합니다.
+    var url = "itemFix?pnum=" + pnum;
+    
+    // 새로운 페이지로 이동합니다.
+    window.location.href = url;
+}
+
 
 function submitForm() {
     document.getElementById("productForm").submit();

@@ -28,18 +28,11 @@
 
 	<!-- 제품 추가 -->
 
-	<form method="get" action="itemNew2">
+	<form method="post" action="itemNew2">
 		<div id="productBoard_new">
 			<table>
 				<tr>
-					<!-- 이미지 창 버튼 누르면 그 버튼으로 이미지 올라가게 하고 싶어요-->
-					<td colspan="6" height="200" auto>
-						<!-- <img id="imageDisplay" style="width: 100%; height: auto; display: none;"> -->
-						<!-- <button type="button" class="main_btn_new2" id="img_btn_new"> -->
-						<!-- <div id="img_prv"></div> --> <label for="imageUpload"
-						class="main_btn_new2">이미지 업로드</label> <input type="file"
-						id="imageUpload" style="display: none" accept="image/*">
-					</td>
+					<th colspan="6">제품 추가</th>
 				</tr>
 				<tr>
 					<th>제품명</th>

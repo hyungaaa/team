@@ -79,7 +79,7 @@
 							<tr class="product-row" data-category="${item.sct}">
 								<td><input type="checkbox" class="chk" name="selectedItems"
 									value="${item.pnum}"></td>
-								<td>${item.pname}</td>
+								<td><a href="javascript:void(0);" onclick="goToProductDetail('${item.pnum}')">${item.pname}</a></td>
 								<td>${item.sct}</td>
 								<td>${item.pnum}</td>
 								<td>${item.wzone}</td>

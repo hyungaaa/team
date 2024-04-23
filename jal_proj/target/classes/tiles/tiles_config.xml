@@ -42,6 +42,9 @@
 	<definition name="itemNew" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/item/itemNew.jsp" />
 	</definition>
+	<definition name="itemFix" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemfix.jsp" />
+	</definition>
 	
 	<definition name="inReg" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/inout/inReg.jsp" />
@@ -90,6 +93,7 @@
 	<definition name="qrpage" extends="baseLayout2">
 		<put-attribute name="body" value="/WEB-INF/views/qrpage.jsp" />
 	</definition>
+	
 
 <!-- 	<definition name="*.bl" extends="baseLayout"> -->
 <!-- 		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp" /> -->
