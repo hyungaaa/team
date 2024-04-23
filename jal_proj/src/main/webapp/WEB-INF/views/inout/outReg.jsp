@@ -71,7 +71,7 @@
 		<input type="date" class="inputDate">
 		<button type="button" class="main_btn" id="dateCheck">조회</button>
 		<div class="div-btn">
-			<button type="button" class="main_btn">등록</button>
+			<button type="button" class="main_btn" id="add-btn">등록</button>
 			<button type="button" class="main_btn" id="selected_del">삭제</button>
 		</div>
 
@@ -105,6 +105,12 @@
 					<th>비고</th>
 				</thead>
 				<tbody>
+<%-- 				<c:forEach var="undertbl" ${ }> --%>
+<!-- 					<tr> -->
+<!-- 						<td></td> -->
+<!-- 					</tr> -->
+<%-- 				</c:forEach> --%>
+
 					<c:forEach var="pdOut" items="${pdOutList}">
 						<tr>
 							<td><input type="checkbox" class="chk" value="${pdOut.pd_inDTO.pnum}"></td>

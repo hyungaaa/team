@@ -180,7 +180,7 @@ function bind() {
 	let qrBtn = document.querySelector('#qr_button');
 	
 	qrBtn.addEventListener('click', function() {
-		let list_chk = document.querySelector(".chk");
+		let list_chk = document.querySelector(".chk:checked");
 		qrNum = list_chk.value;
 		console.log(qrNum);
 		

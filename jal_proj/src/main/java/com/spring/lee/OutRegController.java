@@ -42,14 +42,15 @@ public class OutRegController {
 		System.out.println("검색어 searchInput : " + searchInput);
 		
 		// 검색어 ㄱㄱ
-		List pdList = outRegService.listPd(searchInput);
+		List pdList2 = outRegService.listPdout(searchInput);
+		
 		// 팝업에 떠야 할 list
 		List pdOutList = outRegService.listPdout();
 		
-		System.out.println("out/search> pdList : " + pdList);
+		System.out.println("out/search> pdListSearch : " + pdList2);
 		System.out.println("out/search> pdOutListList : " + pdOutList);
 		
-		model.addAttribute("pdList", pdList);
+		model.addAttribute("pdList2", pdList2);
 		model.addAttribute("pdOutList", pdOutList);
 		
 		return "redirect:/outReg";
@@ -82,6 +83,18 @@ public class OutRegController {
 		System.out.println("out insert : " + result);
 		
 		return "outReg";
+	}
+	
+	@RequestMapping("/outReg/update")
+	public String updateOutReg(
+			Model model,
+			@RequestParam("chkValue") String chkValue
+	) {
+		
+		System.out.println("chkValue : " + chkValue);
+		
+		int result = outRegService.updateOutReg(chkValue);
+		return "redirect:/outReg";
 	}
 	
 	@RequestMapping("/outReg/delete")

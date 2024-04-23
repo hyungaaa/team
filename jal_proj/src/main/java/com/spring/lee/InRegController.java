@@ -46,7 +46,7 @@ public class InRegController {
 			Model model
 	) {
 		
-		System.out.println("searchInput : " + searchInput);
+		System.out.println("/inReg/search - searchInput : " + searchInput);
 		List pdList = inRegService.listPd(searchInput);
 		List pdInList = inRegService.listPdin();
 		

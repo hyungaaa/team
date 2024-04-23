@@ -15,6 +15,7 @@ public class InRegService {
 		return inRegDAO.selectPdList();
 	}
 	
+	/////////////////////////////////
 	// 검색 select
 	public List listPd(String searchInput) {
 		return inRegDAO.selectPdList(searchInput);
@@ -24,6 +25,7 @@ public class InRegService {
 	public List listPdin() {
 		return inRegDAO.selectPdinList();
 	}
+	/////////////////////////////////
 	
 	// pd_in insert
 	public int insertInReg(JoinedDTO joinedDTO) {

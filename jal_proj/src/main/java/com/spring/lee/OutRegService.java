@@ -35,6 +35,11 @@ public class OutRegService {
 		return outRegDAO.insertPdoutList(joinedDTO);
 	}
 	
+	//pd_out update
+	public int updateOutReg(String chkValue) {
+		return outRegDAO.updatePdoutList(chkValue);
+	}
+	
 	public int deleteOutReg(String chkValue ) {
 		return outRegDAO.deletePdoutList(chkValue);
 	}

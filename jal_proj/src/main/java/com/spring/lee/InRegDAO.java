@@ -18,6 +18,7 @@ public class InRegDAO {
 		return list;
 	}
 	
+	//////////////////////////////////////
 	public List selectPdList(String searchInput) {
 		List list = sqlSession.selectList("mapper.pdin.selectPd", searchInput);
 		return list;
@@ -28,6 +29,7 @@ public class InRegDAO {
 		List list = sqlSession.selectList("mapper.pdin.selectPdin");
 		return list;
 	}
+	//////////////////////////////////////
 	
 	// pd_in insert
 	public int insertPdinList(JoinedDTO joinedDTO) {
