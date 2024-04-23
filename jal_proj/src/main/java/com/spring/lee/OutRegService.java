@@ -20,10 +20,11 @@ public class OutRegService {
 		return outRegDAO.selectPdList(searchInput);
 	}
 	
-	// pd_out select
-	public List listPdout() {
-		return outRegDAO.selectPdOutList();
+	// pd_in select
+	public List listPdin() {
+		return outRegDAO.selectPdinList();
 	}
+<<<<<<< HEAD
 	
 	// pd_out select
 	public List listPdout(String searchInput) {
@@ -40,4 +41,6 @@ public class OutRegService {
 	}
 	
 	
+=======
+>>>>>>> 619199df7f3aed7f755e4d2bf034fd2172c6327a
 }

@@ -13,30 +13,31 @@
 	<!-- 입출고 이력 -->
 
 	<!-- 대분류 카테고리 -->
-		<div id="bigCategory">
-			<ul>
-				<li onclick="filterCategory('간편식사')" class="find-item"><a
-					href="itemMng"><span class="mng_span">간편식사</span>></a></li>
-				<li onclick="filterCategory('과자류')" class="find-item"><a
-					href="itemMng2"><span class="mng_span">과자류</span>></a></li>
-				<li onclick="filterCategory('아이스크림')" class="find-item"><a
-					href="itemMng3"><span class="mng_span">아이스크림</span>></a>
-				</li>
-				<li onclick="filterCategory('식품')" class="find-item"><a
-					href="itemMng4"><span class="mng_span">식품</span>></a></li>
-				<li onclick="filterCategory('음료')" class="find-item"><a
-					href="itemMng5"><span class="mng_span">음료</span>></a>
-				</li>
-			</ul>
-		</div>
+	<div id="bigCategory">
+		<ul>
+			<li onclick="filterCategory('간편식사')" class="find-item"><a
+				href="itemMng"><span class="mng_span">간편식사</span>></a></li>
+			<li onclick="filterCategory('과자류')" class="find-item"><a
+				href="itemMng2"><span class="mng_span">과자류</span>></a></li>
+			<li onclick="filterCategory('아이스크림')" class="find-item"><a
+				href="itemMng3"><span class="mng_span">아이스크림</span>></a></li>
+			<li onclick="filterCategory('식품')" class="find-item"><a
+				href="itemMng4"><span class="mng_span">식품</span>></a></li>
+			<li onclick="filterCategory('음료')" class="find-item"><a
+				href="itemMng5"><span class="mng_span">음료</span>></a></li>
+		</ul>
+	</div>
 	<!-- 소분류 카테고리 -->
 	<div id="all1">
 		<div id="scate">
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('전체')">전체</button>
+			<button class="main_btn" id="scate_mng"
+				onclick="filterCategory('전체')">전체</button>
 			<button class="main_btn" id="scate_mng" onclick="filterCategory('콘')">콘</button>
 			<button class="main_btn" id="scate_mng" onclick="filterCategory('바')">바</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('샌드')">샌드</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('기타')">기타</button>
+			<button class="main_btn" id="scate_mng"
+				onclick="filterCategory('샌드')">샌드</button>
+			<button class="main_btn" id="scate_mng"
+				onclick="filterCategory('기타')">기타</button>
 		</div>
 
 		<!-- 선 -->
@@ -63,12 +64,6 @@
 						<col width="8%" />
 					</colgroup>
 
-					<%-- 데이터 불러옴 --%>
-					<%
-					List list = (List) request.getAttribute("list");
-					// itMngDTO itmngDTO = new itMngDTO();
-					%>
-
 					<tr id="title_mng">
 						<th><input type="checkbox" id="selectAll"
 							onclick="toggleCheckboxes(this)"></th>
@@ -80,29 +75,25 @@
 						<th>규격</th>
 					</tr>
 
-					<%
-					if (list != null) {
-						for (int i = 0; i < list.size(); i++) {
-					%>
-
-					<tr class="product-row"
-						data-category="<%=((ItMngDTO) list.get(i)).getSct()%>">
-						<td><input type="checkbox" class="chk" name="selectedItems"
-							value="<%=((ItMngDTO) list.get(i)).getPnum()%>"></td>
-						<td><%=((ItMngDTO) list.get(i)).getPname()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getSct()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getPnum()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getWzone()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getPday()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getPsize()%></td>
-					</tr>
-
-					<%
-					}
-					} else {
-					System.out.println("null입니다~.");
-					}
-					%>
+					<c:if test="${not empty list}">
+						<c:forEach var="item" items="${list}">
+							<tr class="product-row" data-category="${item.sct}">
+								<td><input type="checkbox" class="chk" name="selectedItems"
+									value="${item.pnum}"></td>
+								<td>${item.pname}</td>
+								<td>${item.sct}</td>
+								<td>${item.pnum}</td>
+								<td>${item.wzone}</td>
+								<td>${item.pday}</td>
+								<td>${item.psize}</td>
+							</tr>
+						</c:forEach>
+					</c:if>
+					<c:if test="${empty list}">
+						<%
+						System.out.println("데이터가 null입니다~.");
+						%>
+					</c:if>
 				</table>
 			</form>
 		</div>

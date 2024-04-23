@@ -21,7 +21,13 @@ public class OutRegController {
 		Model model
 	) {
 		List pdList = outRegService.listPd();
-		List pdOutList = outRegService.listPdout();
+		List pdOutList = outRegService.listPdin();
+		
+		System.out.println("controller > listOutRegPd pdList : " + pdList);
+		System.out.println("controller > listOutRegPd pdOutList : " + pdOutList);
+		
+		System.out.println("out - pdList.size() : " + pdList.size());
+		System.out.println("out - pdOutList.size() : " + pdOutList.size());
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdOutList", pdOutList);
@@ -34,22 +40,22 @@ public class OutRegController {
 			@RequestParam("searchInput") String searchInput,
 			Model model) {
 		
-		System.out.println("out - searchInput : " + searchInput);
-		
-		List pdList = outRegService.listPd();
-		// 조인한거임
-//		List pdOutList = outRegService.listPdout();
-
-		List pdOutList = outRegService.listPdout(searchInput);
+		System.out.println("searchInput : " + searchInput);
+		List pdList = outRegService.listPd(searchInput);
+		List pdOutList = outRegService.listPdin();
 		
 		System.out.println("controller > listOutRegPd2 pdList : " + pdList);
 		System.out.println("controller > listOutRegPd2 pdOutListList : " + pdOutList);
+		
+		System.out.println("out - pdList.size() : " + pdList.size());
+		System.out.println("out - pdOutList.size() : " + pdOutList.size());
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdOutList", pdOutList);
 		
 		return "outReg";
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping("/outReg/insert")
 	public String insertInReg(
@@ -91,4 +97,6 @@ public class OutRegController {
 		int result = outRegService.deleteOutReg(chkValue);
 		return "redirect:/outReg";
 	}
+=======
+>>>>>>> 619199df7f3aed7f755e4d2bf034fd2172c6327a
 }

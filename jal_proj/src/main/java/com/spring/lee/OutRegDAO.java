@@ -23,11 +23,12 @@ public class OutRegDAO {
 		return list;
 	}
 	
-	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인) - out
-	public List selectPdOutList() {
+	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인)
+	public List selectPdinList() {
 		List list = sqlSession.selectList("mapper.pdout.selectPdout");
 		return list;
 	}
+<<<<<<< HEAD
 	
 	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인) - out
 	public List selectPdOutList(String searchInput) {
@@ -51,4 +52,6 @@ public class OutRegDAO {
 	
 	
 	
+=======
+>>>>>>> 619199df7f3aed7f755e4d2bf034fd2172c6327a
 }
