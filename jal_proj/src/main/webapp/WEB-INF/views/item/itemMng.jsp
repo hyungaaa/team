@@ -52,7 +52,7 @@
 		</div>
 
 		<!-- 제품 게시판? -->
-		<form action="itemNew3" method="get">
+		<form action="itemNew3" method="post" id="productForm">
 			<div id="productBoard">
 				<!-- 폼 추가 -->
 				<table class="table_mng">
@@ -101,8 +101,7 @@
 
 
 			<div id="button_mng_2">
-				<input type="submit" class="main_btn" id="selected_del"
-					value="제품 삭제">
+				 <button type="button" class="main_btn" id="selected_del" onclick="submitForm()">제품 삭제</button>
 				<!-- 				onclick="return confirmAndDelete()" -->
 				<button class="main_btn">
 					<a href="itemNew" id="lim_a">제품 추가 

@@ -16,6 +16,6 @@ public class ItemInsertService {
 
 	// delete
 	public int deleteItem(ItMngDTO dto) {
-		return itemInsertDAO.insertItem(dto);
+		return itemInsertDAO.deleteItem(dto);
 	}
 }
