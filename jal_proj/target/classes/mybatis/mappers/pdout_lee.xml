@@ -6,6 +6,7 @@
 	
 	<!-- select -->
 	<select id="selectPd" resultType="pdDTO">
+		
         SELECT 
             pnum, pname, psize, punit 
         FROM 
@@ -40,41 +41,12 @@
 	    </association>
 	</resultMap>
 	
-<!-- 	<select id="selectPdout" resultMap="joinResult"> -->
-<!-- 		SELECT -->
-<!-- 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt,pincnt as p, pincnt as m, pstate, plot, pnote -->
-<!-- 		FROM -->
-<!-- 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum -->
-<!-- 		order by pindate -->
-<!-- 	</select> -->
-
 	<select id="selectPdout" resultMap="joinResult">
 		SELECT
-			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt,pincnt as p, pincnt as m, 
-			CASE WHEN pstate = '등록' THEN '미등록' ELSE pstate END AS pstate, plot, pnote, punit, psize
+			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt,pincnt as p, pincnt as m, pstate, plot, pnote
 		FROM
 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
-		WHERE pstate='등록'
 		order by pindate
-	</select>
-	
-	<select id="selectPdout2" resultMap="joinResult">
-		SELECT
-	        pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt AS p, pincnt AS m, 
-	        CASE WHEN pstate = '등록' THEN '미등록' ELSE pstate END AS pstate, plot, pnote, punit, psize
-	    FROM
-	        pd_list
-	        INNER JOIN pd_in ON pd_list.pnum = pd_in.pnum
-	    <where>
-	        pstate = '등록'
-	        <if test="_parameter != null">
-	            AND (
-	                pname LIKE '%' || #{_parameter} || '%'
-	                OR (#{_parameter} IS NOT NULL AND #{_parameter} LIKE 'E%')
-	            )
-	        </if>
-	    </where>
-	    ORDER BY pindate
 	</select>
 	
 <!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
@@ -89,8 +61,8 @@
 		where pnum = #{_parameter}
 	</update>
 	
-	<delete id="deletePdout" parameterType="joinedDTO">
-		delete from pd_out
+	<delete id="deletePdin" parameterType="joinedDTO">
+		delete from pd_in
 		where pnum = #{_parameter}
 	</delete>
 </mapper>

@@ -23,26 +23,9 @@ public class OutRegDAO {
 		return list;
 	}
 	
-	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인) - out
-	public List selectPdOutList() {
+	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인)
+	public List selectPdinList() {
 		List list = sqlSession.selectList("mapper.pdout.selectPdout");
 		return list;
 	}
-	
-	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인) - out
-	public List selectPdOutList(String searchInput) {
-		List list = sqlSession.selectList("mapper.pdout.selectPdout2", searchInput);
-		return list;
-	}
-	
-	// pd_in delete
-	public int deletePdoutList(String chkValue) {
-		int result = sqlSession.update("mapper.pdout.deletePdout", chkValue);
-		return result;
-	}
-	
-	
-	
-	
-	
 }

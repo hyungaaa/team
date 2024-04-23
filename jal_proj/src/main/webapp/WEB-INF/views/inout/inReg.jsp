@@ -161,8 +161,8 @@
 						<col width="10%" />
 						<col width="20%" />
 						<col width="*" />
-						<col width="15%" />
-						<col width="15%" />
+						<col width="12%" />
+						<col width="13%" />
 					</colgroup>
 					<thead>
 						<th></th>

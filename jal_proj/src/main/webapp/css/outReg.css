@@ -84,10 +84,6 @@ a {
   height: 380px;
 }
 
-#popup-tboby {
-	width: 100%;
-}
-
 /* 팝업 내용 */
 .all {
   margin: 15px;
@@ -114,9 +110,6 @@ a {
 /* 테이블 */
 .div_tbl {
   text-align: center;
-  overflow-y: auto;
-  width: 360px;
-  height: 300px;
 }
 
 .tbl {
