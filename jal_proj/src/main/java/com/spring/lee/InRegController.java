@@ -83,8 +83,6 @@ public class InRegController {
 		int result = inRegService.insertInReg(joinedDTO);
 		System.out.println("insert : " + result);
 		
-		System.out.println();
-		
 		return "redirect:/inReg";
 	}
 	

@@ -30,8 +30,14 @@ public class OutRegService {
 		return outRegDAO.selectPdOutList(searchInput);
 	}
 	
+	// pd_out insert
+	public int insertOutReg(JoinedDTO joinedDTO) {
+		return outRegDAO.insertPdoutList(joinedDTO);
+	}
+	
 	public int deleteOutReg(String chkValue ) {
 		return outRegDAO.deletePdoutList(chkValue);
 	}
+	
 	
 }

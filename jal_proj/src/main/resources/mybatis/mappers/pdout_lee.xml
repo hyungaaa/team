@@ -25,10 +25,10 @@
 	<resultMap id="joinResult" type="com.spring.lee.JoinedDTO">
 	    <association property="pd_inDTO" javaType="com.spring.lee.Pd_inDTO">
 	        <id property="pnum" column="pnum" />
+	        <id property="plot" column="plot" />
 	        <result property="pindate" column="pindate" />
 	        <result property="pincnt" column="pincnt" />
 	        <result property="pstate" column="pstate" />
-	        <result property="plot" column="plot" />
 	        <result property="pnote" column="pnote" />
 	    </association>
 	    <association property="pdDTO" javaType="com.spring.lee.PdDTO">
@@ -37,6 +37,10 @@
 	        <result property="wzone" column="wzone" />
 	        <result property="psize" column="psize" />
 	        <result property="punit" column="punit" />
+	    </association>
+	    <association property="pd_outDTO" javaType="com.spring.lee.Pd_outDTO">
+	        <id property="plot" column="plot" />
+	        <result property="poutcnt" column="poutcnt" />
 	    </association>
 	</resultMap>
 	
@@ -58,6 +62,7 @@
 		order by pindate
 	</select>
 	
+	<!-- join한 테이블에서 검색 -->
 	<select id="selectPdout2" resultMap="joinResult">
 		SELECT
 	        pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt AS p, pincnt AS m, 
@@ -78,9 +83,14 @@
 	</select>
 	
 <!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
-	<insert id="insertPdin" parameterType="joinedDTO">
-		insert into pd_in
-		values (pdnum.nextval, '', #{pdDTO.pnum}, #{pd_inDTO.wzone}, to_char(sysdate, 'YYYY-MM-DD'), #{pd_inDTO.pincnt}, #{pd_inDTO.pnote}, '미등록')
+	<insert id="insertPdout" parameterType="joinedDTO">
+		insert into pd_out
+		values (pdoutSeq.nextval, (
+			select plot
+			from pd_in inner join pd_list 
+			on pd_in.pnum = pd_list.pnum
+			where pd_in.pnum = #{pd_inDTO.pnum}
+		) , to_char(sysdate, 'YYYY-MM-DD'), #{pd_outDTO.poutcnt})
 	</insert>
 	
 	<update id="updatePdin" parameterType="joinedDTO">

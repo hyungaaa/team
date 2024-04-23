@@ -24,35 +24,39 @@
 				<col width="8%" />
 				<col width="7%" />
 			</colgroup>
-			<tr>
-				<td class="rightAlign">제품명</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="pdtName" readonly></td>
-				<td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
-				<td class="rightAlign">규격</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="size"></td>
-				<td class="rightAlign">단위</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="unit"></td>
-				<td class="rightAlign">현재고</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="count"></td>
-				<td class="rightAlign">출고 수량</td>
-				<td class="leftAlign"><input type="text" class="table_normal_txt" id="outCount"></td>
-				<td><button type="button" class="table_btn" id="plusTr">추가</button></td>
-			</tr>
-			<tr>
-				<td class="rightAlign">제품번호</td>
-				<td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="pdtNum"></td>
-				<td class="rightAlign">비고</td>
-				<td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="note"></td>
-				<td class="rightAlign">위치</td>
-				<td colspan="4" class="leftAlign fullWidth">
-					<select id="locSelect" class="searchSelect">
-						<option value="위치">위치</option>
-						<option value="A-01">A-01</option>
-						<option value="B-01">B-01</option>
-						<option value="C-01">C-01</option>
-					</select>
-				</td>
-			</tr>
+			
+			<form method="post" action="outReg/insert">
+				<tr>
+					<td class="rightAlign">제품명</td>
+					<td class="leftAlign"><input type="text" class="table_normal_txt" id="pdtName" name="pname" value="${pd_in.plot}"readonly></td>
+					<td><button type="button" class="table_btn" onclick="openPopup()">검색</button></td>
+					<td class="rightAlign">규격</td>
+					<td class="leftAlign"><input type="text" class="table_normal_txt" id="size" name="psize"></td>
+					<td class="rightAlign">단위</td>
+					<td class="leftAlign"><input type="text" class="table_normal_txt" id="unit" name="punit"></td>
+					<td class="rightAlign">현재고</td>
+					<td class="leftAlign"><input type="text" class="table_normal_txt" id="count" name="pincnt"></td>
+					<td class="rightAlign">출고 수량</td>
+					<td class="leftAlign"><input type="text" class="table_normal_txt" id="outCount" name="poutcnt"></td>
+					<td><input type="submit" class="table_btn" id="plusTr" value="추가"></td>
+<!-- 					<button type="button" class="table_btn" id="plusTr">추가</button> -->
+				</tr>
+				<tr>
+					<td class="rightAlign">제품번호</td>
+					<td colspan="2" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="pdtNum" name="pnum"></td>
+					<td class="rightAlign">비고</td>
+					<td colspan="3" class="leftAlign"><input type="text" class="table_normal_txt fullWidth" id="note" name="pnote"></td>
+					<td class="rightAlign">위치</td>
+					<td colspan="4" class="leftAlign fullWidth">
+						<select id="locSelect" class="searchSelect" name="wzone">
+							<option value="위치">위치</option>
+							<option value="A-01">A-01</option>
+							<option value="B-01">B-01</option>
+							<option value="C-01">C-01</option>
+						</select>
+					</td>
+				</tr>
+			</form>
 		</table>
 
 		<hr>
@@ -164,7 +168,7 @@
 								<td>${pdOutList.pdDTO.pname}</td>
 								<td>${pdOutList.pdDTO.psize}</td>
 								<td>${pdOutList.pdDTO.punit}</td>
-								<input type="hidden" id="pincnt" value="${pdOutList.pd_inDTO.pincnt}">
+								<td style="display:none"><input type="hidden" id="pincnt" value="${pdOutList.pd_inDTO.pincnt}"></td>
 							</tr>
 						 </c:forEach>
 					</tbody>

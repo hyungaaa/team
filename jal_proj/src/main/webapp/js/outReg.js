@@ -199,8 +199,9 @@ function checkedPopup() {
 		        pdtName.value = tds[2].innerText;
 		        size.value = tds[3].innerText;
 		        unit.value = tds[4].innerText;
-		        count.value = document.querySelector('#pincnt').value;
-		        console.log(document.querySelector('#pincnt').value);
+		        console.log(tds[4])
+		        count.value = tds[5].querySelector('#pincnt').value;
+		        console.log(tds[5].querySelector('#pincnt').value);
 		        document.querySelector('#pincnt').style.display = "none";
 	        }
 //	        console.log(tds);

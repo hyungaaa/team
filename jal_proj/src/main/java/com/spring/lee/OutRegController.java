@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,6 +49,35 @@ public class OutRegController {
 		model.addAttribute("pdOutList", pdOutList);
 		
 		return "outReg";
+	}
+	
+	@RequestMapping("/outReg/insert")
+	public String insertInReg(
+			Model model,
+			@ModelAttribute PdDTO pdDTO,
+			@ModelAttribute Pd_inDTO pdinDTO,
+			@ModelAttribute Pd_outDTO pdoutDTO
+	) {
+		
+		JoinedDTO joinedDTO = new JoinedDTO();
+		joinedDTO.setPdDTO(pdDTO);
+		joinedDTO.setPd_inDTO(pdinDTO);
+		joinedDTO.setPd_outDTO(pdoutDTO);
+		System.out.println("joinedDTO : " + joinedDTO);
+		
+		System.out.println("pdDTO : " + pdDTO);
+		System.out.println("pdinDTO : " + pdinDTO);
+		System.out.println("pdoutDTO : " + pdoutDTO);
+		
+		System.out.println("joinedDTO.pdDTO.pnum : " + joinedDTO.getPdDTO().getPnum());
+		System.out.println("pdDTO.getPnum() : " + pdDTO.getPnum());
+		System.out.println("pdinDTO.getPlot() : " + pdinDTO.getPlot());
+		System.out.println("pdoutDTO.getPeoutcnt() : " + pdoutDTO.getPoutcnt());
+		
+		int result = outRegService.insertOutReg(joinedDTO);
+		System.out.println("out insert : " + result);
+		
+		return "redirect:/outReg";
 	}
 	
 	@RequestMapping("/outReg/delete")
