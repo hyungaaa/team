@@ -8,7 +8,7 @@
 
 
 <script src="js/system.js"></script>
-<script src="js/item.js"></script>
+<!-- <script src="js/item.js"></script> -->
 <script src="js/itemnew.js"></script>
 
 
@@ -113,15 +113,15 @@
 			</table>
 			<!-- 저장 버튼 -->
 			<div id="button_new">
+				<button id="getDataBtn" type="button" class="main_btn" style="margin-right: 550px;">QR제품번호 생성</button>
 				<button type="submit" class="main_btn">
-					<a href="itMng" id="lim_a">취소 
+					<a href="itMng" id="lim_a">취소 </a>
 				</button>
-				</a>
 				<input type="submit" class="main_btn" value="제출">
 					<a href="itemMng" id="lim_a" onclick="saveShow()">
 				</a>
+				</div>
 			</div>
-		</div>
 	</form>
 
 

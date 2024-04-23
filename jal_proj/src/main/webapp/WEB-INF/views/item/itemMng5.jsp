@@ -51,14 +51,14 @@
 
 		<!-- 제품 게시판? -->
 		<div id="productBoard">
-			<form action="itMngD" method="post" onsubmit="return validateForm();">
+			<form action="itemNew3" method="post" id="productForm">
 				<!-- 폼 추가 -->
 				<table class="table_mng">
 					<colgroup>
 						<col width="7%" />
 						<col width="30%" />
-						<col width="20%" />
-						<col width="10%" />
+						<col width="16%" />
+						<col width="14%" />
 						<col width="7%" />
 						<col width="10%" />
 						<col width="8%" />
@@ -99,10 +99,9 @@
 
 
 		<div id="button_mng_2">
-			<button type="button" class="main_btn" id="selected_del"
-				onclick="return confirmAndDelete()">제품 삭제</button>
+			 <button type="button" class="main_btn" id="selected_del" onclick="submitForm()">제품 삭제</button>
 			<button class="main_btn">
-				<a href="itemNew.jsp" id="lim_a">제품 추가 
+				<a href="itemNew" id="lim_a">제품 추가 
 			</button>
 			</a>
 		</div>
