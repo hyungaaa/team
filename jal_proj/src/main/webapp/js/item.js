@@ -165,4 +165,6 @@ $(document).ready(function() {
         });
     });
 });
-
+function submitForm() {
+    document.getElementById("productForm").submit();
+}
