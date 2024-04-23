@@ -11,7 +11,6 @@
         FROM 
             pd_list 
         <where>
-            1 = 1 
 		    <if test="_parameter != null">
 		        AND pname LIKE '%' || #{_parameter} || '%'
 		        <if test="_parameter.startsWith('E')">
@@ -53,27 +52,27 @@
 <!-- 	</select> -->
 
 	<select id="selectPdout" resultMap="joinResult">
-<!-- 		SELECT -->
-<!-- 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt as p, pincnt as m,  -->
-<!-- 			CASE WHEN pstate = '등록' THEN '미등록' ELSE pstate END AS pstate, plot, pnote, punit, psize -->
-<!-- 		FROM -->
-<!-- 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum -->
-<!-- 		WHERE pstate='등록' -->
-<!-- 		order by pindate -->
-		
 		SELECT
-		    pd_in.pindate, pd_in.pnum, pname, pd_list.wzone, pd_out.poutcnt, pd_in.pincnt, (pd_in.pincnt-pd_out.poutcnt), 
-		    CASE WHEN pd_in.pstate = '등록' THEN '미등록' ELSE pd_in.pstate END AS pstate, pd_in.plot, pnote, punit, psize
+			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt as p, pincnt as m, 
+			CASE WHEN pstate = '등록' THEN '미등록' ELSE pstate END AS pstate, plot, pnote, punit, psize
 		FROM
-		    pd_in
-		INNER JOIN
-		    pd_list ON pd_list.pnum = pd_in.pnum
-		LEFT JOIN
-		    pd_out ON pd_out.plot = pd_in.plot
-		WHERE
-		    pd_in.pstate = '등록'
-		ORDER BY
-		    pd_in.pindate
+			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
+		WHERE pstate='등록'
+		order by pindate
+		
+<!-- 		SELECT -->
+<!-- 		    pd_in.pindate, pd_in.pnum, pname, pd_list.wzone, pd_out.poutcnt, pd_in.pincnt, (pd_in.pincnt-pd_out.poutcnt),  -->
+<!-- 		    CASE WHEN pd_in.pstate = '등록' THEN '미등록' ELSE pd_in.pstate END AS pstate, pd_in.plot, pnote, punit, psize -->
+<!-- 		FROM -->
+<!-- 		    pd_in -->
+<!-- 		INNER JOIN -->
+<!-- 		    pd_list ON pd_list.pnum = pd_in.pnum -->
+<!-- 		LEFT JOIN -->
+<!-- 		    pd_out ON pd_out.plot = pd_in.plot -->
+<!-- 		WHERE -->
+<!-- 		    pd_in.pstate = '등록' -->
+<!-- 		ORDER BY -->
+<!-- 		    pd_in.pindate -->
 	</select>
 	
 	<!-- join한 테이블에서 검색 -->
