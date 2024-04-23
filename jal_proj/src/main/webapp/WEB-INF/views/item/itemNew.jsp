@@ -40,7 +40,7 @@
 						class="main_btn_new2">이미지 업로드</label> <input type="file"
 						id="imageUpload" style="display: none" accept="image/*">
 					</td>
-					</button>
+				</tr>
 				<tr>
 					<th>제품명</th>
 					<td colspan="3"><input type="text" id="input_new1" name="pname"></td>
