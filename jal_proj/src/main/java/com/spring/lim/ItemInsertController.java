@@ -1,12 +1,17 @@
 package com.spring.lim;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.spring.y_02.BoardListDTO;
 
 @Controller
 public class ItemInsertController {
@@ -18,7 +23,12 @@ public class ItemInsertController {
 	public String test() {
 		return "itemNew";
 	}
-
+	
+//	@RequestMapping("/itemFix")
+//	public String test2() {
+//		return "itemFix";
+//	}
+	
 	// insert
 	@RequestMapping("/itemNew2")
 	public String insertItem(
@@ -61,4 +71,19 @@ public class ItemInsertController {
 	    }
 		return "redirect:/itemMng";
 	}
+	
+	// selected
+		@RequestMapping(value="/itemFix", method = RequestMethod.GET)
+		public String itemDetail(
+				@RequestParam("pnum") String pnum,
+				Model model
+				) {
+			ItMngDTO dto = new ItMngDTO();
+			dto.setPnum(pnum);
+			
+			List list = itemInsertService.itemDetail(dto);
+			model.addAttribute("itemMng", list);
+			System.out.println("itemMng : " + list);
+			return "itemFix";
+		}
 }

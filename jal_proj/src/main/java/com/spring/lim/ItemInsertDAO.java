@@ -1,5 +1,7 @@
 package com.spring.lim;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,6 +26,13 @@ public class ItemInsertDAO {
 		result = sqlSession.delete("mapper.item.deleteItem",dto);
 		System.out.println("delete 결과 : " + result);
 		return result;
+	}
+	
+	// select where
+	public List itemDetail(ItMngDTO dto) {
+		List list = sqlSession.selectList("mapper.item.itemDetail", dto);
+		System.out.println("view : " +list);
+		return list;
 	}
 	
 	
