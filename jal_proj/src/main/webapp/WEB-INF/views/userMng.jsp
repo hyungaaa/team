@@ -115,7 +115,7 @@
 						<th>사용자관리<input type="checkbox" id="select_all6"></th>
 						<th>
 							<button type="button"
-								style="padding: 6rem; border: 0px solid #888; color: #ffffff; border-radius: 5rem; background: #36698c;">전체적용</button>
+								style="padding: 4rem; border: 0px solid #888; color: #ffffff; border-radius: 5rem; background: #36698c;">전체적용</button>
 						</th>
 					</tr>
 				</thead>
@@ -161,10 +161,11 @@
 										${user.ubdm == '1' ? 'checked' : ''}></td>
 									<td><input type="checkbox"
 										${user.uum == '1' ? 'checked' : ''}></td>
-									<td>
-										<button type="button" data-in class="main_btn2"
-											style="padding: 8px;">삭제</button>
-										<button type="button" class="main_btn" style="padding: 8px;">수정</button>
+									<td><form action="${path}/deleteUser" method="POST">
+											<input type="hidden" name="uuid" value="${user.uuid}">
+											<button type="submit" class="main_btn2" style="padding: 4px;">삭제</button>
+										</form>
+										<button type="button" class="main_btn" style="padding: 4px;">수정</button>
 									</td>
 								</tr>
 							</c:forEach>
@@ -174,4 +175,13 @@
 			</table>
 		</div>
 	</div>
+	<!-- 성공 메시지 표시 -->
+	<c:if test="${not empty message}">
+		<div style="color: green;">${message}</div>
+	</c:if>
+
+	<!-- 오류 메시지 표시 -->
+	<c:if test="${not empty errorMessage}">
+		<div style="color: red;">${errorMessage}</div>
+	</c:if>
 </main>

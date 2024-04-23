@@ -44,6 +44,7 @@ public class LoginController {
 				session.setAttribute("isLogon", "ok");
 				session.setAttribute("uname", dto.getUname());
 				session.setAttribute("umaster", dto.getUmaster());
+				session.setAttribute("uuid", dto.getUuid());  // 세션에 uuid 저장
 				System.out.println("세션 생성 성공");
 				// 로그인 성공 시 대시보드로 리디렉트
 				return "redirect:/dashboard";
