@@ -18,19 +18,13 @@ public class InRegController {
 	
 	@RequestMapping("/inReg")
 	public String listInRegPd(
-//		@RequestParam("searchInput") String searchInput,
 		Model model
 	) {
 		List pdList = inRegService.listPd();
 		List pdInList = inRegService.listPdin();
 		
-//		System.out.println("searchInput" + searchInput);
-		
-		System.out.println("controller > listInRegPd pdList : " + pdList);
-		System.out.println("controller > listInRegPd pdInList : " + pdInList);
-		
-		System.out.println("pdList.size() : " + pdList.size());
-		System.out.println("pdInList.size() : " + pdInList.size());
+		System.out.println("in-controller > pdList : " + pdList);
+		System.out.println("in-controller > pdInList : " + pdInList);
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdInList", pdInList);
@@ -50,12 +44,8 @@ public class InRegController {
 		List pdList = inRegService.listPd(searchInput);
 		List pdInList = inRegService.listPdin();
 		
-		
-		System.out.println("controller > listInRegPd2 pdList : " + pdList);
-		System.out.println("controller > listInRegPd2 pdInList : " + pdInList);
-		
-		System.out.println("pdList.size() : " + pdList.size());
-		System.out.println("pdInList.size() : " + pdInList.size());
+		System.out.println("in-controller > listInRegPd2 pdList(search) : " + pdList);
+		System.out.println("in-controller > listInRegPd2 pdInList : " + pdInList);
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdInList", pdInList);

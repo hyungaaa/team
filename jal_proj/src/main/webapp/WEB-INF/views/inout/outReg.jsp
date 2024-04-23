@@ -173,14 +173,14 @@
 							<th>단위</th>
 						</thead>
 						<tbody id="popup-tboby">
-						 <c:forEach var="pdOutList" items="${pdOutList}">
+						 <c:forEach var="pdList" items="${pdList}">
 						 	<tr id="popup-tr">
-								<td><input type="radio" name="inReg-radio" value="${pdOutList.pdDTO.pnum}"></td>
-								<td>${pdOutList.pdDTO.pnum}</td>
-								<td>${pdOutList.pdDTO.pname}</td>
-								<td>${pdOutList.pdDTO.psize}</td>
-								<td>${pdOutList.pdDTO.punit}</td>
-								<td style="display:none"><input type="hidden" id="pincnt" value="${pdOutList.pd_inDTO.pincnt}"></td>
+								<td><input type="radio" name="inReg-radio" value="${pdList.pdDTO.pnum}"></td>
+								<td>${pdList.pdDTO.pnum}</td>
+								<td>${pdList.pdDTO.pname}</td>
+								<td>${pdList.pdDTO.psize}</td>
+								<td>${pdList.pdDTO.punit}</td>
+								<td style="display:none"><input type="hidden" id="pincnt" value="${pdList.pd_inDTO.pincnt}"></td>
 							</tr>
 						 </c:forEach>
 						</tbody>

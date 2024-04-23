@@ -18,6 +18,7 @@ public class InRegService {
 	/////////////////////////////////
 	// 검색 select
 	public List listPd(String searchInput) {
+		System.out.println(searchInput + " 검색 드가요 (service)");
 		return inRegDAO.selectPdList(searchInput);
 	}
 	

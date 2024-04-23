@@ -192,10 +192,6 @@
 				</table>
 			</div>
 			
-<!-- 				<div class="div_flex"> -->
-<!-- 					<button type="button" class="main_btn">&lt; prev</button> -->
-<!-- 					<button type="button" class="main_btn">next &gt;</button> -->
-<!-- 				</div> -->
 			<div class="div_line"></div>
 			<div class="div_btn">
 				<a href="#">
