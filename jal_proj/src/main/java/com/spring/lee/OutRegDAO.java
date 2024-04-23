@@ -29,11 +29,13 @@ public class OutRegDAO {
 		return list;
 	}
 	
-	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인) - out
+	// 입고 등록된 제품 select (pdDTO, pd_inDTO 조인) - out 검색
 	public List selectPdOutList(String searchInput) {
 		List list = sqlSession.selectList("mapper.pdout.selectPdout2", searchInput);
 		return list;
 	}
+	
+	
 	
 	// pd_out insert
 	public int insertPdoutList(JoinedDTO joinedDTO) {
