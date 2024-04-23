@@ -43,7 +43,8 @@ public class InRegController {
 	@RequestMapping(value="/inReg/search", method=RequestMethod.GET)
 	public String listInRegPd2(
 			@RequestParam("searchInput") String searchInput,
-			Model model) {
+			Model model
+	) {
 		
 		System.out.println("searchInput : " + searchInput);
 		List pdList = inRegService.listPd(searchInput);

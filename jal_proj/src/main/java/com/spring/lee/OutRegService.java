@@ -17,6 +17,7 @@ public class OutRegService {
 	
 	// 검색 select
 	public List listPd(String searchInput) {
+		System.out.println("listPd(String searchInput) 실행");
 		return outRegDAO.selectPdList(searchInput);
 	}
 	

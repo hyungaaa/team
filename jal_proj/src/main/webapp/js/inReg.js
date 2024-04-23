@@ -175,6 +175,37 @@ function bind() {
 	        }
     	}
 	})
+	
+	// qr 버튼
+	let qrBtn = document.querySelector('#qr_button');
+	
+	qrBtn.addEventListener('click', function() {
+		let list_chk = document.querySelector(".chk");
+		qrNum = list_chk.value;
+		console.log(qrNum);
+		
+		let url = "qr?qrNum=";
+
+        // ajax 객체 생성
+        let xhr = new XMLHttpRequest();
+        // 보낼 준비
+        xhr.open("get", url + qrNum);
+		console.log('chkValue : ' + qrNum);	// undefined
+        // 보내기(단! 언제 끝날지 모름)
+        xhr.send();
+
+        // 다녀온 후(응답 이후)
+        xhr.onload = function () {
+            // 받아온 내용이 저장되는 곳
+            let data = xhr.responseText;
+            console.log(data);
+            
+            let parser = new DOMParser();
+			let doc = parser.parseFromString(xhr.responseText, "text/html");
+			
+			openWindow(qrNum);
+        }
+	}) 
 }
 
 // popup창 띄우기
@@ -240,7 +271,7 @@ function checkedPopup() {
 
 }
 
-function openWindow() {
+function openWindow(qrNum) {
 	// 팝업 창 크기 설정
 	var width = 400; // 팝업 창의 너비
 	var height = 600; // 팝업 창의 높이
@@ -250,7 +281,7 @@ function openWindow() {
 	var top = (window.screen.height / 2) - (height / 2);
 
 	// 새 팝업 창 열기
-	window.open('qrpage.html', 'newWindow', 'width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
+	window.open('/jal/qr?qrNum=' + qrNum, 'newWindow', 'width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
 }
 
 

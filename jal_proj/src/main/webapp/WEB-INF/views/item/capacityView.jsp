@@ -5,6 +5,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" href="css/capacityView.css">
 <script src="js/capacityView.js"></script>
+<script src="js/chart.js"></script>
 <!-- <!DOCTYPE html> -->
 <!-- <html lang="en"> -->
 
@@ -19,7 +20,6 @@
 <!--     <link rel="stylesheet" href="css/capacityView.css"> -->
 
 
-<!--     <script src="js/chart.js"></script> -->
 <!--     <script src="js/system.js"></script> -->
 <!--     <script src="js/capacityView.js"></script> -->
  

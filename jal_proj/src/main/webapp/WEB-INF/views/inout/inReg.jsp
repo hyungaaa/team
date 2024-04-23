@@ -62,8 +62,14 @@
 					<select id="locSelect" class="searchSelect" name="wzone">
 						<option value="위치">위치</option>
 						<option value="A-01">A-01</option>
+						<option value="A-02">A-02</option>
 						<option value="B-01">B-01</option>
+						<option value="B-02">B-02</option>
+						<option value="B-03">B-03</option>
+						<option value="B-04">B-04</option>
 						<option value="C-01">C-01</option>
+						<option value="C-02">C-02</option>
+						<option value="C-03">C-03</option>
 					</select>
 				</td>
 			</tr>
@@ -78,7 +84,8 @@
 	<div class="div-btn">
 		<button type="button" class="main_btn" id="add-btn">등록</button>
 		<button type="button" class="main_btn" id="selected_del">삭제</button>
-		<button type="button" id="qr_button" onclick="openWindow()" class="main_btn2">QR 발행</button>
+		<button type="button" id="qr_button" class="main_btn2">QR 발행</button>
+		<!--  onclick="openWindow()"  -->
 	</div>
 		
 	<!-- 아래 추가된 제품 테이블 -->

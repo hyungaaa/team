@@ -20,14 +20,13 @@ public class OutRegController {
 	public String listOutRegPd(
 		Model model
 	) {
+		// select 맨위에
 		List pdList = outRegService.listPd();
+		// 팝업에 떠야 할 list
 		List pdOutList = outRegService.listPdout();
 		
-		System.out.println("controller > listOutRegPd pdList : " + pdList);
-		System.out.println("controller > listOutRegPd pdOutList : " + pdOutList);
-		
-		System.out.println("out - pdList.size() : " + pdList.size());
-		System.out.println("out - pdOutList.size() : " + pdOutList.size());
+		System.out.println("out> pdList : " + pdList);
+		System.out.println("out> pdOutList : " + pdOutList);
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdOutList", pdOutList);
@@ -40,15 +39,15 @@ public class OutRegController {
 			@RequestParam("searchInput") String searchInput,
 			Model model) {
 		
-		System.out.println("searchInput : " + searchInput);
+		System.out.println("검색어 searchInput : " + searchInput);
+		
+		// 검색어 ㄱㄱ
 		List pdList = outRegService.listPd(searchInput);
+		// 팝업에 떠야 할 list
 		List pdOutList = outRegService.listPdout();
 		
-		System.out.println("controller > listOutRegPd2 pdList : " + pdList);
-		System.out.println("controller > listOutRegPd2 pdOutListList : " + pdOutList);
-		
-		System.out.println("out - pdList.size() : " + pdList.size());
-		System.out.println("out - pdOutList.size() : " + pdOutList.size());
+		System.out.println("out/search> pdList : " + pdList);
+		System.out.println("out/search> pdOutListList : " + pdOutList);
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdOutList", pdOutList);

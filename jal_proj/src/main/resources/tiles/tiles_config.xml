@@ -86,6 +86,10 @@
 	<definition name="login" extends="baseLayout2">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 	</definition>
+	
+	<definition name="qrpage" extends="baseLayout2">
+		<put-attribute name="body" value="/WEB-INF/views/qrpage.jsp" />
+	</definition>
 
 <!-- 	<definition name="*.bl" extends="baseLayout"> -->
 <!-- 		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp" /> -->

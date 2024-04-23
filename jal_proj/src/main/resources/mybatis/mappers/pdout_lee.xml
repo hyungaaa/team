@@ -51,10 +51,11 @@
 <!-- 		order by pindate -->
 <!-- 	</select> -->
 
+	<!-- 조인해서 pstate가 등록인 거 가져옴 -->
 	<select id="selectPdout" resultMap="joinResult">
 		SELECT
 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt as p, pincnt as m, 
-			CASE WHEN pstate = '등록' THEN '미등록' ELSE pstate END AS pstate, plot, pnote, punit, psize
+			pstate, plot, pnote, punit, psize
 		FROM
 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum
 		WHERE pstate='등록'

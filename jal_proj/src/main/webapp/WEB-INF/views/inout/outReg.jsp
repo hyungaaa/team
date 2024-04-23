@@ -51,8 +51,14 @@
 						<select id="locSelect" class="searchSelect" name="wzone">
 							<option value="위치">위치</option>
 							<option value="A-01">A-01</option>
+							<option value="A-02">A-02</option>
 							<option value="B-01">B-01</option>
+							<option value="B-02">B-02</option>
+							<option value="B-03">B-03</option>
+							<option value="B-04">B-04</option>
 							<option value="C-01">C-01</option>
+							<option value="C-02">C-02</option>
+							<option value="C-03">C-03</option>
 						</select>
 					</td>
 				</tr>
@@ -171,7 +177,7 @@
 								<td style="display:none"><input type="hidden" id="pincnt" value="${pdOutList.pd_inDTO.pincnt}"></td>
 							</tr>
 						 </c:forEach>
-					</tbody>
+						</tbody>
 					</table>
 				</div>
 <!-- 				<div class="div_flex"> -->

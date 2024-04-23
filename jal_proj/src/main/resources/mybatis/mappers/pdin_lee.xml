@@ -12,7 +12,6 @@
         FROM 
             pd_list 
         <where>
-            1 = 1 
 		    <if test="_parameter != null">
 		        AND pname LIKE '%' || #{_parameter} || '%'
 		        <if test="_parameter.startsWith('E')">
