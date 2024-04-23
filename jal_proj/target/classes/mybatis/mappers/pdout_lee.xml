@@ -51,7 +51,7 @@
 <!-- 		order by pindate -->
 <!-- 	</select> -->
 
-	<!-- 조인해서 pstate가 등록인 거 가져옴 -->
+<!-- 조인해서 pstate가 등록인 거 가져옴 -->
 	<select id="selectPdout" resultMap="joinResult">
 		SELECT
 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt as p, pincnt as m, 

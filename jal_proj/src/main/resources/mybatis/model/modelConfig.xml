@@ -19,6 +19,7 @@
 		<!-- park -->
 		<typeAlias type="com.spring.Mng.UserMngDTO" alias="usermngDTO"/>
 		<typeAlias type="com.spring.Mng.UserMngDTO2" alias="usermngDTO2"/>
+		<typeAlias type="com.spring.Mng.MypageDTO" alias="MypageDTO"/>
 		
 		<typeAlias type="com.spring.servlet.MemberInfoDTO" alias="memberinfoDTO"/>
 		<typeAlias type="com.spring.servlet.ReqListDTO" alias="reqlistDTO"/>

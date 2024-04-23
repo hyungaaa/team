@@ -52,7 +52,7 @@ public class OutRegController {
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdOutList", pdOutList);
 		
-		return "outReg";
+		return "redirect:/outReg";
 	}
 	
 	@RequestMapping("/outReg/insert")
@@ -81,7 +81,7 @@ public class OutRegController {
 		int result = outRegService.insertOutReg(joinedDTO);
 		System.out.println("out insert : " + result);
 		
-		return "redirect:/outReg";
+		return "outReg";
 	}
 	
 	@RequestMapping("/outReg/delete")
