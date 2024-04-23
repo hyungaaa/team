@@ -59,8 +59,8 @@
 					<colgroup>
 						<col width="7%" />
 						<col width="30%" />
-						<col width="20%" />
-						<col width="10%" />
+						<col width="16%" />
+						<col width="14%" />
 						<col width="7%" />
 						<col width="10%" />
 						<col width="8%" />
@@ -102,7 +102,6 @@
 
 			<div id="button_mng_2">
 				 <button type="button" class="main_btn" id="selected_del" onclick="submitForm()">제품 삭제</button>
-				<!-- 				onclick="return confirmAndDelete()" -->
 				<button class="main_btn">
 					<a href="itemNew" id="lim_a">제품 추가 
 				</button>
