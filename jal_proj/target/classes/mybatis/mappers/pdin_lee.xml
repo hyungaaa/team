@@ -6,7 +6,6 @@
 	
 	<!-- select -->
 	<select id="selectPd" resultType="pdDTO">
-		
         SELECT 
             pnum, pname, psize, punit 
         FROM 
@@ -47,17 +46,21 @@
 		order by pindate
 	</select>
 <!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
+
+	<!-- INSERT -->
 	<insert id="insertPdin" parameterType="joinedDTO">
 		insert into pd_in
-		values (pdnum.nextval, '', #{pdDTO.pnum}, #{pd_inDTO.wzone}, to_char(sysdate, 'YYYY-MM-DD'), #{pd_inDTO.pincnt}, #{pd_inDTO.pnote}, '미등록')
+		values (pdnum.nextval, '', #{pdDTO.pnum}, #{pd_inDTO.wzone}, sysdate, #{pd_inDTO.pincnt}, #{pd_inDTO.pnote}, '미등록')
 	</insert>
 	
+	<!-- UPDATE -->
 	<update id="updatePdin" parameterType="joinedDTO">
 		update pd_in
 		set pstate='등록', plot = 'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000')
 		where pnum = #{_parameter}
 	</update>
 	
+	<!-- DELETE -->
 	<delete id="deletePdin" parameterType="joinedDTO">
 		delete from pd_in
 		where pnum = #{_parameter}

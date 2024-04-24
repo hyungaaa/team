@@ -22,13 +22,23 @@ public class OutRegService {
 	
 	// pd_in select
 	public List listPdout() {
-		return outRegDAO.selectPdinList();
+		return outRegDAO.selectPdoutList();
 	}
 	
-	// pd_out select
+	// pd_out select 팝업
 	public List listPdout(String searchInput) {
 		return outRegDAO.selectPdOutList(searchInput);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	// pd_out insert
 	public int insertOutReg(JoinedDTO joinedDTO) {

@@ -22,10 +22,13 @@ public class OutRegController {
 	) {
 		// select 맨위에
 		List pdList = outRegService.listPd();
+		System.out.println("out> pdList : " + pdList);
+		System.out.println("out> pdList.size() : " + pdList.size());
+		
 		// 팝업에 떠야 할 list
+		// 아래 테이블에 뜸
 		List pdOutList = outRegService.listPdout();
 		
-		System.out.println("out> pdList : " + pdList);
 		System.out.println("out> pdOutList : " + pdOutList);
 		
 		model.addAttribute("pdList", pdList);
@@ -42,15 +45,15 @@ public class OutRegController {
 		System.out.println("검색어 searchInput : " + searchInput);
 		
 		// 검색어 ㄱㄱ
-		List pdList2 = outRegService.listPdout(searchInput);
+		List pdListPop = outRegService.listPdout(searchInput);
 		
 		// 팝업에 떠야 할 list
 		List pdOutList = outRegService.listPdout();
 		
-		System.out.println("out/search> pdListSearch : " + pdList2);
+		System.out.println("out/search> pdListSearch : " + pdListPop);
 		System.out.println("out/search> pdOutListList : " + pdOutList);
 		
-		model.addAttribute("pdList2", pdList2);
+		model.addAttribute("pdListPop", pdListPop);
 		model.addAttribute("pdOutList", pdOutList);
 		
 		return "redirect:/outReg";
@@ -82,7 +85,7 @@ public class OutRegController {
 		int result = outRegService.insertOutReg(joinedDTO);
 		System.out.println("out insert : " + result);
 		
-		return "outReg";
+		return "redirect:/outReg";
 	}
 	
 	@RequestMapping("/outReg/update")

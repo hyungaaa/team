@@ -3,24 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.pdout">
-	
-	<!-- select -->
-	<select id="selectPd" resultType="pdDTO">
-        SELECT 
-            pnum, pname, psize, punit 
-        FROM 
-            pd_list 
-        <where>
-        	1=1
-		    <if test="_parameter != null">
-		        AND pname LIKE '%' || #{_parameter} || '%'
-		        <if test="_parameter.startsWith('E')">
-		            OR pnum = #{_parameter}
-		        </if>
-		    </if>
-        </where> 
-	</select>
-	
+
 	<!-- 입고등록 아래 테이블 join -->
 	<resultMap id="joinResult" type="com.spring.lee.JoinedDTO">
 	    <association property="pd_inDTO" javaType="com.spring.lee.Pd_inDTO">
@@ -43,6 +26,26 @@
 	        <result property="poutcnt" column="poutcnt" />
 	    </association>
 	</resultMap>
+	
+	<!-- select -->
+	<select id="selectPd" resultMap="joinResult">
+        SELECT
+		    pd_in.pnum, pd_list.pname, pd_list.punit, pd_list.psize, pd_in.pincnt
+		FROM
+		    pd_in
+		INNER JOIN
+		    pd_list ON pd_list.pnum = pd_in.pnum
+        <where>
+        	pd_in.pstate='등록'
+		    <if test="_parameter != null">
+		        AND pd_list.pname LIKE '%' || #{_parameter} || '%'
+		        <if test="_parameter.startsWith('E')">
+		            OR pd_in.pnum = #{_parameter}
+		        </if>
+		    </if>
+        </where> 
+	</select>
+	
 
 <!-- 조인해서 pstate가 등록인 거 가져옴 -->
 	<select id="selectPdout" resultMap="joinResult">
@@ -55,8 +58,8 @@
 <!-- 		order by pindate -->
 		
 		SELECT
-		    pd_in.pindate, pd_in.pnum, pname, pd_list.wzone, pd_out.poutcnt, pd_in.pincnt, (pd_in.pincnt-pd_out.poutcnt), 
-		    CASE WHEN pd_in.pstate = '등록' THEN '미등록' ELSE pd_in.pstate END AS pstate, pd_in.plot, pnote, punit, psize
+		    pd_in.pindate, pd_in.pnum, pname, pd_list.wzone, pd_out.poutcnt, pd_in.pincnt, 
+		    CASE WHEN pd_in.pstate = '등록' THEN '출고예정' ELSE pd_in.pstate END AS pstate, pd_in.plot, pnote, punit, psize
 		FROM
 		    pd_in
 		INNER JOIN
@@ -64,7 +67,7 @@
 		LEFT JOIN
 		    pd_out ON pd_out.plot = pd_in.plot
 		WHERE
-		    pd_in.pstate = '등록'
+		    pd_in.pstate = '등록' and poutcnt is not null
 		ORDER BY
 		    pd_in.pindate
 	</select>

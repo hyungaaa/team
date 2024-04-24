@@ -207,7 +207,8 @@ function outRegSearch() {
             // xhr.responseText에서 필요한 부분만 추출
             var parser = new DOMParser();
             var doc = parser.parseFromString(xhr.responseText, "text/html");
-
+			console.log(doc);
+			console.log(xhr.responseText);
             var popupTr = doc.querySelectorAll('#popup-tr');	// 맨 위 tr만 나옴 쿼리셀렉터로 해야함
             console.log(popupTr)
             let popup_tbody = document.getElementById("popup-tboby");
@@ -260,7 +261,7 @@ function checkedPopup() {
 		        pdtName.value = tds[2].innerText;
 		        size.value = tds[3].innerText;
 		        unit.value = tds[4].innerText;
-		        console.log(tds[4])
+		        console.log(tds[5])
 		        count.value = tds[5].querySelector('#pincnt').value;
 		        console.log(tds[5].querySelector('#pincnt').value);
 		        document.querySelector('#pincnt').style.display = "none";
