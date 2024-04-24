@@ -63,8 +63,25 @@
 								</c:if>
 							</tbody>
 						</table>
-						<br> <span class="popY">승인</span> <span class="popN"
-							onclick="closePopup()">취소</span>
+						<br>
+						<!-- 승인 및 거절 처리를 위한 폼 -->
+						<form id="approveForm" action="${path}/approveUser" method="post"
+							style="display: none;">
+							<input type="hidden" name="uuids" id="approveUuids" value="">
+						</form>
+						<form id="rejectForm" action="${path}/rejectUser" method="post"
+							style="display: none;">
+							<input type="hidden" name="uuids" id="rejectUuids" value="">
+						</form>
+
+						<button
+							onclick="submitFormWithUuids('approveForm', 'approveUuids')"
+							class="popY">승인</button>
+						<button onclick="submitFormWithUuids('rejectForm', 'rejectUuids')"
+							class="popY">거절</button>
+
+						<br> <br> <span class="popN" onclick="closePopup()"
+							style="margin-right: 260px;">취소</span>
 					</div>
 				</div>
 			</div>

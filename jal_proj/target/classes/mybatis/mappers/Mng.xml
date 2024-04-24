@@ -4,7 +4,8 @@
 <mapper namespace="mapper.userMng">
 
 	<select id="infoPower" resultType="UserMngDTO">
-		SELECT u.uname, u.unum, u.uuid,
+		SELECT u.uname, u.unum,
+		u.uuid,
 		u.uposition, p.updv, p.updior, p.updiom, p.updr,
 		p.ubdm, p.uum
 		FROM
@@ -36,6 +37,40 @@
 		WHERE uuid = #{uuid}
 	</delete>
 
+	<!-- 승인 처리를 위한 쿼리 추가 -->
+	<!-- REQ_LIST에서 정보를 가져와 USER_INFO에 삽입 -->
+	<!-- USER_INFO에 사용자 삽입 -->
+	<insert id="insertUserInfoFromReq" parameterType="String">
+		INSERT INTO SCOTT_JAL.user_info (uuid, uemail, upass)
+		SELECT r.uuid, r.uemail, r.uuid FROM SCOTT_JAL.req_list r
+		WHERE r.uuid = #{uuid} AND NOT EXISTS (
+		SELECT 1 FROM SCOTT_JAL.user_info u WHERE u.uuid = r.uuid
+		)
+	</insert>
+
+	<!-- USER_POWER에 사용자 권한 삽입 -->
+	<insert id="insertUserPowerFromReq" parameterType="String">
+		INSERT INTO
+		SCOTT_JAL.user_power (uuid, ulevel, updv, updior, updr, updiom,
+		ubdm,
+		uum)
+		SELECT r.uuid, '기본권한', '0', '0', '0', '0', '0', '0' FROM
+		SCOTT_JAL.req_list
+		r
+		WHERE r.uuid = #{uuid} AND NOT EXISTS (
+		SELECT 1
+		FROM SCOTT_JAL.user_power p WHERE p.uuid = r.uuid
+		)
+	</insert>
+
+
+	<!-- 거절 처리를 위한 쿼리 (기존 deleteUserPower 사용) -->
+	<!-- REQ_LIST에서 사용자 요청 삭제 -->
+	<delete id="deleteFromReqList" parameterType="String">
+		DELETE FROM
+		SCOTT_JAL.req_list
+		WHERE uuid = #{uuid}
+	</delete>
 
 
 </mapper>
