@@ -1,13 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-<<<<<<< HEAD
 Built-By: kksy5
-=======
-Built-By: ga_he
->>>>>>> c7954d185953f15ff2b2223f7c96f4cf9fc4dc6b
-=======
-Built-By: admin
->>>>>>> parent of 309ff6a (로그인 조금)
 Build-Jdk: 11.0.15
 Created-By: Maven Integration for Eclipse
 
