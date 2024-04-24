@@ -27,16 +27,16 @@
 
     <!-- 제품 추가 -->
 
-    
+    <form method="post" action="itemFix2">
     <div id="productBoard_new">
        <table>
 			<c:forEach items="${itemMng}" var="item">
             <tr>
                 <th>제품명</th>
-                <td colspan="3"><input type="text" id="input_new1" value= "${item.pname }" style="text-align: center;"></td>
+                <td colspan="3"><input type="text" id="input_new1" value= "${item.pname }" style="text-align: center;" name="pname"></td>
                 <th>대분류</th>
                 <td> 
-                	<select class="select_new1">
+                	<select class="select_new1" name="bcid">
 					    <option <c:if test="${item.bcid eq 'bc1'}">selected</c:if> value="bc1">간편식사</option>
 					    <option <c:if test="${item.bcid eq 'bc2'}">selected</c:if> value="bc2">과자류</option>
 					    <option <c:if test="${item.bcid eq 'bc3'}">selected</c:if> value="bc3">아이스크림</option>
@@ -48,10 +48,10 @@
             </tr>
             <tr>
                 <th>제품번호</th>
-                <td><input type="text" id="input_new2" value="${item.pnum }" style="text-align: center;"></td>
+                <td><input type="text" name="pnum" id="input_new2" value="${item.pnum }" style="text-align: center;" readonly></td>
                 <th>보관위치</th>
                 <td>
-                	<select class="select_new1">
+                	<select class="select_new1" name="wzone">
 					    <option <c:if test="${item.wzone eq 'A-01'}">selected</c:if>>A-01</option>
 					    <option <c:if test="${item.wzone eq 'A-02'}">selected</c:if>>A-02</option>
 					    <option <c:if test="${item.wzone eq 'B-01'}">selected</c:if>>B-01</option>
@@ -65,7 +65,7 @@
                 </td>
                 <th>소분류</th>
                 <td>
-                	<select value="smallCategory" class="select_new1">
+                	<select value="smallCategory" class="select_new1" name="scid">
 					    <option <c:if test="${item.scid eq 'all'}">selected="selected"</c:if> value="all">전체</option>
 					    <option <c:if test="${item.scid eq 'sc1'}">selected="selected"</c:if> value="sc1">도시락</option>
 					    <option <c:if test="${item.scid eq 'sc2'}">selected="selected"</c:if> value="sc2">샌드위치/햄버거</option>
@@ -89,7 +89,7 @@
                 
                 <th>규격</th>
                 <td>
-					<select value="size" class="select_new1">
+					<select value="size" class="select_new1" name="psize">
 					    <option <c:if test="${item.psize eq 'S(소형)'}">selected</c:if> value="S(소형)">S(소형)</option>
 					    <option <c:if test="${item.psize eq 'M(중형)'}">selected</c:if> value="M(중형)">M(중형)</option>
 					    <option <c:if test="${item.psize eq 'L(대형)'}">selected</c:if> value="L(대형)">L(대형)</option>
@@ -97,20 +97,21 @@
                 </td>
                 <th>단위</th>
                 <td>
-                    <select value="unit" class="select_new1">
+                    <select value="unit" class="select_new1" name="punit">
 					    <option <c:if test="${item.punit eq 'each'}">selected</c:if> value="each">EA</option>
 					    <option <c:if test="${item.punit eq 'box'}">selected</c:if> value="box">box</option>
 					</select>
                 </td>
                 <th>등록일</th>
-                    <td><input type="date" id="input_new2" value="${item.pday }"></td>
+                    <td><input type="date" id="input_new2" value="${item.pday }" name="pday"></td>
             </tr>
             </c:forEach>
        </table>
        <!-- 저장 버튼 -->
        <div id="button_new">
-           <button type="button" class="main_btn"><a href="itemMng.jsp" id="lim_a">취소</button></a>
-           <button type="button" class="main_btn"><a href="itemMng.jsp" id="lim_a">저장</button></a>
+           <button type="button" class="main_btn"><a href="itemMng" id="lim_a">취소</button></a>
+           <a href="itemMng" id="lim_a"><input type="submit" class="main_btn" value="저장"></a>
        </div>
     </div>
+    </form>
     </main>

@@ -27,4 +27,9 @@ public class ItemInsertService {
 	public List itemDetail(ItMngDTO dto) {
 		return itemInsertDAO.itemDetail(dto);
 	}
+	
+	// update
+	public int updateItem(ItMngDTO dto) {
+		return itemInsertDAO.updateItem(dto);
+	}
 }

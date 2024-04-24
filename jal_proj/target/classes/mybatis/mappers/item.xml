@@ -93,6 +93,19 @@
 		delete from pd_list
 		where pnum = #{pnum}
 	</delete>
+	
+	<update id="updateItem" parameterType="ItMngDTO">
+	    UPDATE pd_list
+	    SET wzone = #{wzone},
+	        scid = #{scid},
+	        bcid = (SELECT BCID FROM small_cat WHERE scid = #{scid}),
+	        pname = #{pname},
+	        pday = #{pday},
+	        punit = #{punit},
+	        psize = #{psize}
+	    WHERE pnum = #{pnum}
+	</update>
+	
 
 
 </mapper>
