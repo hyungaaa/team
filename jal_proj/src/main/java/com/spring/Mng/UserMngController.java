@@ -1,11 +1,14 @@
 package com.spring.Mng;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,6 +52,20 @@ public class UserMngController {
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("errorMessage", "사용자 삭제 과정에서 오류가 발생했습니다.");
 		}
+		return "redirect:/userMng";
+	}
+
+	// 승인 요청 처리
+	@RequestMapping(value = "/approveUser", method = RequestMethod.POST)
+	public String approveUser(@RequestParam List<String> uuids) {
+		userMngService.approveUsers(uuids);
+		return "redirect:/userMng";
+	}
+
+	// 거절 요청 처리
+	@RequestMapping(value = "/rejectUser", method = RequestMethod.POST)
+	public String rejectUser(@RequestParam List<String> uuids) {
+		userMngService.rejectUsers(uuids);
 		return "redirect:/userMng";
 	}
 
