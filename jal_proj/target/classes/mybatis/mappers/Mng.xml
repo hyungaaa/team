@@ -18,7 +18,7 @@
 
 
 	<select id="userInfo" resultType="UserMngDTO2">
-		SELECT unum
+		SELECT unum, upass
 		FROM user_info
 	</select>
 	<select id="reqList" resultType="UserMngDTO2">
@@ -41,9 +41,12 @@
 	<!-- REQ_LIST에서 정보를 가져와 USER_INFO에 삽입 -->
 	<!-- USER_INFO에 사용자 삽입 -->
 	<insert id="insertUserInfoFromReq" parameterType="String">
-		INSERT INTO SCOTT_JAL.user_info (uuid, uemail, upass)
-		SELECT r.uuid, r.uemail, r.uuid FROM SCOTT_JAL.req_list r
-		WHERE r.uuid = #{uuid} AND NOT EXISTS (
+		INSERT INTO
+		SCOTT_JAL.user_info (uuid, uemail, upass)
+		SELECT r.uuid, r.uemail,
+		r.uuid FROM SCOTT_JAL.req_list r
+		WHERE r.uuid = #{uuid} AND NOT EXISTS
+		(
 		SELECT 1 FROM SCOTT_JAL.user_info u WHERE u.uuid = r.uuid
 		)
 	</insert>
@@ -54,7 +57,7 @@
 		SCOTT_JAL.user_power (uuid, ulevel, updv, updior, updr, updiom,
 		ubdm,
 		uum)
-		SELECT r.uuid, '기본권한', '0', '0', '0', '0', '0', '0' FROM
+		SELECT r.uuid, '권한설정필요', '0', '0', '0', '0', '0', '0' FROM
 		SCOTT_JAL.req_list
 		r
 		WHERE r.uuid = #{uuid} AND NOT EXISTS (
