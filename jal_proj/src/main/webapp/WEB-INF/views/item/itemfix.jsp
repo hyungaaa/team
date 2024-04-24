@@ -109,8 +109,8 @@
        </table>
        <!-- 저장 버튼 -->
        <div id="button_new">
-           <button type="button" class="main_btn"><a href="itemMng.jsp" id="lim_a">취소</button></a>
-           <button type="button" class="main_btn"><a href="itemMng.jsp" id="lim_a">저장</button></a>
+           <button type="button" class="main_btn"><a href="itemMng" id="lim_a">취소</button></a>
+           <button type="button" class="main_btn"><a href="itemMng" id="lim_a">저장</button></a>
        </div>
     </div>
     </main>

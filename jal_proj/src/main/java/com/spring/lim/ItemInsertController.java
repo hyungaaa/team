@@ -73,17 +73,20 @@ public class ItemInsertController {
 	}
 	
 	// selected
-		@RequestMapping(value="/itemFix", method = RequestMethod.GET)
-		public String itemDetail(
-				@RequestParam("pnum") String pnum,
-				Model model
-				) {
-			ItMngDTO dto = new ItMngDTO();
-			dto.setPnum(pnum);
+	@RequestMapping(value="/itemFix", method = RequestMethod.GET)
+	public String itemDetail(
+			@RequestParam("pnum") String pnum,
+			Model model
+			) {
+		ItMngDTO dto = new ItMngDTO();
+		dto.setPnum(pnum);
 			
-			List list = itemInsertService.itemDetail(dto);
-			model.addAttribute("itemMng", list);
-			System.out.println("itemMng : " + list);
-			return "itemFix";
-		}
+		List list = itemInsertService.itemDetail(dto);
+		model.addAttribute("itemMng", list);
+		System.out.println("itemMng : " + list);
+		return "itemFix";
+	}
+	
+
+	
 }
