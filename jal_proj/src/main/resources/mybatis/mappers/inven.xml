@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.inven">
+	
+	<resultMap id="joinInven" type="com.spring.lee.InvenDTO">
+	    <association property="pd_inDTO" javaType="com.spring.lee.Pd_inDTO">
+	        <id property="pnum" column="pnum" />
+	        <id property="plot" column="plot" />
+	        <result property="pindate" column="pindate" />
+	        <result property="pincnt" column="pincnt" />
+	        <result property="wzone" column="wzone" />
+	    </association>
+	    <association property="pdDTO" javaType="com.spring.lee.PdDTO">
+	        <id property="pnum" column="pnum" />
+	        <result property="pname" column="pname" />
+	    </association>
+	    <association property="invenDTO2" javaType="com.spring.lee.InvenDTO2">
+	        <id property="plot" column="plot" />
+	        <result property="ire" column="ire" />
+	        <result property="icnt" column="icnt" />
+	    </association>
+	</resultMap>
+	
+	
+	<!-- select -->
+	<select id="selectInven" resultMap="joinInven">
+		SELECT pd_in.plot, pd_in.PNUM, pd_in.WZONE, pd_in.PINDATE, pd_in.PINCNT, pd_list.PNAME, inven.icnt, inven.ire
+		FROM pd_in
+		LEFT OUTER JOIN inven ON pd_in.plot = inven.plot
+		JOIN pd_list ON pd_in.PNUM = pd_list.PNUM
+		WHERE pd_in.PSTATE = '등록'
+	</select>
+	
+</mapper>
