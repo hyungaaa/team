@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     } else if (userType == 'user'){
         
-        document.querySelector(".navi-item9").style.display = "none";
+        document.querySelector('nav .navi-item.navi-item9').style.display = "none";
         document.querySelector(".status-user").innerHTML = "접속자: 천안센터 사용자";
 
     }
