@@ -24,46 +24,48 @@
 			<button onclick="openPopup()" class="main_btn">권한 요청 목록</button>
 			<button onclick="openPopup()" id="num1">2</button>
 			<div id="popup" class="popup">
-				<div class="popup-content div_scr">
-					<p class="userMng_p">사용자 요청 목록</p>
-					<table id="table_hd2">
-						<colgroup>
-							<col width="10%">
-							<col width="10%">
-							<col width="10%">
-							<col width="20%">
-							<col width="10%">
-						</colgroup>
-						<thead>
-							<tr id="pop_tr">
-								<th>요청사항</th>
-								<th>사원번호</th>
-								<th>아이디</th>
-								<th>이메일</th>
-								<th>선택</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:if test="${not empty reqList}">
-								<c:forEach items="${reqList}" var="user2">
-									<tr>
-										<td>${user2.rcategory}</td>
-										<td>${user2.unum}</td>
-										<td>${user2.uuid}</td>
-										<td>${user2.uemail}</td>
-										<td><input type="checkbox" class="chk"></td>
-									</tr>
-								</c:forEach>
-							</c:if>
-							<c:if test="${empty userInfoAndReqList}">
-								<tr>
-									<td colspan="5">데이터가 없습니다.</td>
+				<div class="popup-content">
+					<div class="div_scr">
+						<p class="userMng_p">사용자 요청 목록</p>
+						<table id="table_hd2">
+							<colgroup>
+								<col width="10%">
+								<col width="10%">
+								<col width="10%">
+								<col width="20%">
+								<col width="10%">
+							</colgroup>
+							<thead>
+								<tr id="pop_tr">
+									<th>요청사항</th>
+									<th>사원번호</th>
+									<th>아이디</th>
+									<th>이메일</th>
+									<th>선택</th>
 								</tr>
-							</c:if>
-						</tbody>
-					</table>
-					<br> <span class="popY">승인</span> <span class="popN"
-						onclick="closePopup()">취소</span>
+							</thead>
+							<tbody>
+								<c:if test="${not empty reqList}">
+									<c:forEach items="${reqList}" var="user2">
+										<tr>
+											<td>${user2.rcategory}</td>
+											<td>${user2.unum}</td>
+											<td>${user2.uuid}</td>
+											<td>${user2.uemail}</td>
+											<td><input type="checkbox" class="chk"></td>
+										</tr>
+									</c:forEach>
+								</c:if>
+								<c:if test="${empty userInfoAndReqList}">
+									<tr>
+										<td colspan="5">데이터가 없습니다.</td>
+									</tr>
+								</c:if>
+							</tbody>
+						</table>
+						<br> <span class="popY">승인</span> <span class="popN"
+							onclick="closePopup()">취소</span>
+					</div>
 				</div>
 			</div>
 		</div>
