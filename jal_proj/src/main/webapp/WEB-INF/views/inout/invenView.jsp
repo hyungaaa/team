@@ -51,24 +51,31 @@
             <th colspan="3">보정사유</th>
           </tr>
         </thead>
-    <form method="post" action="invenFix" id="invenForm">
+    
         <tbody>
         	<c:forEach var="item" items="${list}">
+			  <form method="post" action="invenFix" id="invenForm">
 			  <tr>
-			    <td><input type="hidden" name="plot" value="${item.pd_inDTO.plot}">${item.pd_inDTO.plot}</td>
+			    <td><input type="text" name="plot" value="${item.pd_inDTO.plot}" style="width:100px;border: none;" readonly></td>
 			    <td>${item.pd_inDTO.wzone}</td>
 			    <td>${item.pd_inDTO.pnum}</td>
 			    <td>${item.pdDTO.pname}</td>
 			    <td>${item.pd_inDTO.pincnt}</td>
-			    <td><input type="text" name="icnt" value ="${item.invenDTO2.icnt}" style="width:50px;" readonly></td>
-			    <td><input type="button" class="table_btn" id="modBtn" onclick="modCnt()" value="재고보정"></td>
+			    <td><input type="text" name="icnt" value ="${item.invenDTO2.icnt}" style="width:50px;border: none;" readonly></td>
+			    <td>
+			    	<input type="button" id="modBtn" onclick="modCnt()" value="수정">
+			    	<input type="submit" id="confirmBtn" onclick="modCnt()" style="display: none;" value="확인">
+			    </td>
 			    <td>${item.pd_inDTO.pindate}</td>
-			    <td colspan="3"><input type="hidden" name="ire" value="${item.invenDTO2.ire}">${item.invenDTO2.ire}</td>
+			    <td colspan="3"><input type="text" name="ire" value="${item.invenDTO2.ire}" style="width:100px;border: none;" readonly>
+			    	${item.invenDTO2.ire}
+			    </td>
 			  </tr>
+			  </form>
 			</c:forEach>
         </tbody>
       </table>
     </div>
-    </form>
+  
 
   </main>

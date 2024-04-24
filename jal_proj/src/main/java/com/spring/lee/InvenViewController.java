@@ -33,7 +33,7 @@ public class InvenViewController {
 			@RequestParam("ire") String ire,
 			@RequestParam("plot") String plot
 			) {
-		System.out.println("controller 들어옴");
+		System.out.println("controller 들어옴22");
 		InvenDTO2 dto = new InvenDTO2();
 		dto.setIcnt(icnt);
 		dto.setIre(ire);
@@ -42,6 +42,6 @@ public class InvenViewController {
 		int result = invenViewService.updateInven(dto);
 		System.out.println("update 결과 : " + result);
 		
-		return "redirect:/invent";
+		return "redirect:/invenView";
 	}
 }
