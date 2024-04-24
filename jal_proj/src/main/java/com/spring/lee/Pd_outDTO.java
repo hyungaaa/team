@@ -19,5 +19,5 @@ public class Pd_outDTO {
 	String plot;
 	Date poutdate;
 	int poutcnt;
-	
+	String poutstate;
 }

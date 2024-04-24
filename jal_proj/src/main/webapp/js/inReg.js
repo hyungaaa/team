@@ -180,6 +180,10 @@ function bind() {
 
     qrBtn.addEventListener('click', function () {
         let list_chk = document.querySelector(".chk:checked");
+        let tbl = document.querySelector("#inReg-tbl2");
+        let tds = tbl.querySelectorAll("tbody tr td")
+        console.log(tds[7].innerText);
+        
         qrNum = list_chk.value;
         console.log(qrNum);
 

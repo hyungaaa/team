@@ -43,6 +43,7 @@ public class QrController {
 		QR qr = new QR();
 		qr.create(qrNum, "qr_test", "png");
 		model.addAttribute("qr", "qr_test.png");
+		model.addAttribute("qrNum", qrNum);
 
 		return "qrpage";
 	}

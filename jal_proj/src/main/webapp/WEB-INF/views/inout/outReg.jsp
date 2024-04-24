@@ -113,7 +113,7 @@
 
 					<c:forEach var="pdOut" items="${pdOutList}">
 						<tr>
-							<td><input type="checkbox" class="chk" value="${pdOut.pd_inDTO.pnum}"></td>
+							<td><input type="checkbox" class="chk" value="${pdOut.pd_inDTO.plot}"></td>
 							<td>${pdOut.pd_inDTO.pindate}</td>
 							<td>${pdOut.pd_inDTO.pnum}</td>
 							<td>${pdOut.pdDTO.pname}</td>
@@ -121,7 +121,12 @@
 							<td>${pdOut.pd_outDTO.poutcnt}</td>
 							<td>${pdOut.pd_inDTO.pincnt}</td>
 							<td>${(pdOut.pd_inDTO.pincnt-pdOut.pd_outDTO.poutcnt)}</td>
-							<td>${pdOut.pd_inDTO.pstate}</td>
+							<c:if test="${pdOut.pd_outDTO.poutstate == '출고완료' }">
+								<td>${pdOut.pd_outDTO.poutstate}</td>
+							</c:if>
+							<c:if test="${pdOut.pd_outDTO.poutstate != '출고완료' }">
+								<td>${pdOut.pd_inDTO.pstate}</td>
+							</c:if>
 							<td>${pdOut.pd_inDTO.plot}</td>
 							<c:if test="${pdOut.pd_inDTO.pnote == null}">
 								<td></td>

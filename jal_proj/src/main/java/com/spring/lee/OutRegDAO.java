@@ -40,20 +40,6 @@ public class OutRegDAO {
 		return list;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// pd_out insert
 	public int insertPdoutList(JoinedDTO joinedDTO) {
 		int result = sqlSession.insert("mapper.pdout.insertPdout", joinedDTO);

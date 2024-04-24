@@ -54,9 +54,10 @@ public class OutRegController {
 		System.out.println("out/search> pdOutListList : " + pdOutList);
 		
 		model.addAttribute("pdListPop", pdListPop);
+		model.addAttribute("pdList", pdListPop);	// 이거 들어감
 		model.addAttribute("pdOutList", pdOutList);
 		
-		return "redirect:/outReg";
+		return "outReg";
 	}
 	
 	@RequestMapping("/outReg/insert")

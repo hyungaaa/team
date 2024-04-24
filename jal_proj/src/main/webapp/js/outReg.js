@@ -142,6 +142,8 @@ function bind() {
 			let tblTd = doc.querySelector('#inReg-tbl2 tbody tr td');
 			let chkValue = tblTd.querySelector('.chk').value;
             console.log(chkValue);
+            
+            location.href="outReg"
 
         }
 		
@@ -213,7 +215,7 @@ function outRegSearch() {
             console.log(popupTr)
             let popup_tbody = document.getElementById("popup-tboby");
 
-            document.getElementById('popup-tbl').style.display = "block";
+//            document.getElementById('popup-tbl').style.display = "block";
             popup_tbody.innerHTML = "";
 
             // 팝업에서 뜨는 제품들
@@ -223,6 +225,7 @@ function outRegSearch() {
             }
             console.log(popup_tbody);
             console.log(xhr.responseText);
+            
         }
     };
     xhr.send();
