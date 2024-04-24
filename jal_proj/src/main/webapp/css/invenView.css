@@ -42,6 +42,7 @@ a {
 }
 
 #div-tbl {
+  overflow-y: auto;
   height: 392px;
 }
 
