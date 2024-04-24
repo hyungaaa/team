@@ -15,4 +15,9 @@ public class InvenViewService {
 	public List selectInven() {
 		return invenViewDAO.selectInven();
 	}
+	
+	// update
+	public int updateInven(InvenDTO2 dto) {
+		return invenViewDAO.updateInven(dto);
+	}
 }

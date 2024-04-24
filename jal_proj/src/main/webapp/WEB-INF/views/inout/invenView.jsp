@@ -51,110 +51,24 @@
             <th colspan="3">보정사유</th>
           </tr>
         </thead>
+    <form method="post" action="invenFix" id="invenForm">
         <tbody>
         	<c:forEach var="item" items="${list}">
 			  <tr>
-			    <td>${item.pd_inDTO.plot}</td>
+			    <td><input type="hidden" name="plot" value="${item.pd_inDTO.plot}">${item.pd_inDTO.plot}</td>
 			    <td>${item.pd_inDTO.wzone}</td>
 			    <td>${item.pd_inDTO.pnum}</td>
 			    <td>${item.pdDTO.pname}</td>
 			    <td>${item.pd_inDTO.pincnt}</td>
-			    <td>${item.invenDTO2.icnt}</td>
-			    <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td>
+			    <td><input type="text" name="icnt" value ="${item.invenDTO2.icnt}" style="width:50px;" readonly></td>
+			    <td><input type="button" class="table_btn" id="modBtn" onclick="modCnt()" value="재고보정"></td>
 			    <td>${item.pd_inDTO.pindate}</td>
-			    <td colspan="3">${item.invenDTO2.ire}</td>
+			    <td colspan="3"><input type="hidden" name="ire" value="${item.invenDTO2.ire}">${item.invenDTO2.ire}</td>
 			  </tr>
 			</c:forEach>
-<!--           <tr> -->
-<!--             <td>LT202402010001</td> -->
-<!--             <td>B-01</td> -->
-<!--             <td>ESB00001</td> -->
-<!--             <td>샌)망곰초코딸기샌드</td> -->
-<!--             <td>20</td> -->
-<!--             <td>20</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-01</td> -->
-<!--             <td colspan="3"></td> -->
-<!--           </tr> -->
-<!--           <tr> -->
-<!--             <td>LT202402010002</td> -->
-<!--             <td>B-01</td> -->
-<!--             <td>ESB00001</td> -->
-<!--             <td>샌)망곰초코딸기샌드</td> -->
-<!--             <td>20</td> -->
-<!--             <td>20</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-01</td> -->
-<!--             <td colspan="3"></td> -->
-<!--           </tr> -->
-<!--           <tr> -->
-<!--             <td>LT202402020001</td> -->
-<!--             <td>B-01</td> -->
-<!--             <td>ESB00001</td> -->
-<!--             <td>샌)망곰초코딸기샌드</td> -->
-<!--             <td>20</td> -->
-<!--             <td>20</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-01</td> -->
-<!--             <td colspan="3"></td> -->
-<!--           </tr> -->
-<!--           <tr> -->
-<!--             <td>LT202402020002</td> -->
-<!--             <td>A-01</td> -->
-<!--             <td>ICA00003</td> -->
-<!--             <td>나뚜루)녹차바</td> -->
-<!--             <td>10</td> -->
-<!--             <td>30</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-02</td> -->
-<!--             <td colspan="3">재고 안 맞음</td> -->
-<!--           </tr> -->
-<!--           <tr> -->
-<!--             <td>LT202402020003</td> -->
-<!--             <td>B-01</td> -->
-<!--             <td>BMB00005</td> -->
-<!--             <td>남양)불가리스딸기150ml</td> -->
-<!--             <td>20</td> -->
-<!--             <td>20</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-02</td> -->
-<!--             <td colspan="3"></td> -->
-<!--           </tr> -->
-<!--           <tr> -->
-<!--             <td>LT202402020004</td> -->
-<!--             <td>B-01</td> -->
-<!--             <td>EJB00003</td> -->
-<!--             <td>주)LT명란마요삼각</td> -->
-<!--             <td>20</td> -->
-<!--             <td>20</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-02</td> -->
-<!--             <td colspan="3"></td> -->
-<!--           </tr> -->
-<!--           <tr> -->
-<!--             <td>LT202402020005</td> -->
-<!--             <td>A-01</td> -->
-<!--             <td>ICA00003</td> -->
-<!--             <td>나뚜루)녹차바</td> -->
-<!--             <td>100</td> -->
-<!--             <td>100</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-02</td> -->
-<!--             <td colspan="3"></td> -->
-<!--           </tr> -->
-<!--           <tr> -->
-<!--             <td>LT202402020005</td> -->
-<!--             <td>A-01</td> -->
-<!--             <td>ICA00003</td> -->
-<!--             <td>나뚜루)녹차바</td> -->
-<!--             <td>100</td> -->
-<!--             <td>90</td> -->
-<!--             <td><button type="button" class="table_btn" id="modBtn" onclick="modCnt()">재고보정</button></td> -->
-<!--             <td>24-02-02</td> -->
-<!--             <td colspan="3">재고 안 맞음</td> -->
-<!--           </tr> -->
         </tbody>
       </table>
     </div>
+    </form>
 
   </main>

@@ -17,4 +17,12 @@ public class InvenViewDAO {
 		List list = sqlSession.selectList("mapper.inven.selectInven");
 		return list;
 	}
+	
+	// update
+	public int updateInven(InvenDTO2 dto) {
+		int result = -9999;
+		result = sqlSession.update("mapper.inven.updateInven", dto);
+		System.out.println("dao 들어옴");
+		return result;
+	}
 }

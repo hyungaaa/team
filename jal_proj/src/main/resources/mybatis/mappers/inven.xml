@@ -33,4 +33,11 @@
 		WHERE pd_in.PSTATE = '등록'
 	</select>
 	
+	<!-- update -->
+	<update id="updateInven" parameterType="invenDTO2">
+		update inven
+		set icnt = #{icnt}, ire = #{ire}
+		where plot = #{plot}
+	</update>
+	
 </mapper>
