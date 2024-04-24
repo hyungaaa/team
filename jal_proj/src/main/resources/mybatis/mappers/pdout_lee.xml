@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.pdout">
+
+	<!-- 입고등록 아래 테이블 join -->
+	<resultMap id="joinResult" type="com.spring.lee.JoinedDTO">
+	    <association property="pd_inDTO" javaType="com.spring.lee.Pd_inDTO">
+	        <id property="pnum" column="pnum" />
+	        <id property="plot" column="plot" />
+	        <result property="pindate" column="pindate" />
+	        <result property="pincnt" column="pincnt" />
+	        <result property="pstate" column="pstate" />
+	        <result property="pnote" column="pnote" />
+	    </association>
+	    <association property="pdDTO" javaType="com.spring.lee.PdDTO">
+	        <id property="pnum" column="pnum" />
+	        <result property="pname" column="pname" />
+	        <result property="wzone" column="wzone" />
+	        <result property="psize" column="psize" />
+	        <result property="punit" column="punit" />
+	    </association>
+	    <association property="pd_outDTO" javaType="com.spring.lee.Pd_outDTO">
+	        <id property="plot" column="plot" />
+	        <result property="poutcnt" column="poutcnt" />
+	        <result property="poutstate" column="poutstate" />
+	    </association>
+	</resultMap>
+	
+	<!-- select -->
+	<select id="selectPd" resultMap="joinResult">
+        SELECT
+		    pd_in.pnum, pd_list.pname, pd_list.punit, pd_list.psize, pd_in.pincnt, pd_in.pindate
+		FROM
+		    pd_in
+		INNER JOIN
+		    pd_list ON pd_list.pnum = pd_in.pnum
+        <where>
+        	pd_in.pstate='등록'
+		    <if test="_parameter != null">
+		        AND pd_list.pname LIKE '%' || #{_parameter} || '%'
+		        <if test="_parameter.startsWith('E')">
+		            OR pd_in.pnum = #{_parameter}
+		        </if>
+		    </if>
+        </where>
+        order by pd_in.pindate
+	</select>
+	
+
+<!-- 조인해서 pstate가 등록인 거 가져옴 -->
+	<select id="selectPdout" resultMap="joinResult">
+<!-- 		SELECT -->
+<!-- 			pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt as p, pincnt as m,  -->
+<!-- 			CASE WHEN pd_in.pstate = '등록' THEN '출고예정' ELSE pd_in.pstate END AS pstate, plot, pnote, punit, psize -->
+<!-- 		FROM -->
+<!-- 			pd_list inner join pd_in on pd_list.pnum = pd_in.pnum -->
+<!-- 		WHERE pstate='등록' -->
+<!-- 		order by pindate -->
+
+<!-- 		CASE WHEN pd_in.pstate = '등록' THEN '출고예정' ELSE pd_in.pstate END AS pstate -->
+
+		<!-- 출고등록 아래 테이블 -->
+		SELECT
+		    pd_in.pindate, pd_in.pnum, pname, pd_list.wzone, pd_out.poutcnt, pd_in.pincnt, 
+		    CASE WHEN pd_in.pstate = '등록' THEN '출고예정' ELSE pd_in.pstate END AS pstate, poutstate, pd_in.plot, pnote, punit, psize
+		FROM
+		    pd_in
+		INNER JOIN
+		    pd_list ON pd_list.pnum = pd_in.pnum
+		LEFT JOIN
+		    pd_out ON pd_out.plot = pd_in.plot
+		WHERE
+		    pd_in.pstate = '등록' and poutcnt is not null
+		ORDER BY
+		    TO_DATE(pd_in.pindate, 'YYYY-MM-DD HH24:MI:SS')
+	</select>
+	
+	<!-- join한 테이블에서 검색 -->
+	<select id="selectPdout2" resultMap="joinResult">
+<!-- 		SELECT -->
+<!-- 	        pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt AS p, pincnt AS m,  -->
+<!-- 	        pstate, plot, pnote, punit, psize -->
+<!-- 	    FROM -->
+<!-- 	        pd_list -->
+<!-- 	        INNER JOIN pd_in ON pd_list.pnum = pd_in.pnum -->
+<!-- 	    <where> -->
+<!-- 	        pstate = '등록' -->
+<!-- 	        <if test="_parameter != null"> -->
+<!-- 	            AND ( -->
+<!-- 	                pname LIKE '%' || #{_parameter} || '%' -->
+<!-- 	                OR (#{_parameter} IS NOT NULL AND #{_parameter} LIKE 'E%') -->
+<!-- 	            ) -->
+<!-- 	        </if> -->
+<!-- 	    </where> -->
+<!-- 	    ORDER BY pindate -->
+	    
+	    SELECT
+	        pindate, pd_in.pnum, pname, pd_list.wzone, pincnt, pincnt AS p, pincnt AS m, 
+	        pstate, plot, pnote, punit, psize
+	    FROM
+	        pd_list
+	        INNER JOIN pd_in ON pd_list.pnum = pd_in.pnum
+	    <where>
+	        pstate = '등록'
+	        <if test="_parameter != null">
+	            <choose>
+	                <when test="_parameter.startsWith('E')">
+	                    AND pd_in.pnum LIKE '%' || #{_parameter} || '%'
+	                </when>
+	                <otherwise>
+	                    AND pname LIKE '%' || #{_parameter} || '%'
+	                </otherwise>
+	            </choose>
+	        </if>
+	    </where>
+	    ORDER BY pindate
+	</select>
+	
+<!-- 	'LT' || TO_CHAR(sysdate, 'YYYYMMDD') || to_char(lotnum.nextval, 'FM000') -->
+	<insert id="insertPdout" parameterType="joinedDTO">
+		insert into pd_out
+		values (pdoutSeq.nextval, (
+			select plot
+			from pd_in inner join pd_list 
+			on pd_in.pnum = pd_list.pnum
+			where pd_in.pnum = #{pd_inDTO.pnum}
+		) , to_char(sysdate, 'YYYY-MM-DD'), #{pd_outDTO.poutcnt}, '출고예정')
+	</insert>
+	
+	<update id="updatePdout" parameterType="joinedDTO">
+		update pd_out
+		set poutstate='출고완료'
+		where plot=#{_parameter}
+	</update>
+	
+	<delete id="deletePdout" parameterType="joinedDTO">
+		delete from pd_out
+		where plot = #{_parameter}
+	</delete>
+</mapper>

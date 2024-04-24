@@ -59,26 +59,23 @@ function preventEnter(){
 function login(){
     document.querySelector("#login_btn").addEventListener("click", function(){		
 		
-/*        var userId = document.querySelector("#userid").value;
+        var userId = document.querySelector("#userid").value;
         var password = document.querySelector("#pw").value;
 
         if (userId === "admin" && password === "admin") {
             // 관리자 로그인 성공 시, 
             localStorage.setItem('userType', 'admin');
             window.location.href = "dashboard.html";
-        } else if(userId === "user" && password === "user") {
+        } else if(userId === "user1" && password === "user1") {
             // 사용자 로그인 성공 시, 
             localStorage.setItem('userType', 'user');
             window.location.href = "dashboard.html";
+            
         } else {
             // 로그인 실패 시, 
             document.querySelector("#alert_msg").innerHTML = '<span>아이디 또는 비밀번호가 올바르지 않습니다</span>';
-        };*/
+        };
         
-        
-        // 로그인 실패 시,
-        document.querySelector("#alert_msg").innerHTML = '<span>아이디 또는 비밀번호가 올바르지 않습니다</span>';
-
         
         document.querySelector("#form").submit();
         
@@ -113,10 +110,12 @@ function request1(){
 			// AJAX로 중복확인 서블릿 이동
 			var xhr = new XMLHttpRequest();
 		    xhr.open("GET", "idcheck.do?uuid=" + document.querySelector("#req1_id").value, true);
+		    console.log("아이디칸" + document.querySelector("#req1_id").value)
 		    xhr.onreadystatechange = function() {
 		        if (xhr.readyState === XMLHttpRequest.DONE) {
 					
 		            var response = xhr.responseText; // 서블릿에서 반환된 응답
+		            console.log("서블릿에서 반환된 응답" + response)
 		            
 		            if (response.includes("invalid")) {
 		                alert("사용 불가능한 아이디입니다");

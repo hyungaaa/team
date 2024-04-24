@@ -10,6 +10,11 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
+
+	<definition name="baseLayout2"  template="/WEB-INF/views/layout/layout2.jsp">
+		<put-attribute name="title" value="물류관리시스템" />
+		<put-attribute name="body" value="" />
+	</definition>
 	
 <!-- 	<definition name="*/*.noTiles" extends="baseLayout"> -->
 <!-- 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" /> -->
@@ -33,6 +38,12 @@
 	</definition>
 	<definition name="item5" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/item/itemMng5.jsp" />
+	</definition>
+	<definition name="itemNew" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemNew.jsp" />
+	</definition>
+	<definition name="itemFix" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item/itemfix.jsp" />
 	</definition>
 	
 	<definition name="inReg" extends="baseLayout">
@@ -74,5 +85,29 @@
 	<definition name="mypage" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/mypage.jsp" />
 	</definition>
+
+	<definition name="login" extends="baseLayout2">
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+	
+	<definition name="qrpage" extends="baseLayout2">
+		<put-attribute name="body" value="/WEB-INF/views/qrpage.jsp" />
+	</definition>
+	
+
+<!-- 	<definition name="*.bl" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="*/*.bl2" extends="baseLayout2"> -->
+<!-- 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="*.bl" extends="baseLayout"> -->
+<!-- 		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="*/*.bl2" extends="baseLayout2"> -->
+<!-- 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" /> -->
+<!-- 	</definition> -->
+
+
 	
 </tiles-definitions>

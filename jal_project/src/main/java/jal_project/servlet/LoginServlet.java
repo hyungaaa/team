@@ -35,7 +35,6 @@ public class LoginServlet extends HttpServlet {
 		userInfoDTO.setUuid(uid);
 		userInfoDTO.setUpass(upass);
 		
-				
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		
 		// request, response 로그인 유지 용 세션 생성에 필요(?)

@@ -12,8 +12,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import org.springframework.stereotype.Repository;
-
 public class BoardListDAO {
 
    private Connection con;
@@ -63,7 +61,7 @@ public class BoardListDAO {
             String pnum = rs.getString("pnum");
             int bbits = rs.getInt("bbits");
             String uname = rs.getString("uname");
-            String bdate = rs.getString("bdate");
+            Date bdate = rs.getDate("bdate");
             
 
             BoardListDTO dto1 = new BoardListDTO();
@@ -72,7 +70,6 @@ public class BoardListDAO {
             dto1.setPnum(pnum);
             dto1.setBtitle(btitle);
             dto1.setBbits(bbits);
-            dto1.setBdate(bdate);
             list.add(dto1);
          }
 
@@ -166,7 +163,7 @@ public class BoardListDAO {
       
       try {
          // SQL 준비
-         String query = " insert into bd_list (bno, uname, btitle, btext, bdate) values(seq_bd_list.nextval,'이가희',?,?,sysdate)";
+         String query = " insert into bd_list (bno, uname, btitle, btext, bdate) values(seq_bd_list.nextval,'임가현',?,?,sysdate)";
 
          ps = con.prepareStatement(query);
          ps.setString(1, boardListDTO.getBtitle());

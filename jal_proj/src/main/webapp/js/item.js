@@ -65,21 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// 카테고리 설정 버튼 누르면 li 수정 가능
-function setting_btn() {
-    // 각 li 요소의 내용을 수정 가능하게 만들기
-    var listItems = document.querySelectorAll("#bigCategory ul li");
-
-    listItems.forEach(function (listItem) {
-        var currentText = listItem.textContent.trim();
-        var newText = prompt("수정할 내용을 입력하세요", currentText);
-
-        if (newText !== null && newText !== "") {
-            // 사용자가 입력한 내용으로 갱신
-            listItem.querySelector("span.mng_span").textContent = newText;
-        }
-    });
-}
 
 
 // 카테고리에 속하는 제품 행만 보이도록
@@ -140,5 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 
+function goToProductDetail(pnum) {
+    // 제품 상세 정보 페이지 URL을 생성합니다.
+    var url = "itemFix?pnum=" + pnum;
+    
+    // 새로운 페이지로 이동합니다.
+    window.location.href = url;
+}
 
+
+function submitForm() {
+    document.getElementById("productForm").submit();
+}
 

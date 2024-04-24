@@ -23,6 +23,7 @@ public class CheckIdServlet extends HttpServlet {
     	UserInfoDTO userInfoDTO = new UserInfoDTO();
     	
         String uuid = request.getParameter("uuid");
+        System.out.println("uuid" + uuid);
         userInfoDTO.setUuid(uuid);
         
         

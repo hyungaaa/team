@@ -9,21 +9,36 @@ import org.springframework.stereotype.Service;
 public class InRegService {
 
 	@Autowired
-	InRegDAO2 inRegDAO;
+	InRegDAO inRegDAO;
 	
 	public List listPd() {
 		return inRegDAO.selectPdList();
 	}
 	
+	/////////////////////////////////
+	// 검색 select
 	public List listPd(String searchInput) {
+		System.out.println(searchInput + " 검색 드가요 (service)");
 		return inRegDAO.selectPdList(searchInput);
 	}
 	
+	// pd_in select
 	public List listPdin() {
 		return inRegDAO.selectPdinList();
 	}
+	/////////////////////////////////
 	
+	// pd_in insert
 	public int insertInReg(JoinedDTO joinedDTO) {
 		return inRegDAO.insertPdinList(joinedDTO);
+	}
+	
+	// pd_in update
+	public int updateInReg(String chkValue) {
+		return inRegDAO.updatePdinList(chkValue);
+	}
+	
+	public int deleteInReg(String chkValue ) {
+		return inRegDAO.deletePdinList(chkValue);
 	}
 }

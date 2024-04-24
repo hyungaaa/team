@@ -5,6 +5,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" href="css/capacityView.css">
 <script src="js/capacityView.js"></script>
+<script src="js/chart.js"></script>
 <!-- <!DOCTYPE html> -->
 <!-- <html lang="en"> -->
 
@@ -19,7 +20,6 @@
 <!--     <link rel="stylesheet" href="css/capacityView.css"> -->
 
 
-<!--     <script src="js/chart.js"></script> -->
 <!--     <script src="js/system.js"></script> -->
 <!--     <script src="js/capacityView.js"></script> -->
  
@@ -62,32 +62,17 @@
             <div class="cap_view_table">
                 <table>
                     <thead>
-                        <th><select value="sort" class="select_cap">
-                                <option>구역</option>
-                            </select></th>
-                        <th><select value="sort" class="select_cap">
-                                <option>분류</option>
-                            </select></th>
-                        <th><select value="sort" class="select_cap">
-                                <option>규격 크기</option>
-                            </select></th>
-                        <th><select value="sort" class="select_cap">
-                                <option>현재</option>
-                            </select></th>
-                        <th><select value="sort" class="select_cap">
-                                <option>총량</option>
-                            </select></th>
-                        <th><select value="sort" class="select_cap">
-                                <option>수용량(%)</option>
-                            </select></th>
-                        <th><select value="sort" class="select_cap">
-                                <option>담당자</option>
-                            </select></th>
+                        <th>구역</th>
+                        <th>분류</th>
+                        <th>규격 크기</th>
+                        <th>현재</th>
+                        <th>총량</th>
+                        <th>수용량(%)</th>
+                        <th>담당자</th>
                         <th>비고</th>
                     </thead>
                 </table>
             </div>
-
 
             <!-- 마우스 hover 시 뜨는 차트..-->
 

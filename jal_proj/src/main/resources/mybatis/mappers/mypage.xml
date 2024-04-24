@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.mypage">
+	<select id="myPageUserInfo" resultType="MypageDTO">
+		SELECT *
+		FROM user_info
+		WHERE
+		uuid = #{uuid}
+	</select>
+
+	<update id="updateUserInfo"
+		parameterType="com.spring.Mng.MypageDTO">
+		UPDATE user_info SET
+		unum = #{unum},
+		uname = #{uname},
+		uposition = #{uposition},
+		ccode = #{ccode},
+		ubirth = #{ubirth,
+		jdbcType=DATE},
+		utel = #{utel},
+		uemail = #{uemail},
+		udate = #{udate,
+		jdbcType=DATE}
+		WHERE uuid = #{uuid}
+	</update>
+
+</mapper>

@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: kksy5
+=======
+Built-By: admin
+>>>>>>> 9c2620cf3b614c31e08aaf5fbe98120adf9cdfbc
 Build-Jdk: 11.0.15
 Created-By: Maven Integration for Eclipse
 

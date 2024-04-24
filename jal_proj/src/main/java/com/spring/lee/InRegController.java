@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -17,19 +18,13 @@ public class InRegController {
 	
 	@RequestMapping("/inReg")
 	public String listInRegPd(
-//		@RequestParam("searchInput") String searchInput,
 		Model model
 	) {
 		List pdList = inRegService.listPd();
 		List pdInList = inRegService.listPdin();
 		
-//		System.out.println("searchInput" + searchInput);
-		
-		System.out.println("controller > listInRegPd pdList : " + pdList);
-		System.out.println("controller > listInRegPd pdInList : " + pdInList);
-		
-		System.out.println("pdList.size() : " + pdList.size());
-		System.out.println("pdInList.size() : " + pdInList.size());
+		System.out.println("in-controller > pdList : " + pdList);
+		System.out.println("in-controller > pdInList : " + pdInList);
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdInList", pdInList);
@@ -39,20 +34,18 @@ public class InRegController {
 	
 	
 	
-	@RequestMapping("/inReg?searchInput=")
+	@RequestMapping(value="/inReg/search", method=RequestMethod.GET)
 	public String listInRegPd2(
 			@RequestParam("searchInput") String searchInput,
-			Model model) {
+			Model model
+	) {
+		
+		System.out.println("/inReg/search - searchInput : " + searchInput);
 		List pdList = inRegService.listPd(searchInput);
 		List pdInList = inRegService.listPdin();
 		
-		System.out.println("searchInput : " + searchInput);
-		
-		System.out.println("controller > listInRegPd2 pdList : " + pdList);
-		System.out.println("controller > listInRegPd2 pdInList : " + pdInList);
-		
-		System.out.println("pdList.size() : " + pdList.size());
-		System.out.println("pdInList.size() : " + pdInList.size());
+		System.out.println("in-controller > listInRegPd2 pdList(search) : " + pdList);
+		System.out.println("in-controller > listInRegPd2 pdInList : " + pdInList);
 		
 		model.addAttribute("pdList", pdList);
 		model.addAttribute("pdInList", pdInList);
@@ -81,17 +74,31 @@ public class InRegController {
 		int result = inRegService.insertInReg(joinedDTO);
 		System.out.println("insert : " + result);
 		
-		System.out.println();
-		
 		return "redirect:/inReg";
 	}
 	
 	@RequestMapping("/inReg/update")
 	public String updateInReg(
 			Model model,
-			@ModelAttribute PdDTO pdDTO,
-			@ModelAttribute Pd_inDTO pdinDTO
+			@RequestParam("chkValue") String chkValue
 	) {
+		
+		System.out.println("chkValue : " + chkValue);
+		
+		int result = inRegService.updateInReg(chkValue);
+		return "redirect:/inReg";
+	}
+	
+	
+	@RequestMapping("/inReg/delete")
+	public String deleteInReg(
+			Model model,
+			@RequestParam("chkValue") String chkValue
+	) {
+		
+		System.out.println("chkValue : " + chkValue);
+		
+		int result = inRegService.deleteInReg(chkValue);
 		return "redirect:/inReg";
 	}
 }

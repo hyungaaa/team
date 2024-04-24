@@ -13,29 +13,31 @@
 	<!-- 입출고 이력 -->
 
 	<!-- 대분류 카테고리 -->
-		<div id="bigCategory">
-			<ul>
-				<li onclick="filterCategory('간편식사')" class="find-item"><a
-					href="itemMng"><span class="mng_span">간편식사</span>></a></li>
-				<li onclick="filterCategory('과자류')" class="find-item"><a
-					href="itemMng2"><span class="mng_span">과자류</span>></a></li>
-				<li onclick="filterCategory('아이스크림')" class="find-item"><a
-					href="itemMng3"><span class="mng_span">아이스크림</span>></a>
-				</li>
-				<li onclick="filterCategory('식품')" class="find-item"><a
-					href="itemMng4"><span class="mng_span">식품</span>></a></li>
-				<li onclick="filterCategory('음료')" class="find-item"><a
-					href="itemMng5"><span class="mng_span">음료</span>></a>
-				</li>
-			</ul>
-		</div>
+	<div id="bigCategory">
+		<ul>
+			<li onclick="filterCategory('간편식사')" class="find-item"><a
+				href="itemMng"><span class="mng_span">간편식사</span>></a></li>
+			<li onclick="filterCategory('과자류')" class="find-item"><a
+				href="itemMng2"><span class="mng_span">과자류</span>></a></li>
+			<li onclick="filterCategory('아이스크림')" class="find-item"><a
+				href="itemMng3"><span class="mng_span">아이스크림</span>></a></li>
+			<li onclick="filterCategory('식품')" class="find-item"><a
+				href="itemMng4"><span class="mng_span">식품</span>></a></li>
+			<li onclick="filterCategory('음료')" class="find-item"><a
+				href="itemMng5"><span class="mng_span">음료</span>></a></li>
+		</ul>
+	</div>
 	<!-- 소분류 카테고리 -->
 	<div id="all1">
 		<div id="scate">
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('전체')">전체</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('가공식사')">가공식사</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('안주류')">안주류</button>
-			<button class="main_btn" id="scate_mng" onclick="filterCategory('기타')">기타</button>
+			<button class="main_btn" id="scate_mng"
+				onclick="filterCategory('전체')">전체</button>
+			<button class="main_btn" id="scate_mng"
+				onclick="filterCategory('가공식사')">가공식사</button>
+			<button class="main_btn" id="scate_mng"
+				onclick="filterCategory('안주류')">안주류</button>
+			<button class="main_btn" id="scate_mng"
+				onclick="filterCategory('기타')">기타</button>
 		</div>
 
 		<!-- 선 -->
@@ -49,24 +51,18 @@
 
 		<!-- 제품 게시판? -->
 		<div id="productBoard">
-			<form action="itMngD" method="post" onsubmit="return validateForm();">
+			<form action="itemNew3" method="post" id="productForm">
 				<!-- 폼 추가 -->
 				<table class="table_mng">
 					<colgroup>
 						<col width="7%" />
 						<col width="30%" />
-						<col width="20%" />
-						<col width="10%" />
+						<col width="16%" />
+						<col width="14%" />
 						<col width="7%" />
 						<col width="10%" />
 						<col width="8%" />
 					</colgroup>
-
-					<%-- 데이터 불러옴 --%>
-					<%
-					List list = (List) request.getAttribute("list");
-					// itMngDTO itmngDTO = new itMngDTO();
-					%>
 
 					<tr id="title_mng">
 						<th><input type="checkbox" id="selectAll"
@@ -79,39 +75,34 @@
 						<th>규격</th>
 					</tr>
 
-					<%
-					if (list != null) {
-						for (int i = 0; i < list.size(); i++) {
-					%>
-
-					<tr class="product-row"
-						data-category="<%=((ItMngDTO) list.get(i)).getSct()%>">
-						<td><input type="checkbox" class="chk" name="selectedItems"
-							value="<%=((ItMngDTO) list.get(i)).getPnum()%>"></td>
-						<td><%=((ItMngDTO) list.get(i)).getPname()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getSct()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getPnum()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getWzone()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getPday()%></td>
-						<td><%=((ItMngDTO) list.get(i)).getPsize()%></td>
-					</tr>
-
-					<%
-					}
-					} else {
-					System.out.println("null입니다~.");
-					}
-					%>
+					<c:if test="${not empty list}">
+						<c:forEach var="item" items="${list}">
+							<tr class="product-row" data-category="${item.sct}">
+								<td><input type="checkbox" class="chk" name="selectedItems"
+									value="${item.pnum}"></td>
+								<td><a href="javascript:void(0);" onclick="goToProductDetail('${item.pnum}')">${item.pname}</a></td>
+								<td>${item.sct}</td>
+								<td>${item.pnum}</td>
+								<td>${item.wzone}</td>
+								<td>${item.pday}</td>
+								<td>${item.psize}</td>
+							</tr>
+						</c:forEach>
+					</c:if>
+					<c:if test="${empty list}">
+						<%
+						System.out.println("데이터가 null입니다~.");
+						%>
+					</c:if>
 				</table>
 			</form>
 		</div>
 
 
 		<div id="button_mng_2">
-			<button type="button" class="main_btn" id="selected_del"
-				onclick="return confirmAndDelete()">제품 삭제</button>
+			 <button type="button" class="main_btn" id="selected_del" onclick="submitForm()">제품 삭제</button>
 			<button class="main_btn">
-				<a href="itemNew.jsp" id="lim_a">제품 추가 
+				<a href="itemNew" id="lim_a">제품 추가 
 			</button>
 			</a>
 		</div>

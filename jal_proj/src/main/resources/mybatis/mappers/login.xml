@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.login">
+	
+	<!-- select -->
+	<select id="selectUserByuuid" resultType="userinfoDTO">
+		select * from user_info
+		where uuid = #{uuid}
+		and upass = #{upass} 
+	</select>
+	
+	<select id="selectCenterNameByCcode" resultType="userinfoDTO">
+		select cname from center_list
+		where lower(ccode) like '%' || lower(#{ccode}) || '%'
+	</select>
+	
+</mapper>

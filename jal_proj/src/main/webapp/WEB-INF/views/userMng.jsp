@@ -24,46 +24,65 @@
 			<button onclick="openPopup()" class="main_btn">권한 요청 목록</button>
 			<button onclick="openPopup()" id="num1">2</button>
 			<div id="popup" class="popup">
-				<div class="popup-content div_scr">
-					<p class="userMng_p">사용자 요청 목록</p>
-					<table id="table_hd2">
-						<colgroup>
-							<col width="10%">
-							<col width="10%">
-							<col width="10%">
-							<col width="20%">
-							<col width="10%">
-						</colgroup>
-						<thead>
-							<tr id="pop_tr">
-								<th>요청사항</th>
-								<th>사원번호</th>
-								<th>아이디</th>
-								<th>이메일</th>
-								<th>선택</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:if test="${not empty reqList}">
-								<c:forEach items="${reqList}" var="user2">
-									<tr>
-										<td>${user2.rcategory}</td>
-										<td>${user2.unum}</td>
-										<td>${user2.uuid}</td>
-										<td>${user2.uemail}</td>
-										<td><input type="checkbox" class="chk"></td>
-									</tr>
-								</c:forEach>
-							</c:if>
-							<c:if test="${empty userInfoAndReqList}">
-								<tr>
-									<td colspan="5">데이터가 없습니다.</td>
+				<div class="popup-content">
+					<div class="div_scr">
+						<p class="userMng_p">사용자 요청 목록</p>
+						<table id="table_hd2">
+							<colgroup>
+								<col width="10%">
+								<col width="10%">
+								<col width="10%">
+								<col width="20%">
+								<col width="10%">
+							</colgroup>
+							<thead>
+								<tr id="pop_tr">
+									<th>요청사항</th>
+									<th>사원번호</th>
+									<th>아이디</th>
+									<th>이메일</th>
+									<th>선택</th>
 								</tr>
-							</c:if>
-						</tbody>
-					</table>
-					<br> <span class="popY">승인</span> <span class="popN"
-						onclick="closePopup()">취소</span>
+							</thead>
+							<tbody>
+								<c:if test="${not empty reqList}">
+									<c:forEach items="${reqList}" var="user2">
+										<tr>
+											<td>${user2.rcategory}</td>
+											<td>${user2.unum}</td>
+											<td>${user2.uuid}</td>
+											<td>${user2.uemail}</td>
+											<td><input type="checkbox" class="chk"></td>
+										</tr>
+									</c:forEach>
+								</c:if>
+								<c:if test="${empty userInfoAndReqList}">
+									<tr>
+										<td colspan="5">데이터가 없습니다.</td>
+									</tr>
+								</c:if>
+							</tbody>
+						</table>
+						<br>
+						<!-- 승인 및 거절 처리를 위한 폼 -->
+						<form id="approveForm" action="${path}/approveUser" method="post"
+							style="display: none;">
+							<input type="hidden" name="uuids" id="approveUuids" value="">
+						</form>
+						<form id="rejectForm" action="${path}/rejectUser" method="post"
+							style="display: none;">
+							<input type="hidden" name="uuids" id="rejectUuids" value="">
+						</form>
+
+						<button
+							onclick="submitFormWithUuids('approveForm', 'approveUuids')"
+							class="popY">승인</button>
+						<button onclick="submitFormWithUuids('rejectForm', 'rejectUuids')"
+							class="popY">거절</button>
+
+						<br> <br> <span class="popN" onclick="closePopup()"
+							style="margin-right: 260px;">취소</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -115,7 +134,7 @@
 						<th>사용자관리<input type="checkbox" id="select_all6"></th>
 						<th>
 							<button type="button"
-								style="padding: 6rem; border: 0px solid #888; color: #ffffff; border-radius: 5rem; background: #36698c;">전체적용</button>
+								style="padding: 4rem; border: 0px solid #888; color: #ffffff; border-radius: 5rem; background: #36698c;">전체적용</button>
 						</th>
 					</tr>
 				</thead>
@@ -161,10 +180,11 @@
 										${user.ubdm == '1' ? 'checked' : ''}></td>
 									<td><input type="checkbox"
 										${user.uum == '1' ? 'checked' : ''}></td>
-									<td>
-										<button type="button" data-in class="main_btn2"
-											style="padding: 8px;">삭제</button>
-										<button type="button" class="main_btn" style="padding: 8px;">수정</button>
+									<td><form action="${path}/deleteUser" method="POST">
+											<input type="hidden" name="uuid" value="${user.uuid}">
+											<button type="submit" class="main_btn2" style="padding: 4px;">삭제</button>
+										</form>
+										<button type="button" class="main_btn" style="padding: 4px;">수정</button>
 									</td>
 								</tr>
 							</c:forEach>
@@ -174,4 +194,13 @@
 			</table>
 		</div>
 	</div>
+	<!-- 성공 메시지 표시 -->
+	<c:if test="${not empty message}">
+		<div style="color: green;">${message}</div>
+	</c:if>
+
+	<!-- 오류 메시지 표시 -->
+	<c:if test="${not empty errorMessage}">
+		<div style="color: red;">${errorMessage}</div>
+	</c:if>
 </main>
