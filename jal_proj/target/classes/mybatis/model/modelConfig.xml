@@ -10,6 +10,8 @@
 		<typeAlias type="com.spring.lee.Pd_inDTO" alias="pdinDTO"/>
 		<typeAlias type="com.spring.lee.PdDTO" alias="pdDTO"/>
 		<typeAlias type="com.spring.lee.JoinedDTO" alias="joinedDTO"/>
+		<typeAlias type="com.spring.lee.InvenDTO" alias="invenDTO"/>
+		<typeAlias type="com.spring.lee.InvenDTO2" alias="invenDTO2"/>
 		
 		<!-- 02 -->
 		<typeAlias type="com.spring.lim.ItMngDTO" alias="itmngDTO"/>

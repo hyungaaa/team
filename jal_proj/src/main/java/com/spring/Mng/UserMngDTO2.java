@@ -6,6 +6,7 @@ public class UserMngDTO2 {
 	private String unum;
 	private String uuid;
 	private String uemail;
+	private String upass;
 
 	public String getUnum() {
 		return unum;
@@ -37,6 +38,14 @@ public class UserMngDTO2 {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+	public String getUpass() {
+		return upass;
+	}
+
+	public void setUpass(String upass) {
+		this.upass = upass;
 	}
 
 	@Override

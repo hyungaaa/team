@@ -1,4 +1,3 @@
-
 window.addEventListener("DOMContentLoaded", function() {
 	bindEvents();
 
@@ -84,38 +83,49 @@ function setupEditAndDeleteButtons() {
 	document.querySelectorAll('.main_btn').forEach(button => {
 		button.addEventListener('click', function() {
 			let row = button.closest('tr');
-			let cells = row.querySelectorAll('td:nth-child(2), td:nth-child(3)');
-			cells.forEach(cell => {
-				let inputValue = cell.innerText;
-				cell.innerHTML = '<input type="text" class="edit-input" value="' + inputValue + '">';
-			});
-
-			let confirmButton = document.createElement('button');
-			confirmButton.className = 'save_btn_cap';
-			confirmButton.textContent = '확인';
-			button.parentNode.appendChild(confirmButton);
-
-			button.style.display = 'none';
-
-			confirmButton.addEventListener('click', function() {
+			if (row) {
+				let cells = row.querySelectorAll('td:nth-child(2), td:nth-child(3)');
 				cells.forEach(cell => {
-					let input = cell.querySelector('input');
-					cell.textContent = input.value;
+					let inputValue = cell.innerText;
+					cell.innerHTML = '<input type="text" class="edit-input" value="' + inputValue + '">';
 				});
 
-				confirmButton.remove();
-				button.style.display = 'inline-block';
-			});
+				let confirmButton = document.createElement('button');
+				confirmButton.className = 'save_btn_cap';
+				confirmButton.textContent = '확인';
+				let parentNode = button.parentNode;
+				if (parentNode) {
+					parentNode.appendChild(confirmButton);
+
+					button.style.display = 'none';
+
+					confirmButton.addEventListener('click', function() {
+						cells.forEach(cell => {
+							let input = cell.querySelector('input');
+							if (input) {
+								cell.textContent = input.value;
+							}
+						});
+
+						confirmButton.remove();
+						button.style.display = 'inline-block';
+					});
+				}
+			}
 		});
 	});
-//	document.querySelectorAll('.main_btn2').forEach(button => {
-//		button.addEventListener('click', function() {
-//			let row = this.parentNode.parentNode;
-//			row.parentNode.removeChild(row);
-//		});
-//	}); // 페이지에서만 삭제 js
-
 }
+
+function submitFormWithUuids(formId, inputId) {
+	var form = document.getElementById(formId);
+	var input = document.getElementById(inputId);
+	var selectedUuids = Array.from(document.querySelectorAll('.chk:checked'))
+		.map(chk => chk.closest('tr').querySelector('td:nth-child(3)').textContent)
+		.join(',');
+	input.value = selectedUuids; // 입력 필드에 문자열 저장
+	form.submit(); // 폼 제출
+}
+
 
 
 // 팝업 열기 및 닫기 함수
