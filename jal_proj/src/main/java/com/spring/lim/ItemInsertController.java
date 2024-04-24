@@ -5,13 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.spring.y_02.BoardListDTO;
 
 @Controller
 public class ItemInsertController {
@@ -87,6 +83,32 @@ public class ItemInsertController {
 		return "itemFix";
 	}
 	
-
+	// update
+	@RequestMapping(value="/itemFix2", method = RequestMethod.POST)
+	public String updateItem(
+			@RequestParam("pname") String pname, 
+			@RequestParam("pnum") String pnum,
+			@RequestParam("scid") String scid,
+			@RequestParam("wzone") String wzone,
+			@RequestParam("psize") String psize,
+			@RequestParam("punit") String punit,
+			@RequestParam("pday") String pday
+			) {
+		ItMngDTO dto = new ItMngDTO();
+		dto.setPname(pname);
+		dto.setPnum(pnum);
+		dto.setScid(scid);
+		dto.setWzone(wzone);
+		dto.setPsize(psize);
+		dto.setPunit(punit);
+		dto.setPday(pday);
+		System.out.println("update : " +dto);
+		
+		int result = itemInsertService.updateItem(dto);
+		System.out.println("result : " + result);
+		return "redirect:/itemMng";
+		
+		
+	}
 	
 }

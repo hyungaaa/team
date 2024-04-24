@@ -35,5 +35,12 @@ public class ItemInsertDAO {
 		return list;
 	}
 	
+	// update
+	public int updateItem(ItMngDTO dto) {
+		int result = -9999;
+		result = sqlSession.update("mapper.item.updateItem",dto);
+		return result;
+	}
+	
 	
 }
