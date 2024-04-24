@@ -110,12 +110,10 @@ function request1(){
 			// AJAX로 중복확인 서블릿 이동
 			var xhr = new XMLHttpRequest();
 		    xhr.open("GET", "idcheck.do?uuid=" + document.querySelector("#req1_id").value, true);
-		    console.log("아이디칸" + document.querySelector("#req1_id").value)
 		    xhr.onreadystatechange = function() {
 		        if (xhr.readyState === XMLHttpRequest.DONE) {
 					
 		            var response = xhr.responseText; // 서블릿에서 반환된 응답
-		            console.log("서블릿에서 반환된 응답" + response)
 		            
 		            if (response.includes("invalid")) {
 		                alert("사용 불가능한 아이디입니다");

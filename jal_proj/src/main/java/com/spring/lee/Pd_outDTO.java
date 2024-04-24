@@ -20,4 +20,5 @@ public class Pd_outDTO {
 	Date poutdate;
 	int poutcnt;
 	String poutstate;
+	String pnum;
 }
