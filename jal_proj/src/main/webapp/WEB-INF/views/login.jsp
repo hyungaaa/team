@@ -16,7 +16,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 	<div class="login_page">
 
 		<form method="post" action="login" id="form">
@@ -53,7 +52,8 @@
 				</tr>
 
 			</table>
-=======
+		</form>
+	</div>
     <div class="login_page">
 	    
 		<form method= "post" action="login" id="form">
@@ -86,7 +86,6 @@
 	            </tr>
 	
 	        </table>
->>>>>>> bd90ab21e7b8cc326daf00c9c1585ae5e4417a22
 		</form>
 		<hr>
 		<br>
