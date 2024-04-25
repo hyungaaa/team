@@ -52,12 +52,9 @@
 				</tr>
 
 			</table>
-<<<<<<< HEAD
 
-=======
 		</form>
 	</div>
->>>>>>> c28ad1ae5340f1cf0d6c7082e6e41b7549d7c595
     <div class="login_page">
 	    
 		<form method= "post" action="login" id="form">
@@ -90,10 +87,7 @@
 	            </tr>
 	
 	        </table>
-<<<<<<< HEAD
 
-=======
->>>>>>> c28ad1ae5340f1cf0d6c7082e6e41b7549d7c595
 		</form>
 		<hr>
 		<br>
