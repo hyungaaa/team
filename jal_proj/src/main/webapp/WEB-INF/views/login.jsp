@@ -52,6 +52,8 @@
 				</tr>
 
 			</table>
+		</form>
+	</div>
     <div class="login_page">
 	    
 		<form method= "post" action="login" id="form">
