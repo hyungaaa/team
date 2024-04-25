@@ -52,7 +52,14 @@
 				</tr>
 
 			</table>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66ef4d4f3f6d6ad01691f535e18bae085d9ed156
+>>>>>>> 82f9fb34f786e655e47644b657f12496d5f19f46
 		</form>
 	</div>
     <div class="login_page">
@@ -87,7 +94,14 @@
 	            </tr>
 	
 	        </table>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66ef4d4f3f6d6ad01691f535e18bae085d9ed156
+>>>>>>> 82f9fb34f786e655e47644b657f12496d5f19f46
 		</form>
 		<hr>
 		<br>
