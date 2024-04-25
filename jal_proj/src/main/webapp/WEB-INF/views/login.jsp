@@ -52,6 +52,10 @@
 				</tr>
 
 			</table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66ef4d4f3f6d6ad01691f535e18bae085d9ed156
 		</form>
 	</div>
     <div class="login_page">
@@ -86,6 +90,10 @@
 	            </tr>
 	
 	        </table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66ef4d4f3f6d6ad01691f535e18bae085d9ed156
 		</form>
 		<hr>
 		<br>
