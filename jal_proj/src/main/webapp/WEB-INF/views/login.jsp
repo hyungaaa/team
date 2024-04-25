@@ -33,32 +33,11 @@
 	            <tr>
 	                <td rowspan="2">
 	                    <img src="img/user.png" style="max-width: 100%;">
-	                </td>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 8b1b287f50bdc4f0d2942eb9233945988b9058b5
-	                <td><input class="main_normal_txt"  type="text" id= "userid" name = "userid" tabindex="1" placeholder="아이디를 입력하세요" value=""></td>
-	                <td rowspan="2"><button type="submit" class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
-	            </tr>
-	            <tr>
-	                <td><input class="main_normal_txt"  type="password" id = "pw" name = "pw" tabindex="2" placeholder="비밀번호를 입력하세요" value=""></td>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 44de6faf337928ebe74bcdd192e68015f8bb3eb4
 	                <td><input class="main_normal_txt"  type="text" id= "userid" name = "userid" tabindex="1" placeholder="아이디를 입력하세요"></td>
 	                <td rowspan="2"><button type="submit" class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
 	            </tr>
 	            <tr>
 	                <td><input class="main_normal_txt"  type="password" id = "pw" name = "pw" tabindex="2" placeholder="비밀번호를 입력하세요"></td>
-<<<<<<< HEAD
-=======
->>>>>>> 40610cdde0b34ab8b7a4a04abdc1e156900214d8
->>>>>>> 8b1b287f50bdc4f0d2942eb9233945988b9058b5
->>>>>>> 44de6faf337928ebe74bcdd192e68015f8bb3eb4
 	            </tr>
 	            <tr height="28rem">
 	                <td></td>
