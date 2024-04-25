@@ -25,6 +25,7 @@
 	        <id property="plot" column="plot" />
 	        <result property="poutcnt" column="poutcnt" />
 	        <result property="poutstate" column="poutstate" />
+	        <result property="pnum" column="pnum" />
 	    </association>
 	</resultMap>
 	
@@ -126,7 +127,7 @@
 			from pd_in inner join pd_list 
 			on pd_in.pnum = pd_list.pnum
 			where pd_in.pnum = #{pd_inDTO.pnum}
-		) , to_char(sysdate, 'YYYY-MM-DD'), #{pd_outDTO.poutcnt}, '출고예정')
+		) , to_char(sysdate, 'YYYY-MM-DD'), #{pd_outDTO.poutcnt}, '출고예정', #{pd_inDTO.pnum})
 	</insert>
 	
 	<update id="updatePdout" parameterType="joinedDTO">

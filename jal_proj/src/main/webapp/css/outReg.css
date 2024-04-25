@@ -38,7 +38,9 @@ select {
 
 /* 아래 표 */
 #div-tbl2 {
-  height: 300px;
+  height: 320px;
+  overflow-y: auto;
+  width: 100%;
 }
 
 /* 페이징 */

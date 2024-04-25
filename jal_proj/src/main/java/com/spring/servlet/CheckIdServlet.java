@@ -32,15 +32,11 @@ public class CheckIdServlet extends HttpServlet {
         boolean isDuplicate = userInfoDAO.checkIdExists(userInfoDTO);
         
         if(isDuplicate || uuid.length() < 4){
-        	System.out.println("uuid: "+ uuid);
-            System.out.println("중복아이디 여부: " + isDuplicate);
             String htmlResponse = "invalid";
 
             response.getWriter().println(htmlResponse);
         	
         } else { 
-	        System.out.println("uuid: "+ uuid);
-	        System.out.println("중복아이디 여부: " + isDuplicate);
 	        String htmlResponse = "valid";
 	
 	        response.getWriter().println(htmlResponse);
