@@ -53,7 +53,7 @@
         </thead>
     
         <tbody>
-        	<c:forEach var="item" items="${list}">
+        	<c:forEach var="item" items="${list}" >
 			  <form method="post" action="invenFix" id="invenForm">
 			  <tr>
 			    <td><input type="text" name="plot" value="${item.pd_inDTO.plot}" style="width:100px;border: none;" readonly></td>
