@@ -34,19 +34,11 @@
 	                <td rowspan="2">
 	                    <img src="img/user.png" style="max-width: 100%;">
 	                </td>
-<<<<<<< HEAD
-	                <td><input class="main_normal_txt"  type="text" id= "userid" name = "userid" tabindex="1" placeholder="아이디를 입력하세요" value=""></td>
-	                <td rowspan="2"><button type="submit" class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
-	            </tr>
-	            <tr>
-	                <td><input class="main_normal_txt"  type="password" id = "pw" name = "pw" tabindex="2" placeholder="비밀번호를 입력하세요" value=""></td>
-=======
 	                <td><input class="main_normal_txt"  type="text" id= "userid" name = "userid" tabindex="1" placeholder="아이디를 입력하세요"></td>
 	                <td rowspan="2"><button type="submit" class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
 	            </tr>
 	            <tr>
 	                <td><input class="main_normal_txt"  type="password" id = "pw" name = "pw" tabindex="2" placeholder="비밀번호를 입력하세요"></td>
->>>>>>> 40610cdde0b34ab8b7a4a04abdc1e156900214d8
 	            </tr>
 	            <tr height="28rem">
 	                <td></td>
