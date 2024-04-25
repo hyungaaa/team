@@ -1,13 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: ga_he
-=======
-<<<<<<< HEAD
-Built-By: kksy5
-=======
 Built-By: admin
->>>>>>> 9c2620cf3b614c31e08aaf5fbe98120adf9cdfbc
->>>>>>> 43847fb02f4d208784e26bf1e45253ff027d1c41
 Build-Jdk: 11.0.15
 Created-By: Maven Integration for Eclipse
 

@@ -34,11 +34,11 @@
 	                <td rowspan="2">
 	                    <img src="img/user.png" style="max-width: 100%;">
 	                </td>
-	                <td><input class="main_normal_txt"  type="text" id= "userid" name = "userid" tabindex="1" placeholder="아이디를 입력하세요" value="admin"></td>
+	                <td><input class="main_normal_txt"  type="text" id= "userid" name = "userid" tabindex="1" placeholder="아이디를 입력하세요"></td>
 	                <td rowspan="2"><button type="submit" class="main_btn" style="height: 80rem;" id="login_btn" tabindex="3">로그인</button></td>
 	            </tr>
 	            <tr>
-	                <td><input class="main_normal_txt"  type="password" id = "pw" name = "pw" tabindex="2" placeholder="비밀번호를 입력하세요" value="admin"></td>
+	                <td><input class="main_normal_txt"  type="password" id = "pw" name = "pw" tabindex="2" placeholder="비밀번호를 입력하세요"></td>
 	            </tr>
 	            <tr height="28rem">
 	                <td></td>
@@ -87,7 +87,7 @@
 	                </tr>
 	                <tr>
 	                    <td>이메일</td>
-	                    <td colspan="2"><input class="table_normal_txt" type="email" style="width: 95%;" id="req1_email" name="uemail"></td>
+	                    <td colspan="2"><input class="table_normal_txt" type="email" style="width: 95%;" id="req1_email" name="uemail" placeholder="example@gmail.com"></td>
 	                </tr>
 	                <tr height="28rem">
 	                    <td></td>
@@ -133,7 +133,7 @@
 	                </tr>
 	                <tr>
 	                    <td>이메일</td>
-	                    <td><input class="table_normal_txt" type="email" style="width: 95%;" id="req2_email" name="uemail"></td>
+	                    <td><input class="table_normal_txt" type="email" style="width: 95%;" id="req2_email" name="uemail" placeholder="example@gmail.com"></td>
 	                </tr>
 	                <tr height="28rem">
 	                    <td></td>
